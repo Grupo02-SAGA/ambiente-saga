@@ -14,6 +14,13 @@ public class Formulario {
     private int idFormulario;
     private String titulo;
 
+    public Formulario() {
+    }
+    public Formulario(int idFormulario, String titulo) {
+        this.idFormulario = idFormulario;
+        this.titulo = titulo;
+    }
+
     public int getIdFormulario() {
         return idFormulario;
     }
