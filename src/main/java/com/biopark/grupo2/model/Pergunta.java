@@ -15,6 +15,14 @@ public class Pergunta {
     private String pergunta;
     private boolean documento;
 
+    public Pergunta() {
+    }
+    public Pergunta(int idPergunta, String pergunta, boolean documento) {
+        this.idPergunta = idPergunta;
+        this.pergunta = pergunta;
+        this.documento = documento;
+    }
+
     public int getIdPergunta() {
         return idPergunta;
     }
