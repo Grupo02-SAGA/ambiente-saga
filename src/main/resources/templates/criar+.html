@@ -11,8 +11,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -24,11 +23,13 @@
         <hr class="linha">
         <!-- LISTAGEM DE PREGUNTAS -->
         <div class="pergunta">
-            <a data-toggle="collapse" data-target="#demo"><img src="/src/main/resources/templates/down.png" alt="" width="30" class="seta"></a>
-            <div class="pTitulo">
+            <div class="">
+                <a data-toggle="collapse" data-target="#colapso"><img src="/src/main/resources/templates/list.png" alt="" width="35"></a>
+                <div class="pTitulo">
                 <p>Pergunta Lorem</p>
             </div>
-            <div id="demo" class="collapse">
+            </div>
+            <div id="colapso" class="collapse">
                 <table class="tablePergunta">
                     <tr>
                         <td>
@@ -54,21 +55,17 @@
                     </tr>
                 </table>
                 <div class="pRemover"><a href="">
-                        <img src="/src/main/resources/templates/X.png" alt="" width="30"></a>
+                        <img src="/src/main/resources/templates/X.png" alt="" width="40"></a>
                 </div>
             </div>
         </div>
+        <footer>
+            <button class="btnExcluirForm">Excluir formulário</button>
+            <hr>
+            <button class="btnCancelar"><strong>Cancelar</strong></button>
+            <button class="btnSalvar"><strong>Salvar</strong></button>
+        </footer>
     </div>
-    <script>
-        document.querySelector('#demo').addEventListener("click", function () {
-            var img = document.querySelector(".seta");
-            if (img.src == "src/main/resources/templates/down.png") {
-                img.src = "src/main/resources/templates/up.png";
-            } else {
-                img.src = "src/main/resources/templates/down.pngg";
-            }
-        });
-    </script>
 </body>
 
 </html>

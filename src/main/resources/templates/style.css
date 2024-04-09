@@ -19,16 +19,26 @@ h3{
     border-style:groove;
     border-radius: 4px;
     .pTitulo{
+        font-size: 14px;
         text-align: center;
-        margin-top: -15px;
+        margin-top: -25px;
+        font-weight: 700;
+    }
+    img{
+        padding-left: 10px;
+        padding-top: 8px;
+        cursor: pointer;
     }
 }
 .tablePergunta{
     p{
+        font-size:14px;
+        padding-top: 10px;
         text-align: left;
+        
     }
     td{
-        padding-left: 10px;
+        padding-left: 15px;
     }
 }
 .pRemover{
@@ -105,5 +115,47 @@ h3{
   
   .custom-checkbox:checked ~ .checkmark:after {
     animation: checkAnim 0.2s forwards;
+  }
+
+  footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 8px;
+    hr{
+        height: 1px;
+        background-color: rgb(0, 0, 0);
+        margin: 5px;
+    }
+    .btnExcluirForm{
+        border: none;
+        border-radius: 10px;
+        background-color: #FFDBDB;
+        color: #B0522A;
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 6px 0 rgba(0,0,0,0.19);
+        padding: 8px 50px;
+        font-size: 14px;
+    }
+    .btnCancelar{
+        border: none;
+        border-radius: 10px;
+        background-color: #FFDBDB;
+        color: #B0522A;
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 6px 0 rgba(0,0,0,0.19);
+        padding: 8px 50px;
+        font-size: 14px;
+        margin-right: 20px;
+    }
+    .btnSalvar{
+        border: none;
+        border-radius: 10px;
+        background-color: #DBFFDC;
+        color: #35B02A;
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 6px 0 rgba(0,0,0,0.19);
+        padding: 8px 50px;
+        font-size: 14px;
+    }
   }
   
