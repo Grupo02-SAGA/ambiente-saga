@@ -13,6 +13,7 @@ public class Formulario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idFormulario;
     private String titulo;
+    private boolean base;
 
     public Formulario() {
     }

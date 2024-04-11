@@ -10,6 +10,7 @@ public class Documentos {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idDocumentos;
     private String urlDocumento;
+    private boolean validado;
     @ManyToOne
     @JoinColumn(name = "id_resposta")
     private int idResposta;
