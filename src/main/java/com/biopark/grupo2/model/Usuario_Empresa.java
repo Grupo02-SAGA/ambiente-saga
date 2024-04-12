@@ -10,57 +10,50 @@ public class Usuario_Empresa {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idUsuarioEmpresa;
-
     @ManyToOne
     @JoinColumn(name = "usuario_id")
     private Usuario usuario;
-
     @ManyToOne
     @JoinColumn(name = "empresa_id")
     private Empresa empresa;
 
-    // Construtor
-    public Usuario_Empresa() {}
-
-    // Getters e Setters
-    public int getId() {
-        return id;
+    public Usuario_Empresa() {
+    }
+    public Usuario_Empresa(int idUsuarioEmpresa, Usuario usuario, Empresa empresa) {
+        this.idUsuarioEmpresa = idUsuarioEmpresa;
+        this.usuario = usuario;
+        this.empresa = empresa;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public int getIdUsuarioEmpresa() {
+        return idUsuarioEmpresa;
     }
-
+    public void setIdUsuarioEmpresa(int idUsuarioEmpresa) {
+        this.idUsuarioEmpresa = idUsuarioEmpresa;
+    }
     public Usuario getUsuario() {
         return usuario;
     }
-
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
-
     public Empresa getEmpresa() {
         return empresa;
     }
-
     public void setEmpresa(Empresa empresa) {
         this.empresa = empresa;
     }
 
-    // hashCode e equals apenas para id
     @Override
-    public int hashCode() {
-        return Objects.hash(id);
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Usuario_Empresa that)) return false;
+        return idUsuarioEmpresa == that.idUsuarioEmpresa;
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null || getClass() != obj.getClass())
-            return false;
-        Usuario_Empresa other = (Usuario_Empresa) obj;
-        return id == other.id;
+    public int hashCode() {
+        return Objects.hash(idUsuarioEmpresa);
     }
 }
 
