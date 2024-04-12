@@ -15,14 +15,22 @@ h3{
     stroke: rgb(0, 119, 200);
     background-color: rgb(0, 119, 200);
 }
+
 .pergunta{
+  overflow: hidden;
     border-style:groove;
     border-radius: 4px;
+    width: 100%;
+    .seta{
+      width: 10%;
+    }
     .pTitulo{
-        font-size: 14px;
-        text-align: center;
-        margin-top: -14px;
-        font-weight: 700;
+      float: right;
+      width: 90%;
+      font-size: 14px;
+      text-align: center;
+      margin-top: -14px;
+      font-weight: 700;
     }
     img{
         padding-left: 10px;
