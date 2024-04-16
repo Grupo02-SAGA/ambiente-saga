@@ -2,65 +2,41 @@ package com.biopark.grupo2.model;
 
 import jakarta.persistence.*;
 
-import java.util.Objects;
-
 @Entity
-@Table(name = "usuario_empresa")
+@Table(name = "Usuario_empresa")
 public class Usuario_Empresa {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-
     @ManyToOne
-    @JoinColumn(name = "usuario_id")
-    private Usuario usuario;
+    @JoinColumn(name = "id_usuario")
+    private Usuario id_usuario;
 
+    @Id
     @ManyToOne
-    @JoinColumn(name = "empresa_id")
-    private Empresa empresa;
+    @JoinColumn(name = "id_empresa")
+    private Empresa id_empresa;
 
-    // Construtor
     public Usuario_Empresa() {}
 
-    // Getters e Setters
-    public int getId() {
-        return id;
+    public Usuario_Empresa(Usuario id_usuario, Empresa id_empresa) {
+        this.id_usuario = id_usuario;
+        this.id_empresa = id_empresa;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public Usuario getId_usuario() {
+        return id_usuario;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    public void setId_usuario(Usuario usuario) {
+        this.id_usuario = usuario;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public Empresa getId_empresa() {
+        return id_empresa;
     }
 
-    public Empresa getEmpresa() {
-        return empresa;
+    public void setId_empresa(Empresa empresa) {
+        this.id_empresa = empresa;
     }
 
-    public void setEmpresa(Empresa empresa) {
-        this.empresa = empresa;
-    }
-
-    // hashCode e equals apenas para id
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null || getClass() != obj.getClass())
-            return false;
-        Usuario_Empresa other = (Usuario_Empresa) obj;
-        return id == other.id;
-    }
 }
 

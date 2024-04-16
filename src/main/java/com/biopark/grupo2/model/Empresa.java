@@ -1,9 +1,6 @@
 package com.biopark.grupo2.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.Objects;
 
@@ -11,7 +8,7 @@ import java.util.Objects;
 public class Empresa {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idEmpresa;
+    private int id_empresa;
     private String fantasia;
     private String razaoSocial;
     private String cnpj;
@@ -19,12 +16,10 @@ public class Empresa {
     private String endereco;
     private String telefone;
     private int porte;
-    private int atividade;
+    private String atividade;
 
-    //Constructor
-
-    public Empresa(int idEmpresa, String fantasia, String razaoSocial, String cnpj, String email, String endereco, String telefone, int porte, int atividade) {
-        this.idEmpresa = idEmpresa;
+    public Empresa(int id_empresa, String fantasia, String razaoSocial, String cnpj, String email, String endereco, String telefone, int porte, String atividade) {
+        this.id_empresa = id_empresa;
         this.fantasia = fantasia;
         this.razaoSocial = razaoSocial;
         this.cnpj = cnpj;
@@ -36,16 +31,14 @@ public class Empresa {
     }
 
     public Empresa() {
-
-    }
-    // Getters e Setters
-
-    public int getIdEmpresa() {
-        return idEmpresa;
     }
 
-    public void setIdEmpresa(int idEmpresa) {
-        this.idEmpresa = idEmpresa;
+    public int getId_empresa() {
+        return id_empresa;
+    }
+
+    public void setId_empresa(int idEmpresa) {
+        this.id_empresa = idEmpresa;
     }
 
     public String getFantasia() {
@@ -104,25 +97,24 @@ public class Empresa {
         this.porte = porte;
     }
 
-    public int getAtividade() {
+    public String getAtividade() {
         return atividade;
     }
 
-    public void setAtividade(int atividade) {
+    public void setAtividade(String atividade) {
         this.atividade = atividade;
     }
-    //Hash and equals do id
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Empresa empresa = (Empresa) o;
-        return idEmpresa == empresa.idEmpresa;
+        return id_empresa == empresa.id_empresa;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(idEmpresa);
+        return Objects.hashCode(id_empresa);
     }
 }
