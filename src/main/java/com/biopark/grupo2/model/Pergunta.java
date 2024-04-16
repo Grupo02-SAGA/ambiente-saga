@@ -1,6 +1,9 @@
 package com.biopark.grupo2.model;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 import java.util.Objects;
 
@@ -14,6 +17,7 @@ public class Pergunta {
 
     public Pergunta() {
     }
+
     public Pergunta(int id_pergunta, String titulo, boolean documento) {
         this.id_pergunta = id_pergunta;
         this.titulo = titulo;

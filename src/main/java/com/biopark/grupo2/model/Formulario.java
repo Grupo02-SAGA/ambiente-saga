@@ -1,6 +1,9 @@
 package com.biopark.grupo2.model;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 import java.util.Objects;
 
@@ -14,6 +17,7 @@ public class Formulario {
 
     public Formulario() {
     }
+
     public Formulario(int id_formulario, String titulo) {
         this.id_formulario = id_formulario;
         this.titulo = titulo;

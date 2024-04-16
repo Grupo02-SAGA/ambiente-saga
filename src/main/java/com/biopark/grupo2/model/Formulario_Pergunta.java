@@ -17,6 +17,7 @@ public class Formulario_Pergunta {
 
     public Formulario_Pergunta() {
     }
+
     public Formulario_Pergunta(int idFormularioPergunta, Formulario id_formulario, Pergunta id_pergunta) {
         this.id_formulario = id_formulario;
         this.id_pergunta = id_pergunta;

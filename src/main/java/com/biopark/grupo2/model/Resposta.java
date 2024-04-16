@@ -26,6 +26,7 @@ public class Resposta {
 
     public Resposta() {
     }
+
     public Resposta(int id_resposta, String resposta, String observacao, Formulario id_formulario, Pergunta id_pergunta, Certificado id_certificado, Usuario id_usuario) {
         this.id_resposta = id_resposta;
         this.resposta = resposta;
