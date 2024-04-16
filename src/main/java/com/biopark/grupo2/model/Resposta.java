@@ -8,38 +8,40 @@ import java.util.Objects;
 public class Resposta {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idResposta;
+    private int id_resposta;
     private String resposta;
     private String observacao;
     @ManyToOne
     @JoinColumn(name = "id_formulario")
-    private int idFormulario;
+    private Formulario id_formulario;
     @ManyToOne
     @JoinColumn(name = "id_pergunta")
-    private int idPergunta;
+    private Pergunta id_pergunta;
     @ManyToOne
     @JoinColumn(name = "id_certificado")
-    private int idCertificado;
+    private Certificado id_certificado;
     @ManyToOne
     @JoinColumn(name = "id_usuario")
-    private int idUsuario;
+    private Usuario id_usuario;
 
-    public Resposta(int idResposta, String resposta, String observacao, int idFormulario, int idPergunta, int idCertificado, int idUsuario) {
-        this.idResposta = idResposta;
+    public Resposta() {
+    }
+    public Resposta(int id_resposta, String resposta, String observacao, Formulario id_formulario, Pergunta id_pergunta, Certificado id_certificado, Usuario id_usuario) {
+        this.id_resposta = id_resposta;
         this.resposta = resposta;
         this.observacao = observacao;
-        this.idFormulario = idFormulario;
-        this.idPergunta = idPergunta;
-        this.idCertificado = idCertificado;
-        this.idUsuario = idUsuario;
+        this.id_formulario = id_formulario;
+        this.id_pergunta = id_pergunta;
+        this.id_certificado = id_certificado;
+        this.id_usuario = id_usuario;
     }
 
-    public int getIdResposta() {
-        return idResposta;
+    public int getId_resposta() {
+        return id_resposta;
     }
 
-    public void setIdResposta(int idResposta) {
-        this.idResposta = idResposta;
+    public void setId_resposta(int idResposta) {
+        this.id_resposta = idResposta;
     }
 
     public String getResposta() {
@@ -58,50 +60,47 @@ public class Resposta {
         this.observacao = observacao;
     }
 
-    public int getIdFormulario() {
-        return idFormulario;
+    public Formulario getId_formulario() {
+        return id_formulario;
     }
 
-    public void setIdFormulario(int idFormulario) {
-        this.idFormulario = idFormulario;
+    public void setId_formulario(Formulario idFormulario) {
+        this.id_formulario = idFormulario;
     }
 
-    public int getIdPergunta() {
-        return idPergunta;
+    public Pergunta getId_pergunta() {
+        return id_pergunta;
     }
 
-    public void setIdPergunta(int idPergunta) {
-        this.idPergunta = idPergunta;
+    public void setId_pergunta(Pergunta idPergunta) {
+        this.id_pergunta = idPergunta;
     }
 
-    public int getIdCertificado() {
-        return idCertificado;
+    public Certificado getId_certificado() {
+        return id_certificado;
     }
 
-    public void setIdCertificado(int idCertificado) {
-        this.idCertificado = idCertificado;
+    public void setId_certificado(Certificado idCertificado) {
+        this.id_certificado = idCertificado;
     }
 
-    public int getIdUsuario() {
-        return idUsuario;
+    public Usuario getId_usuario() {
+        return id_usuario;
     }
 
-    public void setIdUsuario(int idUsuario) {
-        this.idUsuario = idUsuario;
-    }
-
-    public Resposta() {
+    public void setId_usuario(Usuario idUsuario) {
+        this.id_usuario = idUsuario;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Resposta resposta)) return false;
-        return idResposta == resposta.idResposta;
+        return id_resposta == resposta.id_resposta;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idResposta);
+        return Objects.hash(id_resposta);
     }
 }
