@@ -20,7 +20,9 @@
         <header class="header">
             <img src="/src/main/resources/templates/logo.jpeg" width="80">
         </header>
-        <h3>[EMPRESA]</h3>
+        <div th:if"${titulo!=null}">
+            <h3 th:text="${titulo}"></h3>
+        </div>
         <hr class="linha">
         <!-- LISTAGEM DE PREGUNTAS -->
         <div class="pergunta">
