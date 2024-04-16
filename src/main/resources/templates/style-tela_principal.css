@@ -1,0 +1,89 @@
+@import url(https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap);
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: white;
+  overflow: hidden;
+  list-style: none;
+  text-decoration: none;
+}
+
+nav {
+  list-style: none;
+  text-decoration: none;
+
+}
+
+.topside {
+  display: flex;
+  width: 100%;
+  height: 60px;
+}
+
+.logo-empresa {
+  display: flex;
+  justify-content: center;
+  width: 70%;
+  align-items: center;
+}
+
+.logo-menu {
+  display: flex;
+  justify-content: center;
+  width: 30%;
+  align-items: center;
+}
+.logo-menu img{
+  width: 36px;
+  height: 36px;
+}
+.logo-menu img{
+  display: block;
+  cursor: pointer;
+}
+
+main {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+}
+.conteudo{
+  display: flex;
+ flex-direction: row;
+ width: 70%;
+}
+.menu{
+  display: none;
+  flex-direction: row;
+  width: 30%;
+  background-color: #0076C7;
+  
+}
+
+nav{
+  text-decoration: none;
+  list-style: none;
+}
+.sidebar{
+  display: flex;
+  flex-direction: column;
+  font-family: "Rubik", sans-serif;
+  font-style: medium;
+  text-align: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 10px;
+}
+.sidebar .subtitulo-header{
+  color: white;
+  text-transform: uppercase;
+  margin: 10px;
+  font-size: 13px;
+}
+.sidebar ul li a {
+  text-decoration: none;
+}
