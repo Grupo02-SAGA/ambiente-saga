@@ -1,9 +1,6 @@
 package com.biopark.grupo2.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.Objects;
 
@@ -11,7 +8,7 @@ import java.util.Objects;
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idUsuario;
+    private int id_usuario;
     private String senha;
     private String nome;
     private String sobrenome;
@@ -22,8 +19,8 @@ public class Usuario {
 
     //Constructor
 
-    public Usuario(int idUsuario, String senha, String nome, String sobrenome, String cpf, String telefone, String email, String cidade) {
-        this.idUsuario = idUsuario;
+    public Usuario(int id_usuario, String senha, String nome, String sobrenome, String cpf, String telefone, String email, String cidade) {
+        this.id_usuario = id_usuario;
         this.senha = senha;
         this.nome = nome;
         this.sobrenome = sobrenome;
@@ -34,16 +31,14 @@ public class Usuario {
     }
 
     public Usuario() {
-
-    }
-    // Getters e Setters
-
-    public int getIdUsuario() {
-        return idUsuario;
     }
 
-    public void setIdUsuario(int idUsuario) {
-        this.idUsuario = idUsuario;
+    public int getId_usuario() {
+        return id_usuario;
+    }
+
+    public void setId_usuario(int idUsuario) {
+        this.id_usuario = idUsuario;
     }
 
     public String getSenha() {
@@ -101,19 +96,18 @@ public class Usuario {
     public void setCidade(String cidade) {
         this.cidade = cidade;
     }
-    //hash and equals id
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Usuario usuario = (Usuario) o;
-        return idUsuario == usuario.idUsuario;
+        return id_usuario == usuario.id_usuario;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(idUsuario);
+        return Objects.hashCode(id_usuario);
     }
 }
 

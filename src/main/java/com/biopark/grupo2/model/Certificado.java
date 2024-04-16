@@ -8,33 +8,33 @@ import java.util.Objects;
 public class Certificado {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idCertificado;
+    private int id_certificado;
     private double resultado;
     private String vencimento;
     @ManyToOne
-    @JoinColumn(name = "formulario_id")
-    private int idFormulario;
+    @JoinColumn(name = "id_formulario")
+    private Formulario id_formulario;
     @ManyToOne
     @JoinColumn(name = "id_empresa")
-    private int idEmpresa;
+    private Empresa id_empresa;
 
     public Certificado() {
     }
 
-    public Certificado(int idCertificado, double resultado, String vencimento, int idFormulario, int idEmpresa) {
-        this.idCertificado = idCertificado;
+    public Certificado(int id_certificado, double resultado, String vencimento, Formulario id_formulario, Empresa id_empresa) {
+        this.id_certificado = id_certificado;
         this.resultado = resultado;
         this.vencimento = vencimento;
-        this.idFormulario = idFormulario;
-        this.idEmpresa = idEmpresa;
+        this.id_formulario = id_formulario;
+        this.id_empresa = id_empresa;
     }
 
-    public int getIdCertificado() {
-        return idCertificado;
+    public int getId_certificado() {
+        return id_certificado;
     }
 
-    public void setIdCertificado(int idCertificado) {
-        this.idCertificado = idCertificado;
+    public void setId_certificado(int idCertificado) {
+        this.id_certificado = idCertificado;
     }
 
     public double getResultado() {
@@ -53,31 +53,31 @@ public class Certificado {
         this.vencimento = vencimento;
     }
 
-    public int getIdFormulario() {
-        return idFormulario;
+    public Formulario getId_formulario() {
+        return id_formulario;
     }
 
-    public void setIdFormulario(int idFormulario) {
-        this.idFormulario = idFormulario;
+    public void setId_formulario(Formulario idFormulario) {
+        this.id_formulario = idFormulario;
     }
 
-    public int getIdEmpresa() {
-        return idEmpresa;
+    public Empresa getId_empresa() {
+        return id_empresa;
     }
 
-    public void setIdEmpresa(int idEmpresa) {
-        this.idEmpresa = idEmpresa;
+    public void setId_empresa(Empresa idEmpresa) {
+        this.id_empresa = idEmpresa;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Certificado that)) return false;
-        return idCertificado == that.idCertificado;
+        return id_certificado == that.id_certificado;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idCertificado);
+        return Objects.hash(id_certificado);
     }
 }
