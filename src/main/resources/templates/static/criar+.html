@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" xmlns:th="http://www.w3.org/1999/xhtml">
 
 <head>
     <meta charset="UTF-8">
@@ -20,7 +20,7 @@
         <header class="header">
             <img src="/src/main/resources/templates/logo.jpeg" width="80">
         </header>
-        <div th:if"${titulo!=null}">
+        <div th:action="@{/imprimeTitulo}">
             <h3 th:text="${titulo}"></h3>
         </div>
         <hr class="linha">

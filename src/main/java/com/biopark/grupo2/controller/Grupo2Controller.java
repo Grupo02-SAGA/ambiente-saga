@@ -3,6 +3,7 @@ package com.biopark.grupo2.controller;
 import com.biopark.grupo2.model.Formulario;
 import com.biopark.grupo2.model.Pergunta;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,13 +18,13 @@ public class Grupo2Controller {
     modelAndView.setViewName("criar+");
     return modelAndView;
 }
-@PostMapping("/criar+")
+@GetMapping("/imprimeTitulo")
 public String criarMais(@ModelAttribute Formulario formulario,
                         @ModelAttribute Pergunta pergunta,
                         Model model){
-
     model.addAttribute("titulo",formulario.getTitulo());
     return "criar+";
 }
+
 
 }
