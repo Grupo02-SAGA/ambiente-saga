@@ -1,9 +1,6 @@
 package com.biopark.grupo2.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.Objects;
 
@@ -11,32 +8,32 @@ import java.util.Objects;
 public class Pergunta {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idPergunta;
-    private String pergunta;
+    private int id_pergunta;
+    private String titulo;
     private boolean documento;
 
     public Pergunta() {
     }
-    public Pergunta(int idPergunta, String pergunta, boolean documento) {
-        this.idPergunta = idPergunta;
-        this.pergunta = pergunta;
+    public Pergunta(int id_pergunta, String titulo, boolean documento) {
+        this.id_pergunta = id_pergunta;
+        this.titulo = titulo;
         this.documento = documento;
     }
 
-    public int getIdPergunta() {
-        return idPergunta;
+    public int getId_pergunta() {
+        return id_pergunta;
     }
 
-    public void setIdPergunta(int idPergunta) {
-        this.idPergunta = idPergunta;
+    public void setId_pergunta(int idPergunta) {
+        this.id_pergunta = idPergunta;
     }
 
-    public String getPergunta() {
-        return pergunta;
+    public String getTitulo() {
+        return titulo;
     }
 
-    public void setPergunta(String pergunta) {
-        this.pergunta = pergunta;
+    public void setTitulo(String pergunta) {
+        this.titulo = pergunta;
     }
 
     public boolean isDocumento() {
@@ -51,11 +48,11 @@ public class Pergunta {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Pergunta pergunta)) return false;
-        return idPergunta == pergunta.idPergunta;
+        return id_pergunta == pergunta.id_pergunta;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idPergunta);
+        return Objects.hash(id_pergunta);
     }
 }
