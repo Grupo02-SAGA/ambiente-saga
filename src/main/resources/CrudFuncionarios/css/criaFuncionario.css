@@ -1,0 +1,103 @@
+
+.focus-colorOnClick:focus {
+    border-color: #AAF !important;
+}
+
+.texto-vermelho {
+    color: red;
+}
+
+.header {
+    display: grid;
+    grid-template-columns: auto auto 1fr;
+    align-items: center;
+    padding: 20px;
+    background-color: #f2f2f2;
+}
+
+.profile {
+    width: 50px;
+    height: 50px;
+    background-image: url('../img/PROFILE.png');
+    border-radius: 50%;
+    background-size: cover; 
+    background-position: center; 
+}
+
+.logo {
+    text-align: center;
+    padding-right: 30%;
+}
+
+.logo img {
+    max-width: 100px;
+    max-height: 50px;
+   
+}
+
+.settings img{
+    padding-left: 35%;
+    max-width: 25px;
+    max-height: 25px;
+}
+
+.form-label {
+    text-align: center;
+  }
+
+.linha{
+    border-width: 3px;
+    color: black;
+    margin-right: 80px;
+}
+
+.button-save{
+    
+    border: 1px solid #288556;
+    border-radius: 0.25rem;
+    width: 100px;
+    background-color: #DBFFDC;
+    color: #35B02A;
+    justify-content: right;
+    margin-left: 16px;
+}
+
+.button-cancel{
+    
+    border: 1px solid #B0522A;
+    border-radius: 0.25rem;
+    width: 100px;
+    background-color: #FFDBDB;
+    color: #B0522A;
+    justify-content: left;
+}
+
+.container{
+    display: flex;
+    height: 100vh;
+    padding-bottom: 125px;
+}
+
+.mx-auto{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+
+}
+
+.mb-3{
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+}
+
+.inputForm{
+
+    width: 100%;
+
+}
