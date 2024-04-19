@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>Detalhes de [EMPRESA]</title>
-    <link href="/src/main/resources/templates/style.css" rel="stylesheet">
+    <link href="/src/main/resources/static/style.css" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -18,7 +18,7 @@
 <body>
 <div class="container-fluid">
     <header class="header">
-        <img src="/src/main/resources/templates/logo.jpeg" width="80">
+        <img src="/src/main/resources/static/logo.jpeg" width="80">
     </header>
     <div th:action="@{/imprimeTitulo}">
         <h3 th:text="${titulo}"></h3>
@@ -65,7 +65,7 @@
                 </tr>
             </table>
             <div class="pRemover"><a href="">
-                <img alt="" src="/src/main/resources/templates/X.png" width="40"></a>
+                <img alt="" src="/src/main/resources/static/X.png" width="40"></a>
             </div>
         </div>
     </div>

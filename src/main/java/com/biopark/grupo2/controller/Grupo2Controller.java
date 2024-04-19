@@ -11,13 +11,11 @@ import java.util.Optional;
 
 @Controller
 public class Grupo2Controller {
-
-
     @Autowired
     private RepositoryFormulario repositoryFormulario;
 
-    public String getTituloFormularioPorId(int id_formulario) {
-        Optional<Formulario> formulario = repositoryFormulario.findByid_formulario(id_formulario);
+    public String getTituloFormularioPorId(int idFormulario) {
+        Optional<Formulario> formulario = repositoryFormulario.findByidFormulario(idFormulario);
         return formulario.isPresent() ? formulario.get().getTitulo() : "Formulário não encontrado";
     }
 
