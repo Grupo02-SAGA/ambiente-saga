@@ -23,14 +23,14 @@ public class Empresa {
     private String porte;
     private String atividade;
 
-    public Empresa(ResquestEmpresas resquestEmpresas){
-            this.fantasia = resquestEmpresas.fantasia();
-            this.razao_social = resquestEmpresas.razao_social();
-            this.cnpj = resquestEmpresas.cnpj();
-            this.email = resquestEmpresas.email();
-            this.endereco = resquestEmpresas.endereco();
-            this.telefone = resquestEmpresas.telefone();
-            this.porte = resquestEmpresas.porte();
-            this.atividade = resquestEmpresas.atividade();
+    public Empresa(RequestEmpresa requestEmpresa){
+            this.fantasia = requestEmpresa.fantasia();
+            this.razao_social = requestEmpresa.razao_social();
+            this.cnpj = requestEmpresa.cnpj();
+            this.email = requestEmpresa.email();
+            this.endereco = requestEmpresa.endereco();
+            this.telefone = requestEmpresa.telefone();
+            this.porte = requestEmpresa.porte();
+            this.atividade = requestEmpresa.atividade();
     }
 }

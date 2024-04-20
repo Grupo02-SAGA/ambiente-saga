@@ -1,55 +1,54 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="/src/main/resources/templates/img/logo-transparente.png" type="image/x-icon">
+    <link rel="shortcut icon" href="/src/main/resources/templates/static/images/logo-transparente.png" type="image/x-icon">
     <title>SAGA - Cadastrar Empresa</title>
     <link rel="stylesheet" href="/src/main/resources/templates/static/style/reset.css" />
     <link rel="stylesheet" href="/src/main/resources/templates/static/style/style.css" />
-    <script src="/src/main/resources/templates/static/novaEmpresa.js"></script>
 </head>
 <body>
 <header>
     <section class="top-side">
         <div class="side-settings">
-            <img class="settings" src="/src/main/resources/templates/img/settings.png" alt="logo-settings" />
+            <img class="settings" src="/src/main/resources/templates/static/images/settings.png" alt="logo-settings" />
         </div>
         <div class="side-logo">
-            <img class="logo" src="/src/main/resources/templates/img/logo.jpeg" alt="logo-empresa" />
+            <img class="logo" src="/src/main/resources/templates/static/images/logo.jpeg" alt="logo-empresa" />
         </div>
     </section>
 </header>
 <main>
-    <form th:action="@{/novaEmpresa}" method="POST" class="novaEmpresa">
+    <form th:action="@{/novaEmpresa}" th:object="${RequestEmpresa}" method="POST" class="novaEmpresa">
         <ul>
             <li>
-                <label class="titulo-input" for="fantasia">Nome Fantasia</label>
-                <input type="text" id="fantasia" placeholder="Ex: SAGA S/A" name="fantasia" required />
+                <label class="titulo-input">Nome Fantasia</label>
+                <input type="text" th:field="*{fantasia}" placeholder="Ex: SAGA S/A" required />
             </li>
             <li>
-                <label class="titulo-input" for="razao_social">Razão Social</label>
-                <input type="text" id="razao_social" placeholder="Ex: Grupo SAGA" name="razao_social" required />
+                <label class="titulo-input">Razão Social</label>
+                <input type="text" th:field="*{razao_social}" placeholder="Ex: Grupo SAGA" required />
             </li>
             <li>
-                <label class="titulo-input" for="cnpj">CNPJ</label>
-                <input type="text" id="cnpj" placeholder="Ex: 99.999.999/0001-99" name="cnpj" required />
+                <label class="titulo-input">CNPJ</label>
+                <input type="text" th:field="*{cnpj}" placeholder="Ex: 99.999.999/0001-99" required />
             </li>
             <li>
-                <label class="titulo-input" for="email">E-mail</label>
-                <input type="email" id="email" placeholder="saga@grupo2biopark.com.br" name="email" required />
+                <label class="titulo-input">E-mail</label>
+                <input type="email" th:field="*{email}" placeholder="saga@grupo2biopark.com.br" required />
             </li>
             <li>
-                <label class="titulo-input" for="endereco">Endereço</label>
-                <input type="text" id="endereco" placeholder="Ex: Rua Biopark" name="endereco" required />
+                <label class="titulo-input">Endereço</label>
+                <input type="text" th:field="*{endereco}" placeholder="Ex: Rua Biopark" required />
             </li>
             <li>
-                <label class="titulo-input" for="telefone">Telefone</label>
-                <input type="text" id="telefone" placeholder="Ex: (45) 9 99999-9999" name="telefone" required />
+                <label class="titulo-input">Telefone</label>
+                <input type="text" th:field="*{telefone}" placeholder="Ex: (45) 9 99999-9999" required />
             </li>
             <li>
                 <label class="titulo-input" for="porte">Porte</label>
-                <select id="porte" name="porte" required>
+                <select id="porte" th:field="*{porte}" required>
                     <option disabled selected hidden>Selecione o porte</option>
                     <option value="pequeno">Pequeno</option>
                     <option value="medio">Médio</option>
@@ -58,7 +57,7 @@
             </li>
             <li>
                 <label class="titulo-input" for="atividades">Atividade</label>
-                <select id="atividades" name="atividade" required>
+                <select id="atividades" th:field="*{atividades}" required>
                     <option disabled selected hidden>Selecione a área de atuação</option>
                     <option value="industrial">Industrial</option>
                     <option value="ambiental">Ambiental</option>

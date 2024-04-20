@@ -3,7 +3,7 @@ package com.biopark.grupo2.model;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
-public record ResquestEmpresas(
+public record RequestEmpresa(
         @NotBlank
         String fantasia,
         @NotBlank
