@@ -1,65 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="/src/main/resources/templates/style/style.css">
-  <script src="javascript.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="/src/main/resources/templates/img/logo-transparente.png" type="image/x-icon">
+    <title>SAGA - Cadastrar Empresa</title>
+    <link rel="stylesheet" href="/src/main/resources/templates/static/style/reset.css" />
+    <link rel="stylesheet" href="/src/main/resources/templates/static/style/style.css" />
+    <script src="/src/main/resources/templates/static/novaEmpresa.js"></script>
 </head>
 <body>
-  <header class="top-side">
-    <section class="logo-empresa">
-      <img src="/src/main/resources/templates/img/logo.jpeg" alt="">
+<header>
+    <section class="top-side">
+        <div class="side-settings">
+            <img class="settings" src="/src/main/resources/templates/img/settings.png" alt="logo-settings" />
+        </div>
+        <div class="side-logo">
+            <img class="logo" src="/src/main/resources/templates/img/logo.jpeg" alt="logo-empresa" />
+        </div>
     </section>
-  </header>
-  <main class="mid-side">
-    <form action="" class="cadastrar-usuario">
+</header>
+<main>
+    <form th:action="@{/novaEmpresa}" method="POST" class="novaEmpresa">
         <ul>
-          <li>
-            <h3 class="titulo-input">git Nome Fantasia</h3> 
-            <input type="text" name="" id="">
-          </li>
-          <li>
-            <h3 class="titulo-input">Razão Social</h3>
-            <input type="text" name="" id="">
-          </li>
-          <li>
-            <h3 class="titulo-input">CNPJ</h3>
-            <input type="text" name="" id="">
-          </li>
-          <li>
-            <h3 class="titulo-input">Porte</h3>
-            <select name="" id="">
-              <input type="text" name="" id="">
-            </select> 
-          </li>
-          <li>
-            <h3 class="titulo-input">Atividades</h3>
-            <select name="" id="">
-              <input type="text" name="" id="">
-            </select> 
-          </li>
-          <li>
-            <h3 class="titulo-input">E-mail</h3>
-            <input type="text" name="" id="">
-          </li>
-          <li>
-            <h3 class="titulo-input">Senha</h3>
-            <input type="text" name="" id="">
-          </li>
-          <li>
-            <h3 class="titulo-input">Comfirmar Senha</h3>
-            <input type="text" name="" id="">
-          </li>
+            <li>
+                <label class="titulo-input" for="fantasia">Nome Fantasia</label>
+                <input type="text" id="fantasia" placeholder="Ex: SAGA S/A" name="fantasia" required />
+            </li>
+            <li>
+                <label class="titulo-input" for="razao_social">Razão Social</label>
+                <input type="text" id="razao_social" placeholder="Ex: Grupo SAGA" name="razao_social" required />
+            </li>
+            <li>
+                <label class="titulo-input" for="cnpj">CNPJ</label>
+                <input type="text" id="cnpj" placeholder="Ex: 99.999.999/0001-99" name="cnpj" required />
+            </li>
+            <li>
+                <label class="titulo-input" for="email">E-mail</label>
+                <input type="email" id="email" placeholder="saga@grupo2biopark.com.br" name="email" required />
+            </li>
+            <li>
+                <label class="titulo-input" for="endereco">Endereço</label>
+                <input type="text" id="endereco" placeholder="Ex: Rua Biopark" name="endereco" required />
+            </li>
+            <li>
+                <label class="titulo-input" for="telefone">Telefone</label>
+                <input type="text" id="telefone" placeholder="Ex: (45) 9 99999-9999" name="telefone" required />
+            </li>
+            <li>
+                <label class="titulo-input" for="porte">Porte</label>
+                <select id="porte" name="porte" required>
+                    <option disabled selected hidden>Selecione o porte</option>
+                    <option value="pequeno">Pequeno</option>
+                    <option value="medio">Médio</option>
+                    <option value="grande">Grande</option>
+                </select>
+            </li>
+            <li>
+                <label class="titulo-input" for="atividades">Atividade</label>
+                <select id="atividades" name="atividade" required>
+                    <option disabled selected hidden>Selecione a área de atuação</option>
+                    <option value="industrial">Industrial</option>
+                    <option value="ambiental">Ambiental</option>
+                    <option value="social">Social</option>
+                </select>
+            </li>
         </ul>
-    </form>
     <section class="bot-side">
-      <div class="btn">
-        <button>Cancelar</button>
-        <button>Confirmar</button>
-      </div>
+        <div class="btn">
+            <button type="submit" class="btn-cancelar">Cancelar</button>
+            <button type="submit" class="btn-confirma">Confirmar</button>
+        </div>
     </section>
-  </main>
+    </form>
+</main>
 </body>
 </html>

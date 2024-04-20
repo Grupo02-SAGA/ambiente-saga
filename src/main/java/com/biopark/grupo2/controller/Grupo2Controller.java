@@ -1,7 +1,7 @@
 package com.biopark.grupo2.controller;
 
 import com.biopark.grupo2.model.Empresa;
-import com.biopark.grupo2.model.ResquestEmpresa;
+import com.biopark.grupo2.model.ResquestEmpresas;
 import com.biopark.grupo2.repository.RepositoryEmpresa;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,25 +14,20 @@ import org.springframework.web.servlet.ModelAndView;
 public class Grupo2Controller {
 
     @Autowired
-    private RepositoryEmpresa repositoryEmpresa;
+    private RepositoryEmpresa empresa;
 
     @GetMapping("/")
     public ModelAndView showForm() {
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("novaEmpresa");
-        return  modelAndView;
-    }
-    @GetMapping("/mostrarForm")
-    public ResponseEntity getAllEmpresas(){
-        var allEmpresas = repositoryEmpresa.findAll();
-        return ResponseEntity.ok(allEmpresas);
+       ModelAndView modelAndView = new ModelAndView();
+       modelAndView.setViewName("novaEmpresa");
+       return  modelAndView;
     }
 
     @CrossOrigin(origins = "http://localhost:8080")
     @PostMapping
-    public ResponseEntity createEmpresa(@RequestBody @Valid ResquestEmpresa resquestEmpresa){
-        Empresa newEmpresa = new Empresa(resquestEmpresa);
-        repositoryEmpresa.save(newEmpresa);
+    public ResponseEntity createEmpresa(@RequestBody @Valid ResquestEmpresas requestEmpresas){
+        Empresa newEmpresa = new Empresa(requestEmpresas);
+        empresa.save(newEmpresa);
         return  ResponseEntity.ok().build();
     }
 }
