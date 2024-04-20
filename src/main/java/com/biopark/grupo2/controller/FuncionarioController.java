@@ -3,7 +3,8 @@ package com.biopark.grupo2.controller;
 
 import java.util.List;
 
-import com.biopark.grupo2.model.Funcionario;
+import com.biopark.grupo2.model.Usuario;
+import com.biopark.grupo2.repository.RepositoryUsuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -14,43 +15,39 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ModelAndView;
-
-import com.biopark.grupo2.model.Funcionario;
-import com.biopark.grupo2.repository.RepositoryFuncionario;
 
 @RestController
 @RequestMapping("/usuarios")
 public class FuncionarioController {
     @Autowired
-    private RepositoryFuncionario repositoryFuncionario;
+    private RepositoryUsuario repositoryUsuario;
     @GetMapping("/assessment")
     public String index() {
         return "index";
     }
     @GetMapping
-    public List<Funcionario> listarFuncionario() {
-        return repositoryFuncionario.findAll();
+    public List<Usuario> listarUsuario() {
+        return repositoryUsuario.findAll();
     }
     @CrossOrigin(origins = "http://localhost:8080")
     @PostMapping
-    public Funcionario criarFuncionario(@RequestBody Funcionario funcionario) {
-        return repositoryFuncionario.save(funcionario);
+    public Usuario criarUsuario(@RequestBody Usuario usuario) {
+        return repositoryUsuario.save(usuario);
     }
 
     @PutMapping("/{id}")
-    public Funcionario atualizarFuncionario(@PathVariable Long id, @RequestBody Funcionario funcionarioAtualizado) {
-        return repositoryFuncionario.findById(id)
-                .map(funcionario -> {
-                    funcionario.setNome(funcionarioAtualizado.getNome());
-                    funcionario.setEmail(funcionarioAtualizado.getEmail());
-                    return repositoryFuncionario.save(funcionario);
+    public Usuario atualizarUsuario(@PathVariable Long id, @RequestBody Usuario usuarioAtualizado) {
+        return repositoryUsuario.findById(id)
+                .map(usuario -> {
+                    usuario.setNome(usuarioAtualizado.getNome());
+                    usuario.setEmail(usuarioAtualizado.getEmail());
+                    return repositoryUsuario.save(usuario);
                 })
                 .orElseThrow();
     }
 
     @DeleteMapping("/{id}")
     public void deletarUsuario(@PathVariable Long id) {
-        repositoryFuncionario.deleteById(id);
+        repositoryUsuario.deleteById(id);
     }
 }

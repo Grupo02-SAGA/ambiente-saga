@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 
 import java.util.Objects;
 
-@Entity
 public class Empresa {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
