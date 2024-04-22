@@ -1,30 +1,34 @@
 package com.biopark.grupo2.model;
-
 import jakarta.persistence.*;
-
 import java.util.Objects;
 
 @Entity
+@Table(name ="Formulario")
 public class Formulario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id_formulario;
+
+    @Column(name = "idFormulario")
+    private int idFormulario;
+    @Column(name = "titulo")
     private String titulo;
-    private boolean base;
 
-    public Formulario() {
+    public Formulario(){
+
     }
-    public Formulario(int id_formulario, String titulo) {
-        this.id_formulario = id_formulario;
+
+    public Formulario(int idFormulario, String titulo, boolean base) {
+        this.idFormulario = idFormulario;
         this.titulo = titulo;
+        this.base = base;
     }
 
-    public int getId_formulario() {
-        return id_formulario;
+    public int getIdFormulario() {
+        return idFormulario;
     }
 
-    public void setId_formulario(int idFormulario) {
-        this.id_formulario = idFormulario;
+    public void setIdFormulario(int idFormulario) {
+        this.idFormulario = idFormulario;
     }
 
     public String getTitulo() {
@@ -43,15 +47,19 @@ public class Formulario {
         this.base = base;
     }
 
+    @Column(name = "base")
+    private boolean base;
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Formulario that)) return false;
-        return id_formulario == that.id_formulario;
+        if (o == null || getClass() != o.getClass()) return false;
+        Formulario that = (Formulario) o;
+        return idFormulario == that.idFormulario && base == that.base && Objects.equals(titulo, that.titulo);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id_formulario);
+        return Objects.hash(idFormulario, titulo, base);
     }
 }

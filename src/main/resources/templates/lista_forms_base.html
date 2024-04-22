@@ -3,22 +3,20 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Formularios</title>
-    <link rel="stylesheet" href="/src/main/resources/templates/style/visualizacao_de_formularios.css">
+    <link rel="stylesheet" href="style/lista_forms_base.css">
 </head>
 
 <body>
 
 <header>
     <section class="topSide">
-        <img src="/src/main/resources/templates/imagens/logo.jpeg">
-
+        <img src="imagens/logo.jpeg">
         <h3>Formulários</h3>
     </section>
 </header>
-
-    <main>
         <section class="search">
             <input type="text" placeholder="Procurar...">
         </section>
@@ -33,13 +31,12 @@
             <form action="listarForms">
                 <div class="listaForm">
                     <ul>
-                        <li name = "lista" th:each="nome : ${nomes}" th:text="${nome}"></li>
+<!--                       <li name = "lista" th:each="nome : ${nomes}" th:text="${nome}"></li>-->
                     </ul>
                 </div>
             </form>
 
         </container>
-    </main>
 </body>
 <script>
 
