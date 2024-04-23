@@ -22,15 +22,4 @@ public class Empresa {
     private String telefone;
     private String porte;
     private String atividade;
-
-    public Empresa(RequestEmpresa requestEmpresa){
-            this.fantasia = requestEmpresa.fantasia();
-            this.razao_social = requestEmpresa.razao_social();
-            this.cnpj = requestEmpresa.cnpj();
-            this.email = requestEmpresa.email();
-            this.endereco = requestEmpresa.endereco();
-            this.telefone = requestEmpresa.telefone();
-            this.porte = requestEmpresa.porte();
-            this.atividade = requestEmpresa.atividade();
-    }
 }
