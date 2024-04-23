@@ -3,155 +3,19 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="shortcut icon" type="image/x-icon" th:href="logo-transparente.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/static/images/logo-transparente.png" th:href="@{/images/logo-transparente.png}">
   <title>SAGA - Cadastrar Empresa</title>
-  <!-- <link rel="stylesheet" type="text/css" media="all" href="/src/main/resources/templates/static/style/reset.css" th:href="@{/style/style.css}" />
-  <link rel="stylesheet" type="text/css" media="all" href="/src/main/resources/templates/static/style/style.css" th:href="@{/style/style.css}" /> -->
+  <link rel="stylesheet" type="text/css" media="all" href="/static/style/reset.css" th:href="@{/style/reset.css}" />
+  <link rel="stylesheet" type="text/css" media="all" href="/static/style/style.css" th:href="@{/style/style.css}" />
 </head>
 <body>
-    <!--Estilização do formulario de cadastrar Empresa-->
-    <style>
-        *{
-        margin: 0px;
-        padding: 0px;
-        box-sizing: border-box;
-        }
-        html{
-        font-family: "Rubik", sans-serif;
-        }
-        body{
-            min-width: 100%;
-            min-height: 100vh;
-        }
-        ul{
-            text-decoration: none;
-            list-style: none;
-        }
-        .top-side{
-            width: 100%;
-            height:100%;
-            margin-bottom: 10px;
-            display: flex;
-            justify-content: center;
-        }
-        .side-settings{
-            width: 10%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .side-logo{
-            width: 100%;
-            margin: 5px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .side-settings .settings{
-            height: 24px;
-            width: 24px;
-            cursor: pointer;
-        }
-        .side-logo .logo{
-            height: 70px;
-            width: 80px;
-        }
-        .mid-side{
-            height: 100%;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-        main{
-            display: flex;
-        
-        }
-        label.titulo-input{
-            font-size: 14px;
-            margin-left: 10px;
-            color: #0077C8;
-        }
-
-        select{
-            appearance: none;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            background-image: url(select-seta.png);
-            background-position: right center;
-            background-repeat: no-repeat;
-            cursor: pointer;
-            border-radius: 10px;
-            border-color: #0077C8;
-            height: 30px;
-            width: 280px;
-        }
-        form.novaEmpresa{
-            width: 100%; 
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        form.novaEmpresa input{
-            border:1px #0077C8 solid;
-            border-radius: 10px;
-            width: 100%;
-            max-width: 280px;
-            height: 30px;
-        }
-        form.novaEmpresa ::placeholder{
-            font-size: 12px;
-            font-style: italic;
-            padding-left: 10px;
-        }
-        li{
-            display: flex;
-            padding-bottom: 1rem;
-            flex-direction: column;
-            gap: 5px;
-        }
-        .bot-side{
-            display: flex;
-            height: 90%;
-            width: 100%;
-            text-align: center;
-            justify-content: center;
-            margin-bottom: 8px;
-        }
-        button{
-            cursor: pointer;
-            height: 25px;
-            width: 150px;
-            border: none;
-            border-radius: 10px;
-            font-size: 14px; 
-            font-weight: bold;
-            text-align: center;
-            line-height: 20px;
-        }
-        button.btn-cancelar{
-            margin-right: 10px;
-            background-color:#FFDBDB;
-            color: #B0522A;
-            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 6px 0 rgba(0, 0, 0, 0.19);
-        }
-        button.btn-confirma{
-            margin-left: 10px;
-            background-color: #DBFFDC;
-            color: #35B02A;
-            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 6px 0 rgba(0, 0, 0, 0.19);
-        }
-    </style>
-     <!--Fim Estilo-->
 <header>
   <section class="top-side">
     <div class="side-settings">
-      <img class="settings" th:src="settings.png" alt="logo-settings"/>
+      <img class="settings" src="/static/images/settings.png" th:src="@{/images/settings.png}" alt="logo-settings"/>
     </div>
     <div class="side-logo">
-      <img class="logo" th:src="logo.jpeg" alt="logo-empresa"/>
+      <img class="logo" src="/static/images/logo.jpeg" th:src="@{/images/logo.jpeg}" alt="logo-empresa"/>
     </div>
   </section>
 </header>
@@ -179,7 +43,7 @@
           <li>
             <label class="titulo-input">CNPJ</label>
             <input
-              type="text"
+              type="number"
               th:field="*{cnpj}"
               placeholder="Ex: 99.999.999/0001-99"
               required
@@ -206,7 +70,7 @@
           <li>
             <label class="titulo-input">Telefone</label>
             <input
-              type="text"
+              type="tel"
               th:field="*{telefone}"
               placeholder="Ex: (45) 9 99999-9999"
               required
