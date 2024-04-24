@@ -42,13 +42,10 @@ section.topSide img{
     border-bottom: 2px solid black;
 }
 
-
-
 .search ::placeholder{
-    background-image: url(/src/main/resources/static/imagens/Path.png);
+    background-image: url(../images/Path.png);
     background-position: right center;
     background-repeat: no-repeat;
-    cursor: pointer;
     background-size: 12px;
 }
 
