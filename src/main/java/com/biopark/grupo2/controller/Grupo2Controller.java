@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.Optional;
 
@@ -13,15 +14,10 @@ import java.util.Optional;
 public class Grupo2Controller {
     @Autowired
     private RepositoryFormulario repositoryFormulario;
-
-    public String getTituloFormularioPorId(int idFormulario) {
-        Optional<Formulario> formulario = repositoryFormulario.findByidFormulario(idFormulario);
-        return formulario.isPresent() ? formulario.get().getTitulo() : "Formulário não encontrado";
-    }
-
-    @GetMapping("/")
-    public String grupo2(Model model) {
-        model.addAttribute("titulo", getTituloFormularioPorId(1));
+    @GetMapping("/criarMais")
+    public String showForm(Model model) {
+        Formulario formulario = new Formulario();
+        model.addAttribute("titulo", formulario);
         return "criarMais";
     }
 }
