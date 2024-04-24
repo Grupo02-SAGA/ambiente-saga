@@ -21,17 +21,16 @@
         <section class="search">
             <input type="text" placeholder="Procurar...">
         </section>
-        <div>
-            <div type="button" class="criar">
-                <p><strong>Criar +</strong></p>
-            </div>
+
+        <div type="button" class="criar">
+            <p><strong>Criar +</strong></p>
         </div>
-        <table >
-            <tr th:each="form : ${forms}" class = "listaForm">
-              <td th:text="${form.idFormulario}"></td>
+        <table class = "tabelaForm">
+            <tr th:each="form : ${forms}" class ="listaForm" >
               <td th:text="${form.titulo}"></td>
             </tr>
         </table>
+
 </body>
 <script>
 

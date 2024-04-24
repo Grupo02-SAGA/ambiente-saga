@@ -56,26 +56,37 @@ h3{
 }
 
 .criar{
-    display:flex;
+    display: flex;
     justify-content: center;
     align-items: center;
-    border-style:groove;
+    border-style: groove;
     border-radius: 4px;
+    border-color: rgba(0, 118, 199, 1);
     text-align: center;
+    border-width: thin;
     font-size: 14px;
-    margin: 1rem;
-    height: 2rem;
+    margin: 1rem 1rem 0.1rem 1rem;
+    height: 3rem;
 }
 
-.listaForm{
-    display:flex;
-    justify-content: center;
+.listaForm {
+    display: flex;
+    justify-content: left;
     align-items: center;
-    border-style:groove;
+    padding: 1rem;
+    margin: 0.1rem 1rem 0.1rem 1rem;
     border-radius: 4px;
-    text-align: center;
+    height: 4rem;
+    /* text-align: left; */
+    width: 21.4rem;
     font-size: 14px;
-    margin: 0rem 1rem 0rem 1rem;
-    height: 2rem;
+    border-style: groove;
+    border-color: rgba(0, 118, 199, 1);
+    border-width: thin;
 }
-
+.tabelaForm.{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: center;
+        }
