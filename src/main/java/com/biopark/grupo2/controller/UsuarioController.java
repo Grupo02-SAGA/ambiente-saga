@@ -8,7 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-public class Grupo2Controller {
+public class UsuarioController {
 
     @Autowired
     private RepositoryUsuario repositoryUsuario;
@@ -20,7 +20,7 @@ public class Grupo2Controller {
         return  "novoUsuario";
     }
     @PostMapping("/register")
-    public String createEmpresa(@RequestBody Usuario usuario) {
+    public String createEmpresa(@ModelAttribute Usuario usuario) {
         repositoryUsuario.save(usuario);
         return "novoUsuario";
     }

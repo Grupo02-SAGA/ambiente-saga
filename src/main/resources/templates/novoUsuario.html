@@ -1,90 +1,122 @@
-<!doctype html>
-<html lang="pt_br">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Forms Cria Funcionário</title>
-    <link rel="stylesheet" href="../static/css/bootstrap-reboot.min.css">
-    <link rel="stylesheet" href="../static/css/bootstrap-utilities.css">
-    <link rel="stylesheet" href="../static/css/criaFuncionario.css">
-  </head>
-  <body>
-    <header>
-      <div class="header">
-        <div class="profile">
-          </div>
-          <div class="settings"><img src="../static/img/settings.png" alt="https://www.figma.com/file/iqDsfQOB77iCWN9vOenj5t/SAGA?type=design&node-id=110-647&mode=design&t=18b4Go4ycIZBOO9U-0"></div>
-        <div class="logo">
-            <img src="../static/img/LOGO.png" alt="Logo">
-        </div>
-        <div></div>
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" type="image/x-icon" href="/static/images/logo-transparente.png" th:href="@{/images/logo-transparente.png}">
+  <title>SAGA - Cadastrar Empresa</title>
+  <link rel="stylesheet" type="text/css" media="all" href="../static/styles/reset.css" th:href="@{/style/reset.css}" />
+  <link rel="stylesheet" type="text/css" media="all" href="../static/styles/styleUsuario.css" th:href="@{/style/style.css}" />
+</head>
+<body>
+<header>
+  <section class="top-side">
+    <div>
     </div>
-    </header>
-    <div class="container">
-      <form action="/processar-formulario" method="post" class="mx-auto" onsubmit="return validarSenha()">
-
-          <div class="mb-3">
-            <label for="nome" class="form-label">Nome:</label>
-            <input type="text" id="nome" name="nome" required class="form-control border border-primary rounded focus-colorOnClick">
+    <div class="side-logo">
+      <img class="logo" src="../static/images/LOGO.png" th:src="@{/images/logo.jpeg}" alt="logo-empresa"/>
+    </div>
+  </section>
+</header>
+<main>
+  <form id="formulario" th:action="@{/register}" th:object="${usuario}" method="post" class="novoUsuario">
+        <ul>
+          <li>
+            <label class="titulo-input">Primeiro nome</label>
+            <input
+              type="text"
+              th:field="*{nome}"
+              placeholder="Primeiro nome "
+              required
+            />
+          </li>
+          <li>
+            <label class="titulo-input">Sobrenome</label>
+            <input
+              type="text"
+              th:field="*{sobrenome}"
+              placeholder="Sobrenome"
+              required
+            />
+          </li>
+          <li>
+            <label class="titulo-input">CPF</label>
+            <input
+              type="number"
+              th:field="*{cpf}"
+              placeholder="Ex: 000.000.000-00"
+              required
+            />
+          </li>
+          <li>
+            <label class="titulo-input">E-mail</label>
+            <input
+              type="email"
+              th:field="*{email}"
+              placeholder="saga@grupo2biopark.com.br"
+              required
+            />
+          </li>
+          <li>
+            <label class="titulo-input">Endereço</label>
+            <input
+              type="text"
+              th:field="*{cidade}"
+              placeholder="Ex: Rua Biopark"
+              required
+            />
+          </li>
+          <li>
+            <label class="titulo-input">Telefone</label>
+            <input
+              type="tel"
+              th:field="*{telefone}"
+              placeholder="Ex: (45) 9 99999-9999"
+              required
+            />
+          </li>
+          <li>
+            <label class="titulo-input">Senha</label>
+            <input
+              id="senha"
+              type="password"
+              th:field="*{senha}"
+              placeholder="Senha"
+              required
+            />
+          </li>
+          <li>
+            <label class="titulo-input">Confirma senha</label>
+            <input
+              id="validaSenha"
+              type="password"
+              placeholder="Confirma senha"
+              required
+            />
+          </li>
+        </ul>
+        <section class="bot-side">
+          <div class="btn">
+            <button type="submit" class="btn-cancelar">Cancelar</button>
+            <button type="submit" class="btn-confirma">Confirmar</button>
           </div>
-  
-          <div class="mb-3">
-            <label for="cpf" class="form-label">CPF:</label>
-            <input type="text" id="cpf" name="cpf" required class="form-control border border-primary rounded">
-          </div>
-
-          <div class="mb-3">
-            <label for="telefone" class="form-label">Número telefone:</label>
-            <input type="number" id="telefone" name="telefone" required class="form-control border border-primary rounded">
-          </div>
-
-          <div class="mb-3">
-            <label for="email" class="form-label">E-mail:</label>
-            <input type="email" id="email" name="email" required class="form-control border border-primary rounded">
-          </div>
-
-          <div class="mb-3">
-            <label for="cidade" class="form-label">Cidade - UF:</label>
-            <input type="text" id="cidade" name="cidade" required class="form-control border border-primary rounded">
-          </div>
-
-          <div class="mb-3">
-            <label for="senha" class="form-label">Senha:</label>
-            <input type="password" id="senha" name="senha" required class="form-control border border-primary rounded">
-          </div>
-
-          <div class="mb-3">
-            <label for="validaSenha" class="form-label">Confirme a senha:</label>
-            <input type="password" id="validaSenha" name="validaSenha" required class="form-control border border-primary rounded">
-            <div id="alertaSenha" class="alert alert-danger mt-2 d-none texto-vermelho">As senhas não são iguais</div>
-
-            <!-- Checkbox -->
-            <div class="form-check">
-              <input class="form-check-input border border-primary rounded" type="checkbox" value="" id="checkbox1">
-              <label class="form-check-label" for="checkbox1">
-                Administrador
-              </label>
-             </div>           
-          </div>
-             <div>
-                <input class="button-cancel" type="submit" value="Cancelar" class="btn btn-primary">
-                <input class="button-save" type="submit" value="Salvar" class="btn btn-primary"> 
-             </div>
+        </section>
       </form>
-  </div>
-  <script src="../static/js/bootstrap.min.js"></script>
-  <script>
-    function validarSenha() {
-      var senha = document.getElementById("senha").value;
-      var validaSenha = document.getElementById("validaSenha").value;
+      <script>
+        document.getElementById("formulario").addEventListener("submit", function(event) {
+          var senha = document.getElementById("senha").value;
+          var validaSenha = document.getElementById("validaSenha").value;
+          var alertaSenha = document.getElementById("alertaSenha");
 
-      if (senha !== validaSenha) {
-        document.getElementById("alertaSenha").classList.remove("d-none");
-        return false; // Impede o envio do formulário
-      }
-
-      return true; // Permite o envio do formulário
-    }
-  </script>
-</body>
+          if (senha !== validaSenha) {
+            alertaSenha.innerText = "As senhas não coincidem!";
+            alertaSenha.classList.remove("d-none");
+            event.preventDefault(); // Impede o envio do formulário
+          } else {
+            alertaSenha.classList.add("d-none");
+          }
+        });
+      </script>
+    </main>
+  </body>
 </html>
