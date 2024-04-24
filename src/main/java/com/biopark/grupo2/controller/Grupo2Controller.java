@@ -14,8 +14,8 @@ import java.util.Optional;
 public class Grupo2Controller {
     @Autowired
     private RepositoryFormulario repositoryFormulario;
-    @GetMapping("/criarMais")
-    public String showForm(Model model) {
+    @GetMapping("/detalhesDeFormulario")
+    public String exibirCriarMais(Model model) {
         Formulario formulario = new Formulario();
         model.addAttribute("titulo", formulario);
         return "criarMais";
