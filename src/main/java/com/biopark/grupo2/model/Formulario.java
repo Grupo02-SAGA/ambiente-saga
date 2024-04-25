@@ -3,7 +3,7 @@ package com.biopark.grupo2.model;
 import jakarta.persistence.*;
 import lombok.*;
 
-@Table(name = "Fomulario")
+@Table(name = "Formulario")
 @Entity(name = "formulario")
 @Getter
 @Setter
