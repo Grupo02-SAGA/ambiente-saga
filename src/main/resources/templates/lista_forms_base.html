@@ -7,33 +7,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="image/x-icon" href="/static/images/logo-transparente.png" th:href="@{/images/logo-transparente.png}">
     <title>SAGA - Listar Formularios</title>
-    <link rel="stylesheet" href="style/lista_forms_base.css">
+    <link rel="stylesheet" href="styles/lista_forms_base.css">
 </head>
 
 <body>
-
-<header>
-    <section class="topSide">
-        <img src="images/logo.jpeg">
-        <h3>Formulários</h3>
-    </section>
-</header>
-        <section class="search">
-            <input type="text" placeholder="Procurar...">
+    <header>
+        <section class="topSide">
+            <img src="images/logo.jpeg">
+            <h3>Formulários</h3>
         </section>
+    </header>
 
-        <div type="button" class="criar">
-            <p><strong>Criar +</strong></p>
+    <section class = "implements">
+        <div class="search">
+            <input type="text" placeholder="Procurar..."id="searchInput">
         </div>
-        <table class = "tabelaForm">
-            <tr th:each="form : ${forms}" class ="listaForm" >
-              <td th:text="${form.titulo}"></td>
-            </tr>
+        <table class = "tableForm">
+            <thead>
+                <tr class = "buttomCriar">
+                    <td>
+                        <a href="http://" class = "linkCriar"> <h3 > Criar+ </h3></a>
+                    </td>
+                </tr>
+            </thead>
+            <tbody class = "tableBody" id="tableBody">
+                <tr th:each="form : ${forms}" data-form="${form.titulo}" class ="listaForm" >
+                    <td>
+                        <div th:text="${form.titulo}"></div>
+                    </td>
+                    <td>
+                        <div class="button-container">
+<!--                            <button onclick="handleButtonClick('${form.titulo}')" class = "button"></button>-->
+                            <a th:href="@{'editar_formulario.html?titulo=' + ${form.titulo} + ${form.id_formulario}}">
+                                <button onclick="handleButtonClick('${form.titulo}')" class="button"> </button>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
         </table>
-
+    </section>
 </body>
+
 <script>
-
 </script>
-
 </html>
