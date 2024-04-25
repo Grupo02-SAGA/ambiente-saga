@@ -26,16 +26,4 @@ public class FormularioController {
         return repositoryFormulario.findAll();
     }
 
-
-    @GetMapping(value = "/{id}")
-    public Formulario findById(@PathVariable Long id){
-        Formulario result = repositoryFormulario.findById(id).get();
-        return result;
-    }
-
-    @PostMapping
-    public Formulario insert(@RequestBody Formulario formulario) {
-        Formulario result = repositoryFormulario.save(formulario);
-        return result;
-    }
 }
