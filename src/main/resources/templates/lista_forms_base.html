@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="image/x-icon" href="/static/images/logo-transparente.png" th:href="@{/images/logo-transparente.png}">
+
+
     <title>SAGA - Listar Formularios</title>
     <link rel="stylesheet" href="styles/lista_forms_base.css">
 </head>
@@ -26,7 +28,7 @@
         <thead>
         <tr class="buttomCriar">
             <td>
-                <a href="http://" class="linkCriar"> <h3> Criar+ </h3></a>
+                <a th:href="@{detalhesDeFormulario/null}" class="linkCriar"> <h3> Criar+ </h3></a>
             </td>
         </tr>
         </thead>
@@ -38,7 +40,8 @@
             <td>
                 <div class="button-container">
 <!--                    É só colocar o link aqui que ele já manda o id e o nome do formulário que vai ser editado-->
-                    <a th:href="@{'editar_formulario.html?titulo=' + ${form.titulo} + ${form.id_formulario}}">
+                    <a th:href="@{'detalhesDeFormulario/'+ ${form.id_formulario}}">
+<!--                            http://localhost:8080/detalhesDeFormulario/[id]-->
                         <button onclick="handleButtonClick('${form.titulo}')" class="button"> </button>
                     </a>
                 </div>
