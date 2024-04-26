@@ -19,22 +19,17 @@ public class EmpresaController {
     public ModelAndView modelAndView(){
         Empresa empresa = new Empresa();
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("novaEmpresa");
+        modelAndView.setViewName("nova_empresa");
         modelAndView.addObject("empresa", empresa);
         return modelAndView;
     }
 
-    /*public String showForm(Model model) {
-        Empresa empresa = new Empresa();
-        model.addAttribute("empresa", empresa);
-       return  "novaEmpresa";
-    }*/
 
     @PostMapping("/register")
     public RedirectView createEmpresa(@ModelAttribute ("empresa") Empresa empresa, RedirectAttributes attributes) {
         repositoryEmpresa.save(empresa);
         attributes.addFlashAttribute("condition", "cadastro-ok");
-        return new RedirectView("/novaEmpresa");wq
+        return new RedirectView("/register");
     }
 
 }
