@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" type="image/x-icon" href="/images/logo_transparente.png" />
+  <title>SAGA - Cadastrar Empresa</title>
+  <link rel="stylesheet" type="text/css" media="all" href="/styles/reset.css"  />
+  <link rel="stylesheet" type="text/css" media="all" href="/styles/style_empresa.css" />
+  <script src="/scripts/nova_empresa.js" defer></script>
+</head>
+<body>
+  <section th:if="${condition}" th:insert="/pop_up/popup_confirmacao.html")></section>
+  <section id="fragmento_popup_cancelar"></section>
+  <header class="top_side">
+        <img class="logo" src="/images/logo.png" alt="logo_empresa"/>
+  </header>
+  <main>
+    <form th:action="@{/register}" th:object="${empresa}" method="post" class="nova_empresa">
+      <ul>
+        <li>
+          <label class="titulo_input">Nome Fantasia</label>
+          <input
+            type="text"
+            th:field="*{fantasia}"
+            placeholder="Ex: SAGA S/A"
+            required
+          />
+        </li>
+        <li>
+          <label class="titulo_input">Razão Social</label>
+          <input
+            type="text"
+            th:field="*{razao_social}"
+            placeholder="Ex: Grupo SAGA"
+            required
+          />
+        </li>
+        <li>
+          <label class="titulo_input">CNPJ</label>
+          <input
+            type="number"
+            th:field="*{cnpj}"
+            placeholder="Ex: 99.999.999/0001-99"
+            required
+          />
+        </li>
+        <li>
+          <label class="titulo_input">E-mail</label>
+          <input
+            type="email"
+            th:field="*{email}"
+            placeholder="saga@grupo2biopark.com.br"
+            required
+          />
+        </li>
+        <li>
+          <label class="titulo_input">Endereço</label>
+          <input
+            type="text"
+            th:field="*{endereco}"
+            placeholder="Ex: Rua Biopark"
+            required
+          />
+        </li>
+        <li>
+          <label class="titulo_input">Telefone</label>
+          <input
+            type="tel"
+            th:field="*{telefone}"
+            placeholder="Ex: (45) 9 9999-9999"
+            required
+          />
+        </li>
+        <li>
+          <label class="titulo_input" for="porte">Porte</label>
+          <select id="porte" th:field="*{porte}" required>
+            <option value="disabled" disabled selected hidden>
+              Selecione o porte
+            </option>
+            <option th:value="pequeno">Pequeno</option>
+            <option th:value="medio">Médio</option>
+            <option th:value="grande">Grande</option>
+          </select>
+        </li>
+        <li>
+          <label class="titulo_input" for="atividade">Atividade</label>
+          <select id="atividade" th:field="*{atividade}" required>
+            <option value="disabled" disabled selected hidden>
+              Selecione a área de atuação
+            </option>
+            <option th:value="industrial">Industrial</option>
+            <option th:value="ambiental">Ambiental</option>
+            <option th:value="social">Social</option>
+          </select>
+        </li>
+      </ul>
+      <section class="bot_side">
+        <div class="btn">
+          <button id="cancelar" type="button" th:onclick="carregar_popup_cancelar()" class="btn_cancelar">Cancelar</button>
+          <button type="submit" class="btn_confirma">Confirmar</button>
+        </div>
+      </section>
+    </form>
+  </main>
+</body>
+</html>
