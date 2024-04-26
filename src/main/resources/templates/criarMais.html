@@ -25,7 +25,7 @@
     </div>
     <hr class="linha">
     <!-- LISTAGEM DE PREGUNTAS -->
-    <div class="pergunta">
+    <div th:each="pergunta : ${perguntas}" class="pergunta">
         <div class="folded">
             <div class="seta">
                 <label class="container">

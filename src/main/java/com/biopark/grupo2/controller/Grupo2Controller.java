@@ -28,7 +28,7 @@ public class Grupo2Controller {
         if (formularioOpt.isPresent()) {
             Formulario formulario = formularioOpt.get();
             model.addAttribute("titulo", formulario.getTitulo());
-            model.addAttribute("pergunta", getQuestionsByFormId(id));
+            model.addAttribute("perguntas", getQuestionsByFormId(id));
         }
         return "criarMais";
     }
