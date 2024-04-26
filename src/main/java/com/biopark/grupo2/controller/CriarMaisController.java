@@ -3,7 +3,6 @@ package com.biopark.grupo2.controller;
 import com.biopark.grupo2.model.Formulario;
 import com.biopark.grupo2.repository.RepositoryFormulario;
 import com.biopark.grupo2.repository.RepositoryPergunta;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,7 +14,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Controller
-public class Grupo2Controller {
+public class CriarMaisController {
 
     @Autowired
     private RepositoryFormulario repositoryFormulario;
