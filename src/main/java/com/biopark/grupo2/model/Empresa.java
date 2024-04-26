@@ -1,6 +1,9 @@
 package com.biopark.grupo2.model;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 import java.util.Objects;
 
@@ -15,10 +18,10 @@ public class Empresa {
     private String email;
     private String endereco;
     private String telefone;
-    private int porte;
+    private String porte;
     private String atividade;
 
-    public Empresa(int id_empresa, String fantasia, String razaoSocial, String cnpj, String email, String endereco, String telefone, int porte, String atividade) {
+    public Empresa(int id_empresa, String fantasia, String razaoSocial, String cnpj, String email, String endereco, String telefone, String porte, String atividade) {
         this.id_empresa = id_empresa;
         this.fantasia = fantasia;
         this.razaoSocial = razaoSocial;
@@ -89,11 +92,11 @@ public class Empresa {
         this.telefone = telefone;
     }
 
-    public int getPorte() {
+    public String getPorte() {
         return porte;
     }
 
-    public void setPorte(int porte) {
+    public void setPorte(String porte) {
         this.porte = porte;
     }
 
