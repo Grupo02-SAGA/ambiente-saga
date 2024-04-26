@@ -1,5 +1,4 @@
 package com.biopark.grupo2.model;
-
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -10,11 +9,15 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(of = "id_fomulario")
-
 public class Formulario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idFormulario;
+    @Column(name = "id_formulario")
+    private int id_formulario;
+
+    @Column(name = "titulo")
     private String titulo;
-    private boolean base;
+
+    @Column(name="base")
+    private Boolean base;
 }
