@@ -14,7 +14,8 @@ public class Usuario_Empresa {
     @JoinColumn(name = "id_empresa")
     private Empresa id_empresa;
 
-    public Usuario_Empresa() {}
+    public Usuario_Empresa() {
+    }
 
     public Usuario_Empresa(Usuario id_usuario, Empresa id_empresa) {
         this.id_usuario = id_usuario;

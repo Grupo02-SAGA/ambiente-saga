@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="/static/images/logo-transparente.png" th:href="@{/images/logo-transparente.png}">
+
+
+    <title>SAGA - Listar Formularios</title>
+    <link rel="stylesheet" href="style/lista_forms_base.css">
+</head>
+
+<body>
+<header>
+    <section class="topSide">
+        <img src="images/logo.jpeg">
+        <h3>Formulários</h3>
+    </section>
+</header>
+
+<section class="implements">
+    <div class="search">
+        <input type="text" placeholder="Procurar..." id="searchInput">
+    </div>
+    <table class="tableForm">
+        <thead>
+        <tr class="buttomCriar">
+            <td>
+                <a th:href="@{detalhesDeFormulario/null}" class="linkCriar"> <h3> Criar+ </h3></a>
+            </td>
+        </tr>
+        </thead>
+        <tbody class="tableBody" id="tableBody">
+        <tr th:each="form : ${forms}" data-form="${form.titulo}" class="listaForm">
+            <td>
+                <div th:text="${form.titulo}"></div>
+            </td>
+            <td>
+                <div class="button-container">
+<!--                    É só colocar o link aqui que ele já manda o id e o nome do formulário que vai ser editado-->
+                    <a th:href="@{'detalhesDeFormulario/'+ ${form.id_formulario}}">
+<!--                            http://localhost:8080/detalhesDeFormulario/[id]-->
+                        <button onclick="handleButtonClick('${form.titulo}')" class="button"> </button>
+                    </a>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+
+    <script src="scripts/buscaFormularioBase.js" ></script>
+
+</body>
+</html>
