@@ -1,7 +1,7 @@
 package com.biopark.grupo2.model;
 
 import jakarta.persistence.*;
-
+@Entity
 @Table(name = "Formulario_pergunta")
 public class Formulario_Pergunta {
     @Id

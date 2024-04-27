@@ -3,7 +3,7 @@ package com.biopark.grupo2.model;
 import jakarta.persistence.*;
 
 import java.util.Objects;
-
+@Entity
 public class Resposta {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

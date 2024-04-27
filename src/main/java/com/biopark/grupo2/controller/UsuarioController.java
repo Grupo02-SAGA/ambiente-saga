@@ -13,13 +13,13 @@ public class UsuarioController {
     @Autowired
     private RepositoryUsuario repositoryUsuario;
 
-    @GetMapping("/register")
+    @GetMapping("/novoUsuario")
     public String showForm(Model model) {
         Usuario usuario = new Usuario();
         model.addAttribute("usuario", usuario);
         return  "novoUsuario";
     }
-    @PostMapping("/register")
+    @PostMapping("/novoUsuario")
     public String createEmpresa(@ModelAttribute Usuario usuario) {
         repositoryUsuario.save(usuario);
         return "novoUsuario";

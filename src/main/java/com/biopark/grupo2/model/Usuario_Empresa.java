@@ -1,7 +1,7 @@
 package com.biopark.grupo2.model;
 
 import jakarta.persistence.*;
-
+@Entity
 @Table(name = "Usuario_empresa")
 public class Usuario_Empresa {
     @Id

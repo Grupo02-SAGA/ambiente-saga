@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="shortcut icon" type="image/x-icon" href="/static/images/logo-transparente.png" th:href="@{/images/logo-transparente.png}">
+  <link rel="shortcut icon" type="image/x-icon" href="/images/logo-transparente.png" th:href="@{/images/logo-transparente.png}">
   <title>SAGA - Cadastrar Empresa</title>
-  <link rel="stylesheet" type="text/css" media="all" href="../static/styles/reset.css" th:href="@{/style/reset.css}" />
-  <link rel="stylesheet" type="text/css" media="all" href="../static/styles/styleUsuario.css" th:href="@{/style/style.css}" />
+  <link rel="stylesheet" type="text/css" media="all" href="/styles/reset.css" th:href="@{/style/reset.css}" />
+  <link rel="stylesheet" type="text/css" media="all" href="/styles/styleUsuario.css" />
 </head>
 <body>
 <header>
@@ -14,12 +14,12 @@
     <div>
     </div>
     <div class="side-logo">
-      <img class="logo" src="../static/images/LOGO.png" th:src="@{/images/logo.jpeg}" alt="logo-empresa"/>
+      <img class="logo" src="/images/LOGO.png" alt="logo-empresa"/>
     </div>
   </section>
 </header>
 <main>
-  <form id="formulario" th:action="@{/register}" th:object="${usuario}" method="post" class="novoUsuario">
+  <form id="formulario" th:action="@{/novoUsuario}" th:object="${usuario}" method="post" class="novoUsuario">
         <ul>
           <li>
             <label class="titulo-input">Primeiro nome</label>
