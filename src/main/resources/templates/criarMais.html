@@ -69,11 +69,13 @@
             </div>
         </div>
     </div>
+    <!-- Listagem criar pergunta -->
+    
     <footer>
         <button class="btnExcluirForm" data-target="#exampleModalCente" data-toggle="modal">Excluir formulário</button>
         <hr>
-        <button class="btnCancelar"><strong>Cancelar</strong></button>
-        <button class="btnSalvar"><strong>Salvar</strong></button>
+        <a th:href="@{/lista_forms_base}"><button class="btnCancelar" ><strong>Cancelar</strong></button></a>
+        <a th:href="@{/lista_forms_base}"><button class="btnSalvar"><strong>Salvar</strong></button></a>
     </footer>
     <!-- PopUp -->
     <div aria-hidden="true" aria-labelledby="exampleModalCenterTitle" class="modal fade" id="exampleModalCente" role="dialog"
