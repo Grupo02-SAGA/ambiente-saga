@@ -8,10 +8,11 @@
   <link rel="stylesheet" type="text/css" media="all" href="/styles/reset.css"  />
   <link rel="stylesheet" type="text/css" media="all" href="/styles/style_empresa.css" />
   <script src="/scripts/nova_empresa.js" defer></script>
+  <script src="/scripts/popup_confirmacao.js" defer></script>
 </head>
 <body>
-  <section th:if="${condition}" th:insert="/pop_up/popup_confirmacao.html")></section>
-  <section id="fragmento_popup_cancelar"></section>
+  <section th:if="${condition}" th:insert="/pop_up/popup_confirmacao.html"></section>
+  <section th:insert="/pop_up/popup_cancelar.html" id="fragmento_popup_cancelar"></section>
   <header class="top_side">
         <img class="logo" src="/images/logo.png" alt="logo_empresa"/>
   </header>
@@ -97,8 +98,8 @@
       </ul>
       <section class="bot_side">
         <div class="btn">
-          <button id="cancelar" type="button" th:onclick="carregar_popup_cancelar()" class="btn_cancelar">Cancelar</button>
-          <button type="submit" class="btn_confirma">Confirmar</button>
+          <button id="cancel_form" type="button" class="btn_cancelar">Cancelar</button>
+          <button id="confirm_form"type="submit" class="btn_confirma">Confirmar</button>
         </div>
       </section>
     </form>
