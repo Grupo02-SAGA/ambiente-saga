@@ -3,26 +3,20 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="shortcut icon" type="image/x-icon" href="/images/logo-transparente.png" th:href="@{/images/logo-transparente.png}">
+  <link rel="shortcut icon" type="image/x-icon" href="/images/logo-transparente.png"/>
   <title>SAGA - Cadastrar Empresa</title>
-  <link rel="stylesheet" type="text/css" media="all" href="/styles/reset.css" th:href="@{/style/reset.css}" />
+  <link rel="stylesheet" type="text/css" media="all" href="/styles/reset.css"  />
   <link rel="stylesheet" type="text/css" media="all" href="/styles/styleUsuario.css" />
 </head>
 <body>
-<header>
-  <section class="top-side">
-    <div>
-    </div>
-    <div class="side-logo">
-      <img class="logo" src="/images/LOGO.png" alt="logo-empresa"/>
-    </div>
-  </section>
-</header>
+<div class="top_side">
+  <img class="logo" src="/images/logo.jpeg" alt="logo_empresa"/>
+</div>
 <main>
-  <form id="formulario" th:action="@{/novoUsuario}" th:object="${usuario}" method="post" class="novoUsuario">
+  <form id="formulario" th:action="@{/novoUsuario}" th:object="${usuario}" method="post" class="novo_usuario">
         <ul>
           <li>
-            <label class="titulo-input">Primeiro nome</label>
+            <label class="titulo_input">Primeiro nome</label>
             <input
               type="text"
               th:field="*{nome}"
@@ -31,7 +25,7 @@
             />
           </li>
           <li>
-            <label class="titulo-input">Sobrenome</label>
+            <label class="titulo_input">Sobrenome</label>
             <input
               type="text"
               th:field="*{sobrenome}"
@@ -40,7 +34,7 @@
             />
           </li>
           <li>
-            <label class="titulo-input">CPF</label>
+            <label class="titulo_input">CPF</label>
             <input
               type="number"
               th:field="*{cpf}"
@@ -49,7 +43,7 @@
             />
           </li>
           <li>
-            <label class="titulo-input">E-mail</label>
+            <label class="titulo_input">E-mail</label>
             <input
               type="email"
               th:field="*{email}"
@@ -58,7 +52,7 @@
             />
           </li>
           <li>
-            <label class="titulo-input">Endereço</label>
+            <label class="titulo_input">Endereço</label>
             <input
               type="text"
               th:field="*{cidade}"
@@ -67,7 +61,7 @@
             />
           </li>
           <li>
-            <label class="titulo-input">Telefone</label>
+            <label class="titulo_input">Telefone</label>
             <input
               type="tel"
               th:field="*{telefone}"
@@ -76,7 +70,7 @@
             />
           </li>
           <li>
-            <label class="titulo-input">Senha</label>
+            <label class="titulo_input">Senha</label>
             <input
               id="senha"
               type="password"
@@ -86,7 +80,7 @@
             />
           </li>
           <li>
-            <label class="titulo-input">Confirma senha</label>
+            <label class="titulo_input">Confirma senha</label>
             <input
               id="validaSenha"
               type="password"
@@ -95,10 +89,10 @@
             />
           </li>
         </ul>
-        <section class="bot-side">
+        <section class="bot_side">
           <div class="btn">
-            <button type="submit" class="btn-cancelar">Cancelar</button>
-            <button type="submit" class="btn-confirma">Confirmar</button>
+            <button id="cancel_form" type="button" class="btn_cancelar">Cancelar</button>
+            <button id="confirm_form"type="submit" class="btn_confirma">Confirmar</button>
           </div>
         </section>
       </form>
