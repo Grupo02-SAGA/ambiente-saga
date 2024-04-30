@@ -23,6 +23,7 @@ h3 {
     border-style: groove;
     border-radius: 4px;
     width: 100%;
+    margin-bottom: 5px;
 
     .seta {
         width: 10%;
