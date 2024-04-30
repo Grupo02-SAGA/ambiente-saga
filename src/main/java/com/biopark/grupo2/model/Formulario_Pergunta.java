@@ -1,8 +1,8 @@
 package com.biopark.grupo2.model;
 
 import jakarta.persistence.*;
-import lombok.*;
 
+import lombok.*;
 
 @Table(name = "Formulario_Pergunta")
 @Entity(name = "formulario_Pergunta")

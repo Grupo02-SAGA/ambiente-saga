@@ -1,5 +1,8 @@
 package com.biopark.grupo2.model;
 import jakarta.persistence.*;
+
+import java.util.Objects;
+
 import lombok.*;
 
 @Table(name = "Formulario")
@@ -9,6 +12,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(of = "id_fomulario")
+
 public class Formulario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
