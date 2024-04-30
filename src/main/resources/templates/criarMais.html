@@ -13,6 +13,8 @@
     <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
     <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
           rel="stylesheet">
+    <link rel="stylesheet" href="/styles/toggle_ativar_desativar.css">
+    <script src="/scripts/btn_ativar_desativar.js" defer></script>
 </head>
 
 <body>
@@ -70,26 +72,11 @@
         </div>
     </div>
     <footer>
-        <button class="btnExcluirForm" data-target="#exampleModalCente" data-toggle="modal">Excluir formulário</button>
+        <div th:insert="/pop_up/toggle_ativar_desativar.html" class="btnExcluirForm"></div>
         <hr>
         <button class="btnCancelar"><strong>Cancelar</strong></button>
         <button class="btnSalvar"><strong>Salvar</strong></button>
     </footer>
-    <!-- PopUp -->
-    <div aria-hidden="true" aria-labelledby="exampleModalCenterTitle" class="modal fade" id="exampleModalCente" role="dialog"
-         tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <p><b>Tem certeza que deseja excluir o formulário [EMPRESA]</b></p>
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" data-dismiss="modal" type="button">Não</button>
-                    <button class="btn btn-primary" type="button">Sim</button>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
 </body>
 
