@@ -18,6 +18,7 @@
 </head>
 
 <body>
+<div id="popupConfirmacao" th:insert="/pop_up/popup_confirmacao.html" class="hide"></div>
 <div class="container-fluid">
     <header class="header">
         <img src="/images/logo.jpeg" width="80">
@@ -74,8 +75,8 @@
     <footer>
         <div th:insert="/pop_up/toggle_ativar_desativar.html" class="btnExcluirForm"></div>
         <hr>
-        <button class="btnCancelar"><strong>Cancelar</strong></button>
-        <button class="btnSalvar"><strong>Salvar</strong></button>
+        <button id="btnCancelar" class="btnCancelar"><strong>Cancelar</strong></button>
+        <button id="btnSalvar" class="btnSalvar"><strong>Salvar</strong></button>
     </footer>
 </div>
 </body>
