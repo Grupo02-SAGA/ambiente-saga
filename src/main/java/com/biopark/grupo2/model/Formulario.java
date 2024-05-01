@@ -20,4 +20,7 @@ public class Formulario {
 
     @Column(name="base")
     private Boolean base;
+
+    @Column(name="status")
+    private Boolean status;
 }
