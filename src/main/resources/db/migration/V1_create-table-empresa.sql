@@ -1,11 +1,12 @@
 CREATE TABLE empresa (
-    id_empresa INT AUTO_INCREMENT PRIMARY KEY UNIQUE NOT NULL,
-    fantasia VARCHAR(45),
-    razao_social VARCHAR(45),
-    cnpj VARCHAR(14),
-    email VARCHAR(45),
+    id_empresa INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    fantasia VARCHAR(45) NOT NULL,
+    razao_social VARCHAR(45) NOT NULL,
+    cnpj VARCHAR(14) NOT NULL,
+    email VARCHAR(45) NOT NULL,
     endereco VARCHAR(150),
     telefone VARCHAR(20),
-    porte VARCHAR(20),
-    atividade VARCHAR(30)
+    porte VARCHAR(25),
+    atividade VARCHAR(30) NOT NULL,
+    estado boolean
 )
