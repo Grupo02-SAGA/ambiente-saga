@@ -18,4 +18,5 @@ public class Pergunta {
     private int id_pergunta;
     private String titulo;
     private boolean documento;
+    private boolean estado;
 }

@@ -22,4 +22,5 @@ public class Empresa {
     private String telefone;
     private String porte;
     private String atividade;
+    private boolean estado;
 }

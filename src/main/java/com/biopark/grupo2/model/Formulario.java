@@ -24,4 +24,7 @@ public class Formulario {
 
     @Column(name="base")
     private Boolean base;
+
+    @Column(name = "estado")
+    private boolean estado;
 }

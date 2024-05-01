@@ -18,6 +18,7 @@ public class Resposta {
     private int id_resposta;
     private String resposta;
     private String observacao;
+    private boolean estado;
     @ManyToOne
     @JoinColumn(name = "id_formulario")
     private Formulario id_formulario;

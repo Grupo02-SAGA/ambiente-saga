@@ -23,6 +23,5 @@ public class Usuario {
     private String cidade;
     private String cpf;
     private String telefone;
-
-
+    private boolean estado;
 }
