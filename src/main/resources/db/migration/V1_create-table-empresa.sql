@@ -8,5 +8,5 @@ CREATE TABLE empresa (
     telefone VARCHAR(20),
     porte VARCHAR(25),
     atividade VARCHAR(30) NOT NULL,
-    estado boolean
+    estado boolean DEFAULT true
 )

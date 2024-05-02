@@ -7,5 +7,5 @@ CREATE TABLE usuario (
                     cidade VARCHAR(45),
                     telefone VARCHAR(20) NOT NULL,
                     senha VARCHAR(45) NOT NULL,
-                    estado BOOLEAN
+                    estado BOOLEAN DEFAULT true
 )
