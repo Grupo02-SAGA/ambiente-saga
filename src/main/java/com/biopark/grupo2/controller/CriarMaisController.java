@@ -3,7 +3,7 @@ package com.biopark.grupo2.controller;
 import com.biopark.grupo2.model.Formulario;
 import com.biopark.grupo2.repository.RepositoryFormulario;
 import com.biopark.grupo2.repository.RepositoryPergunta;
-import com.biopark.grupo2.service.EstadoClasse;
+import com.biopark.grupo2.service.FormularioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,8 +23,7 @@ public class CriarMaisController {
     private RepositoryPergunta perguntaRepository;
 
     @Autowired
-    private EstadoClasse estadoClasse;
-    private Boolean status;
+    private FormularioService formularioService;
 
     @GetMapping("/detalhesDeFormulario/{id}")
     public String exibirCriarMais(@PathVariable Long id, Model model) {
@@ -40,15 +39,14 @@ public class CriarMaisController {
         return perguntaRepository.findTitlesByFormId(id_formulario);
     }
     @PostMapping("/atualizarform/{id}")
-    public String alterarEstadoFormulario(@PathVariable Long id, @RequestBody Map<String, Object> requestBody) {
-        Boolean status = (Boolean) requestBody.get("status");
-        estadoClasse.alterarEstado(id, status);
-        return "redirect:/detalhesDeFormulario/" + id;
+    public String atualizarFormulario(@PathVariable Long id, @RequestBody Formulario formulario) {
+        Formulario atualizarFormulario = formularioService.alterarFormulario(id, formulario);
+        if (atualizarFormulario != null) {
+            return "redirect:/detalhesDeFormulario/" + id;
+        } else {
+            return null;
+        }
     }
-
-
-
-
 }
 
 

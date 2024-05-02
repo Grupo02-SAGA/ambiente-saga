@@ -2,25 +2,18 @@ package com.biopark.grupo2.model;
 import jakarta.persistence.*;
 import lombok.*;
 
-@Table(name = "Formulario")
+@Table(name = "formulario")
 @Entity(name = "formulario")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode(of = "id_fomulario")
+@EqualsAndHashCode(of = "id_formulario")
 public class Formulario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_formulario")
-    private int id_formulario;
-
-    @Column(name = "titulo")
+    private Long id_formulario;
     private String titulo;
-
-    @Column(name="base")
     private Boolean base;
-
-    @Column(name="status")
-    private Boolean status;
+    private Boolean estado;
 }
