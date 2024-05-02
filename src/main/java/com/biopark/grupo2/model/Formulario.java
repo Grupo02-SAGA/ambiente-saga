@@ -17,11 +17,14 @@ public class Formulario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_formulario")
-    private int id_formulario;
+    private long id_formulario;
 
     @Column(name = "titulo")
     private String titulo;
 
     @Column(name="base")
     private Boolean base;
+
+    @Column(name = "estado")
+    private boolean estado;
 }
