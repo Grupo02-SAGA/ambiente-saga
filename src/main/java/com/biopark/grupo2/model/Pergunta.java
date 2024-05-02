@@ -15,7 +15,7 @@ import java.util.Objects;
 public class Pergunta {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id_pergunta;
+    private long id_pergunta;
     private String titulo;
     private boolean documento;
     private boolean estado;

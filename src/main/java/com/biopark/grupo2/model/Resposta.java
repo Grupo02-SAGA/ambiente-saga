@@ -15,7 +15,7 @@ import java.util.Objects;
 public class Resposta {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id_resposta;
+    private long id_resposta;
     private String resposta;
     private String observacao;
     private boolean estado;

@@ -15,7 +15,7 @@ import java.util.Objects;
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id_usuario;
+    private long id_usuario;
     private String nome;
     private String sobrenome;
     private String email;

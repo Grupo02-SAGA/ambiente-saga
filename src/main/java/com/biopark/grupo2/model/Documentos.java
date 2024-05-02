@@ -7,7 +7,7 @@ import java.util.Objects;
 public class Documentos {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id_documento;
+    private long id_documento;
     private String url_documento;
     private boolean validado;
     @ManyToOne
@@ -17,13 +17,13 @@ public class Documentos {
     public Documentos() {
     }
 
-    public Documentos(int id_documento, String url_documento, Resposta id_resposta) {
+    public Documentos(long id_documento, String url_documento, Resposta id_resposta) {
         this.id_documento = id_documento;
         this.url_documento = url_documento;
         this.id_resposta = id_resposta;
     }
 
-    public int getId_documento() {
+    public long getId_documento() {
         return id_documento;
     }
 
