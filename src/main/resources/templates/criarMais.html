@@ -73,18 +73,22 @@
     <div class="listPergunta">
         <div>
             <div class="pTitulo">
-                <p>Teste lorem lorem lorem lorem</p>
+                <form th:action="@{/detalhesDeFormulario/{id}}" method="post">
+                    <input type="hidden" name="formularioId" th:value="${formularioId}">
+                    <input type="text" name="titulo"  required>
+                    <div class="buttons">
+                        <table>
+                            <tr>
+                                <td><div class="cancela"><a href=""><img alt="" src="/static/images/X.png" th:src="@{/images/X.png}"></a></div></td>
+                                <td><button type="submit" class="salva">Salvar</button></td>
+                            </tr>
+                        </table>
+                    </div>
+                </form>
+
             </div>
         </div>
         <hr>
-        <div class="buttons">
-                <table>
-                    <tr>
-                        <td><div class="cancela"><a href=""><img alt="" src="/static/images/X.png" th:src="@{/images/X.png}"></a></div></td>
-                        <td><button class="salva">Salvar</button></td>
-                    </tr>
-                </table>
-        </div>
     </div>
     <footer>
         <button class="btnExcluirForm" data-target="#exampleModalCente" data-toggle="modal">Excluir formulário</button>
