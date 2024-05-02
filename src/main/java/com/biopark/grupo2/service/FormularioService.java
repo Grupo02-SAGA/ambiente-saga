@@ -12,13 +12,8 @@ public class EstadoClasse {
     private RepositoryFormulario repositoryFormulario;
 
     public String consultarEstado(Long id) {
-        Formulario formulario = repositoryFormulario.findById(id).orElse(null);
-        if (formulario != null) {
-            boolean status = formulario.getStatus();
-            return "true";
-        } else {
-            return "Formulário não encontrado";
-        }
+        Formulario fomularioBuscado = repositoryFormulario.findById(id).orElse(null);
+       return fomularioBuscado;
     }
 
     public String alterarEstado(Long id, boolean novoEstado) {
