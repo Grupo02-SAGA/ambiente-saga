@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" type="image/x-icon" href="/images/logo-transparente.png"/>
     <title>SAGA - Editar Usuário</title>
-    <link rel="stylesheet" type="text/css" media="all" href="/styles/reset.css"  />
-    <link rel="stylesheet" type="text/css" media="all" href="/styles/styleUsuario.css" />
-    <link rel="stylesheet" type="text/css" media="all" href="/styles/toggle_ativar_desativar.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="/styles/reset.css"/>
+    <link rel="stylesheet" type="text/css" media="all" href="/styles/styleUsuario.css"/>
+    <link rel="stylesheet" type="text/css" media="all" href="/styles/toggle_ativar_desativar.css"/>
 </head>
 <body>
 <section th:if="${condition}" th:insert="/pop_up/popup_confirmacao.html"></section>
@@ -61,11 +61,11 @@
                 />
             </li>
             <li>
-                <label class="titulo_input">Endereço</label>
+                <label class="titulo_input">Cidade</label>
                 <input
                         type="text"
                         th:field="*{cidade}"
-                        placeholder="Ex: Rua Biopark"
+                        placeholder="Ex: Toledo"
                         required
                         maxlength="45"
                 />
