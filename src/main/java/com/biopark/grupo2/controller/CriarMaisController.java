@@ -51,7 +51,7 @@ public class CriarMaisController {
 
     @PostMapping("{idFormulario}/pergunta/{id}/atualizar-ativo")///pergunta/'+ ${pergunta.id_pergunta} + '/atualizar-ativo}
     public String atualizarAtivo(@PathVariable Long id) {
-        perguntaRepository.atualizarAtivoPorId(id, false);
+        perguntaRepository.atualizarAtivoPorId(id);
         return "redirect:/detalhesDeFormulario/{idFormulario}";
     }
 }
