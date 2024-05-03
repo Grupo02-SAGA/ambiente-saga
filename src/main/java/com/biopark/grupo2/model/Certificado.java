@@ -8,7 +8,7 @@ import java.util.Objects;
 public class Certificado {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id_certificado;
+    private long id_certificado;
     private double resultado;
     private String vencimento;
     @ManyToOne
@@ -21,7 +21,7 @@ public class Certificado {
     public Certificado() {
     }
 
-    public Certificado(int id_certificado, double resultado, String vencimento, Formulario id_formulario, Empresa id_empresa) {
+    public Certificado(long id_certificado, double resultado, String vencimento, Formulario id_formulario, Empresa id_empresa) {
         this.id_certificado = id_certificado;
         this.resultado = resultado;
         this.vencimento = vencimento;
@@ -29,7 +29,7 @@ public class Certificado {
         this.id_empresa = id_empresa;
     }
 
-    public int getId_certificado() {
+    public long getId_certificado() {
         return id_certificado;
     }
 
