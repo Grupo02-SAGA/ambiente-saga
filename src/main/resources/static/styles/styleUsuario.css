@@ -117,3 +117,8 @@ a.btn-outline-secondary{
     font-family: "Rubik", sans-serif;
     justify-content: flex-end;
  }
+
+p.confereSenha{
+    display: none;
+    color: #B0522A;
+}
