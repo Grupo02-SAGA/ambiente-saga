@@ -15,8 +15,19 @@ import java.util.Objects;
 public class Pergunta {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id_pergunta;
+    @Column(name = "id_pergunta")
+    private int id_pergunta;
+
+    @Column(name = "titulo")
     private String titulo;
+
+    @Column(name = "documento")
     private boolean documento;
+
+    @Column(name = "estado")
     private boolean estado;
+
+    @ManyToOne
+    @JoinColumn(name = "id_formulario")
+    private Formulario formulario;
 }

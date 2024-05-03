@@ -10,7 +10,7 @@ import lombok.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Formulario_Pergunta {
+public class FormularioPergunta {
     @Id
     @ManyToOne
     @JoinColumn(name = "id_formulario")

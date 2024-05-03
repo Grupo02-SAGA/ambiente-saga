@@ -10,13 +10,13 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface RepositoryPergunta extends JpaRepository<Pergunta, Long> {
-    @Query(value = "SELECT p.titulo p.id_pergunta"
+    @Query(value = "SELECT p.titulo "
             + "FROM Pergunta p "
             + "JOIN Formulario_pergunta fp ON p.id_pergunta = fp.id_pergunta "
             + "WHERE fp.id_formulario = :idFormulario AND p.estado = true", nativeQuery = true)
     List<String> findTitlesByFormId(@Param("idFormulario") Long idFormulario);
     @Transactional
     @Modifying
-    @Query("UPDATE Pergunta p SET p.estado = :ativo WHERE p.id = :perguntaId")
-    void atualizarAtivoPorId(Long perguntaId, boolean ativo);
+    @Query(value = "UPDATE pergunta p SET p.estado = false WHERE p.id_pergunta = :perguntaId")
+    void atualizarAtivoPorId(@Param("perguntaId")Long perguntaId);
 }
