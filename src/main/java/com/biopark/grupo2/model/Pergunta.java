@@ -24,6 +24,9 @@ public class Pergunta {
     @Column(name = "documento")
     private boolean documento;
 
+    @Column(name = "estado")
+    private boolean estado;
+
     @ManyToOne
     @JoinColumn(name = "id_formulario")
     private Formulario formulario;
