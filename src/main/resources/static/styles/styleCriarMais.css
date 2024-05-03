@@ -10,8 +10,15 @@
 h3 {
     text-align: center;
     text-decoration: underline;
+    text-transform: uppercase;
+
 }
 
+form.btn{
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
 .linha {
     height: 2px;
     stroke: rgb(0, 119, 200);
@@ -197,11 +204,14 @@ h3 {
 
 footer {
     position: fixed;
-    left: 0;
+    left: -15px;
     bottom: 0;
     width: 100%;
     text-align: center;
     margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     hr {
         height: 1px;

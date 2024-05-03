@@ -7,5 +7,6 @@ CREATE TABLE empresa (
     endereco VARCHAR(150),
     telefone VARCHAR(20),
     porte VARCHAR(20),
-    atividade VARCHAR(30)
+    atividade VARCHAR(30),
+    estado BOOLEAN
 )

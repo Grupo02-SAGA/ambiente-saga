@@ -1,10 +1,15 @@
 package com.biopark.grupo2.service;
 
+import com.biopark.grupo2.model.Empresa;
 import com.biopark.grupo2.model.Formulario;
 import com.biopark.grupo2.repository.RepositoryFormulario;
+import com.biopark.grupo2.repository.RepositoryPergunta;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.servlet.ModelAndView;
+
+import java.util.List;
 
 @Service
 public class FormularioService {

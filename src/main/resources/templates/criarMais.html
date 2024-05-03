@@ -15,16 +15,18 @@
           rel="stylesheet">
     <link rel="stylesheet" href="/styles/toggle_ativar_desativar.css">
     <script src="/scripts/btn_ativar_desativar.js" defer></script>
+    <script src="/scripts/atualizarFormulario.js" defer=""></script>
 </head>
 
 <body>
-<div id="popupConfirmacao" th:insert="/pop_up/popup_confirmacao.html" class="hide"></div>
+<section th:if="${condition}" th:insert="/pop_up/popup_confirmacao.html"></section>
+<section th:insert="/pop_up/popup_cancelar.html" id="fragmento_popup_cancelar"></section>
 <div class="container-fluid">
     <header class="header">
         <img src="/images/logo.jpeg" width="80">
     </header>
     <div>
-        <h3 th:action="@{/detalhesDeFormulario}" th:text="${titulo}" method="get" class="exibirCriarMais"></h3>
+        <h3 th:action="@{/detalhesDeFormulario}" th:object="${formulario}" th:text="${formulario.titulo}" method="get" class="exibirCriarMais"></h3>
     </div>
     <hr class="linha">
     <!-- LISTAGEM DE PREGUNTAS -->
@@ -73,10 +75,23 @@
         </div>
     </div>
     <footer>
-        <div th:insert="/pop_up/toggle_ativar_desativar.html" class="btnExcluirForm"></div>
-        <hr>
-        <button th:type="reset" id="btnCancelar" class="btnCancelar"><strong>Cancelar</strong></button>
-        <button th:type="submit" id="btnSalvar" class="btnSalvar"><strong>Salvar</strong></button>
+        <form th:action="@{/alterarFormulario/id}" class="btn" th:object="${formulario}" th:method="post">
+            <input id="estadoInput"
+                   required
+                   th:field="*{estado}"
+                   type="hidden">
+            <button type="button"
+                    class="ativo"
+                    id="ativo_inativo"
+                    th:class="${formulario.estado?'inativo' : 'ativo'}"
+                    th:text="${formulario.estado ?'Inativo' : 'Ativo'}">
+            </button>
+            <hr>
+            <div class="display_botao" >
+                <button th:type="reset" id="btnCancelar" class="btnCancelar"><strong>Cancelar</strong></button>
+                <button th:type="submit" id="btnSalvar" class="btnSalvar"><strong>Salvar</strong></button>
+            </div>
+        </form>
     </footer>
 </div>
 </body>
