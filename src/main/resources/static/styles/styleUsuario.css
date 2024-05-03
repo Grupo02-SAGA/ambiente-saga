@@ -1,7 +1,6 @@
 body{
   width: 100%;
   min-height: 80vh;
-  overflow: hidden;
 }
 
 .top_side{
@@ -21,13 +20,14 @@ main{
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 80vh;
+  height: 100vh;
 }
 
 form.novo_usuario{
   display: flex;
   flex-direction: column;
   width: 80%;
+  height:100%;
 
 }
 ul {
@@ -40,11 +40,15 @@ label.titulo_input{
   margin: .25rem .25rem .25rem 10px;
   color: #0077C8;
   cursor: text;
-  font-family: "Rubik", sans-serif;
 }
 
 li{
   margin-bottom: 3%;
+}
+
+li.estado{
+    display: flex;
+    justify-content: center;
 }
 
 input{
@@ -65,17 +69,12 @@ form.novo_usuario ::placeholder{
 }
 
 .bot_side{
-  margin: 3%;
-  max-width: 100%;
-  min-height: 5%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.img{
-  max-height: 80px;
-  max-width: 70px;
+    max-width: 100%;
+    min-height: 5%;
+    margin-bottom:10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 button{
@@ -89,9 +88,12 @@ button{
   text-align: center;
   line-height: 20px;
 }
+
 .btn{
   display: flex;
 }
+
+
 button.btn_cancelar{
   margin-right: 10px;
   background-color:#FFDBDB;
@@ -105,3 +107,13 @@ button.btn_confirma{
   color: #35B02A;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 6px 0 rgba(0, 0, 0, 0.19);
 }
+
+a.btn-outline-secondary{
+    display: flex;
+    font-size: 14px;
+    margin: .25rem .25rem .25rem 10px;
+    color: #0077C8;
+    cursor: text;
+    font-family: "Rubik", sans-serif;
+    justify-content: flex-end;
+ }
