@@ -1,3 +1,4 @@
 <div class="btn">
-    <button id="ativo_inativo" class="ativo">Ativar</button>
+    <input id="estadoInput" type="hidden" th:field="*{estado}">
+    <button type="button" class="ativo" id="ativo_inativo" th:text="${formulario.estado?'Inativo':'Ativo'}">Ativar</button>
 </div> 

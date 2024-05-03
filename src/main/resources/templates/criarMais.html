@@ -75,8 +75,8 @@
     <footer>
         <div th:insert="/pop_up/toggle_ativar_desativar.html" class="btnExcluirForm"></div>
         <hr>
-        <button id="btnCancelar" class="btnCancelar"><strong>Cancelar</strong></button>
-        <button id="btnSalvar" class="btnSalvar"><strong>Salvar</strong></button>
+        <button th:type="reset" id="btnCancelar" class="btnCancelar"><strong>Cancelar</strong></button>
+        <button th:type="submit" id="btnSalvar" class="btnSalvar"><strong>Salvar</strong></button>
     </footer>
 </div>
 </body>
