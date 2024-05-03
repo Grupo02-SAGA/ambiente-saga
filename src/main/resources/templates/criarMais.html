@@ -75,7 +75,7 @@
         </div>
     </div>
     <footer>
-        <form th:action="@{/alterarFormulario/id}" class="btn" th:object="${formulario}" th:method="post">
+        <form th:action="@{/detalhesDeFormulario/id}" class="btn" th:object="${formulario}" th:method="put">
             <input id="estadoInput"
                    required
                    th:field="*{estado}"
