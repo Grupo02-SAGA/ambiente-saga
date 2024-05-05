@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Empresas</title>
+    <link rel="stylesheet" href="styles/lista_empresas.css">
+</head>
+<body>
+<header>
+    <h1>Lista de Empresas</h1>
+</header>
+<section class="implements">
+    <table class="tableEmpresas">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Fantasia</th>
+            <th>Razão Social</th>
+            <th>CNPJ</th>
+            <th>Email</th>
+            <th>Endereço</th>
+            <th>Telefone</th>
+            <th>Porte</th>
+            <th>Atividade</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Iterar sobre a lista de empresas e exibir cada uma -->
+        <tr th:each="empresa : ${empresas}">
+            <td th:text="${empresa.id_empresa}"></td>
+            <td th:text="${empresa.fantasia}"></td>
+            <td th:text="${empresa.razao_social}"></td>
+            <td th:text="${empresa.cnpj}"></td>
+            <td th:text="${empresa.email}"></td>
+            <td th:text="${empresa.endereco}"></td>
+            <td th:text="${empresa.telefone}"></td>
+            <td th:text="${empresa.porte}"></td>
+            <td th:text="${empresa.atividade}"></td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+</body>
+</html>

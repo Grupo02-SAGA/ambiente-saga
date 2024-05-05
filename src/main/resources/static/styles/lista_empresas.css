@@ -1,0 +1,96 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #f2f2f2;
+    padding: 20px;
+    text-align: center;
+}
+
+.topSide {
+    display: flex;
+    align-items: center;
+}
+
+.topSide img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+h3 {
+    margin: 0;
+}
+
+.implements {
+    margin: 20px auto;
+    width: 80%;
+}
+
+.search {
+    margin-bottom: 20px;
+}
+
+.search input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.tableEmpresas {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tableEmpresas th, .tableEmpresas td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.tableEmpresas th {
+    background-color: #f2f2f2;
+}
+
+.buttomCriar {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.buttonCriar a {
+    text-decoration: none;
+    color: white;
+    display: inline-block;
+    padding: 10px 20px;
+}
+
+.buttonCriar a:hover {
+    background-color: #45a049;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+}
+
+.button {
+    background-color: #008CBA;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    padding: 10px 20px;
+}
+
+.button:hover {
+    background-color: #005f79;
+}

@@ -9,11 +9,26 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
+import java.util.List;
+
 @Controller
 public class EmpresaController {
 
     @Autowired
     private RepositoryEmpresa repositoryEmpresa;
+
+    @GetMapping("/lista_empresas")
+    public ModelAndView listaEmpresas() {
+        List<Empresa> empresas = listarEmpresas();
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("lista_empresas");
+        modelAndView.addObject("empresas", empresas);
+        return modelAndView;
+    }
+
+    public List<Empresa> listarEmpresas() {
+        return repositoryEmpresa.findAll();
+    }
 
     @GetMapping("/register")
     public ModelAndView modelAndView(){
