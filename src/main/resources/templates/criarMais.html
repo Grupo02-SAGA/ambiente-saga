@@ -29,7 +29,7 @@
         </div>
     </div>
     <div>
-        <button>REMOVER PERGUNTA</button>
+        <div class="pRemover"><a><img alt="" th:src="@{/images/X.png}" width="40"></a></div>
         <!--            <div class="pRemover"><a th:href="@{${idFormulario}+'/pergunta/'+ ${pergunta.id_pergunta} + '/atualizar-ativo}'}">-->
         <!--                <img alt="" src="/static/images/X.png" th:src="@{/images/X.png}" width="40"></a>-->
     </div>
@@ -40,7 +40,8 @@
         <div class="pTitulo">
             <form th:action="@{/detalhesDeFormulario/{id}}" method="post">
                 <input type="hidden" name="formularioId" th:value="${formularioId}">
-                <input type="text" name="titulo" required>
+                <input type="text" name="titulo" placeholder="Digite aqui sua nova pergunta" class="inputPergunta" required>
+                <hr>
                 <div class="buttons">
                     <table>
                         <tr>
@@ -57,7 +58,6 @@
             </form>
         </div>
     </div>
-    <hr>
 </div>
 <footer>
     <button class="btnExcluirForm">Excluir formulário</button>
