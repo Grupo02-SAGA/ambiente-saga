@@ -1,20 +1,20 @@
 document.addEventListener("DOMContentLoaded", function() {
 
-    const searchInput = document.getElementById('searchInput'); // pega o que o usuário digitar
-    const tableRows = document.querySelectorAll('.listaEmpresa');
-
-    // toda vez que digitar, dispara isso
+    const searchInput = document.getElementById('searchInput');//pega o que o usuário digitar
+    const tableRows = document.querySelectorAll('.listaForm')
+    //toda vez que digitar dispara isso
     searchInput.addEventListener('input', function() {
 
-        const searchText = this.value.toLowerCase(); // pega o texto digitado pelo usuário em minúsculas
+        const searchText = this.value.toLowerCase();//pega a
 
         tableRows.forEach(function(row) {
-            const rowData = row.innerText.toLowerCase(); // pega o texto de cada linha em minúsculas
+            const rowData = row.innerText.toLowerCase(); // Pega o innerText de cada linha
+            console.log(rowData);
 
             if (rowData.includes(searchText)) {
-                row.style.display = ''; // mostra a linha se o texto estiver presente
+                row.style.display = '';
             } else {
-                row.style.display = 'none'; // oculta a linha se o texto não estiver presente
+                row.style.display = 'none';
             }
         });
     });
