@@ -1,6 +1,6 @@
 name: "👾 BUG | FIX"
 description: "Alterações e correções de bugs encontrados"
-title: "FEAT: "
+title: "FIX: "
 body:
   - type: textarea
     id: description
