@@ -14,6 +14,16 @@ body{
     justify-content: center;
     background-color: #FFFF;
   }
+
+  .box_input{
+    width: 90%;
+    height: 80%;
+    padding-top: 10%;
+    padding-bottom: 25%;
+    display: flex;
+    justify-content: center;
+  }
+  
   
   .top_side{
     width: 100%;
@@ -92,32 +102,48 @@ body{
   
   button{
     cursor: pointer;
-    height: 25px;
+    height: 35px;
     width: 150px;
     border: none;
-    border-radius: 10px;
+    border-radius: 5px;
     font-size: 14px;
     font-weight: bold;
     text-align: center;
     line-height: 20px;
   }
+
+  button.buttonReturn{
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    height: 35px;
+    width: 55px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 20px;
+    margin-left: 10px;
+    background-color: #4D7CFE;
+    color: #FFFF;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 6px 0 rgba(0, 0, 0, 0.19);
+  }
   
   .btn{
+    padding-top: 15%;
     display: flex;
   }
   
-  
-  button.btn_cancelar{
-    margin-right: 10px;
-    background-color:#FFDBDB;
-    color: #B0522A;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 6px 0 rgba(0, 0, 0, 0.19);
+  .btn_recuperaSenha{
+    padding-top: 5%;
+    display: flex;
   }
   
   button.btn_confirma{
     margin-left: 10px;
-    background-color: #DBFFDC;
-    color: #35B02A;
+    background-color: #4D7CFE;
+    color: #FFFF;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 6px 0 rgba(0, 0, 0, 0.19);
   }
   
@@ -135,3 +161,22 @@ body{
       display: none;
       color: #B0522A;
   }
+
+  h3.loginText{
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 15px;
+  }
+
+  a.esqueceuSenha{
+    display: flex;
+    justify-content: flex-end;
+    font-size: 12px;
+  }
+
+
+ul.buttonUlReturn{
+  display: flex;
+  justify-content: flex-start;
+}
