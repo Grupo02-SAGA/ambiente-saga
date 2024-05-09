@@ -27,8 +27,14 @@
     <table class="tableForm">
         <thead>
         <tr class="buttomCriar">
+<!--            <td>-->
+<!--                <a th:href="@{detalhesDeFormulario/null}" class="linkCriar"> <h3> Criar+ </h3></a>-->
+<!--            </td>-->
             <td>
-                <a th:href="@{detalhesDeFormulario/null}" class="linkCriar"> <h3> Criar+ </h3></a>
+                <form action="/lista_forms_base" method="post">
+                    <input type="text" th:name="titulo" placeholder="Nome do formulário" required>
+                    <button type="submit">Salvar</button>
+                </form>
             </td>
         </tr>
         </thead>
