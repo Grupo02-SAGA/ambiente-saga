@@ -65,9 +65,17 @@ public class UsuarioController {
         return new RedirectView("/editarUsuario/" + usuario.getId_usuario());
     }
 
+    public List<Usuario> findAllUsuarios(){
+        return repositoryUsuario.findAll();
+    }
 
-
-
-
+    @Autowired
+    @GetMapping("/lista_usuarios")
+    public ModelAndView lista_usuarios() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("lista_usuarios");
+        modelAndView.addObject("usuarios", findAllUsuarios());
+        return modelAndView;
+    }
 
 }

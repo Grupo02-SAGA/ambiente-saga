@@ -1,17 +1,3 @@
-//// Função para comparar as senhas
-//function validarSenha() {
-//    var senha = document.getElementById("senha").value;
-//    var confirmSenha = document.getElementById("confirmSenha").value;
-//
-//    // Verificar se as senhas são iguais
-//    if (senha !== confirmSenha) {
-//        alert("As senhas não coincidem. Por favor, insira senhas iguais.");
-//        return false; // Impede o envio do formulário
-//    }
-//    return true; // Permite o envio do formulário se as senhas forem iguais
-//}
-
-// Função para comparar as senhas
 function validarSenha() {
     var senha = document.getElementById("senha").value;
     var confirmSenha = document.getElementById("confirmSenha").value;
