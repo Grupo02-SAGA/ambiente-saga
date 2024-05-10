@@ -13,14 +13,10 @@
 <img class="logo" src="../static/images/logo_transparente.png" alt="logo_empresa"/>
 </div>
 <main>
-
-<div class="box_center">
+<div class="box_center_recuperaS">
 <div>
-<ul class="buttonUlReturn">
-    <li>
-        <a href="../templates/login.html"><img src="../static/images/left.png" alt="Retornar"></a>
-    </li>
-</ul>
+<th>
+<a href="../templates/login.html" class="buttonUlReturn"><img src="../static/images/left.png" alt="Retornar"></a></th>
 <div class="box_input">
 <form id="formulario" th:action="@{/novoUsuario}" th:object="${usuario}" method="post" class="novo_usuario">
 <ul>
@@ -31,31 +27,31 @@
 <li>
 <label class="titulo_input">E-mail</label>
 <input
-    type="email"
-    th:field="*{email}"
-    placeholder="saga@grupo2biopark.com.br"
-    required
+type="email"
+th:field="*{email}"
+placeholder="E-mail"
+required
 />
 </li>
 <li>
 <label class="titulo_input">Nova Senha</label>
 <input
-    id="senha"
-    type="password"
-    th:field="*{senha}"
-    placeholder="Senha"
-    required
+id="senha"
+type="password"
+th:field="*{senha}"
+placeholder="Senha"
+required
 />
 </li>
 
 <li>
 <label class="titulo_input">Confirmar Nova Senha</label>
 <input
-    id="senha"
-    type="password"
-    th:field="*{senha}"
-    placeholder="Senha"
-    required
+id="senha"
+type="password"
+th:field="*{senha}"
+placeholder="Senha"
+required
 />
 </li>
 </ul>

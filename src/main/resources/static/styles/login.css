@@ -6,8 +6,18 @@ body{
   }
 
   .box_center{
-    width: 75%;
-    height: 75%;
+    width: 65%;
+    height: 60%;
+    padding: .5rem;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    background-color: #FFFF;
+  }
+
+  .box_center_recuperaS{
+    width: 65%;
+    height: 70%;
     padding: .5rem;
     border-radius: 25px;
     display: flex;
@@ -176,7 +186,10 @@ body{
   }
 
 
-ul.buttonUlReturn{
-  display: flex;
+.box_center .buttonUlReturn{
+  justify-content: flex-start;
+}
+
+.buttonUlReturn:not(.box_center){
   justify-content: flex-start;
 }
