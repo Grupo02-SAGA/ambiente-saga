@@ -35,9 +35,9 @@
             </td>
             <td>
                 <div class="button-container">
-                    <a href="#">
+                    <a th:href="@{'/editarEmpresa/'+ ${empresa.id_empresa}}">
 
-                        <button onclick="handleButtonClick()" class="button"> </button>
+                        <button onclick="handleButtonClick('${empresa.fantasia}')" class="button"> </button>
                     </a>
                 </div>
             </td>
