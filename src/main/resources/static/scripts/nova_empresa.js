@@ -13,7 +13,7 @@ button_cancel_form.addEventListener("click", () => {
 });
 
 const redirecionar_pagina = () => {
-    return location.href = "/register";
+    return location.href = "/lista_empresas";
 };
 
 if (button_sim_popup) {
