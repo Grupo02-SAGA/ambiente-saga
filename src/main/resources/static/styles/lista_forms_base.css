@@ -112,6 +112,11 @@ h3{
     font-weight: medium;
     font-size: 14px;
     text-decoration: none;
+    background-color: white;
+    border: none;
+    width: 285px;
+    height: 60px;
+    cursor: pointer;
 }
 
 .tableBody{
@@ -132,3 +137,11 @@ h3{
      border: none;
      padding: 0;
  }
+
+ form{
+     display: none;
+ }
+
+.expandir {
+    display: block;
+}

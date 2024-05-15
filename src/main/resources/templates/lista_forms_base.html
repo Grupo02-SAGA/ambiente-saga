@@ -27,16 +27,17 @@
     <table class="tableForm">
         <thead>
         <tr class="buttomCriar">
-<!--            <td>-->
-<!--                <a th:href="@{detalhesDeFormulario/null}" class="linkCriar"> <h3> Criar+ </h3></a>-->
-<!--            </td>-->
             <td>
-                <form action="/lista_forms_base" method="post">
-                    <input type="text" th:name="titulo" placeholder="Nome do formulário" required>
-                    <input type="hidden" th:name="base" value="true"/>
-                    <input type="hidden" th:name="estado" value="true"/>
-                    <button type="submit">Salvar</button>
-                </form>
+            <td>
+            <form action="/lista_forms_base" method="post" id="form">
+                <input type="text" th:name="titulo" placeholder="Nome do formulário" required/>
+                <input type="hidden" th:name="base" value="true"/>
+                <input type="hidden" th:name="estado" value="true"/>
+                <button type="submit">Salvar</button>
+            </form>
+            </td>
+            <td>
+                <button class="linkCriar" id="btnIniciar"><h3> Criar+ </h3></button>
             </td>
         </tr>
         </thead>
@@ -60,6 +61,7 @@
 </section>
 
     <script src="scripts/buscaFormularioBase.js" ></script>
+    <script src="scripts/botaoCriarMais.js"></script>
 
 </body>
 </html>
