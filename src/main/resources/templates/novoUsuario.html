@@ -16,6 +16,7 @@
     </header>
     <main>
       <form id="formulario" th:action="@{/novoUsuario}" th:object="${usuario}" method="post" class="novo_usuario">
+        <input type="hidden" name="estado" th:value="${true}" />
         <ul>
           <li>
             <label class="titulo_input">Primeiro nome</label>

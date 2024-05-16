@@ -6,7 +6,6 @@ const button_nao_popup = document.getElementById("cancelar_fragmento");
 const button_confirmar_popup = document.getElementById("btn_confirmar_fragmento");
 const fade_fundo_confirmar = document.getElementById("fade_confirmar");
 const body_popup_confirmar = document.getElementById("popup_confirmacao");
-
 const togglePopup = () => {
     [popup, fade_fundo].forEach((el) => el.classList.toggle("hide"));
 };

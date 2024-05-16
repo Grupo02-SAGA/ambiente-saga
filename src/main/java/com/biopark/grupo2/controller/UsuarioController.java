@@ -35,10 +35,6 @@ public class UsuarioController {
         return new RedirectView("/novoUsuario");
     }
 
-    public List<Usuario> forms_base(){
-        return repositoryUsuario.findAll();
-    }
-
     @GetMapping("/editarUsuario/{id}")
     public ModelAndView getUsuarioById(@PathVariable Long id) {
         ModelAndView modelAndView = new ModelAndView();
@@ -48,7 +44,6 @@ public class UsuarioController {
                 .orElseThrow(() -> new IllegalArgumentException("Usuário não encontrado com o ID: " + id));
         // Adicionar o usuário ao modelo
         modelAndView.addObject("usuario", usuario);
-        modelAndView.addObject("senha", usuario.getSenha());
         return modelAndView;
     }
 

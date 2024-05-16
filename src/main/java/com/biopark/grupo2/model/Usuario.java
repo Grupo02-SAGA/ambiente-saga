@@ -25,3 +25,5 @@ public class Usuario {
     private String telefone;
     private boolean estado;
 }
+
+

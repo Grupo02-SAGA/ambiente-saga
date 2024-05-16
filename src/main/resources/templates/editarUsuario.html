@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" media="all" href="/styles/reset.css"/>
     <link rel="stylesheet" type="text/css" media="all" href="/styles/styleUsuario.css"/>
     <link rel="stylesheet" type="text/css" media="all" href="/styles/toggle_ativar_desativar.css"/>
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.7/css/dataTables.dataTables.css" />
 </head>
 <body>
     <section th:if="${condition}" th:insert="/pop_up/popup_confirmacao.html"></section>
@@ -103,16 +104,20 @@
                     <a class="btn btn-outline-secondary" id="toggleSenha">Mostrar Senha</a>
                     <p class="confereSenha">As senhas não conferem!</p>
                 </li>
+
                 <li class = "estado">
+
                     <input  id="estadoInput"
                             required
                             type="hidden"
                             th:field="*{estado}">
+
                     <button id="ativo_inativo"
                             type="button"
                             th:class="${usuario.estado? 'ativo':'inativo'}"
                             th:text="${usuario.estado? 'Ativo':'Inativo'}"></button>
                 </li>
+
             </ul>
             <section class="bot_side">
                 <div class="btn">
@@ -127,5 +132,6 @@
     <script src="/scripts/popup_confirmacao.js" defer></script>
     <script src="/scripts/esconder_senha.js"></script>
     <script src="/scripts/statusUsuario.js"></script>
+    <script src="https://cdn.datatables.net/2.0.7/js/dataTables.js"></script>
 </body>
 </html>
