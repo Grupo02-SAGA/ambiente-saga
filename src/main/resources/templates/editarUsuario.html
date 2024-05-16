@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" type="image/x-icon" href="/images/logo-transparente.png"/>
+    <title>SAGA - Editar Usuário</title>
+    <link rel="stylesheet" type="text/css" media="all" href="/styles/reset.css"/>
+    <link rel="stylesheet" type="text/css" media="all" href="/styles/styleUsuario.css"/>
+    <link rel="stylesheet" type="text/css" media="all" href="/styles/toggle_ativar_desativar.css"/>
+</head>
+<body>
+<section th:if="${condition}" th:insert="/pop_up/popup_confirmacao.html"></section>
+<section th:insert="/pop_up/popup_cancelar.html" id="fragmento_popup_cancelar"></section>
+<header class="top_side">
+    <img class="logo" src="/images/logo.jpeg" alt="logo_empresa"/>
+</header>
+<main>
+    <form id="formulario" th:action="@{/editarUsuario}" th:object="${usuario}" method="post" class="novo_usuario">
+        <!--Esse aqui guarda o id pra mandar pra o banco trocar od dados -->
+        <input type="hidden" th:field="*{id_usuario}" />
+        <ul>
+            <li>
+                <label class="titulo_input">Primeiro nome</label>
+                <input
+                        type="text"
+                        th:field="*{nome}"
+                        placeholder="Primeiro nome"
+                        maxlength="45"
+                        required
+                />
+            </li>
+            <li>
+                <label class="titulo_input">Sobrenome</label>
+                <input
+                        type="text"
+                        th:field="*{sobrenome}"
+                        placeholder="Sobrenome"
+                        required
+                        maxlength="45"
+                />
+            </li>
+            <li>
+                <label class="titulo_input">CPF</label>
+                <input
+                        type="number"
+                        th:field="*{cpf}"
+                        placeholder="Ex: 000.000.000-00"
+                        required
+                        maxlength="11"
+                />
+            </li>
+            <li>
+                <label class="titulo_input">E-mail</label>
+                <input
+                        type="email"
+                        th:field="*{email}"
+                        placeholder="saga@grupo2biopark.com.br"
+                        required
+                        maxlength="45"
+                />
+            </li>
+            <li>
+                <label class="titulo_input">Cidade</label>
+                <input
+                        type="text"
+                        th:field="*{cidade}"
+                        placeholder="Ex: Toledo"
+                        required
+                        maxlength="45"
+                />
+            </li>
+            <li>
+                <label class="titulo_input">Telefone</label>
+                <input
+                        type="tel"
+                        th:field="*{telefone}"
+                        placeholder="Ex: (45) 9 99999-9999"
+                        required
+                        maxlength="20"
+                />
+            </li>
+            <li>
+                <label class="titulo_input">Senha</label>
+                <input
+                        id = "senha"
+                        type="text"
+                        placeholder="Senha"
+                        th:value="${senha}"
+                        th:field="*{senha}"
+                        required
+                        maxlength="45"
+                />
+            <li>
+                <label class="titulo_input">Confirma senha</label>
+                <input
+                        id = "confirmSenha"
+                        type="text"
+                        placeholder="Confirma senha"
+                        required
+                        maxlength="45"
+                />
+                <a class="btn btn-outline-secondary" id="toggleSenha">Mostrar Senha</a>
+                <p class="confereSenha">As senhas não conferem!</p>
+            </li>
+            <li class = "estado">
+                <input  id="estadoInput"
+                        required
+                        type="hidden"
+                        th:field="*{estado}">
+                <button id="ativo_inativo"
+                        type="button"
+                        th:class="${usuario.estado? 'ativo':'inativo'}"
+                        th:text="${usuario.estado? 'Ativo':'Inativo'}"></button>
+            </li>
+        </ul>
+        <section class="bot_side">
+            <div class="btn">
+                <button id="cancel_form" type="button" class="btn_cancelar">Cancelar</button>
+                <button id="confirm_form" type="submit" class="btn_confirma">Confirmar</button>
+            </div>
+        </section>
+    </form>
+</main>
+<script src="/scripts/compara_senha.js"></script>
+<script src="/scripts/novo_usuario.js" defer></script>
+<script src="/scripts/popup_confirmacao.js" defer></script>
+<script src="/scripts/esconder_senha.js"></script>
+<script src="/scripts/statusUsuario.js"></script>
+</body>
+</html>

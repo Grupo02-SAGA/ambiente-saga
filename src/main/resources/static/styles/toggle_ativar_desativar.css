@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 div.btn{
     padding: 0;
 }
+
 button.ativo{
     width: 120px;
     padding: 1rem 3.125rem;
@@ -14,7 +14,7 @@ button.ativo{
     line-height: .20rem;
     font-weight: bold;
     font-family: "Rubik", sans-serif;
-    font-size: 1.5rem;
+    font-size: 14px;
     opacity: 0.8;
     transition: .3s;
 }
@@ -31,7 +31,7 @@ button.inativo{
     line-height: .20rem;
     font-weight: bold;
     font-family: "Rubik", sans-serif;
-    font-size: 1.5rem;
+    font-size: 14px;
     opacity: 0.8;
     transition: .3s;
 }

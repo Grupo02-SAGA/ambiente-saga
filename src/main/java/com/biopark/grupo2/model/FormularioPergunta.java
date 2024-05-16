@@ -1,8 +1,8 @@
 package com.biopark.grupo2.model;
 
 import jakarta.persistence.*;
-import lombok.*;
 
+import lombok.*;
 
 @Table(name = "Formulario_Pergunta")
 @Entity(name = "formulario_Pergunta")
@@ -10,7 +10,7 @@ import lombok.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Formulario_Pergunta {
+public class FormularioPergunta {
     @Id
     @ManyToOne
     @JoinColumn(name = "id_formulario")

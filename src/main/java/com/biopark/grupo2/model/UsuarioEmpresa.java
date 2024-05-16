@@ -1,10 +1,9 @@
 package com.biopark.grupo2.model;
 
 import jakarta.persistence.*;
-
 @Entity
 @Table(name = "Usuario_empresa")
-public class Usuario_Empresa {
+public class UsuarioEmpresa {
     @Id
     @ManyToOne
     @JoinColumn(name = "id_usuario")
@@ -15,10 +14,10 @@ public class Usuario_Empresa {
     @JoinColumn(name = "id_empresa")
     private Empresa id_empresa;
 
-    public Usuario_Empresa() {
+    public UsuarioEmpresa() {
     }
 
-    public Usuario_Empresa(Usuario id_usuario, Empresa id_empresa) {
+    public UsuarioEmpresa(Usuario id_usuario, Empresa id_empresa) {
         this.id_usuario = id_usuario;
         this.id_empresa = id_empresa;
     }
