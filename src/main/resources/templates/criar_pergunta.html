@@ -1,0 +1,33 @@
+<form th:action="@{/detalhes_formulario/criar_pergunta}" th:object="${pergunta}" method="post">
+  <input
+          name="idFormulario"
+          th:value="${idFormulario}">
+  <input
+          required
+          th:field="*{estado}"
+          th:value="${estado eq false ? 'false' : 'true'}">
+  <input
+          required
+          th:field="*{documento}"
+          type="hidden">
+  <input
+          type="text"
+          th:field="*{titulo}"
+          placeholder="Digite aqui sua nova pergunta"
+          class="inputPergunta"
+          required>
+  <div>
+    <table>
+      <tr>
+        <td>
+          <div class="cancelar">
+            <a href="#"> <img src="/images/X.png" alt="icone_x_vermelho"></a>
+          </div>
+        </td>
+        <td>
+          <button th:type="submit" class="salvar"> Salvar</button>
+        </td>
+      </tr>
+    </table>
+  </div>
+</form>

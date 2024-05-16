@@ -2,6 +2,8 @@ package com.biopark.grupo2.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Table(name = "formulario")
 @Entity(name = "formulario")
 @Getter
@@ -16,4 +18,7 @@ public class Formulario {
     private String titulo;
     private Boolean base;
     private Boolean estado;
+
+    @OneToMany(mappedBy = "formulario", cascade = CascadeType.ALL)
+    private List<Pergunta> perguntas;
 }
