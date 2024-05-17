@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" type="image/x-icon" href="/images/logo-transparente.png"/>
+    <link rel="shortcut icon" type="image/x-icon" href="/images/logo_transparente.png"/>
     <title>SAGA - Editar Usuário</title>
     <link rel="stylesheet" type="text/css" media="all" href="/styles/reset.css"/>
     <link rel="stylesheet" type="text/css" media="all" href="/styles/styleUsuario.css"/>
@@ -13,7 +13,7 @@
 <section th:if="${condition}" th:insert="/pop_up/popup_confirmacao.html"></section>
 <section th:insert="/pop_up/popup_cancelar.html" id="fragmento_popup_cancelar"></section>
 <header class="top_side">
-    <img class="logo" src="/images/logo.jpeg" alt="logo_empresa"/>
+    <img class="logo" src="/images/logo_transparente.png" alt="logo_empresa"/>
 </header>
 <main>
     <form id="formulario" th:action="@{/editarUsuario}" th:object="${usuario}" method="post" class="novo_usuario">
@@ -122,10 +122,10 @@
         </section>
     </form>
 </main>
-<script src="/scripts/compara_senha.js"></script>
+<script src="/scripts/compara_senha.js" defer></script>
 <script src="/scripts/novo_usuario.js" defer></script>
 <script src="/scripts/popup_confirmacao.js" defer></script>
-<script src="/scripts/esconder_senha.js"></script>
-<script src="/scripts/statusUsuario.js"></script>
+<script src="/scripts/esconder_senha.js" defer></script>
+<script src="/scripts/statusUsuario.js" defer></script>
 </body>
 </html>
