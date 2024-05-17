@@ -8,7 +8,6 @@
   <link rel="stylesheet" type="text/css" media="all" href="/styles/reset.css"  />
   <link rel="stylesheet" type="text/css" media="all" href="/styles/style_empresa.css" />
   <script src="/scripts/nova_empresa.js" defer></script>
-  <script src="/scripts/popup_confirmacao.js" defer></script>
 </head>
 <body>
   <section th:if="${condition}" th:insert="/pop_up/popup_confirmacao.html"></section>
@@ -18,6 +17,7 @@
   </header>
   <main>
     <form th:action="@{/register}" th:object="${empresa}" method="post" class="nova_empresa">
+      <input type="hidden" name="estado" th:value="${true}" />
       <ul>
         <li>
           <label class="titulo_input">Nome Fantasia</label>
@@ -108,6 +108,7 @@
           <button id="confirm_form"type="submit" class="btn_confirma">Confirmar</button>
         </div>
       </section>
+
     </form>
   </main>
 </body>

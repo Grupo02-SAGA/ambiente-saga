@@ -43,6 +43,10 @@ label.titulo_input{
 li{
   margin-bottom: 3%;
 }
+li.estado{
+  display: flex;
+  justify-content: center;
+}
 
 input{
   outline: unset;
@@ -82,9 +86,9 @@ form.nova_empresa ::placeholder{
 }
 
 .bot_side{
-  margin: 3%;
   max-width: 100%;
   min-height: 5%;
+  margin-bottom:10px;
   display: flex;
   justify-content: center;
   align-items: center;

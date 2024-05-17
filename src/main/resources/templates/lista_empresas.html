@@ -32,12 +32,13 @@
         <tr th:each="empresa : ${empresas}" data-form="${empresa.fantasia}" class="listaForm">
             <td>
                 <div th:text="${empresa.fantasia}"></div>
+
             </td>
             <td>
                 <div class="button-container">
-                    <a href="#">
+                    <a th:href="@{'/editarEmpresa/'+ ${empresa.id_empresa}}">
 
-                        <button onclick="handleButtonClick()" class="button"> </button>
+                        <button onclick="handleButtonClick('${empresa.fantasia}')" class="button"> </button>
                     </a>
                 </div>
             </td>
