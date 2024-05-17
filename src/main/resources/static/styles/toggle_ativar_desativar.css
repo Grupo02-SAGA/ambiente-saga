@@ -2,7 +2,7 @@ div.btn{
     padding: 0;
 }
 
-button.ativo{
+.ativo{
     width: 120px;
     background-color: #DBFFDC;
     cursor: pointer;
@@ -10,14 +10,16 @@ button.ativo{
     color: #35B02A;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 6px 0 rgba(0, 0, 0, 0.19);
     border-radius: .75rem;
+    text-align: center;
     line-height: .20rem;
     font-weight: bold;
+    font-family: "Rubik", sans-serif;
     font-size: 14px;
     opacity: 0.8;
     transition: .3s;
 }
 
-button.inativo{
+.inativo{
     width: 120px;
     background-color:#FFDBDB;
     cursor: pointer;
@@ -27,6 +29,7 @@ button.inativo{
     border-radius: .75rem;
     line-height: .20rem;
     font-weight: bold;
+    text-align: center;
     font-family: "Rubik", sans-serif;
     font-size: 14px;
     opacity: 0.8;
