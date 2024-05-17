@@ -103,6 +103,27 @@ h3{
     border-color: rgba(0, 118, 199, 1);
     border-width: thin;
     text-align: center;
+    .btnAdicionar{
+        background-color: white;
+        padding-left: 5px;
+        padding-right: 5px;
+        background-color: rgba(0, 118, 199, 1);
+        border-radius: 360px;
+        color: white;
+        border: none;
+        width: 57px;
+        height: 25px;
+        cursor: pointer;
+        margin-left: 5px;
+    }
+    .inptForm{
+        width: 200px;
+        border-left: none;
+        border-right: none;
+        border-top: none;
+        border-color: rgba(0, 118, 199, 1);
+        padding-left: 5px;
+    }
 }
 
 .linkCriar{
@@ -112,6 +133,11 @@ h3{
     font-weight: medium;
     font-size: 14px;
     text-decoration: none;
+    background-color: white;
+    border: none;
+    width: 285px;
+    height: 60px;
+    cursor: pointer;
 }
 
 .tableBody{
@@ -132,3 +158,11 @@ h3{
      border: none;
      padding: 0;
  }
+
+ form{
+     display: none;
+ }
+
+.expandir {
+    display: block;
+}
