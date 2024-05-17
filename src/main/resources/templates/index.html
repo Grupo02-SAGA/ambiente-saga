@@ -6,13 +6,19 @@
     <title>Home</title>
     <title>SAGA - Editar Usuário</title>
     <link rel="stylesheet" type="text/css" media="all" href="/styles/index.css"/>
+    <link rel="stylesheet" href="/styles/style_sidebar.css">
+    <script src="/scripts/sidebar.js" defer></script>
 </head>
 <body>
-    <a href="/index" class="logout">LogOut</a>
     <header class="top_side">
+      <div class="div-header">
         <img src="/images/logo-transparente.png" alt="" class="logo">
+      </div>
+        <div class="logo-menu" onclick="clickmenu()"><img src="/images/menu_hamburger.png" alt=""></div>
     </header>
+        <nav th:insert="/pop_up/sidebar.html" id="fragmento_sidebar"></nav>
     <main>
+
         <a href="/lista_usuarios" class="botao">Usuários</a>
         <a href="/lista_empresas" class="botao">Empresas</a>
         <a href="/lista_forms_base" class="botao">Formulários Base</a>
