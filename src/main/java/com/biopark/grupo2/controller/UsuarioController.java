@@ -35,10 +35,6 @@ public class UsuarioController {
         return new RedirectView("/novoUsuario");
     }
 
-    public List<Usuario> forms_base(){
-        return repositoryUsuario.findAll();
-    }
-
     @GetMapping("/editarUsuario/{id}")
     public ModelAndView getUsuarioById(@PathVariable Long id) {
         ModelAndView modelAndView = new ModelAndView();
@@ -48,7 +44,6 @@ public class UsuarioController {
                 .orElseThrow(() -> new IllegalArgumentException("Usuário não encontrado com o ID: " + id));
         // Adicionar o usuário ao modelo
         modelAndView.addObject("usuario", usuario);
-        modelAndView.addObject("senha", usuario.getSenha());
         return modelAndView;
     }
 
@@ -65,9 +60,17 @@ public class UsuarioController {
         return new RedirectView("/editarUsuario/" + usuario.getId_usuario());
     }
 
+    public List<Usuario> findAllUsuarios(){
+        return repositoryUsuario.findAll();
+    }
 
-
-
-
+    @Autowired
+    @GetMapping("/lista_usuarios")
+    public ModelAndView lista_usuarios() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("lista_usuarios");
+        modelAndView.addObject("usuarios", findAllUsuarios());
+        return modelAndView;
+    }
 
 }
