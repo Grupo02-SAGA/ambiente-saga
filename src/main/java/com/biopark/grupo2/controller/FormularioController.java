@@ -31,10 +31,9 @@ public class FormularioController {
         Formulario formularioSalvo = repositoryFormulario.save(formulario);
         attributes.addFlashAttribute("condition", "cadastro-ok");
         Long idFormulario = formularioSalvo.getId_formulario();
-        return new RedirectView("/detalhesDeFormulario/" + idFormulario);
+        return new RedirectView("/detalhes_formulario/" + idFormulario);
     }
     public List<Formulario> forms_base(){
-
         return repositoryFormulario.findAll();
     }
 
