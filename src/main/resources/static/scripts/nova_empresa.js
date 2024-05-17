@@ -16,15 +16,9 @@ button_cancel_form.addEventListener("click", () => {
     togglePopup();
 });
 
-<<<<<<< HEAD
-//coloca o nome da sua lista aqui!!
-const redirecionar_pagina = () => {
-    return location.href = "/lista_forms_base";
-=======
 
 const redirecionar_pagina = () => {
     return location.href = "/lista_empresas";
->>>>>>> cbf934332ee7c5f039b0f1538445d8f95da8d93c
 };
 
 if (button_sim_popup) {
@@ -41,14 +35,9 @@ if (button_nao_popup) {
 ///confirmação
 if (button_confirmar_popup){
     button_confirmar_popup.addEventListener("click", () => {
-<<<<<<< HEAD
     fade_fundo_confirmar.style.display = 'none';
     body_popup_confirmar.style.display = 'none';
     redirecionar_pagina();
-=======
-        fade_fundo_confirmar.style.display = 'none';
-        body_popup_confirmar.style.display = 'none';
-        redirecionar_pagina();
->>>>>>> cbf934332ee7c5f039b0f1538445d8f95da8d93c
+
     });
 }
