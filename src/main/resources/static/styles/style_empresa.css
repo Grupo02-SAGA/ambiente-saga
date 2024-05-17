@@ -1,7 +1,6 @@
 body{
   width: 100%;
   min-height: 80vh;
-  overflow: hidden;
 }
 
 .top_side{
@@ -21,7 +20,6 @@ main{
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
 }
 
 form.nova_empresa{
@@ -44,6 +42,10 @@ label.titulo_input{
 
 li{
   margin-bottom: 3%;
+}
+li.estado{
+  display: flex;
+  justify-content: center;
 }
 
 input{
@@ -84,9 +86,9 @@ form.nova_empresa ::placeholder{
 }
 
 .bot_side{
-  margin: 3%;
   max-width: 100%;
   min-height: 5%;
+  margin-bottom:10px;
   display: flex;
   justify-content: center;
   align-items: center;

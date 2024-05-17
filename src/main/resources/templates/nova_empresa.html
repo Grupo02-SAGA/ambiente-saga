@@ -8,7 +8,6 @@
   <link rel="stylesheet" type="text/css" media="all" href="/styles/reset.css"  />
   <link rel="stylesheet" type="text/css" media="all" href="/styles/style_empresa.css" />
   <script src="/scripts/nova_empresa.js" defer></script>
-  <script src="/scripts/popup_confirmacao.js" defer></script>
 </head>
 <body>
   <section th:if="${condition}" th:insert="/pop_up/popup_confirmacao.html"></section>
@@ -18,6 +17,7 @@
   </header>
   <main>
     <form th:action="@{/register}" th:object="${empresa}" method="post" class="nova_empresa">
+      <input type="hidden" name="estado" th:value="${true}" />
       <ul>
         <li>
           <label class="titulo_input">Nome Fantasia</label>
@@ -26,6 +26,7 @@
             th:field="*{fantasia}"
             placeholder="Ex: SAGA S/A"
             required
+            maxlength="45"
           />
         </li>
         <li>
@@ -35,6 +36,7 @@
             th:field="*{razao_social}"
             placeholder="Ex: Grupo SAGA"
             required
+            maxlength="45"
           />
         </li>
         <li>
@@ -44,6 +46,7 @@
             th:field="*{cnpj}"
             placeholder="Ex: 99.999.999/0001-99"
             required
+            maxlength="45"
           />
         </li>
         <li>
@@ -53,15 +56,17 @@
             th:field="*{email}"
             placeholder="saga@grupo2biopark.com.br"
             required
+            maxlength="45"
           />
         </li>
         <li>
-          <label class="titulo_input">Endereço</label>
+          <label class="titulo_input">Cidade</label>
           <input
             type="text"
             th:field="*{endereco}"
-            placeholder="Ex: Rua Biopark"
+            placeholder="Ex: Toledo"
             required
+            maxlength="45"
           />
         </li>
         <li>
@@ -71,6 +76,7 @@
             th:field="*{telefone}"
             placeholder="Ex: (45) 9 9999-9999"
             required
+            maxlength="45"
           />
         </li>
         <li>
@@ -102,6 +108,7 @@
           <button id="confirm_form"type="submit" class="btn_confirma">Confirmar</button>
         </div>
       </section>
+
     </form>
   </main>
 </body>
