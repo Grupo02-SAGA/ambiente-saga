@@ -1,72 +1,65 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="shortcut icon" type="image/x-icon" href="../static/images/logo-transparente.png"/>
-<title>SAGA - Login</title>
-<link rel="stylesheet" type="text/css" media="all" href="../static/styles/reset.css"  />
-<link rel="stylesheet" type="text/css" media="all" href="../static/styles/login.css" />
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" type="image/x-icon" href="/static/images/logo-transparente.png"/>
+    <title>SAGA - Login</title>
+    <link rel="stylesheet" type="text/css" media="all" href="/static/styles/reset.css"
+          th:href="@{/styles/reset.css}"/>
+    <link rel="stylesheet" type="text/css" media="all" href="/static/styles/login.css"
+          th:href="@{/styles/login.css}"/>
 </head>
 <body>
 <div class="top_side">
-<img class="logo" src="../static/images/logo_transparente.png" alt="logo_empresa"/>
+    <img class="logo" th:src="@{/images/logo_transparente.png}" alt="logo_empresa"/>
 </div>
 <main>
-<div class="box_center">
-<div class="box_input">
-<form id="formulario" th:action="@{/novoUsuario}" th:object="${usuario}" method="post" class="novo_usuario">
-<ul>
-    <li>
-        <h3 class="loginText">Login</h3>
-    </li>
-<ul>
-<li>
-    <label class="titulo_input">E-mail</label>
-    <input
-            type="email"
-            th:field="*{email}"
-            placeholder="saga@grupo2biopark.com.br"
-            required
-    />
-</li>
-<li>
-    <label class="titulo_input">Senha</label>
-    <input
-            id="senha"
-            type="password"
-            th:field="*{senha}"
-            placeholder="Senha"
-            required
-    />
-</li>
-<li>
-    <a href="../templates/recupera_senha.html" class="esqueceuSenha">Esqueceu a senha?</a>
-</li>
-</ul>
-<section class="bot_side">
-<div class="btn">
-    <button id="confirm_form"type="submit" class="btn_confirma">Confirmar</button>
-</div>
-</section>
-</form>
-</div>
-</div>
-<script>
-document.getElementById("formulario").addEventListener("submit", function(event) {
-var senha = document.getElementById("senha").value;
-var validaSenha = document.getElementById("validaSenha").value;
-var alertaSenha = document.getElementById("alertaSenha");
-
-if (senha !== validaSenha) {
-    alertaSenha.innerText = "As senhas não coincidem!";
-    alertaSenha.classList.remove("d-none");
-    event.preventDefault(); // Impede o envio do formulário
-} else {
-    alertaSenha.classList.add("d-none");
-}
-});
-</script>
+    <div class="box_center">
+        <div class="box_input">
+            <form id="formulario" th:action="@{/login}" method="post" class="login" th:object="${usuario}">
+                <ul>
+                    <li>
+                        <h3 class="loginText">Login</h3>
+                    </li>
+                    <ul>
+                        <li>
+                            <label class="titulo_input">E-mail</label>
+                            <input
+                                    name="email"
+                                    type="email"
+                                    th:field="*{email}"
+                                    placeholder="saga@grupo2biopark.com.br"
+                                    required
+                            />
+                        </li>
+                        <li>
+                            <label class="titulo_input">Senha</label>
+                            <input
+                                    name="senha"
+                                    id="senha"
+                                    type="password"
+                                    th:field="*{senha}"
+                                    placeholder="Senha"
+                                    required
+                            />
+                        </li>
+                        <li>
+                            <a href="../templates/recupera_senha.html" class="esqueceuSenha">Esqueceu a senha?</a>
+                        </li>
+                    </ul>
+                    <section class="bot_side">
+                        <div class="btn">
+                            <button id="confirm_form" type="submit" class="btn_confirma">Confirmar</button>
+                        </div>
+                    </section>
+                    <div th:if="${error}" class="error">
+                        <p th:text="${error}"></p>
+                    </div>
+                </ul>
+            </form>
+        </div>
+    </div>
 </main>
 </body>
 </html>
