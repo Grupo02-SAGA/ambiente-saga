@@ -2,10 +2,10 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="shortcut icon" type="image/x-icon" href="/images/logo-transparente.png"/>
     <title>SAGA - Editar Empresa</title>
-    <link rel="stylesheet" type="text/css" media="all" href="/styles/reset.css"  />
+    <link rel="stylesheet" type="text/css" media="all" href="/styles/reset.css"/>
     <link rel="stylesheet" type="text/css" media="all" href="/styles/style_empresa.css"/>
     <link rel="stylesheet" type="text/css" media="all" href="/styles/ativar_desativar_empresa.css"/>
     <script src="/scripts/nova_empresa.js" defer></script>
@@ -23,7 +23,7 @@
 <main>
     <form id="formulario" th:action="@{/editarEmpresa}" th:object="${empresa}" method="post" class="editar_empresa">
         <!--Esse aqui guarda o id pra mandar para o banco de dados trocar os dados -->
-        <input type="hidden" th:field="*{id_empresa}" />
+        <input type="hidden" th:field="*{id_empresa}"/>
         <ul>
             <li>
                 <label class="titulo_input">Nome Fantasia</label>
@@ -101,11 +101,12 @@
                     <option value="social">Social</option>
                 </select>
             </li>
-            <li class = "estado">
-                <input  id="estadoInput"
-                        required
-                        type="hidden"
-                        th:field="*{estado}">
+            <li class="estado">
+                <input id="estadoInput"
+                       required
+                       type="hidden"
+                       th:field="*{estado}">
+
                 <button id="ativo_inativo"
                         type="button"
                         th:class="${empresa.estado? 'ativo':'inativo'}"

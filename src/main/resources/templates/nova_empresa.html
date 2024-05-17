@@ -17,6 +17,7 @@
   </header>
   <main>
     <form th:action="@{/register}" th:object="${empresa}" method="post" class="nova_empresa">
+      <input type="hidden" name="estado" th:value="${true}" />
       <ul>
         <li>
           <label class="titulo_input">Nome Fantasia</label>
@@ -107,6 +108,7 @@
           <button id="confirm_form"type="submit" class="btn_confirma">Confirmar</button>
         </div>
       </section>
+
     </form>
   </main>
 </body>
