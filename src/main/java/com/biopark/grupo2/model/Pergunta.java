@@ -5,7 +5,7 @@ import lombok.*;
 
 import java.util.Objects;
 
-@Table(name = "Pergunta")
+@Table(name = "pergunta")
 @Entity(name = "pergunta")
 @Getter
 @Setter
@@ -15,16 +15,9 @@ import java.util.Objects;
 public class Pergunta {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_pergunta")
-    private int id_pergunta;
-
-    @Column(name = "titulo")
+    private Long id_pergunta;
     private String titulo;
-
-    @Column(name = "documento")
     private boolean documento;
-
-    @Column(name = "estado")
     private boolean estado;
 
     @ManyToOne
