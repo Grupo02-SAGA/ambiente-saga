@@ -29,8 +29,7 @@ public class CriarMaisController {
         Formulario formulario = repositoryFormulario.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Formulario não encontrado no get com o ID: " + id));
         Pergunta novaPergunta = new Pergunta();
-        modelAndView.setViewName("editar_formulario");
-        modelAndView.setViewName("criar_pergunta");
+        modelAndView.setViewName("detalhes_formulario");
         modelAndView.addObject("formulario", formulario);
         modelAndView.addObject("pergunta", novaPergunta);
         modelAndView.addObject("idFormulario", formulario.getId_formulario());
