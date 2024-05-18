@@ -2,7 +2,7 @@ function clickmenu() {
     var menu = document.querySelector('.menu');
     var logoMenu = document.querySelector('.logo-menu');
 
-    
+
     if (menu.style.display === "block") {
         menu.style.display = "none";
         logoMenu.classList.remove('active');
