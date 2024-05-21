@@ -3,10 +3,8 @@ package com.biopark.grupo2.model;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.Objects;
-
-@Table(name = "pergunta")
-@Entity(name = "pergunta")
+@Table(name = "Pergunta")
+@Entity(name = "Pergunta")
 @Getter
 @Setter
 @AllArgsConstructor
@@ -22,5 +20,5 @@ public class Pergunta {
 
     @ManyToOne
     @JoinColumn(name = "id_formulario")
-    private Formulario formulario;
+    private Formulario id_formulario;
 }

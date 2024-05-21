@@ -4,8 +4,8 @@ import lombok.*;
 
 import java.util.List;
 
-@Table(name = "formulario")
-@Entity(name = "formulario")
+@Table(name = "Formulario")
+@Entity(name = "Formulario")
 @Getter
 @Setter
 @AllArgsConstructor
