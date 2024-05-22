@@ -54,7 +54,7 @@
             </div>
         </div>
     </form>
-    <form th:action="@{/detalhes_formulario/criar_pergunta}" th:object="${pergunta}" class="criar_pergunta" method="post">
+    <form th:action="@{/detalhes_formulario/{id}}" th:object="${pergunta}" class="criar_pergunta" method="post">
         <input
               required
               type="hidden"

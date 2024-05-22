@@ -35,10 +35,6 @@ public class UsuarioController {
         return new RedirectView("/novoUsuario");
     }
 
-    public List<Usuario> forms_base(){
-        return repositoryUsuario.findAll();
-    }
-
     @GetMapping("/editarUsuario/{id}")
     public ModelAndView getUsuarioById(@PathVariable Long id) {
         ModelAndView modelAndView = new ModelAndView();
@@ -65,9 +61,7 @@ public class UsuarioController {
         return new RedirectView("/editarUsuario/" + usuario.getId_usuario());
     }
 
-
-
-
-
-
+    public List<Usuario> forms_base(){
+        return repositoryUsuario.findAll();
+    }
 }
