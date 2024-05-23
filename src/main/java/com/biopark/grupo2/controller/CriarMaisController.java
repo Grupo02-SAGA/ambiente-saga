@@ -23,13 +23,13 @@ public class CriarMaisController {
     @Autowired
     private RepositoryPergunta repositoryPergunta;
 
-    @GetMapping("/detalhes_formulario/{id}")
+    @GetMapping("/detalhesFormulario/{id}")
     public ModelAndView getFormularioById(@PathVariable Long id) {
         ModelAndView modelAndView = new ModelAndView();
         Formulario formulario = repositoryFormulario.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Formulario não encontrado no get com o ID: " + id));
         Pergunta novaPergunta = new Pergunta();
-        modelAndView.setViewName("detalhes_formulario");
+        modelAndView.setViewName("detalhesFormulario");
         modelAndView.addObject("formulario", formulario);
         modelAndView.addObject("pergunta", novaPergunta);
         modelAndView.addObject("idFormulario", formulario.getId_formulario());
@@ -37,24 +37,24 @@ public class CriarMaisController {
         return modelAndView;
     }
 
-    @PostMapping("/detalhes_formulario")
+    @PostMapping("/detalhesFormulario")
     public RedirectView editarFormulario(@ModelAttribute("formulario") Formulario formulario, Long idFormulario, RedirectAttributes attributes) {
         Formulario formularioExistente = repositoryFormulario.findById(idFormulario)
                 .orElseThrow(() -> new IllegalArgumentException("Formulario não encontrado no post com o ID: " + idFormulario));
         BeanUtils.copyProperties(formulario, formularioExistente, "id_formulario");
         repositoryFormulario.save(formularioExistente);
         attributes.addFlashAttribute("editar-formulario", "formulario-editado");
-        return new RedirectView("/detalhes_formulario/" + idFormulario);
+        return new RedirectView("/detalhesFormulario/" + idFormulario);
     }
 
-    @PostMapping("/detalhes_formulario/criar_pergunta")
+    @PostMapping("/detalhesFormulario/criarPergunta")
     public RedirectView criarPerguntas(@ModelAttribute("novaPergunta") Pergunta novaPergunta, Long idFormulario, RedirectAttributes attributes) {
         Formulario formulario = repositoryFormulario.findById(idFormulario)
                 .orElseThrow(() -> new IllegalArgumentException("Formulario não encontrado no post criar-pergunta: " + idFormulario));
         novaPergunta.setFormulario(formulario);
         repositoryPergunta.save(novaPergunta);
         attributes.addFlashAttribute("criar-pergunta", "pergunta-criada");
-        return new RedirectView("/detalhes_formulario/" + idFormulario);
+        return new RedirectView("/detalhesFormulario/" + idFormulario);
     }
 
     public List<String> getQuestionsByFormId(Long id) {

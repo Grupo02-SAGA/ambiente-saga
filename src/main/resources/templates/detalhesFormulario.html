@@ -5,19 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" type="image/x-icon" href="/images/logo_transparente.png" />
     <title>SAGA - Editar Formulario</title>
-    <link rel="stylesheet" type="text/css" href="/styles/reset.css">
-    <link rel="stylesheet" type="text/css" media="all" href="/styles/reset.css"  />
-    <link rel="stylesheet" type="text/css" media="all" href="/styles/style_detalhes_formulario.css">
-    <link rel="stylesheet" type="text/css" media="all" href="/styles/style_criar_pergunta.css">
-    <link rel="stylesheet" type="text/css" media="all" href="/styles/toggle_ativar_desativar.css">
-    <script src="/scripts/btn_ativar_desativar.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="/styles/GeralCSS/reset.css">
+    <link rel="stylesheet" type="text/css" media="all" href="/styles/GeralCSS/reset.css"  />
+    <link rel="stylesheet" type="text/css" media="all" href="/styles/FormularioBaseCSS/detalhesFormulario.css">
+    <link rel="stylesheet" type="text/css" media="all" href="/styles/FormularioBaseCSS/criarPergunta.css">
+    <link rel="stylesheet" type="text/css" media="all" href="/styles/GeralCSS/toggleAtivarDesativar.css">
+    <script src="/scripts/formulariosJS/btnAtivarDesativar.js" defer></script>
 </head>
 <body>
-<header class="top_side">
+<header class="topSide">
     <img class="logo" src="/images/logo_transparente.png" alt="logo_empresa"/>
 </header>
 <main>
-    <form th:action="@{/detalhes_formulario}" th:object="${formulario}"  class="editar_formulario" method="post">
+    <form th:action="@{/detalhesFormulario}" th:object="${formulario}"  class="editar_formulario" method="post">
         <div class="formulario_topo">
             <label >editavel</label>
             <input
@@ -54,7 +54,7 @@
             </div>
         </div>
     </form>
-    <form th:action="@{/detalhes_formulario/criar_pergunta}" th:object="${pergunta}" class="criar_pergunta" method="post">
+    <form th:action="@{/detalhesFormulario/criarPergunta}" th:object="${pergunta}" class="criar_pergunta" method="post">
         <input
               required
               type="hidden"
