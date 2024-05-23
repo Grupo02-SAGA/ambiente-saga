@@ -1,20 +1,3 @@
-
-nav {
-  list-style: none;
-  text-decoration: none;
-}
-
-.logo-menu {
-  display: flex;
-  justify-content: center;
-  width: 15%;
-  align-items: center;
-}
-
-.logo-menu.active {
-  background-color: #0076C7;
-}
-
 .menu {
   display: none;
   position: absolute;
