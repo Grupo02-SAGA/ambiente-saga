@@ -1,84 +1,87 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="shortcut icon" type="image/x-icon" href="../static/images/logo-transparente.png"/>
-<title>SAGA - Recuperar senha</title>
-<link rel="stylesheet" type="text/css" media="all" href="../static/styles/reset.css"  />
-<link rel="stylesheet" type="text/css" media="all" href="../static/styles/login.css" />
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" type="image/x-icon" href="../static/images/logo-transparente.png"/>
+    <title>SAGA - Recuperar senha</title>
+    <link rel="stylesheet" type="text/css" media="all" href="../static/styles/reset.css"  />
+    <link rel="stylesheet" type="text/css" media="all" href="../static/styles/login.css" />
 </head>
 <body>
 <div class="top_side">
-<img class="logo" src="../static/images/logo_transparente.png" alt="logo_empresa"/>
+    <img class="logo" src="../static/images/logo_transparente.png" alt="logo_empresa"/>
 </div>
 <main>
-<div class="box_center_recuperaS">
-<div>
-<th>
-<a href="../templates/login.html" class="buttonUlReturn"><img src="../static/images/left.png" alt="Retornar"></a></th>
-<div class="box_input">
-<form id="formulario" th:action="@{/novoUsuario}" th:object="${usuario}" method="post" class="novo_usuario">
-<ul>
-<li>
-<h3 class="loginText">Recuperar senha</h3>
-</li>
-<ul>
-<li>
-<label class="titulo_input">E-mail</label>
-<input
-type="email"
-th:field="*{email}"
-placeholder="E-mail"
-required
-/>
-</li>
-<li>
-<label class="titulo_input">Nova Senha</label>
-<input
-id="senha"
-type="password"
-th:field="*{senha}"
-placeholder="Senha"
-required
-/>
-</li>
+    <div class="box_center_recuperaS">
+        <div>
+            <th>
+                <a href="../templates/login.html" class="buttonUlReturn"><img src="../static/images/left.png" alt="Retornar"></a></th>
+            <div class="box_input">
+                <form id="formulario" th:action="@{/novoUsuario}" th:object="${usuario}" method="post" class="novo_usuario">
+                    <ul>
+                        <li>
+                            <h3 class="loginText">Recuperar senha</h3>
+                        </li>
+                        <ul>
+                            <li>
+                                <label class="titulo_input">E-mail</label>
+                                <input
+                                        type="email"
+                                        th:field="*{email}"
+                                        placeholder="E-mail"
+                                        maxlength="45"
+                                        required
+                                />
+                            </li>
+                            <li>
+                                <label class="titulo_input">Nova Senha</label>
+                                <input
+                                        id="senha"
+                                        type="password"
+                                        th:field="*{senha}"
+                                        placeholder="Senha"
+                                        maxlength="45"
+                                        required
+                                />
+                            </li>
 
-<li>
-<label class="titulo_input">Confirmar Nova Senha</label>
-<input
-id="senha"
-type="password"
-th:field="*{senha}"
-placeholder="Senha"
-required
-/>
-</li>
-</ul>
-<section class="bot_side">
-<div class="btn_recuperaSenha">
-<button id="confirm_form"type="submit" class="btn_confirma">Confirmar</button>
-</div>
-</section>
-</form>
-</div>
-</div>
-</div>
-<script>
-document.getElementById("formulario").addEventListener("submit", function(event) {
-var senha = document.getElementById("senha").value;
-var validaSenha = document.getElementById("validaSenha").value;
-var alertaSenha = document.getElementById("alertaSenha");
+                            <li>
+                                <label class="titulo_input">Confirmar Nova Senha</label>
+                                <input
+                                        id="senha"
+                                        type="password"
+                                        th:field="*{senha}"
+                                        placeholder="Senha"
+                                        maxlength="45"
+                                        required
+                                />
+                            </li>
+                        </ul>
+                        <section class="bot_side">
+                            <div class="btn_recuperaSenha">
+                                <button id="confirm_form"type="submit" class="btn_confirma">Confirmar</button>
+                            </div>
+                        </section>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById("formulario").addEventListener("submit", function(event) {
+            var senha = document.getElementById("senha").value;
+            var validaSenha = document.getElementById("validaSenha").value;
+            var alertaSenha = document.getElementById("alertaSenha");
 
-if (senha !== validaSenha) {
-alertaSenha.innerText = "As senhas não coincidem!";
-alertaSenha.classList.remove("d-none");
-event.preventDefault(); // Impede o envio do formulário
-} else {
-alertaSenha.classList.add("d-none");
-}
-});
-</script>
+            if (senha !== validaSenha) {
+                alertaSenha.innerText = "As senhas não coincidem!";
+                alertaSenha.classList.remove("d-none");
+                event.preventDefault(); // Impede o envio do formulário
+            } else {
+                alertaSenha.classList.add("d-none");
+            }
+        });
+    </script>
 </main>
 </body>
 </html>
