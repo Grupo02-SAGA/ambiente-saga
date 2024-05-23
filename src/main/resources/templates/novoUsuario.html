@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,12 +8,16 @@
   <link rel="stylesheet" type="text/css" media="all" href="/styles/reset.css"  />
   <link rel="stylesheet" type="text/css" media="all" href="/styles/styleUsuario.css" />
 </head>
-<body>
-<div class="top_side">
-  <img class="logo" src="/images/logo_transparente.png" alt="logo_empresa"/>
-</div>
-<main>
-  <form id="formulario" th:action="@{/novoUsuario}" th:object="${usuario}" method="post" class="novo_usuario">
+  <body>
+    <section th:if="${condition}" th:insert="/pop_up/popup_confirmacao.html"></section>
+    <section th:insert="/pop_up/popup_cancelar.html" id="fragmento_popup_cancelar"></section>
+
+    <header class="top_side">
+      <img class="logo" src="/images/logo.jpeg" alt="logo_empresa"/>
+    </header>
+    <main>
+      <form id="formulario" th:action="@{/novoUsuario}" th:object="${usuario}" method="post" class="novo_usuario">
+        <input type="hidden" name="estado" th:value="${true}" />
         <ul>
           <li>
             <label class="titulo_input">Primeiro nome</label>
@@ -21,6 +25,7 @@
               type="text"
               th:field="*{nome}"
               placeholder="Primeiro nome "
+              maxlength="45"
               required
             />
           </li>
@@ -30,6 +35,7 @@
               type="text"
               th:field="*{sobrenome}"
               placeholder="Sobrenome"
+              maxlength="45"
               required
             />
           </li>
@@ -39,6 +45,8 @@
               type="number"
               th:field="*{cpf}"
               placeholder="Ex: 000.000.000-00"
+              minlength="14"
+              maxlength="14"
               required
             />
           </li>
@@ -48,6 +56,7 @@
               type="email"
               th:field="*{email}"
               placeholder="saga@grupo2biopark.com.br"
+              maxlength="45"
               required
             />
           </li>
@@ -57,6 +66,7 @@
               type="text"
               th:field="*{cidade}"
               placeholder="Ex: Toledo"
+              maxlength="45"
               required
             />
           </li>
@@ -66,28 +76,33 @@
               type="tel"
               th:field="*{telefone}"
               placeholder="Ex: (45) 9 99999-9999"
+              maxlength="20"
               required
             />
           </li>
+          <li>
           <li>
             <label class="titulo_input">Senha</label>
             <input
-              id="senha"
-              type="password"
-              th:field="*{senha}"
-              placeholder="Senha"
-              required
+                    id = "senha"
+                    type="text"
+                    placeholder="Senha"
+                    th:value="${senha}"
+                    th:field="*{senha}"
+                    required
+                    maxlength="45"
             />
-          </li>
           <li>
             <label class="titulo_input">Confirma senha</label>
             <input
-              id="validaSenha"
-              type="password"
-              placeholder="Confirma senha"
-              required
+                    id = "confirmSenha"
+                    type="text"
+                    placeholder="Confirma senha"
+                    required
+                    maxlength="45"
             />
-          </li>
+            <a class="btn btn-outline-secondary" id="toggleSenha">Mostrar Senha</a>
+            <p class="confereSenha">As senhas não conferem!</p>
         </ul>
         <section class="bot_side">
           <div class="btn">
@@ -96,21 +111,10 @@
           </div>
         </section>
       </form>
-      <script>
-        document.getElementById("formulario").addEventListener("submit", function(event) {
-          var senha = document.getElementById("senha").value;
-          var validaSenha = document.getElementById("validaSenha").value;
-          var alertaSenha = document.getElementById("alertaSenha");
-
-          if (senha !== validaSenha) {
-            alertaSenha.innerText = "As senhas não coincidem!";
-            alertaSenha.classList.remove("d-none");
-            event.preventDefault(); // Impede o envio do formulário
-          } else {
-            alertaSenha.classList.add("d-none");
-          }
-        });
-      </script>
+      <script src="/scripts/compara_senha.js"></script>
+      <script src="/scripts/novo_usuario.js" defer></script>
+      <script src="/scripts/popup_confirmacao.js" defer></script>
+      <script src="/scripts/esconder_senha.js"></script>
     </main>
   </body>
 </html>

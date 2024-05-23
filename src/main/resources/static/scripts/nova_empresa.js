@@ -35,8 +35,9 @@ if (button_nao_popup) {
 ///confirmação
 if (button_confirmar_popup){
     button_confirmar_popup.addEventListener("click", () => {
-        fade_fundo_confirmar.style.display = 'none';
-        body_popup_confirmar.style.display = 'none';
-        redirecionar_pagina();
+    fade_fundo_confirmar.style.display = 'none';
+    body_popup_confirmar.style.display = 'none';
+    redirecionar_pagina();
+
     });
 }
