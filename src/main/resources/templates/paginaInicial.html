@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="/images/logo_transparente.png"/>
+    <title>SAGA - Pagina Inicial</title>
+    <link rel="stylesheet" type="text/css" media="all" href="/styles/stylePaginaInicial.css"/>
+    <link rel="stylesheet" type="text/css" media="all" href="/styles/styleMenuLateral.css">
+    <script src="/scripts/menuLateral.js" defer></script>
+</head>
+<body>
+<header class="top_side">
+    <div class="block">
+    </div>
+    <div class="div-header">
+        <img src="/images/logo_transparente.png" alt="logo-empresa" class="logo">
+    </div>
+    <div class="logo-hamburger" onclick="clickmenu()">
+        <img src="/images/menu_hamburger.png" class="menu-botao" alt="logo_hamburger">
+    </div>
+</header>
+<nav th:insert="/pop_up/menuLateral.html" id="fragmento_sidebar"></nav>
+<main>
+    <div>
+        <a href="/lista_empresas" class="botao">Usuários</a>
+        <a href="/lista_usuarios" class="botao">Empresas</a>
+        <a href="/lista_forms_base" class="botao">Formulários Base</a>
+        <a href="/" class="botao">Avaliações</a>
+    </div>
+</main>
+</body>
+</html>

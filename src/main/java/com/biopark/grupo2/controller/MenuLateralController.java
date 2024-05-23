@@ -4,11 +4,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class HomeController {
+public class MenuLateralController {
     @GetMapping("/")
-    public ModelAndView getMenuPage() {
-        ModelAndView getMenuPage = new ModelAndView();
-        getMenuPage.setViewName("Home");
-        return  getMenuPage;
+    public ModelAndView pegarPaginaInicial() {
+        ModelAndView pegarPaginaInicial = new ModelAndView();
+        pegarPaginaInicial.setViewName("paginaInicial");
+        return pegarPaginaInicial;
     }
 }
