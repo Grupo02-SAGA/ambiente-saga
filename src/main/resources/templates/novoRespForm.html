@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/src/main/resources/static/styles/novoRespForm.css">
+</head>
+<body>
+        <div class="topSide">
+            <img src="/images/logo_transparente.png">
+            <h3>Empresas</h3>
+            <hr>
+        </div>
+    <div>
+        <label for="empresa">Empresa:</label>
+        <select id="empresa" name="empresa">
+          <!-- Lista de opções com foreach -->
+        </select> 
+
+        <label for="porte">Porte:</label>
+        <select id="porte" name="porte">
+          <option value="0">Pequeno</option>
+          <option value="1">Médio</option>
+          <option value="2">Grande</option>
+        </select> 
+
+        <label for="formularioBase">Formulario Base:</label>
+        <select id="formularioBase" name="formularioBase">
+          <!-- Lista de opções com foreach -->
+        </select> 
+    </div>
+    <div class="btn">
+        <button type="reset" class="btn_cancelar">Cancelar</button>
+        <button type="submit" class="btn_confirma">Confirmar</button>
+      </div>
+</body>
+</html>
