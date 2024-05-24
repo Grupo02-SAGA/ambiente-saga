@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" type="image/x-icon" href="/images/logo_transparente.png"/>
+    <link rel="shortcut icon" type="image/x-icon" href="/images/Geral/logo_transparente.png"/>
     <title>SAGA - Editar Usuário</title>
     <link rel="stylesheet" type="text/css" media="all" href="/styles/GeralCSS/reset.css"/>
     <link rel="stylesheet" type="text/css" media="all" href="/styles/usuarioCSS/editarUsuario.css"/>
@@ -17,7 +17,7 @@
     <section th:if="${condition}" th:insert="/pop_up/popup_confirmacao.html"></section>
     <section th:insert="/pop_up/popup_cancelar.html" id="fragmento_popup_cancelar"></section>
     <header class="topSide">
-        <img class="logo" src="/images/logo_transparente.png" alt="logo_empresa"/>
+        <img class="logo" src="/images/Geral/logo_transparente.png" alt="logo_empresa"/>
     </header>
     <main>
         <form id="formulario" th:action="@{/editarUsuario}" th:object="${usuario}" method="post" class="novo_usuario">

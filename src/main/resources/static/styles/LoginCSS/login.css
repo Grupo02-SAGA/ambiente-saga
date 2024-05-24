@@ -1,7 +1,7 @@
 body{
     width: 100%;
     min-height: 80vh;
-    background-image: url(../../images/fundo_login.png);
+    background-image: url(../../images/telaDeLogin/fundo_login.png);
     background-size: cover;
   }
 

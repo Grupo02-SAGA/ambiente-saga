@@ -53,7 +53,7 @@ section.implements{
 }
 
 .search ::placeholder{
-    background-image: url(../../images/Path.png);
+    background-image: url(../../images/Geral/Path.png);
     background-position: right center;
     background-repeat: no-repeat;
     background-size: 12px;
@@ -126,7 +126,7 @@ h3{
 
 .button{
     background-color:Transparent;
-    background-image: url(../../images/edit.png);
+    background-image: url(../../images/Geral/edit.png);
     background-position: right center;
     background-repeat: no-repeat;
     background-size: 12px;

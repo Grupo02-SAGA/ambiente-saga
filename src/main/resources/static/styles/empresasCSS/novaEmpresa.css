@@ -75,7 +75,7 @@ select#porte, #atividade{
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
-  background-image: url("../../images/select_seta.png");
+  background-image: url("../../images/Geral/select_seta.png");
   background-position: 95% 50%;
   background-repeat: no-repeat;
 }
