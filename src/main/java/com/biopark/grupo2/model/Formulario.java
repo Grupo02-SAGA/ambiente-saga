@@ -4,8 +4,8 @@ import lombok.*;
 
 import java.util.List;
 
-@Table(name = "formulario")
-@Entity(name = "formulario")
+@Table(name = "Formulario")
+@Entity(name = "Formulario")
 @Getter
 @Setter
 @AllArgsConstructor
@@ -18,7 +18,4 @@ public class Formulario {
     private String titulo;
     private Boolean base;
     private Boolean estado;
-
-    @OneToMany(mappedBy = "formulario", cascade = CascadeType.ALL)
-    private List<Pergunta> perguntas;
 }
