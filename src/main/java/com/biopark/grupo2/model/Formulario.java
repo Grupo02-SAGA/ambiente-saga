@@ -18,7 +18,4 @@ public class Formulario {
     private String titulo;
     private Boolean base;
     private Boolean estado;
-
-    @OneToMany(mappedBy = "formulario", cascade = CascadeType.ALL)
-    private List<Pergunta> perguntas;
 }
