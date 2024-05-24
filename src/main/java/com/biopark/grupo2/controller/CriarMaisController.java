@@ -50,7 +50,7 @@ public class CriarMaisController {
     @PostMapping("/detalhes_formulario/{id}")
     public String criarPerguntas(@ModelAttribute("novaPergunta") Pergunta novaPergunta, @RequestParam("idFormulario") Long idFormulario){
         Formulario formulario = repositoryFormulario.findById(idFormulario).orElseThrow();
-        novaPergunta.setFormulario(formulario);
+        novaPergunta.setId_formulario(formulario);
 
         repositoryPergunta.save(novaPergunta);
 

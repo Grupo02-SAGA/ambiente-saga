@@ -3,10 +3,8 @@ package com.biopark.grupo2.model;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.Objects;
-
-@Table (name = "usuario")
-@Entity(name = "usuario")
+@Table (name = "Usuario")
+@Entity(name = "Usuario")
 @Getter
 @Setter
 @AllArgsConstructor
