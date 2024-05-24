@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,7 +13,7 @@
     <section th:insert="/pop_up/popup_cancelar.html" id="fragmento_popup_cancelar"></section>
 
     <header class="top_side">
-      <img class="logo" src="/images/logo.jpeg" alt="logo_empresa"/>
+      <img class="logo" src="/images/logo_transparente.png" alt="logo_empresa"/>
     </header>
     <main>
       <form id="formulario" th:action="@{/novoUsuario}" th:object="${usuario}" method="post" class="novo_usuario">
@@ -25,6 +25,7 @@
               type="text"
               th:field="*{nome}"
               placeholder="Primeiro nome "
+              maxlength="45"
               required
             />
           </li>
@@ -34,6 +35,7 @@
               type="text"
               th:field="*{sobrenome}"
               placeholder="Sobrenome"
+              maxlength="45"
               required
             />
           </li>
@@ -43,6 +45,8 @@
               type="number"
               th:field="*{cpf}"
               placeholder="Ex: 000.000.000-00"
+              minlength="14"
+              maxlength="14"
               required
             />
           </li>
@@ -52,6 +56,7 @@
               type="email"
               th:field="*{email}"
               placeholder="saga@grupo2biopark.com.br"
+              maxlength="45"
               required
             />
           </li>
@@ -61,6 +66,7 @@
               type="text"
               th:field="*{cidade}"
               placeholder="Ex: Toledo"
+              maxlength="45"
               required
             />
           </li>
@@ -70,6 +76,7 @@
               type="tel"
               th:field="*{telefone}"
               placeholder="Ex: (45) 9 99999-9999"
+              maxlength="20"
               required
             />
           </li>
