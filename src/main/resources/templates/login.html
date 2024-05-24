@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -30,6 +30,7 @@
                                     type="email"
                                     th:field="*{email}"
                                     placeholder="saga@grupo2biopark.com.br"
+                                    maxlength="45"
                                     required
                             />
                         </li>
@@ -41,6 +42,7 @@
                                     type="password"
                                     th:field="*{senha}"
                                     placeholder="Senha"
+                                    maxlength="45"
                                     required
                             />
                         </li>

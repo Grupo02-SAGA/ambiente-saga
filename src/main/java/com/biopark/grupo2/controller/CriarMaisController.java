@@ -7,6 +7,7 @@ import com.biopark.grupo2.repository.RepositoryPergunta;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -19,7 +20,6 @@ public class CriarMaisController {
 
     @Autowired
     private RepositoryFormulario repositoryFormulario;
-
     @Autowired
     private RepositoryPergunta repositoryPergunta;
 
@@ -47,14 +47,15 @@ public class CriarMaisController {
         return new RedirectView("/detalhesFormulario/" + idFormulario);
     }
 
-    @PostMapping("/detalhesFormulario/criarPergunta")
-    public RedirectView criarPerguntas(@ModelAttribute("novaPergunta") Pergunta novaPergunta, Long idFormulario, RedirectAttributes attributes) {
-        Formulario formulario = repositoryFormulario.findById(idFormulario)
-                .orElseThrow(() -> new IllegalArgumentException("Formulario não encontrado no post criar-pergunta: " + idFormulario));
+
+    @PostMapping("/detalhesFormulario/{id}")
+    public String criarPerguntas(@ModelAttribute("novaPergunta") Pergunta novaPergunta, @RequestParam("idFormulario") Long idFormulario){
+        Formulario formulario = repositoryFormulario.findById(idFormulario).orElseThrow();
+
         novaPergunta.setFormulario(formulario);
+
         repositoryPergunta.save(novaPergunta);
-        attributes.addFlashAttribute("criar-pergunta", "pergunta-criada");
-        return new RedirectView("/detalhesFormulario/" + idFormulario);
+        return "redirect:/detalhesFormulario/" + idFormulario;
     }
 
     public List<String> getQuestionsByFormId(Long id) {
