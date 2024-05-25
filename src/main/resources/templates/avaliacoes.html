@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="/static/images/logo-transparente.png" th:href="@{/images/logo-transparente.png}">
+    <title>SAGA - Listar Avaliações</title>
+    <link rel="stylesheet" href="styles/avaliacoes.css">
+</head>
+<body>
+<header>
+    <section class="topSide">
+        <img src="/images/logo_transparente.png">
+        <h3>Avaliações</h3>
+    </section>
+</header>
+
+<section class="implements">
+    <div class="search">
+        <input type="text" placeholder="Procurar..." id="searchInput">
+    </div>
+
+    <table >
+        <thead class="">
+            <tr>
+                <td>Data</td>
+                <td>Formulário</td>
+                <td>Nome</td>
+                <td>Ações</td>
+            </tr>
+        </thead>
+        <tbody class="tableBody" id="tableBody">
+            <tr th:each="certificado : ${avaliacoes}" class="listaForm">
+                <td th:text="${#dates.format(certificado.vencimento, 'dd/MM/yyyy')}"></td>
+                <td th:text="${certificado.form}"></td>
+                <td th:text="${certificado.fantasia}"></td>
+                <td th:text="${certificado.usuario}"></td>
+<!--                <input type = 'hidden' th:text="${certificado.id_certificado}">-->
+<!--                <td>-->
+<!--                    <form th:action="@{/certificados/details/{id}(id=${certificado.id_certificado})}" method="get">-->
+<!--                        <button type="submit">Ver Detalhes</button>-->
+<!--                    </form>-->
+<!--                </td>-->
+            </tr>
+        </tbody>
+    </table>
+
+    <tr class="buttomCriar">
+        <td>
+            <a th:href="@{novoUsuario}" class="linkCriar">
+                <h3> Criar+ </h3>
+            </a>
+<!--  Tava assim antes
+        <tr class="buttomCriar">
+            <td>
+                <a th:href="@{novoUsuario}" class="linkCriar"> <h3> Criar+ </h3></a>
+            </td>
+        </tr>-->
+        </td>
+    </tr>
+</section>
+
+
+<script src="scripts/buscaFormularioBase.js" ></script>
+</body>
+</html>
