@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" type="image/x-icon" href="../static/images/logo-transparente.png"/>
-    <title>SAGA - Recuperar senha</title>
-    <link rel="stylesheet" type="text/css" media="all" href="../static/styles/reset.css"  />
-    <link rel="stylesheet" type="text/css" media="all" href="../static/styles/login.css" />
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" type="image/x-icon" href="../static/images/logo-transparente.png"/>
+<title>SAGA - Recuperar senha</title>
+<link rel="stylesheet" type="text/css" media="all" href="../static/styles/GeralCSS/reset.css"  />
+<link rel="stylesheet" type="text/css" media="all" href="../static/styles/LoginCSS/login.css" />
 </head>
 <body>
-<div class="top_side">
-    <img class="logo" src="../static/images/logo_transparente.png" alt="logo_empresa"/>
+<div class="topSide">
+    <img class="logo" src="../static/images/Geral/logo_transparente.png" alt="logo_empresa"/>
 </div>
 <main>
     <div class="box_center_recuperaS">
         <div>
             <th>
-                <a href="../templates/login.html" class="buttonUlReturn"><img src="../static/images/left.png" alt="Retornar"></a></th>
+                <a href="../templates/login.html" class="buttonUlReturn"><img src="../static/images/Geral/left.png" alt="Retornar"></a></th>
             <div class="box_input">
                 <form id="formulario" th:action="@{/novoUsuario}" th:object="${usuario}" method="post" class="novo_usuario">
                     <ul>
@@ -25,7 +25,7 @@
                         </li>
                         <ul>
                             <li>
-                                <label class="titulo_input">E-mail</label>
+                                <label class="conteudoInput">E-mail</label>
                                 <input
                                         type="email"
                                         th:field="*{email}"
@@ -35,7 +35,7 @@
                                 />
                             </li>
                             <li>
-                                <label class="titulo_input">Nova Senha</label>
+                                <label class="conteudoInput">Nova Senha</label>
                                 <input
                                         id="senha"
                                         type="password"
@@ -47,7 +47,7 @@
                             </li>
 
                             <li>
-                                <label class="titulo_input">Confirmar Nova Senha</label>
+                                <label class="conteudoInput">Confirmar Nova Senha</label>
                                 <input
                                         id="senha"
                                         type="password"
@@ -58,7 +58,7 @@
                                 />
                             </li>
                         </ul>
-                        <section class="bot_side">
+                        <section class="botSide">
                             <div class="btn_recuperaSenha">
                                 <button id="confirm_form"type="submit" class="btn_confirma">Confirmar</button>
                             </div>

@@ -3,7 +3,7 @@ body{
   min-height: 80vh;
 }
 
-.top_side{
+.topSide{
   width: 100%;
   height:100%;
   padding: .5rem;
@@ -11,7 +11,7 @@ body{
   justify-content: center;
 }
 
-.top_side .logo{
+.topSide .logo{
   height: 70px;
   width: 80px;
 }
@@ -20,19 +20,21 @@ main{
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 100vh;
 }
 
-form.nova_empresa{
+form.novo_usuario{
   display: flex;
   flex-direction: column;
   width: 80%;
-  height: 100%;
+  height:100%;
+
 }
 ul {
   list-style: none;
 }
 
-label.titulo_input{
+label.conteudoInput{
   display: flex;
   font-size: 14px;
   margin: .25rem .25rem .25rem 10px;
@@ -43,9 +45,10 @@ label.titulo_input{
 li{
   margin-bottom: 3%;
 }
+
 li.estado{
-  display: flex;
-  justify-content: center;
+    display: flex;
+    justify-content: center;
 }
 
 input{
@@ -59,55 +62,38 @@ input{
   padding: .5rem;
 }
 
-select#porte, #atividade{
-  outline: unset;
-  width: 100%;
-  min-height: 25px;
-  border-radius: .75rem;
-  border: 1px solid #0077C8;
-  padding: .5rem;
-  font-family: "Rubik", sans-serif;
-  color: #808080;
-  font-size: .8rem;
-  font-style: italic;
-  cursor: pointer;
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  background-image: url("../images/select_seta.png");
-  background-position: 95% 50%;
-  background-repeat: no-repeat;
-}
-
-form.nova_empresa ::placeholder{
+form.novo_usuario ::placeholder{
   font-size: .8rem;
   font-style: italic;
   color: #808080;
 }
 
 .bot_side{
-  max-width: 100%;
-  min-height: 5%;
-  margin-bottom:10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    max-width: 100%;
+    min-height: 5%;
+    margin-bottom:10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
- button{
+button{
   cursor: pointer;
   height: 25px;
   width: 150px;
   border: none;
   border-radius: 10px;
-  font-size: 14px; 
+  font-size: 14px;
   font-weight: bold;
   text-align: center;
   line-height: 20px;
-} 
+}
+
 .btn{
   display: flex;
 }
+
+
 button.btn_cancelar{
   margin-right: 10px;
   background-color:#FFDBDB;
@@ -120,4 +106,19 @@ button.btn_confirma{
   background-color: #DBFFDC;
   color: #35B02A;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 6px 0 rgba(0, 0, 0, 0.19);
+}
+
+a.btn-outline-secondary{
+    display: flex;
+    font-size: 14px;
+    margin: .25rem .25rem .25rem 10px;
+    color: #0077C8;
+    cursor: text;
+    font-family: "Rubik", sans-serif;
+    justify-content: flex-end;
+ }
+
+p.confereSenha{
+    display: none;
+    color: #B0522A;
 }

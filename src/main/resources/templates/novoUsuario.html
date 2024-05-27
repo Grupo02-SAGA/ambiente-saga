@@ -3,24 +3,24 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="shortcut icon" type="image/x-icon" href="/images/logo_transparente.png"/>
-  <title>SAGA - Cadastrar Empresa</title>
-  <link rel="stylesheet" type="text/css" media="all" href="/styles/reset.css"  />
-  <link rel="stylesheet" type="text/css" media="all" href="/styles/styleUsuario.css" />
+  <link rel="shortcut icon" type="image/x-icon" href="/images/Geral/logo_transparente.png"/>
+  <title>SAGA - Novo usuário</title>
+  <link rel="stylesheet" type="text/css" media="all" href="/styles/GeralCSS/reset.css"  />
+  <link rel="stylesheet" type="text/css" media="all" href="/styles/usuarioCSS/novoUsuario.css" />
 </head>
   <body>
     <section th:if="${condition}" th:insert="/pop_up/popup_confirmacao.html"></section>
     <section th:insert="/pop_up/popup_cancelar.html" id="fragmento_popup_cancelar"></section>
 
-    <header class="top_side">
-      <img class="logo" src="/images/logo_transparente.png" alt="logo_empresa"/>
+    <header class="topSide">
+      <img class="logo" src="/images/Geral/logo_transparente.png" alt="logo_empresa"/>
     </header>
     <main>
       <form id="formulario" th:action="@{/novoUsuario}" th:object="${usuario}" method="post" class="novo_usuario">
         <input type="hidden" name="estado" th:value="${true}" />
         <ul>
           <li>
-            <label class="titulo_input">Primeiro nome</label>
+            <label class="conteudoInput">Primeiro nome</label>
             <input
               type="text"
               th:field="*{nome}"
@@ -30,7 +30,7 @@
             />
           </li>
           <li>
-            <label class="titulo_input">Sobrenome</label>
+            <label class="conteudoInput">Sobrenome</label>
             <input
               type="text"
               th:field="*{sobrenome}"
@@ -40,7 +40,7 @@
             />
           </li>
           <li>
-            <label class="titulo_input">CPF</label>
+            <label class="conteudoInput">CPF</label>
             <input
               type="number"
               th:field="*{cpf}"
@@ -51,7 +51,7 @@
             />
           </li>
           <li>
-            <label class="titulo_input">E-mail</label>
+            <label class="conteudoInput">E-mail</label>
             <input
               type="email"
               th:field="*{email}"
@@ -61,7 +61,7 @@
             />
           </li>
           <li>
-            <label class="titulo_input">Cidade</label>
+            <label class="conteudoInput">Cidade</label>
             <input
               type="text"
               th:field="*{cidade}"
@@ -71,7 +71,7 @@
             />
           </li>
           <li>
-            <label class="titulo_input">Telefone</label>
+            <label class="conteudoInput">Telefone</label>
             <input
               type="tel"
               th:field="*{telefone}"
@@ -82,7 +82,7 @@
           </li>
           <li>
           <li>
-            <label class="titulo_input">Senha</label>
+            <label class="conteudoInput">Senha</label>
             <input
                     id = "senha"
                     type="text"
@@ -93,7 +93,7 @@
                     maxlength="45"
             />
           <li>
-            <label class="titulo_input">Confirma senha</label>
+            <label class="conteudoInput">Confirma senha</label>
             <input
                     id = "confirmSenha"
                     type="text"
@@ -111,10 +111,9 @@
           </div>
         </section>
       </form>
-      <script src="/scripts/compara_senha.js"></script>
-      <script src="/scripts/novo_usuario.js" defer></script>
-      <script src="/scripts/popup_confirmacao.js" defer></script>
-      <script src="/scripts/esconder_senha.js"></script>
+      <script src="/scripts/usuariosJS/comparaSenha.js"></script>
+      <script src="/scripts/usuariosJS/novoUsuario.js" defer></script>
+      <script src="/scripts/usuariosJS/esconderSenha.js"></script>
     </main>
   </body>
 </html>
