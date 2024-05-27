@@ -1,4 +1,4 @@
-CREATE TABLE empresa (
+CREATE TABLE Empresa (
     id_empresa INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     fantasia VARCHAR(45) NOT NULL,
     razao_social VARCHAR(45) NOT NULL,
@@ -8,5 +8,7 @@ CREATE TABLE empresa (
     telefone VARCHAR(20),
     porte VARCHAR(25),
     atividade VARCHAR(30) NOT NULL,
-    estado boolean DEFAULT true
+    estado boolean DEFAULT true,
+    id_usuario INT NOT NULL,
+    FOREIGN KEY (id_usuario) REFERENCES Usuario(id_usuario)
 )
