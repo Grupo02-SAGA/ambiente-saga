@@ -1,0 +1,38 @@
+.menu {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30%;
+  height: 100vh;
+  background-color: #0076C7;
+  z-index: 10;
+  transition: width 0.3s;
+}
+
+nav {
+  text-decoration: none;
+  list-style: none;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  font-family: "Rubik", sans-serif;
+  font-style: medium;
+  text-align: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.sidebar .subtitulo-header {
+  color: white;
+  text-transform: uppercase;
+  margin: 10px;
+  font-size: 13px;
+}
+
+.sidebar ul li a {
+  text-decoration: none;
+}

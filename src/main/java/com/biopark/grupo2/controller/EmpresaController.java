@@ -18,11 +18,11 @@ public class EmpresaController {
     @Autowired
     private RepositoryEmpresa repositoryEmpresa;
 
-    @GetMapping("/lista_empresas")
+    @GetMapping("/listaEmpresas")
     public ModelAndView listaEmpresas() {
         List<Empresa> empresas = listarEmpresas();
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("lista_empresas");
+        modelAndView.setViewName("listaEmpresas");
         modelAndView.addObject("empresas", empresas);
         return modelAndView;
     }
@@ -31,21 +31,21 @@ public class EmpresaController {
         return repositoryEmpresa.findAll();
     }
 
-    @GetMapping("/register")
+    @GetMapping("/novaEmpresa")
     public ModelAndView modelAndView(){
         Empresa empresa = new Empresa();
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("nova_empresa");
+        modelAndView.setViewName("novaEmpresa");
         modelAndView.addObject("empresa", empresa);
         return modelAndView;
     }
 
 
-    @PostMapping("/register")
+    @PostMapping("/novaEmpresa")
     public RedirectView createEmpresa(@ModelAttribute ("empresa") Empresa empresa, RedirectAttributes attributes) {
         repositoryEmpresa.save(empresa);
         attributes.addFlashAttribute("condition", "cadastro-ok");
-        return new RedirectView("/register");
+        return new RedirectView("/novaEmpresa");
     }
 
     @GetMapping("/editarEmpresa/{id}")

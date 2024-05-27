@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" type="image/x-icon" href="/static/images/logo.png"/>
     <title>SAGA - Login</title>
-    <link rel="stylesheet" type="text/css" media="all" href="/static/styles/reset.css"
-          th:href="@{/styles/reset.css}"/>
-    <link rel="stylesheet" type="text/css" media="all" href="/static/styles/login.css"
-          th:href="@{/styles/login.css}"/>
+    <link rel="stylesheet" type="text/css" media="all" href="/styles/GeralCSS/reset.css"
+          th:href="@{/styles/GeralCSS/reset.css}"/>
+    <link rel="stylesheet" type="text/css" media="all" href="/styles/LoginCSS/login.css"
+          th:href="@{/styles/LoginCSS/login.css}"/>
 </head>
 <body>
-<div class="top_side">
-    <img class="logo" th:src="@{/images/logo_transparente.png}" alt="logo_empresa"/>
+<div class="topSide">
+    <img class="logo" th:src="@{/images/Geral/logo_transparente.png}" alt="logo_empresa"/>
 </div>
 <main>
     <div class="box_center">
@@ -24,7 +24,7 @@
                     </li>
                     <ul>
                         <li>
-                            <label class="titulo_input">E-mail</label>
+                            <label class="conteudoInput">E-mail</label>
                             <input
                                     name="email"
                                     type="email"
@@ -35,7 +35,7 @@
                             />
                         </li>
                         <li>
-                            <label class="titulo_input">Senha</label>
+                            <label class="conteudoInput">Senha</label>
                             <input
                                     name="senha"
                                     id="senha"
@@ -47,10 +47,10 @@
                             />
                         </li>
                         <li>
-                            <a href="/templates/recupera_senha.html" class="esqueceuSenha">Esqueceu a senha? </a>
+                            <a href="/templates/recuperaSenha.html" class="esqueceuSenha">Esqueceu a senha? </a>
                         </li>
                     </ul>
-                    <section class="bot_side">
+                    <section class="botSide">
                         <div class="btn">
                             <button id="confirm_form" type="submit" class="btn_confirma">Confirmar</button>
                         </div>

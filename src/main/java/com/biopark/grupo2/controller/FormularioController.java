@@ -1,10 +1,8 @@
 package com.biopark.grupo2.controller;
 import com.biopark.grupo2.model.Formulario;
-import com.biopark.grupo2.model.Usuario;
 import com.biopark.grupo2.repository.RepositoryFormulario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -18,20 +16,20 @@ public class FormularioController {
     @Autowired
     private RepositoryFormulario repositoryFormulario;
 
-    @GetMapping("/lista_forms_base")
+    @GetMapping("/listaFormsBase")
     public ModelAndView lista_forms_base() {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("lista_forms_base");
+        modelAndView.setViewName("listaFormsBase");
         modelAndView.addObject("forms",forms_base());
         return modelAndView;
     }
 
-    @PostMapping("/lista_forms_base")
+    @PostMapping("/listaFormsBase")
     public RedirectView criarForm(@ModelAttribute ("formulario") Formulario formulario, RedirectAttributes attributes){
         Formulario formularioSalvo = repositoryFormulario.save(formulario);
         attributes.addFlashAttribute("condition", "cadastro-ok");
         Long idFormulario = formularioSalvo.getId_formulario();
-        return new RedirectView("/detalhes_formulario/" + idFormulario);
+        return new RedirectView("/detalhesFormulario/" + idFormulario);
     }
     public List<Formulario> forms_base(){
         return repositoryFormulario.findAll();

@@ -3,22 +3,20 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="shortcut icon" type="image/x-icon" href="/images/logo-transparente.png"/>
+    <link rel="shortcut icon" type="image/x-icon" href="/images/Geral/logo_transparente.png"/>
     <title>SAGA - Editar Empresa</title>
-    <link rel="stylesheet" type="text/css" media="all" href="/styles/reset.css"/>
-    <link rel="stylesheet" type="text/css" media="all" href="/styles/style_empresa.css"/>
-    <link rel="stylesheet" type="text/css" media="all" href="/styles/ativar_desativar_empresa.css"/>
-    <script src="/scripts/nova_empresa.js" defer></script>
-    <script src="/scripts/statusEmpresa.js" defer></script>
-
-    <script src="/scripts/nova_empresa.js" defer></script>
+    <link rel="stylesheet" type="text/css" media="all" href="/styles/GeralCSS/reset.css"/>
+    <link rel="stylesheet" type="text/css" media="all" href="/styles/empresasCSS/editarEmpresa.css"/>
+    <link rel="stylesheet" type="text/css" media="all" href="/styles/empresasCSS/ativarDesativarEmpresa.css"/>
+    <script src="/scripts/empresasJS/novaEmpresa.js" defer></script>
+    <script src="/scripts/empresasJS/statusEmpresa.js" defer></script>
     <script src="/scripts/popup_confirmacao.js" defer></script>
 </head>
 <body>
 <section th:if="${condition}" th:insert="/pop_up/popup_confirmacao.html"></section>
 <section th:insert="/pop_up/popup_cancelar.html" id="fragmento_popup_cancelar"></section>
-<header class="top_side">
-    <img class="logo" src="/images/logo.jpeg" alt="logo_empresa"/>
+<header class="topSide">
+    <img class="logo" src="/images/Geral/logo_transparente.png" alt="logo_empresa"/>
 </header>
 <main>
     <form id="formulario" th:action="@{/editarEmpresa}" th:object="${empresa}" method="post" class="editar_empresa">
@@ -26,7 +24,7 @@
         <input type="hidden" th:field="*{id_empresa}"/>
         <ul>
             <li>
-                <label class="titulo_input">Nome Fantasia</label>
+                <label class="conteudoInput">Nome Fantasia</label>
                 <input
                         type="text"
                         th:field="*{fantasia}"
@@ -36,7 +34,7 @@
                 />
             </li>
             <li>
-                <label class="titulo_input">Razão Social</label>
+                <label class="conteudoInput">Razão Social</label>
                 <input
                         type="text"
                         th:field="*{razao_social}"
@@ -46,7 +44,7 @@
                 />
             </li>
             <li>
-                <label class="titulo_input">CNPJ</label>
+                <label class="conteudoInput">CNPJ</label>
                 <input
                         type="text"
                         th:field="*{cnpj}"
@@ -56,7 +54,7 @@
                 />
             </li>
             <li>
-                <label class="titulo_input">E-mail</label>
+                <label class="conteudoInput">E-mail</label>
                 <input
                         type="email"
                         th:field="*{email}"
@@ -66,7 +64,7 @@
                 />
             </li>
             <li>
-                <label class="titulo_input">Endereço</label>
+                <label class="conteudoInput">Endereço</label>
                 <input
                         type="text"
                         th:field="*{endereco}"
@@ -76,7 +74,7 @@
                 />
             </li>
             <li>
-                <label class="titulo_input">Telefone</label>
+                <label class="conteudoInput">Telefone</label>
                 <input
                         type="text"
                         th:field="*{telefone}"
@@ -86,7 +84,7 @@
                 />
             </li>
             <li>
-                <label class="titulo_input" for="porte">Porte</label>
+                <label class="conteudoInput" for="porte">Porte</label>
                 <select id="porte" th:field="*{porte}" required>
                     <option value="pequeno">Pequeno</option>
                     <option value="medio">Médio</option>
@@ -94,7 +92,7 @@
                 </select>
             </li>
             <li>
-                <label class="titulo_input" for="atividade">Atividade</label>
+                <label class="conteudoInput" for="atividade">Atividade</label>
                 <select id="atividade" th:field="*{atividade}" required>
                     <option value="industrial">Industrial</option>
                     <option value="ambiental">Ambiental</option>
