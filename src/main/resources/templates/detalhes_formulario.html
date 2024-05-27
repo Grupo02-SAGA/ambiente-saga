@@ -10,7 +10,7 @@
     <link rel="stylesheet" type="text/css" media="all" href="/styles/style_detalhes_formulario.css">
     <link rel="stylesheet" type="text/css" media="all" href="/styles/style_criar_pergunta.css">
     <link rel="stylesheet" type="text/css" media="all" href="/styles/toggle_ativar_desativar.css">
-    <script src="/scripts/btn_ativar_desativar.js" defer></script>
+    <script src="/scripts/btnAtivaDesCriarMais.js" defer></script>
 </head>
 <body>
 <header class="top_side">
@@ -44,8 +44,8 @@
             <button
                     type="button"
                     id="ativo_inativo"
-                    th:class="${formulario.estado?'inativo' : 'ativo'}"
-                    th:text="${formulario.estado?'Inativo' : 'Ativo'}">
+                    th:class="${formulario.estado?'ativo' : 'inativo'}"
+                    th:text="${formulario.estado?'Ativo' : 'Inativo'}">
             </button>
             <div class="linha_footer"> </div>
             <div class="botoes_footer">
