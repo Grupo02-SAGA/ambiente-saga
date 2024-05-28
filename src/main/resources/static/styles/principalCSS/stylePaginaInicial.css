@@ -33,6 +33,7 @@ html{
 
 .logo-hamburger{
     width: 2.5rem;
+    cursor: pointer;
 }
 
 .menu{
