@@ -1,0 +1,46 @@
+.header {
+    img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 80px;
+        height: 70px;
+    }
+}
+
+hr{
+    height: 1px;
+    stroke: rgb(0, 119, 200);
+    background-color: rgb(0, 119, 200);
+}
+
+.btn{
+    position: fixed;
+    left: -15px;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .btn_confirma {
+        border: none;
+        border-radius: 10px;
+        background-color: #DBFFDC;
+        color: #35B02A;
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 6px 0 rgba(0, 0, 0, 0.19);
+        padding: 8px 50px;
+        font-size: 14px;
+    }
+    .btn_cancelar {
+        border: none;
+        border-radius: 10px;
+        background-color: #FFDBDB;
+        color: #B0522A;
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 6px 0 rgba(0, 0, 0, 0.19);
+        padding: 8px 50px;
+        font-size: 14px;
+        margin-right: 20px;
+    }
+}
