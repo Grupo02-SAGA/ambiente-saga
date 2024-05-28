@@ -24,7 +24,7 @@
         <thead>
         <tr class="buttomCriar">
             <td>
-                <a th:href="@{/novaEmpresa}" class="linkCriar"> <h3> Criar+ </h3></a>
+                <button class="bntAdicionarEmpresa"><a th:href="@{/novaEmpresa}" class="linkCriar"> <h3> Criar+ </h3></a></button>
             </td>
         </tr>
         </thead>
@@ -37,7 +37,6 @@
             <td>
                 <div class="button-container">
                     <a th:href="@{'/editarEmpresa/'+ ${empresa.id_empresa}}">
-
                         <button onclick="handleButtonClick('${empresa.fantasia}')" class="button"> </button>
                     </a>
                 </div>

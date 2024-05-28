@@ -135,9 +135,14 @@ h3{
     text-decoration: none;
     background-color: white;
     border: none;
+    cursor: pointer;
+}
+
+.btnAdicionarUser{
     width: 285px;
     height: 60px;
-    cursor: pointer;
+    background-color: white;
+    border: none;
 }
 
 .tableBody{
