@@ -9,7 +9,8 @@ import java.sql.Date;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class CertificadoDTO {
+public class AvaliacaoDTO {
+    private Integer base;
     private Date vencimento;
     private String form;
     private String fantasia;

@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface RepositoryCertificado extends JpaRepository<Certificado, Long> {
-    @Query(value = "select  c.vencimento as data, f.titulo as form, e.fantasia, u.nome as usuario, c.id_certificado as cert " +
+    @Query(value = "select  f.base, c.vencimento as data, f.titulo as form, e.fantasia, u.nome as usuario, c.id_certificado as cert " +
             "FROM certificado c " +
             "JOIN empresa e ON e.id_empresa = c.id_empresa " +
             "JOIN formulario f ON c.id_formulario = f.id_formulario " +

@@ -21,21 +21,22 @@
         <input type="text" placeholder="Procurar..." id="searchInput">
     </div>
 
-    <table >
-        <thead class="">
-            <tr>
-                <td>Data</td>
-                <td>Formulário</td>
-                <td>Nome</td>
-                <td>Ações</td>
+    <table>
+        <thead>
+            <tr class="listaHead">
+                <td class="status">Estado</td>
+                <td class="data" >Data</td>
+                <td class="empresa" >Empresa</td>
+                <td class="usuario">Usuário</td>
             </tr>
         </thead>
-        <tbody class="tableBody" id="tableBody">
+        <tbody >
             <tr th:each="certificado : ${avaliacoes}" class="listaForm">
-                <td th:text="${#dates.format(certificado.vencimento, 'dd/MM/yyyy')}"></td>
-                <td th:text="${certificado.form}"></td>
-                <td th:text="${certificado.fantasia}"></td>
-                <td th:text="${certificado.usuario}"></td>
+                <td class="status" th:text="${certificado.base}"></td>
+                <td class="data" th:text="${#dates.format(certificado.vencimento, 'dd/MM/yyyy')}"></td>
+                <td class="empresa" th:text="${certificado.fantasia}"></td>
+                <td class="usuario" th:text="${certificado.usuario}"></td>
+                <input type = "hidden" th:value="${certificado.form}"></input>
 <!--                <input type = 'hidden' th:text="${certificado.id_certificado}">-->
 <!--                <td>-->
 <!--                    <form th:action="@{/certificados/details/{id}(id=${certificado.id_certificado})}" method="get">-->
