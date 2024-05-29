@@ -3,18 +3,21 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" type="image/x-icon" href="/images/logo_transparente.png"/>
+    <link rel="shortcut icon" type="image/x-icon" href="/images/Geral/logo_transparente.png"/>
     <title>SAGA - Editar Usuário</title>
-    <link rel="stylesheet" type="text/css" media="all" href="/styles/reset.css"/>
-    <link rel="stylesheet" type="text/css" media="all" href="/styles/styleUsuario.css"/>
-    <link rel="stylesheet" type="text/css" media="all" href="/styles/toggle_ativar_desativar.css"/>
-    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.7/css/dataTables.dataTables.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="/styles/GeralCSS/reset.css"/>
+    <link rel="stylesheet" type="text/css" media="all" href="/styles/usuarioCSS/editarUsuario.css"/>
+    <link rel="stylesheet" type="text/css" media="all" href="/styles/GeralCSS/toggleAtivarDesativar.css"/>
+    <script src="/scripts/usuariosJS/comparaSenha.js" defer></script>
+    <script src="/scripts/usuariosJS/novoUsuario.js" defer></script>
+    <script src="/scripts/usuariosJS/esconderSenha.js" defer></script>
+    <script src="/scripts/usuariosJS/statusUsuario.js" defer></script>
 </head>
 <body>
     <section th:if="${condition}" th:insert="/pop_up/popup_confirmacao.html"></section>
     <section th:insert="/pop_up/popup_cancelar.html" id="fragmento_popup_cancelar"></section>
-    <header class="top_side">
-        <img class="logo" src="/images/logo.jpeg" alt="logo_empresa"/>
+    <header class="topSide">
+        <img class="logo" src="/images/Geral/logo_transparente.png" alt="logo_empresa"/>
     </header>
     <main>
         <form id="formulario" th:action="@{/editarUsuario}" th:object="${usuario}" method="post" class="novo_usuario">
@@ -128,11 +131,5 @@
             </section>
         </form>
     </main>
-    <script src="/scripts/compara_senha.js"></script>
-    <script src="/scripts/novo_usuario.js" defer></script>
-    <script src="/scripts/popup_confirmacao.js" defer></script>
-    <script src="/scripts/esconder_senha.js"></script>
-    <script src="/scripts/statusUsuario.js"></script>
-    <script src="https://cdn.datatables.net/2.0.7/js/dataTables.js"></script>
 </body>
 </html>

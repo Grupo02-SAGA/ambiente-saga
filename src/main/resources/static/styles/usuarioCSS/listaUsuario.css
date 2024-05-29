@@ -26,10 +26,10 @@ section.topSide img{
 }
 
 section.implements{
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 .search{
@@ -50,13 +50,13 @@ section.implements{
 }
 
 .search ::placeholder{
-    background-image: url(../images/Path.png);
+    background-image: url(../../images/Geral/Path.png);
     background-position: right center;
     background-repeat: no-repeat;
     background-size: 12px;
 }
 
-h3{ 
+h3{
     text-align: center;
     font-weight: medium;
     font-size: 14px;
@@ -65,28 +65,28 @@ h3{
 
 
 .tabelaForm{
-        display: flex;
-        width: 100%;
-        align-content: flex-start;
-        justify-content: center;
-        }
+    display: flex;
+    width: 100%;
+    align-content: flex-start;
+    justify-content: center;
+}
 
 .listaForm {
-            display: flex;
-            padding: 1rem;
-            margin: 0.1rem 1rem 0.1rem 1rem;
-            border-radius: 4px;
-            height: 4rem;
-            /* text-align: left; */
-            font-size: 14px;
-            border-style: groove;
-            border-color: rgba(0, 118, 199, 1);
-            border-width: thin;
-            text-align: center;
-            width: 300px;
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: center;
+    display: flex;
+    padding: 1rem;
+    margin: 0.1rem 1rem 0.1rem 1rem;
+    border-radius: 4px;
+    height: 4rem;
+    /* text-align: left; */
+    font-size: 14px;
+    border-style: groove;
+    border-color: rgba(0, 118, 199, 1);
+    border-width: thin;
+    text-align: center;
+    width: 300px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .buttomCriar {
@@ -135,33 +135,38 @@ h3{
     text-decoration: none;
     background-color: white;
     border: none;
-    width: 285px;
-    height: 60px;
     cursor: pointer;
 }
 
+.btnAdicionarUser{
+    width: 285px;
+    height: 60px;
+    background-color: white;
+    border: none;
+}
+
 .tableBody{
-     display: flex;
-     width: 100%;
-     flex-direction: column;
- }
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
 
 
- .button{
-     background-color:Transparent;
-     background-image: url(../images/edit.png);
-     background-position: right center;
-     background-repeat: no-repeat;
-     background-size: 12px;
-     width: 15px;
-     height: 15px;
-     border: none;
-     padding: 0;
- }
+.button{
+    background-color:Transparent;
+    background-image: url(../../images/Geral/edit.png);
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-size: 12px;
+    width: 15px;
+    height: 15px;
+    border: none;
+    padding: 0;
+}
 
- form{
-     display: none;
- }
+form{
+    display: none;
+}
 
 .expandir {
     display: block;

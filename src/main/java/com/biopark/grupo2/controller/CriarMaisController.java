@@ -7,7 +7,6 @@ import com.biopark.grupo2.repository.RepositoryPergunta;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -23,13 +22,13 @@ public class CriarMaisController {
     @Autowired
     private RepositoryPergunta repositoryPergunta;
 
-    @GetMapping("/detalhes_formulario/{id}")
+    @GetMapping("/detalhesFormulario/{id}")
     public ModelAndView getFormularioById(@PathVariable Long id) {
         ModelAndView modelAndView = new ModelAndView();
         Formulario formulario = repositoryFormulario.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Formulario não encontrado no get com o ID: " + id));
         Pergunta novaPergunta = new Pergunta();
-        modelAndView.setViewName("detalhes_formulario");
+        modelAndView.setViewName("detalhesFormulario");
         modelAndView.addObject("formulario", formulario);
         modelAndView.addObject("pergunta", novaPergunta);
         modelAndView.addObject("idFormulario", formulario.getId_formulario());
@@ -37,24 +36,25 @@ public class CriarMaisController {
         return modelAndView;
     }
 
-    @PostMapping("/detalhes_formulario")
+    @PostMapping("/detalhesFormulario")
     public RedirectView editarFormulario(@ModelAttribute("formulario") Formulario formulario, Long idFormulario, RedirectAttributes attributes) {
         Formulario formularioExistente = repositoryFormulario.findById(idFormulario)
                 .orElseThrow(() -> new IllegalArgumentException("Formulario não encontrado no post com o ID: " + idFormulario));
         BeanUtils.copyProperties(formulario, formularioExistente, "id_formulario");
         repositoryFormulario.save(formularioExistente);
         attributes.addFlashAttribute("editar-formulario", "formulario-editado");
-        return new RedirectView("/detalhes_formulario/" + idFormulario);
+        return new RedirectView("/detalhesFormulario/" + idFormulario);
     }
 
-    @PostMapping("/detalhes_formulario/{id}")
+
+    @PostMapping("/detalhesFormulario/{id}")
     public String criarPerguntas(@ModelAttribute("novaPergunta") Pergunta novaPergunta, @RequestParam("idFormulario") Long idFormulario){
         Formulario formulario = repositoryFormulario.findById(idFormulario).orElseThrow();
+
         novaPergunta.setId_formulario(formulario);
 
         repositoryPergunta.save(novaPergunta);
-
-        return "redirect:/detalhes_formulario/" + idFormulario;
+        return "redirect:/detalhesFormulario/" + idFormulario;
     }
 
     public List<String> getQuestionsByFormId(Long id) {

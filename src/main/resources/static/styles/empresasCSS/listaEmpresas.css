@@ -53,7 +53,7 @@ section.implements{
 }
 
 .search ::placeholder{
-    background-image: url(../images/Path.png);
+    background-image: url(../../images/Geral/Path.png);
     background-position: right center;
     background-repeat: no-repeat;
     background-size: 12px;
@@ -117,6 +117,13 @@ h3{
     text-decoration: none;
 }
 
+.bntAdicionarEmpresa{
+    width: 285px;
+    height: 60px;
+    background-color: white;
+    border: none;
+}
+
 .tableBody{
     display: flex;
     width: 100%;
@@ -126,7 +133,7 @@ h3{
 
 .button{
     background-color:Transparent;
-    background-image: url(../images/edit.png);
+    background-image: url(../../images/Geral/edit.png);
     background-position: right center;
     background-repeat: no-repeat;
     background-size: 12px;

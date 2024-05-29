@@ -2,39 +2,42 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    z-index: 0;
-    }
+}
 
 html{
     font-family: "Rubik", sans-serif;
-    }
-
-
-campos{
-
 }
 
-
-.top_side{
-    width: 100%;
-    height:100%;
+.topSide{
     padding: .5rem;
     display: flex;
-    justify-content: center;
-    }
+    justify-content: space-evenly;
+    padding-bottom: 1rem;
+    align-items: center;
+}
+
+.block{
+    width: 2.5rem;
+}
 
 .div-header {
     display: flex;
     width: 100%;
     justify-content: center;
-    padding-left: 14%;
 }
-
 
 .logo{
     height: 140px;
     width: 160px;
-    margin-bottom: 20px;
+}
+
+.logo-hamburger{
+    width: 2.5rem;
+    cursor: pointer;
+}
+
+.menu{
+    width: 2.5rem;
 }
 
 main{
@@ -42,7 +45,8 @@ main{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100%;
+    padding: .5rem;
+    padding-top: .5rem;
     width: 100%;
 }
 
@@ -60,27 +64,7 @@ main{
     color: Black;
     font-family: "Rubik", sans-serif;
     text-align: center;
-    font-weight: medium;
+    font-weight: bold;
     font-size: 16px;
-    text-decoration: none;
-}
-
-.logout{
-    display: flex;
-    align-items: center;
-    margin: 10px;
-    border-style: groove;
-    border-color: rgba(0, 118, 199, 1);
-    background-color: rgba(0, 118, 199, 1);
-    border-width: thin;
-    height: 1rem;
-    width: 30px;
-    border-radius: 4px;
-    justify-content: center;
-    color: white;
-    font-family: "Rubik", sans-serif;
-    text-align: center;
-    font-weight: medium;
-    font-size: 8px;
     text-decoration: none;
 }

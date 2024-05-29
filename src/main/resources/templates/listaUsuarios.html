@@ -4,16 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" type="image/x-icon" href="/static/images/logo-transparente.png" th:href="@{/images/logo-transparente.png}">
-    <title>SAGA - Listar Funcionários</title>
-    <link rel="stylesheet" href="styles/lista_forms_base.css">
+    <link rel="shortcut icon" type="image/x-icon" href="/images/Geral/logo_transparente.png"/>
+    <title>SAGA - Listar Usuarios</title>
+    <link rel="stylesheet" type="text/css" media="all" href="/styles/usuarioCSS/listaUsuario.css"  />
+    <script src="/scripts/usuariosJS/buscaUsuarios.js" defer ></script>
 </head>
 
 <body>
 <header>
     <section class="topSide">
-        <img src="images/logo.jpeg">
-        <h3>Funcionários</h3>
+        <img src="/images/Geral/logo_transparente.png">
+        <h3>Usuários</h3>
     </section>
 </header>
 
@@ -25,7 +26,7 @@
         <thead>
         <tr class="buttomCriar">
             <td>
-                <a th:href="@{novoUsuario}" class="linkCriar"> <h3> Criar+ </h3></a>
+                <button class="btnAdicionarUser"><a th:href="@{novoUsuario}" class="linkCriar"> <h3> Criar+ </h3></a></button>
             </td>
         </tr>
         </thead>
@@ -47,7 +48,7 @@
     </table>
 </section>
 
-<script src="scripts/buscaFormularioBase.js" ></script>
+
 
 </body>
 </html>
