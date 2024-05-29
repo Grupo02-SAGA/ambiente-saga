@@ -16,11 +16,11 @@ public class ListaAvaliacoes {
     @Autowired
     private ServiceCertificado serviceCertificado;
 
-    @GetMapping("/lista_avaliacoes")
+    @GetMapping("/listaAvaliacoes")
     public ModelAndView lista() {
         List<AvaliacaoDTO> certificados = serviceCertificado.listarAvaliacoes();
         // Adicionando a lista de certificados ao ModelAndView
-        ModelAndView modelAndView = new ModelAndView("lista_avaliacoes");
+        ModelAndView modelAndView = new ModelAndView("listaAvaliacoes");
         modelAndView.addObject("avaliacoes", certificados);
 
         return modelAndView;

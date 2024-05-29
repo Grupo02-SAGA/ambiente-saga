@@ -16,5 +16,4 @@ public class AvaliacaoDTO {
     private String fantasia;
     private String usuario;
     private Long id_certificado;
-
 }

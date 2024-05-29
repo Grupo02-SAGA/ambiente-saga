@@ -61,17 +61,16 @@ section.implements{
 }
 
 .search input{
-    display: flex;
     width: 235px;
     height: 20px;
-    margin: 40px 20px 0px 15px;
+    margin: 10px 0px;
     border: none;
     border-bottom: 2px solid black;
     outline: unset;
 }
 
 .search ::placeholder{
-    background-image: url(../images/Path.png);
+    background-image: url(../images/Geral/Path.png);
     background-position: right center;
     background-repeat: no-repeat;
     background-size: 12px;
@@ -103,28 +102,45 @@ h3{
 }
 
 .listaHead {
-        display: flex;
-        margin: 0.1rem 0.5rem 0.1rem 0.5rem;
-        height: 4rem;
-        font-size: 9px;
-        width: 300px;
-        align-items: center;
+       display: flex;
+       font-size: 9px;
+       width: 300px;
+       align-items: center;
+       padding: 5px 2px 5px 0px;
 }
 
 
 
 .linkCriar{
-    color: Black;
-    font-family: "Rubik", sans-serif;
-    text-align: center;
-    font-weight: medium;
+        color: Black;
+        font-family: "Rubik", sans-serif;
+        text-align: center;
+        font-weight: medium;
+        font-size: 14px;
+        text-decoration: none;
+        background-color: white;
+        border: none;
+        width: 285px;
+        cursor: pointer;
+}
+
+.buttomCriar {
+    display: flex;
+    bottom:0;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    height:2rem;
+    border-radius: 4px;
+    width: 300px;
+    background-color:white;
     font-size: 14px;
-    text-decoration: none;
-    background-color: white;
-    border: none;
-    width: 285px;
-    height: 60px;
-    cursor: pointer;
+    border-style: groove;
+    border-color: rgba(0, 118, 199, 1);
+    border-width: thin;
+    text-align: center;
+    position:fixed;
+    box-shadow: 2px 0px 9px 5px rgba(0, 0, 0.1, 0.1);
 }
 
 .button{
@@ -143,9 +159,28 @@ h3{
      display: none;
  }
 
+
+.statusH{
+    padding-left: 30px;
+}
+
+
+.usuarioH{
+   margin-left: auto;
+}
+
+.empresaH{
+    padding-left:48px;
+}
+
+.dataH{
+    padding-left: 80px;
+}
+
 .status{
     padding-left: 20px;
 }
+
 
 .usuario{
     padding-right: 20px;
@@ -153,13 +188,13 @@ h3{
 }
 
 .empresa{
-    display: flex;
-    width: 100%;
-    max-width: 100px;
-    margin: 5px;
-    justify-content: center;
+       display: flex;
+       max-width: 100px;
+       margin: 15px;
+       justify-content: center;
 }
 
 .data{
-    padding: 20px;
+    padding: 0px 10px 0px 20px;
 }
+
