@@ -174,7 +174,7 @@ h3{
 }
 
 .dataH{
-    padding-left: 80px;
+    padding-left: 90px;
 }
 
 .status{
@@ -198,3 +198,34 @@ h3{
     padding: 0px 10px 0px 20px;
 }
 
+.andamento{
+    background-image: url(../images/Geral/andamento.png);
+    margin-left:5px;
+    width: 30px;
+    height: 30px;
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-size: 20px;
+}
+
+.concluido{
+    background-image: url(../images/Geral/concluido.png);
+    margin-left:5px;
+    width: 30px;
+    height: 30px;
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-size: 20px;
+}
+
+<!-- deixar a classe vazia no html se não duplica, deve ser inserida com o js -->
+
+.abortado{
+    background-image: url(../images/Geral/abortado.png);
+    margin-left:5px;
+    width: 30px;
+    height: 30px;
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-size: 20px;
+}
