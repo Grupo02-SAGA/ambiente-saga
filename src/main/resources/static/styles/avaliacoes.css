@@ -198,7 +198,7 @@ h3{
     padding: 0px 10px 0px 20px;
 }
 
-.andamento{
+.progresso{
     background-image: url(../images/Geral/andamento.png);
     margin-left:5px;
     width: 30px;
@@ -208,7 +208,7 @@ h3{
     background-size: 20px;
 }
 
-.concluido{
+.concluida{
     background-image: url(../images/Geral/concluido.png);
     margin-left:5px;
     width: 30px;
@@ -218,9 +218,7 @@ h3{
     background-size: 20px;
 }
 
-<!-- deixar a classe vazia no html se não duplica, deve ser inserida com o js -->
-
-.abortado{
+.cancelada{
     background-image: url(../images/Geral/abortado.png);
     margin-left:5px;
     width: 30px;

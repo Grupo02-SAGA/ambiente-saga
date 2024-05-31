@@ -31,14 +31,12 @@
         </thead>
         <tbody >
             <tr th:each="certificado : ${avaliacoes}" class="listaForm">
-                <td class="andamento" id="andamento" th:value="*{certificado.base}">
-                </td>
+                <td id="andamento" th:classappend="${certificado.base == 1} ? 'progresso' : (${certificado.base == 2} ? 'concluida' : 'cancelada')">
                 <td class="data" th:text="${#dates.format(certificado.vencimento, 'dd/MM/yyyy')}"></td>
                 <td class="empresa" th:text="${certificado.fantasia}"></td>
                 <td class="usuario" th:text="${certificado.usuario}"></td>
                 <input type = "hidden" th:value="${certificado.form}">
                 <td>
-                    <form th:action="@{/certificados/details/{id}(id=${certificado.form})}" method="get">
                     <form th:action="@{/certificados/details/{id}(id=${certificado.form})}" method="get">
                         <button type="submit">Ver Detalhes</button>
                     </form>
@@ -47,11 +45,9 @@
         </tbody>
     </table>
     <div class="buttomCriar">
-        <td>
             <a th:href="@{novoUsuario}" class="linkCriar">
                 <h3> NOVO+ </h3>
             </a>
-        </td>
     </div>
 
 </section>
