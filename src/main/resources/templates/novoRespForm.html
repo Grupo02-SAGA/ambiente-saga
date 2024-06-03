@@ -15,7 +15,7 @@
     <div>
         <label for="empresa">Empresa:</label>
         <select id="empresa" name="empresa">
-          <!-- Lista de opções com foreach -->
+          <option value="" th:each="emp : ${empresas}" data-form="${emp.fantasia}" th:text="${emp.fantasia}"></option>
         </select> 
 
         <label for="porte">Porte:</label>
@@ -27,7 +27,7 @@
 
         <label for="formularioBase">Formulario Base:</label>
         <select id="formularioBase" name="formularioBase">
-          <!-- Lista de opções com foreach -->
+            <option value="" th:each="form : ${forms}" data-form="${form.titulo}" th:text="${form.titulo}"></option>
         </select> 
     </div>
     <div class="btn">
