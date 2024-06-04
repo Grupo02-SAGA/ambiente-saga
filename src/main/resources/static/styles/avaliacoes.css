@@ -124,6 +124,34 @@ h3{
         cursor: pointer;
 }
 
+
+.paginacao{
+        color: Black;
+        font-family: "Rubik", sans-serif;
+        text-align: center;
+        font-weight: medium;
+        font-size: 10px;
+        text-decoration: none;
+        background-color: white;
+        cursor: pointer;
+}
+
+.active{
+       color: Black;
+       font-family: "Rubik", sans-serif;
+       text-align: center;
+       font-weight: medium;
+       font-size: 10px;
+       text-decoration: none;
+       background-color: white;
+       cursor: pointer;
+       border-style: groove;
+       border-color: rgba(0, 118, 199, 1);
+       border-width: thin;
+       border-radius: 4px;
+       padding: 1px 1px 1.5px 1px;
+}
+
 .buttomCriar {
     display: flex;
     bottom:0;

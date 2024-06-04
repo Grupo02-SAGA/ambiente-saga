@@ -3,6 +3,8 @@ package com.biopark.grupo2.service;
 import com.biopark.grupo2.DTO.AvaliacaoDTO;
 import com.biopark.grupo2.repository.RepositoryCertificado;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.sql.Date;
@@ -29,6 +31,20 @@ public class ServiceCertificado {
                 .collect(Collectors.toList());
         return collect;
     }
+
+    public Page<AvaliacaoDTO> listarAvaliacoesPage(int page, int size) {
+        Page<Object[]> results = certificadoRepository.findAvaliacoesPage(PageRequest.of(page, size));
+        return results.map(result -> new AvaliacaoDTO(
+                (Integer) result[0],
+                (Date) result[1],
+                (String) result[2],
+                (String) result[3],
+                (String) result[4],
+                (Long) result[5]
+        ));
+    }
+
+
 
 
 //        public List<CertificadoDTO> getResultsByEmpresa(Long empresaId) {

@@ -44,6 +44,19 @@
             </tr>
         </tbody>
     </table>
+    <div class="pagination">
+        <tr >
+            <td th:if="${currentPage > 0}">
+                <a class="paginacao" th:href="@{/listaAvaliacoes(page=${currentPage - 1})}">&laquo; Anterior</a>
+            </td>
+            <td th:each="i : ${#numbers.sequence(0, totalPages - 1)}">
+                <a th:classappend="${i == currentPage} ? 'active': 'paginacao' " th:href="@{/listaAvaliacoes(page=${i})}" th:text="${i + 1}">1</a>
+            </td>
+            <td th:if="${currentPage < totalPages - 1}">
+                <a class="paginacao" th:href="@{/listaAvaliacoes(page=${currentPage + 1})}">Próximo &raquo;</a>
+            </td>
+        </tr>
+    </div>
     <div class="buttomCriar">
             <a th:href="@{novoUsuario}" class="linkCriar">
                 <h3> NOVO+ </h3>
