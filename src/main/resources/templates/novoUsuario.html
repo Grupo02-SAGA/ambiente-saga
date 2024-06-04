@@ -7,6 +7,9 @@
   <title>SAGA - Novo usuário</title>
   <link rel="stylesheet" type="text/css" media="all" href="/styles/GeralCSS/reset.css"  />
   <link rel="stylesheet" type="text/css" media="all" href="/styles/usuarioCSS/novoUsuario.css" />
+  <script src="/scripts/usuariosJS/comparaSenha.js" defer></script>
+  <script src="/scripts/usuariosJS/novoUsuario.js" defer></script>
+  <script src="/scripts/usuariosJS/esconderSenha.js" defer></script>
 </head>
   <body>
     <section th:if="${condition}" th:insert="/pop_up/popup_confirmacao.html"></section>
@@ -111,9 +114,6 @@
           </div>
         </section>
       </form>
-      <script src="/scripts/usuariosJS/comparaSenha.js"></script>
-      <script src="/scripts/usuariosJS/novoUsuario.js" defer></script>
-      <script src="/scripts/usuariosJS/esconderSenha.js"></script>
     </main>
   </body>
 </html>

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="shortcut icon" type="image/x-icon" href="/images/Geral/logo_transparente.png" />
   <title>SAGA - Cadastrar Empresa</title>
-  <link rel="stylesheet" type="text/css" media="all" href="/styles/GeralCSS/reset.css"  />
+  <link rel="stylesheet" type="text/css" media="all" href="/styles/GeralCSS/reset.css"/>
   <link rel="stylesheet" type="text/css" media="all" href="/styles/empresasCSS/novaEmpresa.css" />
   <script src="/scripts/empresasJS/novaEmpresa.js" defer></script>
 </head>
@@ -16,7 +16,7 @@
         <img class="logo" src="/images/Geral/logo_transparente.png" alt="logo_empresa"/>
   </header>
   <main>
-    <form th:action="@{/novaEmpresa}" th:object="${empresa}" method="post" class="nova_empresa">
+    <form th:action="@{/novaEmpresa}" th:object="${empresa}" method="post" class="novaEmpresa">
       <input type="hidden" name="estado" th:value="${true}" />
       <ul>
         <li>

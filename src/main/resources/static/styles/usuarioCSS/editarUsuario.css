@@ -69,56 +69,71 @@ form.novo_usuario ::placeholder{
 }
 
 .bot_side{
-    max-width: 100%;
-    min-height: 5%;
-    margin-bottom:10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-button{
-    cursor: pointer;
-    height: 25px;
-    width: 150px;
-    border: none;
-    border-radius: 10px;
-    font-size: 14px;
-    font-weight: bold;
+   left:0;
+    bottom: 1rem;
+    width: 100%;
     text-align: center;
-    line-height: 20px;
-}
-
-.btn{
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
-
-button.btn_cancelar{
-    margin-right: 10px;
-    background-color:#FFDBDB;
-    color: #B0522A;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 6px 0 rgba(0, 0, 0, 0.19);
+@media (min-width: 1024px) {
+    .bot_side {
+        left: 0;
+        bottom: 2rem;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+    }
 }
+    button {
+        cursor: pointer;
+        height: 25px;
+        width: 150px;
+        border: none;
+        border-radius: 10px;
+        font-size: 14px;
+        font-weight: bold;
+        text-align: center;
+        line-height: 20px;
+    }
 
-button.btn_confirma{
-    margin-left: 10px;
-    background-color: #DBFFDC;
-    color: #35B02A;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 6px 0 rgba(0, 0, 0, 0.19);
-}
+    .btn {
+        display: flex;
+    }
 
-a.btn-outline-secondary{
-    display: flex;
-    font-size: 14px;
-    margin: .25rem .25rem .25rem 10px;
-    color: #0077C8;
-    cursor: text;
-    font-family: "Rubik", sans-serif;
-    justify-content: flex-end;
-}
 
-p.confereSenha{
-    display: none;
-    color: #B0522A;
-}
+    button.btn_cancelar {
+        margin-right: 10px;
+        background-color: #FFDBDB;
+        color: #B0522A;
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 6px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    button.btn_confirma {
+        margin-left: 10px;
+        background-color: #DBFFDC;
+        color: #35B02A;
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 6px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    a.btn-outline-secondary {
+        display: flex;
+        font-size: 14px;
+        margin: .25rem .25rem .25rem 10px;
+        color: #0077C8;
+        cursor: text;
+        font-family: "Rubik", sans-serif;
+        justify-content: flex-end;
+    }
+
+    p.confereSenha {
+        display: none;
+        color: #B0522A;
+    }

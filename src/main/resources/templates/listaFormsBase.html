@@ -15,7 +15,9 @@
 <body>
 <header>
     <section class="topSide">
-        <img src="/images/Geral/logo_transparente.png">
+        <a href="http://localhost:8080/">
+            <img class="logo" src="/images/Geral/logo_transparente.png" alt="logo_empresa"/>
+        </a>
         <h3>Formulários</h3>
     </section>
 </header>
@@ -46,6 +48,7 @@
                 <div th:text="${form.titulo}"></div>
             </td>
             <td>
+
                 <div class="button-container">
 <!--                    É só colocar o link aqui que ele já manda o id e o nome do formulário que vai ser editado-->
                     <a th:href="@{'detalhesFormulario/'+ ${form.id_formulario}}">
@@ -53,6 +56,7 @@
                         <button onclick="handleButtonClick('${form.titulo}')" class="button"> </button>
                     </a>
                 </div>
+                <div class="footer"></div>
             </td>
         </tr>
         </tbody>
