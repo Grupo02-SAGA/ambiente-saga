@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 body{
   width: 100%;
-  min-height: 80vh;
+  min-height:100vh;
 }
 
 .topSide{
