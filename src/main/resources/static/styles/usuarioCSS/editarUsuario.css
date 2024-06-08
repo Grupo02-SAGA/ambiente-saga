@@ -1,6 +1,5 @@
 body{
     width: 100%;
-    min-height: 80vh;
 }
 
 .topSide{
@@ -20,18 +19,27 @@ main{
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    height: 82vh;
 }
 
 form.novo_usuario{
+    width: 100%;
     display: flex;
     flex-direction: column;
-    width: 80%;
-    height:100%;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
 
 }
 ul {
     list-style: none;
+    width: 80%;
+    max-width: 500px;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    min-height: 200px;
 }
 
 label.conteudoInput{
@@ -43,7 +51,7 @@ label.conteudoInput{
 }
 
 li{
-    margin-bottom: 3%;
+    margin-bottom: 0.75rem;
 }
 
 li.estado{
@@ -69,29 +77,13 @@ form.novo_usuario ::placeholder{
 }
 
 .bot_side{
-   left:0;
-    bottom: 1rem;
-    width: 100%;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
+    position: fixed;
+    max-width: 500px;
+    bottom: 0.5rem;
+    width: 80%;
+    padding-bottom: 0.25rem;
 }
 
-@media (min-width: 1024px) {
-    .bot_side {
-        left: 0;
-        bottom: 2rem;
-        width: 100%;
-        text-align: center;
-        margin-bottom: 20px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-evenly;
-    }
-}
     button {
         cursor: pointer;
         height: 25px;
@@ -104,8 +96,9 @@ form.novo_usuario ::placeholder{
         line-height: 20px;
     }
 
-    .btn {
+    .botoes_footer {
         display: flex;
+        justify-content: space-evenly;
     }
 
 
@@ -137,3 +130,30 @@ form.novo_usuario ::placeholder{
         display: none;
         color: #B0522A;
     }
+@media only screen and (min-device-width: 375px) and (max-device-height: 667px) {
+
+    main {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 80%;
+    }
+
+    form.novo_usuario {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+    .bot_side {
+        position: static;
+        max-width: 500px;
+        bottom: 0.5rem;
+        width: 80%;
+        padding-bottom: 0.5rem;
+
+    }
+}

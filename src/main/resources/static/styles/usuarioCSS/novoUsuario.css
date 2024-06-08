@@ -4,7 +4,9 @@ body{
 }
 
 .topSide{
-    padding: .25rem;
+    width: 100%;
+    height:100%;
+    padding: .5rem;
     display: flex;
     justify-content: center;
 }
@@ -128,4 +130,39 @@ a.btn-outline-secondary{
 p.confereSenha{
     display: none;
     color: #B0522A;
+}
+@media only screen and  (max-device-width: 375px) and (max-device-height: 667px) {
+    body{
+        width: 100%;
+        overflow: hidden;
+    }
+
+    main {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 80%;
+    }
+
+    form.novo_usuario {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+    }
+    li{
+        margin-bottom: 0.48rem;
+    }
+
+
+    .bot_side {
+        position: static;
+        max-width: 500px;
+        bottom: 0.5rem;
+        width: 80%;
+        padding-bottom: 0.5rem;
+
+    }
 }
