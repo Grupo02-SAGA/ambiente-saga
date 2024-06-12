@@ -29,22 +29,6 @@ thead{
     max-width: 80px
 }
 
-
-section.topSide{
-    display: flex;
-    width: 100%;
-    height: 80px;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-
-section.topSide img{
-    height: 70px;
-    width: 80px;
-    padding: 10px;
-}
-
 section.implements{
   display: flex;
   justify-content: center;
@@ -52,8 +36,20 @@ section.implements{
   align-items: center;
 }
 
-.search{
+.div-header {
     display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.search{.div-header {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+    display: flex;
+    align-items: center;
 }
 
 .search img{
@@ -61,7 +57,7 @@ section.implements{
 }
 
 .search input{
-    width: 235px;
+    width: 210px;
     height: 20px;
     margin: 10px 0px;
     border: none;
@@ -154,7 +150,7 @@ h3{
 
 .buttomCriar {
     display: flex;
-    bottom:0;
+    bottom:5px;
     justify-content: center;
     align-items: center;
     padding: 1rem;
@@ -254,4 +250,11 @@ h3{
     background-position: right center;
     background-repeat: no-repeat;
     background-size: 20px;
+}
+
+.filtro{
+    height: 15px;
+    width:80px;
+    font-size: 9px;
+    margin-left: 5px;
 }

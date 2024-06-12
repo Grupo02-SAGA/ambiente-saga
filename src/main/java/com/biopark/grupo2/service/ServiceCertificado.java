@@ -7,55 +7,58 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
-import java.sql.Date;
-import java.util.List;
-import java.util.stream.Collectors;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Date;
 
 @Service
 public class ServiceCertificado {
 
     @Autowired
-    private RepositoryCertificado certificadoRepository;
+    private RepositoryCertificado repositoryCertificado;
 
-    public List<AvaliacaoDTO> listarAvaliacoes() {
-        List<Object[]> results = certificadoRepository.findAvaliacoes();
-        List<AvaliacaoDTO> collect = results.stream()
-                .map(result -> new AvaliacaoDTO(
-                        (Integer)result[0],
-                        (Date) result[1],
-                        (String) result[2],
-                        (String) result[3],
-                        (String) result[4],
-                        (Long) result[5]
-                ))
-                .collect(Collectors.toList());
-        return collect;
+    public Page<AvaliacaoDTO> listarAvaliacoesPage(int page, int size, String filter, Integer status) {
+        Page<Object[]> resultados;
+        PageRequest pageable = PageRequest.of(page, size);
+
+        switch (filter) {
+            case "MaisRecente":
+                resultados = repositoryCertificado.findAvaliacoesMaisRecentes(pageable);
+                break;
+            case "MenosRecente":
+                resultados = repositoryCertificado.findAvaliacoesMenosRecentes(pageable);
+                break;
+            case "OrdemEmpresa":
+                resultados = repositoryCertificado.findAvaliacoesOrdemEmpresa(pageable);
+                break;
+            case "OrdemFuncionario":
+                resultados = repositoryCertificado.findAvaliacoesOrdemFuncionario(pageable);
+                break;
+            case "base1":
+                resultados = repositoryCertificado.findAvaliacoesByStatus(1, pageable);
+                break;
+            case "base2":
+                resultados = repositoryCertificado.findAvaliacoesByStatus(2, pageable);
+                break;
+            case "base3":
+                resultados = repositoryCertificado.findAvaliacoesByStatus(3, pageable);
+                break;
+            default:
+                resultados = repositoryCertificado.findAvaliacoesMaisRecentes(pageable);
+        }
+
+        return resultados.map(this::convertToDTO);
     }
 
-    public Page<AvaliacaoDTO> listarAvaliacoesPage(int page, int size) {
-        Page<Object[]> results = certificadoRepository.findAvaliacoesPage(PageRequest.of(page, size));
-        return results.map(result -> new AvaliacaoDTO(
-                (Integer) result[0],
-                (Date) result[1],
-                (String) result[2],
-                (String) result[3],
-                (String) result[4],
-                (Long) result[5]
-        ));
+    private AvaliacaoDTO convertToDTO(Object[] resultado) {
+        AvaliacaoDTO dto = new AvaliacaoDTO();
+        dto.setBase((Integer) resultado[0]);
+        dto.setUltimaMod((Date) resultado[1]);
+        dto.setFantasia((String) resultado[2]);
+        dto.setFantasia((String) resultado[3]);
+        dto.setUsuario((String) resultado[4]);
+        dto.setId_formulario((Long) resultado[5]);
+        dto.setId_certificado((Long) resultado[6]);
+        return dto;
     }
-
-
-
-
-//        public List<CertificadoDTO> getResultsByEmpresa(Long empresaId) {
-//            List<Object[]> results = certificadoRepository.findResultsByEmpresa(empresaId);
-//            return results.stream()
-//                    .map(result -> new CertificadoDTO(
-//                            (Long) result[0],
-//                            (String) result[1],
-//                            (String) result[2],
-//                            (String) result[3]
-//                    ))
-//                    .collect(Collectors.toList());
-//        }
 }

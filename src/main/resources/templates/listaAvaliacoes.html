@@ -6,21 +6,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="image/x-icon" href="/static/images/Geral/logo_transparente.png" th:href="@{/images/logo-transparente.png}">
     <title>SAGA - Listar Avaliações</title>
-    <link rel="stylesheet" href="styles/avaliacoes.css">
+    <link rel="stylesheet" type="text/css" media="all" href="/styles/principalCSS/styleMenuLateral.css">
+    <link rel="stylesheet" type="text/css" media="all" href="/styles/GeralCSS/headGeral.css"/>
+    <link rel="stylesheet" type="text/css" media="all" href="/styles/avaliacoes.css">
+    <script src="/scripts/sideBar/menuLateral.js" defer></script>
 </head>
 <body>
-<header>
-    <section class="topSide">
-        <img src="/images/Geral/logo_transparente.png">
-        <h3>Avaliações</h3>
-    </section>
-</header>
-
+    <header class="topSide">
+        <div class="block">
+        </div>
+        <div class="div-header">
+            <img src="/images/Geral/logo_transparente.png" alt="logo-empresa" class="logo">
+        </div>
+        <div class="logo-hamburger" onclick="clickmenu()">
+            <img src="/images/Geral/menu_hamburger.png" class="menu-botao" alt="logo_hamburger">
+        </div>
+    </header>
+    <nav th:insert="/pop_up/menuLateral.html" id="fragmento_sidebar"></nav>
 <section class="implements">
+
     <div class="search">
         <input type="text" placeholder="Procurar..." id="searchInput">
+        <select title = "filtro" id="filterSelect" class="filtro">
+            <option value="all" th:selected="${filter == 'all'}">Todos</option>
+            <option value="MaisRecente" th:selected="${filter == 'MaisRecente'}">Mais Recente</option>
+            <option value="MenosRecente" th:selected="${filter == 'MenosRecente'}">Menos Recente</option>
+            <option value="OrdemEmpresa" th:selected="${filter == 'OrdemEmpresa'}">Empresa</option>
+            <option value="OrdemFuncionario" th:selected="${filter == 'OrdemFuncionario'}">Funcionário</option>
+            <option value="base1" th:selected="${filter == 'base1'}">Em andamento</option>
+            <option value="base2" th:selected="${filter == 'base2'}">Concluídos</option>
+            <option value="base3" th:selected="${filter == 'base3'}">Cancelados</option>
+        </select>
     </div>
 
+    </div>
+    <div class="buttomCriar">
+        <a th:href="@{novoUsuario}" class="linkCriar">
+            <h3> NOVO+ </h3>
+        </a>
+    </div>
     <table>
         <thead>
             <tr class="listaHead">
@@ -32,7 +56,7 @@
         <tbody >
             <tr th:each="certificado : ${avaliacoes}" class="listaForm">
                 <td id="andamento" th:classappend="${certificado.base == 1} ? 'progresso' : (${certificado.base == 2} ? 'concluida' : 'cancelada')">
-                <td class="data" th:text="${#dates.format(certificado.vencimento, 'dd/MM/yyyy')}"></td>
+                <td class="data" th:text="${#dates.format(certificado.ultimaMod, 'dd/MM/yyyy')}"></td>
                 <td class="empresa" th:text="${certificado.fantasia}"></td>
                 <td class="usuario" th:text="${certificado.usuario}"></td>
                 <input type = "hidden" th:value="${certificado.form}">
@@ -57,13 +81,10 @@
             </td>
         </tr>
     </div>
-    <div class="buttomCriar">
-            <a th:href="@{novoUsuario}" class="linkCriar">
-                <h3> NOVO+ </h3>
-            </a>
-    </div>
+
 
 </section>
-<script src="scripts/buscaFormularioBase.js" ></script>
+<script src="scripts/geral/busca.js" ></script>
+<script src="scripts/listaAvaliacoes/filtro.js" ></script>
 </body>
 </html>

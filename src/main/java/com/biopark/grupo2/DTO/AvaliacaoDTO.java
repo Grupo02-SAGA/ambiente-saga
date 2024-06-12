@@ -2,7 +2,9 @@ package com.biopark.grupo2.DTO;
 
 import lombok.*;
 
-import java.sql.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Date;
 
 
 @Getter
@@ -11,9 +13,14 @@ import java.sql.Date;
 @NoArgsConstructor
 public class AvaliacaoDTO {
     private Integer base;
-    private Date vencimento;
+    private Date ultimaMod;
     private String form;
     private String fantasia;
     private String usuario;
+    private Long id_formulario;
     private Long id_certificado;
+
+//    public void setUltimaMod(LocalDate localDateTime) {
+//        this.setUltimaMod(localDateTime);
+//    }
 }
