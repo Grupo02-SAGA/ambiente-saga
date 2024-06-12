@@ -1,7 +1,7 @@
 package com.biopark.grupo2.controller;
 
 import com.biopark.grupo2.model.Usuario;
-import com.biopark.grupo2.repository.RepositoryLogin;
+import com.biopark.grupo2.repository.RepositoryUsuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,7 +15,7 @@ import java.util.Optional;
 public class LoginController {
 
     @Autowired
-    private RepositoryLogin usuarioRepository;
+    private RepositoryUsuario usuarioRepository;
 
     @GetMapping("/login")
     public ModelAndView showLoginPage() {
@@ -23,6 +23,7 @@ public class LoginController {
         mav.addObject("usuario", new Usuario());
         return mav;
     }
+
 
     @PostMapping("/login")
     public ModelAndView login(@RequestParam String email, @RequestParam String senha) {
