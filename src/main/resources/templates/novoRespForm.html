@@ -12,27 +12,22 @@
             <img src="/images/Geral/logo_transparente.png" alt="logo_empresa">
             <hr>
         </div>
-    <div>
-        <label for="empresa">Empresa:</label>
-        <select id="empresa" name="empresa">
-          <option value="" th:each="emp : ${empresas}" data-form="${emp.fantasia}" th:text="${emp.fantasia}"></option>
-        </select> 
-
-        <label for="porte">Porte:</label>
-        <select id="porte" name="porte">
-          <option value="0">Pequeno</option>
-          <option value="1">Médio</option>
-          <option value="2">Grande</option>
-        </select> 
-
-        <label for="formularioBase">Formulario Base:</label>
-        <select id="formularioBase" name="formularioBase">
-            <option value="" th:each="form : ${forms}" data-form="${form.titulo}" th:text="${form.titulo}"></option>
-        </select> 
+    <div class="">
+        <form th:action="@{/novaAvaliacao}" method="post">
+            <label for="empresa">Empresa:</label>
+            <select id="empresa" name="id_empresa">
+                <option th:value="${emp.id_empresa}" th:each="emp : ${empresas}" th:text="${emp.fantasia}"></option>
+            </select>
+            <br>
+            <label for="formularioBase">Formulario Base:</label>
+            <select id="formularioBase" name="id_formulario">
+                <option th:value="${form.id_formulario}" th:each="form : ${forms}" th:text="${form.titulo}"></option>
+            </select>
+            <div class="btn">
+                <button type="reset" class="btn_cancelar">Cancelar</button>
+                <button type="submit" class="btn_confirma">Confirmar</button>
+            </div>
+        </form>
     </div>
-    <div class="btn">
-        <button type="reset" class="btn_cancelar">Cancelar</button>
-        <button type="submit" class="btn_confirma">Confirmar</button>
-      </div>
 </body>
 </html>
