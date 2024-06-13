@@ -57,7 +57,7 @@ public class CriarMaisController {
         return "redirect:/detalhesFormulario/" + idFormulario;
     }
 
-    public List<String> getQuestionsByFormId(Long id) {
-        return repositoryPergunta.findTitlesByFormId(id);
+    public List<String> getQuestionsByFormId(Long idFormulario) {
+        return repositoryPergunta.findTitlesByFormId(idFormulario);
     }
 }

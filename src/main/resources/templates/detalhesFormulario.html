@@ -12,10 +12,16 @@
     <link rel="stylesheet" type="text/css" media="all" href="/styles/GeralCSS/toggleAtivarDesativar.css">
     <script src="/scripts/formulariosJS/btnAtivarDesativar.js" defer></script>
 </head>
+
 <body>
+
 <header class="topSide">
     <img class="logo" src="/images/Geral/logo_transparente.png" alt="logo_empresa"/>
 </header>
+<!--<div>-->
+<!--    <h3 th:action="@{/detalhesFormulario}" th:text="${formulario.titulo}" method="get" class="exibirCriarMais"></h3>-->
+<!--</div>-->
+
 <main>
     <form th:action="@{/detalhesFormulario}" th:object="${formulario}"  class="editar_formulario" method="post">
         <div class="formulario_topo">
@@ -54,17 +60,15 @@
             </div>
         </div>
     </form>
+
+
     <form th:action="@{/detalhesFormulario/{id}}" th:object="${pergunta}" class="criar_pergunta" method="post">
+        <input type="hidden" name="estado" th:value="${true}">
         <input
               required
               type="hidden"
               name="idFormulario"
               th:value="${idFormulario}">
-        <input
-              required
-              type="hidden"
-              th:field="*{estado}"
-              th:value="${estado eq false ? 'false' : 'true'}">
         <input
               required
               th:field="*{documento}"
@@ -75,11 +79,43 @@
               placeholder="Digite aqui sua nova pergunta"
               class="inputPergunta"
               required>
+
         <div id="pergunta_salvar_sair">
             <a href="#" class="botao_x">x</a>
             <button th:type="submit" class="salvar_pergunta"> Salvar</button>
         </div>
     </form>
+
+
+<!--    <form th:each="pergunta : ${pergunta}" class="criar_pergunta">-->
+<!--        <div class="seta">-->
+<!--            <label class="container">-->
+<!--                <input checked="checked" data-toggle="collapse" type="checkbox">-->
+<!--            </label>-->
+<!--        </div>-->
+<!--    </form>-->
+
+
+    <div th:each="titulo : ${listaPergunta}" class="listPergunta">
+        <div>
+            <div class="pTitulo">
+                <p th:text="${titulo}"></p>
+            </div>
+        </div>
+        <div>
+            <div class="pRemover"><a><img alt="" th:src="@{/images/X.png}" width="40"></a></div>
+        </div>
+    </div>
+<!--    <div th:each="pergunta : ${perguntas}" class="pergunta">-->
+<!--        <div>-->
+<!--            <div class="pTitulo">-->
+<!--                <p th:text="${pergunta}"></p>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div>-->
+<!--            <div class="pRemover"><a><img alt="" th:src="@{/images/X.png}" width="40"></a></div>-->
+<!--        </div>-->
+<!--    </div>-->
 </main>
 </body>
 </html>
