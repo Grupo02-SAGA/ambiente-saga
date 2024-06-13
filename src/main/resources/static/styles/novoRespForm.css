@@ -24,6 +24,7 @@ hr{
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-left: 14px;
     .btn_confirma {
         cursor: pointer;
         border: none;
@@ -43,5 +44,24 @@ hr{
         padding: 8px 50px;
         font-size: 14px;
         margin-right: 20px;
+    }
+}
+
+.corpo{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    label{
+        margin-top: 8px;
+        font-size: medium;
+    }
+    select{
+        background-color: white;
+        border-radius: 10px;
+        border-color: #778CA2;
+        padding-top: 4px;
+        padding-bottom: 4px;
+        padding-left: 10px;
+        margin-bottom: 12px;
     }
 }
