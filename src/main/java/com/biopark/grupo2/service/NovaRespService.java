@@ -1,9 +1,6 @@
 package com.biopark.grupo2.service;
 
-import com.biopark.grupo2.model.Certificado;
-import com.biopark.grupo2.model.Empresa;
-import com.biopark.grupo2.model.Formulario;
-import com.biopark.grupo2.model.Resposta;
+import com.biopark.grupo2.model.*;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -25,8 +22,12 @@ public class NovaRespService {
         return novoFormulario;
     }
 
-    public Resposta todasRespostas(Formulario formulario){
-        Resposta novaResposta = new Resposta();
-        return novaResposta;
+    public Pergunta todasRespostas(Pergunta pergunta, Formulario id_form){
+        Pergunta novaPergunta = new Pergunta();
+        novaPergunta.setTitulo(pergunta.getTitulo());
+        novaPergunta.setDocumento(pergunta.isDocumento());
+        novaPergunta.setEstado(pergunta.isEstado());
+        novaPergunta.setId_formulario(id_form);
+        return novaPergunta;
     }
 }
