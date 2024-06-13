@@ -16,6 +16,6 @@ public class Formulario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_formulario;
     private String titulo;
-    private Boolean base;
+    private byte base;
     private Boolean estado;
 }
