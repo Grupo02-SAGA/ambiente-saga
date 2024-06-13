@@ -20,7 +20,4 @@ public class AvaliacaoDTO {
     private Long id_formulario;
     private Long id_certificado;
 
-//    public void setUltimaMod(LocalDate localDateTime) {
-//        this.setUltimaMod(localDateTime);
-//    }
 }

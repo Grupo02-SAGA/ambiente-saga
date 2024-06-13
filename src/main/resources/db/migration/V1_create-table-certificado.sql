@@ -1,6 +1,6 @@
 CREATE TABLE Certificado (
     id_certificado INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    vencimento DATE(20),
+    vencimento DATEgit ,
     resultado DOUBLE,
     id_formulario INT NOT NULL,
     id_empresa INT NOT NULL,
