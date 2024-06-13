@@ -23,7 +23,4 @@ public class Empresa {
     private String porte;
     private String atividade;
     private boolean estado;
-    @ManyToOne
-    @JoinColumn(name = "id_usuario")
-    private Usuario id_usuario;
 }

@@ -13,7 +13,9 @@
 <body>
 <header>
     <section class="topSide">
-        <img src="/images/Geral/logo_transparente.png">
+        <a href="http://localhost:8080/">
+            <img class="logo" src="/images/Geral/logo_transparente.png" alt="logo_empresa"/>
+        </a>
         <h3>Usuários</h3>
     </section>
 </header>
@@ -26,7 +28,7 @@
         <thead>
         <tr class="buttomCriar">
             <td>
-                <a th:href="@{novoUsuario}" class="linkCriar"> <h3> Criar+ </h3></a>
+                <button class="btnAdicionarUser"><a th:href="@{novoUsuario}" class="linkCriar"> <h3> Criar+ </h3></a></button>
             </td>
         </tr>
         </thead>

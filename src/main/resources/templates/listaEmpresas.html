@@ -11,7 +11,9 @@
 <body>
 <header>
     <section class="topSide">
-        <img src="/images/Geral/logo_transparente.png">
+        <a href="http://localhost:8080/">
+            <img class="logo" src="/images/Geral/logo_transparente.png" alt="logo_empresa"/>
+        </a>
         <h3>Empresas</h3>
     </section>
 </header>
@@ -24,7 +26,7 @@
         <thead>
         <tr class="buttomCriar">
             <td>
-                <a th:href="@{/novaEmpresa}" class="linkCriar"> <h3> Criar+ </h3></a>
+                <button class="bntAdicionarEmpresa"><a th:href="@{/novaEmpresa}" class="linkCriar"> <h3> Criar+ </h3></a></button>
             </td>
         </tr>
         </thead>
@@ -37,7 +39,6 @@
             <td>
                 <div class="button-container">
                     <a th:href="@{'/editarEmpresa/'+ ${empresa.id_empresa}}">
-
                         <button onclick="handleButtonClick('${empresa.fantasia}')" class="button"> </button>
                     </a>
                 </div>
