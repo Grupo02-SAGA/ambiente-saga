@@ -8,20 +8,16 @@
     <link rel="shortcut icon" type="image/x-icon" href="/images/Geral/logo_transparente.png" >
     <title>SAGA - Lista de templates de formularios</title>
     <link rel="stylesheet" href="/styles/FormularioBaseCSS/listaFormsBase.css">
+    <link rel="stylesheet" type="text/css" media="all" href="/styles/principalCSS/styleMenuLateral.css">
+    <link rel="stylesheet" type="text/css" media="all" href="/styles/GeralCSS/headGeral.css"/>
     <script src="/scripts/formulariosJS/buscaFormularioBase.js" ></script>
     <script src="/scripts/formulariosJS/botaoCriarMais.js" defer></script>
+    <script src="/scripts/sideBar/menuLateral.js" defer></script>
 </head>
 
 <body>
-<header>
-    <section class="topSide">
-        <a href="http://localhost:8080/">
-            <img class="logo" src="/images/Geral/logo_transparente.png" alt="logo_empresa"/>
-        </a>
-        <h3>Formulários</h3>
-    </section>
-</header>
-
+<header th:insert="/pop_up/header.html" class="topSide"></header>
+<nav th:insert="/pop_up/menuLateral.html" id="fragmento_sidebar"></nav>
 <section class="implements">
     <div class="search">
         <input type="text" placeholder="Procurar..." id="searchInput">
