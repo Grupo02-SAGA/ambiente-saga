@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 .header {
     img {
         display: block;
@@ -53,7 +54,7 @@ hr{
     flex-direction: column;
     label{
         margin-top: 8px;
-        font-size: medium;
+        font-size: 14px;
     }
     select{
         background-color: white;
