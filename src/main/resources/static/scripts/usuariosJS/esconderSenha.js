@@ -14,4 +14,16 @@ document.addEventListener('DOMContentLoaded', function () {
             toggleSenhaButton.textContent = 'Mostrar Senha';
         }
     });
+
+
+    function togglePassword() {
+    if (senhaInput.type === 'password') {
+    passwordField.type = 'text';
+    } else {
+    senhaInput.type = 'password';
+    }
+    }
+
+    togglePassword();
+
 });
