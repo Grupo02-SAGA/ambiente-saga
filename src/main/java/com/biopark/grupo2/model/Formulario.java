@@ -18,4 +18,7 @@ public class Formulario {
     private String titulo;
     private Boolean base;
     private Boolean estado;
+
+    @OneToMany(mappedBy = "id_formulario")
+    private List<Pergunta> perguntas;
 }
