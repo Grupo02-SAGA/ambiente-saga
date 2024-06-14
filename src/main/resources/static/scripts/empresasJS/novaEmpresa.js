@@ -16,7 +16,6 @@ button_cancel_form.addEventListener("click", () => {
     togglePopup();
 });
 
-
 const redirecionar_pagina = () => {
     return location.href = "/listaEmpresas";
 };
