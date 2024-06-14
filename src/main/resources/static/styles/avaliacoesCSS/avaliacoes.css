@@ -154,6 +154,20 @@ h3{
     box-shadow: 2px 0px 9px 5px rgb(255 255 255);
 }
 
+.editButton{
+    background-color:Transparent;
+    background-image: url(../../images/Geral/edit.png);
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-size: 12px;
+    width: 15px;
+    height: 15px;
+    border: none;
+    padding: 0;
+    margin-right:10px;
+    cursor:pointer;
+}
+
 .buttomCriar {
     display: flex;
     top: 36px;
@@ -174,19 +188,7 @@ h3{
     }
 
 
-.button{
-    background-color:Transparent;
-    background-image: url(../../images/Geral/edit.png);
-    background-position: right center;
-    background-repeat: no-repeat;
-    background-size: 12px;
-    width: 15px;
-    height: 15px;
-    border: none;
-    padding: 0;
-    margin-right:10px;
-    cursor:pointer;
-}
+
  form{
      display: none;
  }

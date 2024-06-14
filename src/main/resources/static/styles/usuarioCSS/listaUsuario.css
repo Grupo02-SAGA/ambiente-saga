@@ -80,6 +80,18 @@ h3{
     text-overflow: ellipsis;
 }
 
+.editButton{
+    background-color:Transparent;
+    background-image: url(../../images/Geral/edit.png);
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-size: 12px;
+    width: 15px;
+    height: 15px;
+    border: none;
+    padding: 0;
+}
+
 .buttomCriar {
     display: flex;
     justify-content: center;
@@ -145,17 +157,7 @@ h3{
 }
 
 
-.button{
-    background-color:Transparent;
-    background-image: url(../../images/Geral/edit.png);
-    background-position: right center;
-    background-repeat: no-repeat;
-    background-size: 12px;
-    width: 15px;
-    height: 15px;
-    border: none;
-    padding: 0;
-}
+
 
 form{
     display: none;
