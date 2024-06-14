@@ -92,6 +92,13 @@ h3{
     align-items: center;
 }
 
+.textoEmpresa{
+    max-width: 250px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .buttomCriar {
     display: flex;
     justify-content: center;
