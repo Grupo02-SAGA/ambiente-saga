@@ -28,7 +28,7 @@ public class UsuarioController {
     }
 
     @PostMapping("/novoUsuario")
-    public RedirectView createUsuario(@ModelAttribute ("usuario") Usuario usuario, RedirectAttributes attributes) {
+    public RedirectView createUsuario(@ModelAttribute("usuario") Usuario usuario, RedirectAttributes attributes) {
         repositoryUsuario.save(usuario);
         attributes.addFlashAttribute("condition", "cadastro-ok");
         return new RedirectView("/novoUsuario");
@@ -37,23 +37,18 @@ public class UsuarioController {
     @GetMapping("/editarUsuario/{id}")
     public ModelAndView getUsuarioById(@PathVariable Long id) {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("editarUsuario"); // Defina o nome da sua página de detalhes do usuário
-        // Buscar usuário pelo ID
+        modelAndView.setViewName("editarUsuario");
         Usuario usuario = repositoryUsuario.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Usuário não encontrado com o ID: " + id));
-        // Adicionar o usuário ao modelo
         modelAndView.addObject("usuario", usuario);
         return modelAndView;
     }
 
     @PostMapping("/editarUsuario")
     public RedirectView editarUsuario(@ModelAttribute("usuario") Usuario usuario, RedirectAttributes attributes) {
-        // Carregar o usuário existente do banco de dados
         Usuario usuarioExistente = repositoryUsuario.findById((long)usuario.getId_usuario())
                 .orElseThrow(() -> new IllegalArgumentException("Usuário não encontrado com o ID: " + usuario.getId_usuario()));
-        // Atualizar os atributos do usuário existente com os novos dados do formulário
         BeanUtils.copyProperties(usuario, usuarioExistente, "id_usuario");
-        // Salvar o usuário atualizado no banco de dados
         repositoryUsuario.save(usuarioExistente);
         attributes.addFlashAttribute("condition", "cadastro-ok");
         return new RedirectView("/editarUsuario/" + usuario.getId_usuario());
@@ -72,4 +67,29 @@ public class UsuarioController {
         return modelAndView;
     }
 
+    @GetMapping("/recuperaSenha/{email}")
+    public ModelAndView getUsuarioByEmail(@PathVariable String email) {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("recuperaSenha");
+        Usuario usuario = repositoryUsuario.findByEmail(email)
+                .orElseThrow(() -> new IllegalArgumentException("Usuário não encontrado com o Email: " + email));
+        modelAndView.addObject("usuario", usuario);
+        return modelAndView;
+    }
+
+    @GetMapping("/buscaEmail")
+    public ModelAndView buscaEmail() {
+        Usuario usuario = new Usuario();
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("buscaEmail");
+        modelAndView.addObject("usuario", usuario);
+        return modelAndView;
+    }
+
+    @PostMapping("/buscaEmail")
+    public RedirectView recuperarSenhaPrimeiraTela(@RequestParam String email) {
+        Usuario usuario = repositoryUsuario.findByEmail(email)
+                .orElseThrow(() -> new IllegalArgumentException("Usuário não encontrado com o Email: " + email));
+        return new RedirectView("/recuperaSenha/" + email);
+    }
 }
