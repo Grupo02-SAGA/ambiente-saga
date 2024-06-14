@@ -21,6 +21,7 @@ main{
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 }
 
 .formulario_topo{
@@ -58,12 +59,65 @@ input.inputTitulo{
     margin: .8rem;
 }
 
+.listPergunta{
+    word-wrap: break-word;
+    border-style: groove;
+    border-radius: 10px;
+    padding: 6px;
+    width: 95%;
+    margin-top: 8px;
+    margin-left: auto;
+    margin-right: auto;
+.pTitulo {
+    font-size: 14px;
+    text-align: center;
+    margin-top: 8px;
+    margin-bottom: -5px;
+    font-weight: 700;
+}
+hr{
+    margin-top: 2px;
+    height: 2px;
+    stroke: rgb(0, 119, 200);
+    background-color: rgb(0, 119, 200);
+    margin-left: 8px;
+    margin-right: 8px;
+}
+.buttons{
+table{
+    width: 100%;
+.cancela{
+    display: block;
+    padding-bottom: 5px;
+    margin-right: auto;
+    padding-right: 5px;
+img{
+    width: 40px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+}
+}
+.salva{
+    display: block;
+    margin-left: auto;
+    border: none;
+    border-radius: 10px;
+    background-color: #DBFFDC;
+    color: #35B02A;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 6px 0 rgba(0, 0, 0, 0.19);
+    padding: 8px 50px;
+    font-size: 14px;
+}
+}
+}
+}
+
 .footer {
-    position: fixed;
     left: 0;
     bottom: 1rem;
     width: 100%;
     text-align: center;
+    margin-top: 5px;
     margin-bottom: 8px;
     display: flex;
     flex-direction: column;
@@ -89,6 +143,7 @@ button{
     line-height: 20px;
 }
 button.btnCancelar{
+    margin-top: 10px;
     margin-right: 10px;
     background-color:#FFDBDB;
     color: #B0522A;
@@ -96,6 +151,7 @@ button.btnCancelar{
 }
 
 button.btnSalvar{
+    margin-top: 10px;
     margin-left: 10px;
     background-color: #DBFFDC;
     color: #35B02A;
