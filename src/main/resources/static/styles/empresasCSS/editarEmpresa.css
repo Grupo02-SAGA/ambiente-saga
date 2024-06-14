@@ -2,7 +2,6 @@
 
 body{
     width: 100%;
-    min-height: 80vh;
 }
 
 .topSide{
@@ -22,16 +21,26 @@ main{
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 82vh;
 }
 
-form.novaEmpresa{
+form.editar_empresa{
+    width: 100%;
     display: flex;
     flex-direction: column;
-    width: 80%;
+    align-items: center;
+    justify-content: center;
     height: 100%;
 }
 ul {
     list-style: none;
+    width: 80%;
+    max-width: 500px;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    min-height: 200px;
 }
 
 label.conteudoInput{
@@ -43,7 +52,7 @@ label.conteudoInput{
 }
 
 li{
-    margin-bottom: 3%;
+    margin-bottom: 0.75rem;
 }
 li.estado{
     display: flex;
@@ -88,12 +97,11 @@ form.novaEmpresa ::placeholder{
 }
 
 .bot_side{
-    max-width: 100%;
-    min-height: 5%;
-    margin-bottom:10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: fixed;
+    max-width: 500px;
+    bottom: 0.5rem;
+    width: 80%;
+    padding-bottom: 0.25rem;
 }
 
 button{
@@ -107,8 +115,9 @@ button{
     text-align: center;
     line-height: 20px;
 }
-.btn{
+.botoes_footer{
     display: flex;
+    justify-content: space-evenly;
 }
 button.btn_cancelar{
     margin-right: 10px;
@@ -122,4 +131,32 @@ button.btn_confirma{
     background-color: #DBFFDC;
     color: #35B02A;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 6px 0 rgba(0, 0, 0, 0.19);
+}
+@media only screen and (min-device-width: 375px) and (max-device-height: 667px) {
+
+    main {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 80%;
+    }
+
+    form.editar_empresa{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+
+    .bot_side {
+        position: static;
+        max-width: 500px;
+        bottom: 0.5rem;
+        width: 80%;
+        padding-bottom: 0.5rem;
+
+    }
 }
