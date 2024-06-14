@@ -42,22 +42,21 @@ public class CriarMaisController {
                 .orElseThrow(() -> new IllegalArgumentException("Formulario não encontrado no post com o ID: " + idFormulario));
         BeanUtils.copyProperties(formulario, formularioExistente, "id_formulario");
         repositoryFormulario.save(formularioExistente);
-        attributes.addFlashAttribute("editar-formulario", "formulario-editado");
+        attributes.addFlashAttribute("editarFormulario", "formularioEditado");
         return new RedirectView("/detalhesFormulario/" + idFormulario);
     }
 
-
     @PostMapping("/detalhesFormulario/{id}")
-    public String criarPerguntas(@ModelAttribute("novaPergunta") Pergunta novaPergunta, @RequestParam("idFormulario") Long idFormulario){
+    public String criarPerguntas(@ModelAttribute("novaPergunta") Pergunta novaPergunta, @RequestParam("idFormulario") Long idFormulario, RedirectAttributes attributes){
         Formulario formulario = repositoryFormulario.findById(idFormulario).orElseThrow();
-
         novaPergunta.setId_formulario(formulario);
-
         repositoryPergunta.save(novaPergunta);
+        attributes.addFlashAttribute("cadastaPegunta", "perguntaCadastrada");
         return "redirect:/detalhesFormulario/" + idFormulario;
     }
 
     public List<String> getQuestionsByFormId(Long id) {
+
         return repositoryPergunta.findTitlesByFormId(id);
     }
 }
