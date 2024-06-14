@@ -17,7 +17,7 @@ public class NovaRespService {
         Formulario novoFormulario = new Formulario();
         novoFormulario.setTitulo(formulario.getTitulo());
         novoFormulario.setTitulo(empresa.getFantasia());
-        novoFormulario.setBase((byte) 1);
+        novoFormulario.setBase((Integer) 1);
         novoFormulario.setEstado(true);
         return novoFormulario;
     }
