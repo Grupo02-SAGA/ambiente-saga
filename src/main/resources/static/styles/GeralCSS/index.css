@@ -9,7 +9,17 @@ html{
     font-family: "Rubik", sans-serif;
     }
 
+<<<<<<< HEAD:src/main/resources/static/styles/index.css
+
+campos{
+
+}
+
+
+.top_side{
+=======
 .topSide{
+>>>>>>> 8cc85f987fc516bcb887edb313bbd30390060fd7:src/main/resources/static/styles/GeralCSS/index.css
     width: 100%;
     height:100%;
     padding: .5rem;

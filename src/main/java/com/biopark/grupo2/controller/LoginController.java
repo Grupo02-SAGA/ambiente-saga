@@ -30,7 +30,7 @@ public class LoginController {
         Optional<Usuario> usuarioOpt = usuarioRepository.findByEmailAndSenha(email, senha);
         if (usuarioOpt.isPresent()) {
             // Login realizado, redireciona para a home
-            mav.setViewName("redirect:/listaFormsBase");
+            mav.setViewName("redirect:/");
         } else {
             // Mensagem de erro
             mav.setViewName("redirect:/login");

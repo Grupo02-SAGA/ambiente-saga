@@ -5,21 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" type="image/x-icon" href="/images/Geral/logo_transparente.png" />
     <title>SAGA - Editar Formulario</title>
-    <link rel="stylesheet" type="text/css" href="/styles/GeralCSS/reset.css">
     <link rel="stylesheet" type="text/css" media="all" href="/styles/GeralCSS/reset.css"  />
     <link rel="stylesheet" type="text/css" media="all" href="/styles/FormularioBaseCSS/detalhesFormulario.css">
     <link rel="stylesheet" type="text/css" media="all" href="/styles/FormularioBaseCSS/criarPergunta.css">
     <link rel="stylesheet" type="text/css" media="all" href="/styles/GeralCSS/toggleAtivarDesativar.css">
     <script src="/scripts/formulariosJS/btnAtivarDesativar.js" defer></script>
+    <script src="/scripts/formulariosJS/detalhesFormulario.js" defer></script>
 </head>
 <body>
+<section th:if="${editarFormulario}" th:insert="/pop_up/popup_editar_formulaio.html"></section>
+<section th:if="${cadastaPegunta}" th:insert="/pop_up/popup_confirmacao.html"></section>
+<section th:insert="/pop_up/popup_cancelar.html" id="fragmento_popup_cancelar"></section>
 <header class="topSide">
     <img class="logo" src="/images/Geral/logo_transparente.png" alt="logo_empresa"/>
 </header>
 <main>
     <form th:action="@{/detalhesFormulario}" th:object="${formulario}"  class="editar_formulario" method="post">
         <div class="formulario_topo">
-            <label >editavel</label>
             <input
                   type="text"
                   th:value="*{titulo}"
@@ -49,8 +51,8 @@
             </button>
             <div class="linha_footer"> </div>
             <div class="botoes_footer">
-                <button th:type="button" class="btnCancelar"><strong>Cancelar</strong></button>
-                <button th:type="submit" class="btnSalvar"><strong>Confirmar</strong></button>
+                <button type="button" id="btnCancelar" class="btnCancelar"><strong>Cancelar</strong></button>
+                <button type="submit" id="btnSalvar" class="btnSalvar"><strong>Confirmar</strong></button>
             </div>
         </div>
     </form>
@@ -76,8 +78,8 @@
               class="inputPergunta"
               required>
         <div id="pergunta_salvar_sair">
-            <a href="#" class="botao_x">x</a>
-            <button th:type="submit" class="salvar_pergunta"> Salvar</button>
+            <a class="botao_x" id="limpar_input">x</a>
+            <button id="salvar_pergunta" type="submit" class="salvar_pergunta">Cadastrar</button>
         </div>
     </form>
 </main>

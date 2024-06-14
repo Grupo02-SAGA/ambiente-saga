@@ -3,7 +3,7 @@ form.criar_pergunta{
     left: 50%;
     top: 155px;
     transform: translate(-50%);
-    z-index: 10;
+    z-index: 3;
     width: 500px;
     max-width: 90%;
     padding: 1.2rem;
