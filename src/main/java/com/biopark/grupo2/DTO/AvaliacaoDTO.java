@@ -14,7 +14,6 @@ import java.util.Date;
 public class AvaliacaoDTO {
     private Integer base;
     private Date ultimaMod;
-    private String form;
     private String fantasia;
     private String usuario;
     private Long id_formulario;

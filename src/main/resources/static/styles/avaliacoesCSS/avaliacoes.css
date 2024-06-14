@@ -58,7 +58,7 @@ section.implements{
 }
 
 .search ::placeholder{
-    background-image: url(../images/Geral/Path.png);
+    background-image: url(../../images/Geral/Path.png);
     background-position: right center;
     background-repeat: no-repeat;
     background-size: 12px;
@@ -175,17 +175,18 @@ h3{
 
 
 .button{
-     background-color:Transparent;
-     background-image: url(../images/edit.png);
-     background-position: right center;
-     background-repeat: no-repeat;
-     background-size: 12px;
-     width: 15px;
-     height: 15px;
-     border: none;
-     padding: 0;
-    }
-
+    background-color:Transparent;
+    background-image: url(../../images/Geral/edit.png);
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-size: 12px;
+    width: 15px;
+    height: 15px;
+    border: none;
+    padding: 0;
+    margin-right:10px;
+    cursor:pointer;
+}
  form{
      display: none;
  }
@@ -198,14 +199,15 @@ h3{
 
 .usuarioH{
    margin-left: auto;
+   padding-right:20px;
 }
 
 .empresaH{
-    padding-left:48px;
+    padding-left:39px;
 }
 
 .dataH{
-    padding-left: 90px;
+    padding-left: 80px;
 }
 
 .status{
@@ -214,23 +216,31 @@ h3{
 
 
 .usuario{
-    padding-right: 20px;
+    padding-right: 10px;
     margin-left: auto;
+    max-width: 100px;
+    justify-content: center;
+    max-width: 60px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .empresa{
-       display: flex;
-       max-width: 100px;
-       margin: 15px;
-       justify-content: center;
+   justify-content: center;
+   margin-left: 0px;
+   max-width: 90px;
+   white-space: nowrap;
+   overflow: hidden;
+   text-overflow: ellipsis;
 }
 
 .data{
-    padding: 0px 10px 0px 20px;
+    padding: 0px 12px 0px 10px;
 }
 
 .progresso{
-    background-image: url(../images/Geral/andamento.png);
+    background-image: url(../../images/Geral/andamento.png);
     margin-left:5px;
     width: 30px;
     height: 30px;
@@ -240,7 +250,7 @@ h3{
 }
 
 .concluida{
-    background-image: url(../images/Geral/concluido.png);
+    background-image: url(../../images/Geral/concluido.png);
     margin-left:5px;
     width: 30px;
     height: 30px;
@@ -250,7 +260,7 @@ h3{
 }
 
 .cancelada{
-    background-image: url(../images/Geral/abortado.png);
+    background-image: url(../../images/Geral/abortado.png);
     margin-left:5px;
     width: 30px;
     height: 30px;
