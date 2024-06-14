@@ -31,7 +31,7 @@
         <tbody class="tableBody" id="tableBody">
         <tr th:each="usuario : ${usuarios}" data-form="${usuario.nome}" class="listaForm">
             <td>
-                <div th:text="${usuario.nome}"></div>
+                <div th:text="${usuario.nome}" class="textoUsuario"></div>
             </td>
             <td>
                 <div class="button-container">

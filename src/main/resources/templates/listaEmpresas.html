@@ -29,7 +29,7 @@
         <tbody class="tableBody" id="tableBody">
         <tr th:each="empresa : ${empresas}" data-form="${empresa.fantasia}" class="listaForm">
             <td>
-                <div th:text="${empresa.fantasia}"></div>
+                <div th:text="${empresa.fantasia}" class="textoEmpresa"></div>
             </td>
             <td>
                 <div class="button-container">
