@@ -3,6 +3,12 @@ form.criar_pergunta{
     margin-left: auto;
     margin-right: auto;
     padding: 20px;
+    position: fixed;
+    left: 50%;
+    top: 155px;
+    transform: translate(-50%);
+    z-index: 3;
+    max-width: 90%;
     border-radius: 10px;
     border: 1px solid #808080;
 }

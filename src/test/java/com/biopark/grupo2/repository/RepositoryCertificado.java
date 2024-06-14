@@ -7,8 +7,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import java.util.List;
-
 public interface RepositoryCertificado extends JpaRepository<Certificado, Long> {
     @Query(value = "SELECT f.base, r.ultimaMod AS data, f.titulo AS form, e.fantasia, u.nome AS usuario, f.id_formulario, c.id_certificado AS cert " +
             "FROM certificado c " +
