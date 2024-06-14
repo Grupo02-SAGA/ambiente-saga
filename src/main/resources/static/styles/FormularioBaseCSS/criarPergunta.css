@@ -1,22 +1,16 @@
 form.criar_pergunta{
-    position: fixed;
-    left: 50%;
-    top: 155px;
-    transform: translate(-50%);
-    z-index: 10;
-    width: 500px;
-    max-width: 90%;
-    padding: 1.2rem;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
     border-radius: 10px;
-    display: flex;
-    flex-direction: column;
     border: 1px solid #808080;
 }
 
 input.inputPergunta{
     max-width: 500px;
     font-size: 14px;
-    margin: 0 .25rem .25rem 10px;
+    width: 100%;
     padding: .5rem;
     border: 0;
     border-bottom: 2px solid #818181;
