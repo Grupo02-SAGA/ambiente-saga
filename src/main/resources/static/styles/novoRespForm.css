@@ -41,6 +41,7 @@ hr{
         border-radius: 10px;
         background-color: #FFDBDB;
         color: #B0522A;
+        cursor: pointer;
         box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 6px 0 rgba(0, 0, 0, 0.19);
         padding: 8px 50px;
         font-size: 14px;

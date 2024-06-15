@@ -32,7 +32,7 @@ public class FormularioController {
         return new RedirectView("/detalhesFormulario/" + idFormulario);
     }
     public List<Formulario> forms_base(){
-        return repositoryFormulario.findAll();
+        return repositoryFormulario.findByBase(0);
     }
 
 }
