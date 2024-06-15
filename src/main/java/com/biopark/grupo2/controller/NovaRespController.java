@@ -53,7 +53,7 @@ public class NovaRespController {
     }
     //Consultas
     public List<Formulario> todosFormularios(){
-        return repositoryFormulario.findAll();
+        return repositoryFormulario.findByBase(0);
     }
 
     public List<Empresa> todasEmpresas(){
