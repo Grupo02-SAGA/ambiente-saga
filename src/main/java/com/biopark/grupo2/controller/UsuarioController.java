@@ -92,4 +92,15 @@ public class UsuarioController {
                 .orElseThrow(() -> new IllegalArgumentException("Usuário não encontrado com o Email: " + email));
         return new RedirectView("/recuperaSenha/" + email);
     }
+
+
+    @PostMapping("/recuperaSenha")
+       public RedirectView recuperaSenha(@ModelAttribute("usuario") Usuario usuario, RedirectAttributes attributes) {
+       Usuario usuarioExistente = repositoryUsuario.findById((long)usuario.getId_usuario())
+               .orElseThrow(() -> new IllegalArgumentException("Usuário não encontrado com o ID: " + usuario.getId_usuario()));
+      usuarioExistente.setSenha(usuario.getSenha());
+       repositoryUsuario.save(usuarioExistente);
+       return new RedirectView("/login" );
+    }
+
 }

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.Optional;
 
@@ -20,22 +21,21 @@ public class LoginController {
     @GetMapping("/login")
     public ModelAndView showLoginPage() {
         ModelAndView mav = new ModelAndView("login");
+        mav.setViewName("login");
         mav.addObject("usuario", new Usuario());
         return mav;
     }
 
 
     @PostMapping("/login")
-    public ModelAndView login(@RequestParam String email, @RequestParam String senha) {
-        ModelAndView mav = new ModelAndView();
+    public RedirectView login(@RequestParam String email, @RequestParam String senha) {
         Optional<Usuario> usuarioOpt = usuarioRepository.findByEmailAndSenha(email, senha);
         if (usuarioOpt.isPresent()) {
             // Login realizado, redireciona para a home
-            mav.setViewName("redirect:/listaFormsBase");
+            return new RedirectView("/paginaInicial");
         } else {
             // Mensagem de erro
-            mav.setViewName("redirect:/login");
+            return new RedirectView ("/login");
         }
-        return mav;
     }
 }
