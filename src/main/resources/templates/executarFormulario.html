@@ -5,15 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="shortcut icon" type="image/x-icon" href="/images/Geral/logo_transparente.png" />
   <title>SAGA - Responder Formulario</title>
-  <link rel="stylesheet" type="text/css" href="/static/styles/GeralCSS/reset.css">
-  <link rel="stylesheet" type="text/css" media="all" href="/static/styles/FormularioBaseCSS/styleExecutarFomulario.css">
-  <link rel="stylesheet" type="text/css" media="all" href="/static/styles/FormularioBaseCSS/styleCadastrarResposta.css">
+  <link rel="stylesheet" type="text/css" href="/styles/GeralCSS/reset.css">
+  <link rel="stylesheet" type="text/css" media="all" href="/styles/FormularioBaseCSS/styleExecutarFomulario.css">
+  <link rel="stylesheet" type="text/css" media="all" href="/styles/FormularioBaseCSS/styleCadastrarResposta.css">
   <link rel="stylesheet" type="text/css" media="all" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  <script src="/static/scripts/formulariosJS/executarFormulario.js"></script>
+  <script src="/scripts/formulariosJS/executarFormulario.js"></script>
 </head>
 <body>
 <header class="topSide">
-  <img class="logo" src="/static/images/Geral/logo_transparente.png" alt="logo_empresa"/>
+  <img class="logo" src="/images/Geral/logo_transparente.png" alt="logo_empresa"/>
 </header>
 <main>
   <form th:action="@{/executarFormulario}" th:object="${formulario}"  class="editar_formulario" method="post">
