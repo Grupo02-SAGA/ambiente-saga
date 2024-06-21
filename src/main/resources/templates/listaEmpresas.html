@@ -6,16 +6,14 @@
     <link rel="shortcut icon" type="image/x-icon" href="/images/Geral/logo_transparente.png" >
     <title>SAGA - Listar Empresas</title>
     <link rel="stylesheet" href="/styles/empresasCSS/listaEmpresas.css">
+    <link rel="stylesheet" type="text/css" media="all" href="/styles/principalCSS/styleMenuLateral.css">
+    <link rel="stylesheet" type="text/css" media="all" href="/styles/GeralCSS/headGeral.css"/>
     <script src="/scripts/empresasJS/buscaEmpresa.js" ></script>
+    <script src="/scripts/sideBar/menuLateral.js" defer></script>
 </head>
 <body>
-<header>
-    <section class="topSide">
-        <img src="/images/Geral/logo_transparente.png">
-        <h3>Empresas</h3>
-    </section>
-</header>
-
+<header th:insert="/pop_up/header.html" class="topSide"></header>
+<nav th:insert="/pop_up/menuLateral.html" id="fragmento_sidebar"></nav>
 <section class="implements">
     <div class="search">
         <input type="text" placeholder="Procurar..." id="searchInput">
@@ -31,13 +29,12 @@
         <tbody class="tableBody" id="tableBody">
         <tr th:each="empresa : ${empresas}" data-form="${empresa.fantasia}" class="listaForm">
             <td>
-                <div th:text="${empresa.fantasia}"></div>
-
+                <div th:text="${empresa.fantasia}" class="textoEmpresa"></div>
             </td>
             <td>
                 <div class="button-container">
                     <a th:href="@{'/editarEmpresa/'+ ${empresa.id_empresa}}">
-                        <button onclick="handleButtonClick('${empresa.fantasia}')" class="button"> </button>
+                        <button class="editButton"> </button>
                     </a>
                 </div>
             </td>

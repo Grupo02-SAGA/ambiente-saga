@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+.header {
+    img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 80px;
+        height: 70px;
+    }
+}
+
+hr{
+    height: 1px;
+    stroke: rgb(0, 119, 200);
+    background-color: rgb(0, 119, 200);
+}
+
+.btn{
+    position: fixed;
+    left: -15px;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 14px;
+    .btn_confirma {
+        cursor: pointer;
+        border: none;
+        border-radius: 10px;
+        background-color: #DBFFDC;
+        color: #35B02A;
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 6px 0 rgba(0, 0, 0, 0.19);
+        padding: 8px 50px;
+        font-size: 14px;
+    }
+    .btn_cancelar {
+        border: none;
+        border-radius: 10px;
+        background-color: #FFDBDB;
+        color: #B0522A;
+        cursor: pointer;
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 6px 0 rgba(0, 0, 0, 0.19);
+        padding: 8px 50px;
+        font-size: 14px;
+        margin-right: 20px;
+    }
+}
+
+.corpo{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    label{
+        margin-top: 8px;
+        font-size: 14px;
+        font-family: "Rubik", sans-serif;
+    }
+    select{
+        background-color: white;
+        border-radius: 10px;
+        border-color: #778CA2;
+        padding-top: 4px;
+        padding-bottom: 4px;
+        padding-left: 10px;
+        margin-bottom: 12px;
+    }
+}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="/images/Geral/logo_transparente.png"/>
+    <title>Nova resposta de formulário</title>
+    <link rel="stylesheet" type="text/css" media="all" href="/styles/novoRespForm.css">
+</head>
+<body>
+        <div class="header">
+            <img src="/images/Geral/logo_transparente.png" alt="logo_empresa">
+            <hr>
+        </div>
+    <div>
+        <form th:action="@{/novaAvaliacao}" method="post">
+            <div class="corpo">
+                <label for="empresa">Empresa:</label><br>
+                <select id="empresa" name="id_empresa">
+                    <option th:value="${emp.id_empresa}" th:each="emp : ${empresas}" th:text="${emp.fantasia}"></option>
+                </select>
+                <label for="formularioBase">Formulario Base:</label><br>
+                <select id="formularioBase" name="id_formulario">
+                    <option th:value="${form.id_formulario}" th:each="form : ${forms}" th:text="${form.titulo}"></option>
+                </select>
+            </div>
+            <div class="btn">
+                <button th:type="reset" class="btn_cancelar" th:href="@{listaAvaliacoes}">Cancelar</button>
+                <button th:type="submit" class="btn_confirma">Confirmar</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

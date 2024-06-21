@@ -6,21 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="image/x-icon" href="/images/Geral/logo_transparente.png"/>
     <title>SAGA - Listar Usuarios</title>
+    <link rel="stylesheet" type="text/css" media="all" href="/styles/principalCSS/styleMenuLateral.css">
     <link rel="stylesheet" type="text/css" media="all" href="/styles/usuarioCSS/listaUsuario.css"  />
+    <link rel="stylesheet" type="text/css" media="all" href="/styles/GeralCSS/headGeral.css"/>
     <script src="/scripts/usuariosJS/buscaUsuarios.js" defer ></script>
+    <script src="/scripts/sideBar/menuLateral.js" defer></script>
 </head>
 
 <body>
-<header>
-    <section class="topSide">
-        <img src="/images/Geral/logo_transparente.png">
-        <h3>Usuários</h3>
-    </section>
-</header>
-
+<header th:insert="/pop_up/header.html" class="topSide"></header>
 <section class="implements">
     <div class="search">
         <input type="text" placeholder="Procurar..." id="searchInput">
+        <nav th:insert="/pop_up/menuLateral.html" id="fragmento_sidebar"></nav>
     </div>
     <table class="tableForm">
         <thead>
@@ -33,13 +31,13 @@
         <tbody class="tableBody" id="tableBody">
         <tr th:each="usuario : ${usuarios}" data-form="${usuario.nome}" class="listaForm">
             <td>
-                <div th:text="${usuario.nome}"></div>
+                <div th:text="${usuario.nome}" class="textoUsuario"></div>
             </td>
             <td>
                 <div class="button-container">
                     <!--                    É só colocar o link aqui que ele já manda o id e o nome do formulário que vai ser editado-->
                     <a th:href="@{'editarUsuario/'+ ${usuario.id_usuario}}">
-                        <button onclick="handleButtonClick('${usuario.nome}')" class="button"> </button>
+                        <button onclick="handleButtonClick('${usuario.nome}')" class="editButton"> </button>
                     </a>
                 </div>
             </td>
