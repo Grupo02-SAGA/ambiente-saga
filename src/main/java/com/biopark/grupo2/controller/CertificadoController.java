@@ -1,5 +1,7 @@
 package com.biopark.grupo2.controller;
 
+import com.biopark.grupo2.model.Formulario;
+import com.biopark.grupo2.repository.RepositoryFormulario;
 import com.biopark.grupo2.repository.RepositoryResposta;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -7,10 +9,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.Optional;
+
 @Controller
 public class CertificadoController {
     @Autowired
     private RepositoryResposta repositoryResposta;
+    @Autowired
+    private RepositoryFormulario repositoryFormulario;
 
     @GetMapping("/certificado/{id}")
     public ModelAndView certificados(@PathVariable Long id){
@@ -18,7 +24,10 @@ public class CertificadoController {
         String resultado;
         String cor;
         modelAndView.setViewName("certificado");
-        int media = (repositoryResposta.contaTodasResps(id)*repositoryResposta.contaResps(id))/100;
+        Formulario form = repositoryFormulario.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Form não encontrado com o ID: " + id));
+        int media = 91;
+                //(repositoryResposta.contaTodasResps(form.getId_formulario())*repositoryResposta.contaResps(form.getId_formulario()))/100;
         if (media > 90){
             resultado = "Muito satisfatório";
             cor = "darkgreen";

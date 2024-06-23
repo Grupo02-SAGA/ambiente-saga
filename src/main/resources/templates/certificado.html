@@ -6,14 +6,31 @@
     <link rel="shortcut icon" type="image/x-icon" href="/images/Geral/logo_transparente.png"/>
     <title>Nova resposta de formulário</title>
     <link rel="stylesheet" type="text/css" media="all" href="/styles/novoRespForm.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <style>
+
+    </style>
 </head>
     <body>
         <div class="header">
             <img src="/images/Geral/logo_transparente.png" alt="logo_empresa">
             <hr>
         </div>
-        <h1>Porcentagem Recebida</h1>
-        <p>Valor: <span th:text="${media}">0</span>%</p>
-        <p class="status" th:text="${resultado}" th:style="'color:' + ${cor}">Status</p>
+        <div class="conluidoCaixa">
+            <p>CONCLUÍDO</p>
+        </div>
+        <div class="resultado">
+            <p class="textoCima">Classificação</p>
+            <p class="status" th:text="${resultado}" th:style="'color:' + ${cor}">Status</p>
+        </div>
+        <div class="porcentagem">
+            <p th:style="'color:' + ${cor}">Valor: <span th:text="${media}">0</span>%</p>
+        </div>
+    <footer>
+        <hr>
+        <a th:href="@{/}">voltar</a>
+    </footer>
     </body>
 </html>
