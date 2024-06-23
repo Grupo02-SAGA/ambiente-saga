@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="/images/Geral/logo_transparente.png"/>
+    <title>Nova resposta de formulário</title>
+    <link rel="stylesheet" type="text/css" media="all" href="/styles/novoRespForm.css">
+</head>
+    <body>
+        <div class="header">
+            <img src="/images/Geral/logo_transparente.png" alt="logo_empresa">
+            <hr>
+        </div>
+        <h1>Porcentagem Recebida</h1>
+        <p>Valor: <span th:text="${media}">0</span>%</p>
+        <p class="status" th:text="${resultado}" th:style="'color:' + ${cor}">Status</p>
+    </body>
+</html>

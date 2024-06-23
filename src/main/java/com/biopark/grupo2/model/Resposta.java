@@ -16,7 +16,7 @@ public class Resposta {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id_resposta;
-    private String resposta;
+    private int resposta;
     private String observacao;
     @ManyToOne
     @JoinColumn(name = "id_formulario")
