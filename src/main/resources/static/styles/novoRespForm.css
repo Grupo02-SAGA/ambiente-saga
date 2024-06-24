@@ -108,3 +108,21 @@ footer{
     bottom: 0;
     width: 100%;
 }
+.btnConfirm{
+    cursor: pointer;
+    height: 25px;
+    width: 150px;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 20px;
+    button{
+        margin-left: 10px;
+        background-color: #DBFFDC;
+        color: #35B02A;
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 6px 0 rgba(0, 0, 0, 0.19);
+    }
+}
+

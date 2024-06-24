@@ -26,8 +26,9 @@ public class CertificadoController {
         modelAndView.setViewName("certificado");
         Formulario form = repositoryFormulario.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Form não encontrado com o ID: " + id));
-        int media = 91;
-                //(repositoryResposta.contaTodasResps(form.getId_formulario())*repositoryResposta.contaResps(form.getId_formulario()))/100;
+        double media = (repositoryResposta.contaResps(form.getId_formulario())*100)/repositoryResposta.contaTodasResps(form.getId_formulario());
+        //double media = repositoryResposta.contaResps(form.getId_formulario());
+        //double media = repositoryResposta.contaTodasResps(form.getId_formulario());
         if (media > 90){
             resultado = "Muito satisfatório";
             cor = "darkgreen";
