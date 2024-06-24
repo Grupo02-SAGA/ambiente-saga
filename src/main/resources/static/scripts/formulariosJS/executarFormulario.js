@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 content.style.display = 'none';
                 parent.classList.remove('ativo');
             } else {
-                content.style.display = 'block';
+                content.style.display = 'flex';
                 parent.classList.add('ativo');
             }
         });
