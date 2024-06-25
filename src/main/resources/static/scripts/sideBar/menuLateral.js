@@ -1,23 +1,20 @@
-function clickmenu() {
-    var menu = document.querySelector('.menu');
-    var logoMenu = document.querySelector('.logo-hamburger');
+const openSidebar = document.getElementById("openSidebar");
+const sidebar = document.getElementById("sidebar");
 
-
-    if (menu.style.display === "block") {
-        menu.style.display = "none";
-        logoMenu.classList.remove('active');
-    } else {
-        menu.style.display = "block";
-        logoMenu.classList.add('active');
-    }
+const toggleSidebar = () => {
+    sidebar.classList.toggle("hideSidebar")
 }
 
-document.addEventListener("click", function(event) {
-    var menu = document.querySelector('.menu');
-    var logoMenu = document.querySelector('.logo-hamburger');
+[openSidebar, sidebar].forEach((el) => {
+    el.addEventListener("click", () => toggleSidebar());
+})
 
-    if (menu.style.display === "block" && event.target !== document.querySelector(".logo-hamburger img")) {
-        menu.style.display = "none";
-        logoMenu.classList.remove('active');
+document.addEventListener("click", (event) => {
+    const isClickInsideSidebar = sidebar.contains(event.target);
+    const isClickOnOpenButton = (event.target === openSidebar);
+
+    if (!isClickInsideSidebar && !isClickOnOpenButton) {
+        sidebar.classList.add("hideSidebar");
+        sidebarFade.classList.add("hideSidebar");
     }
 });
