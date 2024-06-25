@@ -47,7 +47,9 @@
                             />
                         </li>
                         <li>
-                            <a href="/templates/recuperaSenha.html" class="esqueceuSenha">Esqueceu a senha? </a>
+<!--                            <a th:href="@{'recuperaSenha/'+ ${usuario.email}}" class="esqueceuSenha">Esqueceu a senha? </a>-->
+                            <a th:href="@{'buscaEmail'}" class="esqueceuSenha">Esqueceu a senha? </a>
+
                         </li>
                     </ul>
                     <section class="botSide">
