@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="shortcut icon" type="image/x-icon" href="/images/Geral/logo_transparente.png" />
+  <link rel="shortcut icon" type="image/x-icon" href="/static/images/Geral/logo_transparente.png" />
   <title>SAGA - Responder Formulario</title>
-  <link rel="stylesheet" type="text/css" href="/styles/GeralCSS/reset.css">
-  <link rel="stylesheet" type="text/css" media="all" href="/styles/FormularioBaseCSS/styleExecutarFomulario.css">
-  <link rel="stylesheet" type="text/css" media="all" href="/styles/FormularioBaseCSS/styleCadastrarResposta.css">
+  <link rel="stylesheet" type="text/css" href="/static/styles/GeralCSS/reset.css">
+  <link rel="stylesheet" type="text/css" media="all" href="/static/styles/FormularioBaseCSS/styleExecutarFomulario.css">
+  <link rel="stylesheet" type="text/css" media="all" href="/static/styles/FormularioBaseCSS/styleCadastrarResposta.css">
   <link rel="stylesheet" type="text/css" media="all" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  <script src="/scripts/formulariosJS/executarFormulario.js"></script>
+  <script src="/static/scripts/formulariosJS/executarFormulario.js"></script>
 </head>
 <body>
 <header class="topSide">
-  <img class="logo" src="/images/Geral/logo_transparente.png" alt="logo_empresa"/>
+  <img class="logo" src="/static/images/Geral/logo_transparente.png" alt="logo_empresa"/>
 </header>
 <main>
-  <form th:action="@{/executarFormulario}" th:object="${formulario}"  class="editar_formulario" method="post">
+  <form th:action="@{/executarFormulario}" th:object="${formulario}" class="editar_formulario" method="post">
     <div class="formulario_topo">
       <input
               type="text"
@@ -31,23 +31,26 @@
             th:name="idFormulario"
             th:value="*{id_formulario}">
     <input
-            type="hidden"
-            th:field="*{base}">
+           type="hidden"
+           th:field="*{base}">
     <input
             id="estadoInput"
-            required
             th:field="*{estado}"
-            type="hidden">
+            type="hidden"
+            required >
     <div class="footer">
-      <button
-              type="button"
-              id="encerrar-envio"
-              class="btnSalvar"><strong>Encerrar Envio</strong>
-      </button>
       <div class="linha_footer"> </div>
       <div class="botoes_footer">
-        <button th:type="button" class="btnCancelar"><strong>Cancelar</strong></button>
-        <button th:type="submit" class="btnSalvar"><strong>Confirmar</strong></button>
+        <button
+                type="button"
+                class="btnCancelar">
+          <strong>Cancelar</strong>
+        </button>
+        <button
+                type="submit"
+                class="btnSalvar">
+          <strong>Confirmar</strong>
+        </button>
       </div>
     </div>
     <section class="listarPerguntas">
@@ -55,29 +58,47 @@
         <div class="tituloPergunta">
           <a>
             <i class="fa-solid fa-chevron-down"></i>
-            <strong><span th:text="${pergunta.titulo}">o texto vai aqui</span></strong>
+            <h3 th:text="${pergunta.titulo}">o texto vai aqui</h3>
           </a>
         </div>
-        <div class="alternativasPerguntas">
-          <div class="alternativaPergunta">
-            <div class="radio-item">
-              <label for="conforme-${pergunta.id_pergunta}">Conforme</label>
-              <input type="radio" id="conforme-${pergunta.id_pergunta}" name="alternativa-${pergunta.id_pergunta}" value="conforme">
+        <div class="perguntaContainer">
+          <div class="alternativasPerguntas">
+            <div class="checkbox-item">
+              <label for="conforme-${pergunta.id_pergunta}">Conforme
+                <input
+                        type="checkbox"
+                        id="conforme-${pergunta.id_pergunta}"
+                        name="alternativa-${pergunta.id_pergunta}"
+                        value="0">
+                <span class="checkmark"></span>
+              </label>
             </div>
-            <div class="radio-item">
-              <label for="nao-conforme-${pergunta.id_pergunta}">Não Conforme</label>
-              <input type="radio" id="nao-conforme-${pergunta.id_pergunta}" name="alternativa-${pergunta.id_pergunta}" value="nao-conforme">
+            <div class="checkbox-item">
+              <label for="nao-conforme-${pergunta.id_pergunta}">Não Conforme
+                <input
+                        type="checkbox"
+                        id="nao-conforme-${pergunta.id_pergunta}"
+                        name="alternativa-${pergunta.id_pergunta}"
+                        value="1">
+                <span class="checkmark"></span>
+              </label>
             </div>
-            <div class="radio-item">
-              <label for="nao-se-aplica-${pergunta.id_pergunta}">Não se Aplica</label>
-              <input type="radio" id="nao-se-aplica-${pergunta.id_pergunta}" name="alternativa-${pergunta.id_pergunta}" value="nao-se-aplica">
+            <div class="checkbox-item">
+              <label for="nao-se-aplica-${pergunta.id_pergunta}">Não se Aplica
+                <input
+                        type="checkbox" id="nao-se-aplica-${pergunta.id_pergunta}"
+                        name="alternativa-${pergunta.id_pergunta}"
+                        value="2">
+                <span class="checkmark"></span>
+              </label>
             </div>
           </div>
           <div class="documentoPergunta">
-            <a href="#">
+            <a>
               <i class="fa-solid fa-upload"></i>
               <span id="nomeDocumento">Nenhum arquivo selecionado</span>
             </a>
+            <input type="file" class="inputDocumento" style="display: none;" />
           </div>
         </div>
       </div>
