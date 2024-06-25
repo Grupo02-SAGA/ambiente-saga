@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" type="image/x-icon" href="/images/logo-transparente.png"/>
+    <title>SAGA - Recuperar senha</title>
+    <link rel="stylesheet" type="text/css" media="all" href="/styles/GeralCSS/reset.css"  />
+    <link rel="stylesheet" type="text/css" media="all" href="/styles/LoginCSS/login.css" />
+</head>
+<body>
+<div class="topSide">
+    <img class="logo" src="/images/Geral/logo_transparente.png" alt="logo_empresa"/>
+</div>
+<main>
+    <div class="box_center_recuperaS">
+        <div>
+            <th>
+                <a href="/login" class="buttonUlReturn"><img src="/images/Geral/left.png" alt="Retornar"></a></th>
+            <div class="box_input">
+                <form id="formulario" method="POST" th:action="@{/buscaEmail}" th:object="${usuario}" class="recupera_senha">
+                    <ul>
+                        <li>
+                            <h3 class="loginText">Recuperar senha</h3>
+                        </li>
+                        <ul>
+                            <li>
+                                <label class="conteudoInput">Insira seu e-mail</label>
+                                <input
+                                        type="email"
+                                        th:field="*{email}"
+                                        placeholder="E-mail"
+                                        maxlength="45"
+                                        required
+                                />
+                            </li>
+                        </ul>
+                    </ul>
+                    <section class="botSide">
+                        <div class="btn_recuperaSenha">
+                            <button type="submit" class="btn_confirma">Confirmar</button>
+                        </div>
+                    </section>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>
