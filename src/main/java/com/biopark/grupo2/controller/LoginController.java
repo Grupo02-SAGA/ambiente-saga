@@ -32,7 +32,7 @@ public class LoginController {
         Optional<Usuario> usuarioOpt = usuarioRepository.findByEmailAndSenha(email, senha);
         if (usuarioOpt.isPresent()) {
             // Login realizado, redireciona para a home
-            return new RedirectView("/listaFormsBase");
+            return new RedirectView("/listaAvaliacoes");
         } else {
             // Mensagem de erro
             return new RedirectView ("/login");
