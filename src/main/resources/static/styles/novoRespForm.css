@@ -47,6 +47,11 @@ hr{
         font-size: 14px;
         margin-right: 20px;
     }
+    a{
+        color: red;
+        text-decoration: none;
+        width: 100%;
+    }
 }
 
 .corpo{
