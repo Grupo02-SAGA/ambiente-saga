@@ -1,13 +1,13 @@
 package com.biopark.grupo2.service;
 
-import com.biopark.grupo2.model.Empresa;
+import com.biopark.grupo2.DTO.AvaliacaoDTO;
 import com.biopark.grupo2.model.Formulario;
 import com.biopark.grupo2.repository.RepositoryFormulario;
-import com.biopark.grupo2.repository.RepositoryPergunta;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
-import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -35,5 +35,20 @@ public class FormularioService {
         } else {
             return null;
         }
+    }
+
+    public Page<Formulario> findFormulariosLista(int page, int size, Boolean estado, String searchTerm) {
+        Page<Formulario> resultados = null;
+        PageRequest pageable = PageRequest.of(page, size);
+        if (searchTerm != null && !searchTerm.isEmpty()) {
+            resultados = repositoryFormulario.findFormularioByNome(searchTerm, pageable);
+        } else {
+            if (estado){
+                resultados = repositoryFormulario.findPaginadoAtivo(pageable);
+            }else{
+                resultados = repositoryFormulario.findPaginadoInativo(pageable);
+            }
+        }
+        return resultados;
     }
 }

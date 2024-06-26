@@ -19,7 +19,9 @@ public class EmpresaController {
     private RepositoryEmpresa repositoryEmpresa;
 
     @GetMapping("/listaEmpresas")
-    public ModelAndView listaEmpresas() {
+    public ModelAndView listaEmpresas(@RequestParam(defaultValue = "0") int page,
+                                      @RequestParam(defaultValue = "5") int size,
+                                      @RequestParam(defaultValue = "all") String filter){
         List<Empresa> empresas = listarEmpresas();
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("listaEmpresas");

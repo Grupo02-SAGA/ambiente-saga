@@ -17,7 +17,6 @@
 <section class="implements">
 
     <div class="search">
-<!--        <form id="searchForm" th:action="@{/listaAvaliacoes}" method="get">-->
         <input type="text" placeholder="Procurar..." id="searchInput" th:value="${searchTerm}">
             <select title = "filtro" id="filterSelect" class="filtro">
                 <option value="all" th:selected="${filter == 'all'}">Todos</option>
@@ -32,7 +31,6 @@
 <!--        </form>-->
     </div>
 
-    </div>
     <div class="buttomCriar">
         <a th:href="@{executarAvaliacao}" class="linkCriar">
             <h3> NOVO+ </h3>

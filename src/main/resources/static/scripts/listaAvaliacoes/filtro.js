@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateUrl() {
         const filter = filterSelect.value;
         const searchTerm = searchInput.value;
-        let url = `/listaAvaliacoes?page=0&filter=${filter}`;
+        let url = `/listaAvaliacoes?page=0&size=20&filter=${filter}`;
         if (filter.startsWith('base')) {
             const status = filter === 'base1' ? 1 : (filter === 'base2' ? 2 : 3);
             url += `&status=${status}`;
