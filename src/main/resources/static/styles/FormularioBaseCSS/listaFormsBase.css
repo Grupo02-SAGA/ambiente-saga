@@ -10,21 +10,6 @@ body{
     font-family: "Rubik", sans-serif;
 }
 
-section.topSide{
-    display: flex;
-    width: 100%;
-    height: 80px;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-
-section.topSide img{
-    height: 70px;
-    width: 80px;
-    padding: 10px;
-}
-
 section.implements{
   display: flex;
   justify-content: center;
@@ -65,28 +50,40 @@ h3{
 
 
 .tabelaForm{
-        display: flex;
-        width: 100%;
-        align-content: flex-start;
-        justify-content: center;
-        }
+    display: flex;
+    width: 100%;
+    align-content: flex-start;
+    justify-content: center;
+}
 
 .listaForm {
-            display: flex;
-            padding: 1rem;
-            margin: 0.1rem 1rem 0.1rem 1rem;
-            border-radius: 4px;
-            height: 4rem;
-            /* text-align: left; */
-            font-size: 14px;
-            border-style: groove;
-            border-color: rgba(0, 118, 199, 1);
-            border-width: thin;
-            text-align: center;
-            width: 300px;
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: center;
+    display: flex;
+    padding: 1rem;
+    margin: 0.1rem 1rem 0.1rem 1rem;
+    border-radius: 4px;
+    height: 4rem;
+    /* text-align: left; */
+    font-size: 14px;
+    border-style: groove;
+    border-color: rgba(0, 118, 199, 1);
+    border-width: thin;
+    text-align: center;
+    width: 300px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.editButton{
+    background-color:Transparent;
+    background-image: url(../../images/Geral/edit.png);
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-size: 12px;
+    width: 15px;
+    height: 15px;
+    border: none;
+    padding: 0;
 }
 
 .buttomCriar {
@@ -103,27 +100,28 @@ h3{
     border-color: rgba(0, 118, 199, 1);
     border-width: thin;
     text-align: center;
-    .btnAdicionar{
-        background-color: white;
-        padding-left: 5px;
-        padding-right: 5px;
-        background-color: rgba(0, 118, 199, 1);
-        border-radius: 360px;
-        color: white;
-        border: none;
-        width: 57px;
-        height: 25px;
-        cursor: pointer;
-        margin-left: 5px;
-    }
-    .inptForm{
-        width: 200px;
-        border-left: none;
-        border-right: none;
-        border-top: none;
-        border-color: rgba(0, 118, 199, 1);
-        padding-left: 5px;
-    }
+
+.btnAdicionar{
+    background-color: white;
+    padding-left: 5px;
+    padding-right: 5px;
+    background-color: rgba(0, 118, 199, 1);
+    border-radius: 360px;
+    color: white;
+    border: none;
+    width: 57px;
+    height: 25px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.inptForm{
+    width: 200px;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    border-color: rgba(0, 118, 199, 1);
+    padding-left: 5px;
 }
 
 .linkCriar{
@@ -141,27 +139,15 @@ h3{
 }
 
 .tableBody{
-     display: flex;
-     width: 100%;
-     flex-direction: column;
- }
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
 
 
- .button{
-     background-color:Transparent;
-     background-image: url(../../images/Geral/edit.png);
-     background-position: right center;
-     background-repeat: no-repeat;
-     background-size: 12px;
-     width: 15px;
-     height: 15px;
-     border: none;
-     padding: 0;
- }
-
- form{
-     display: none;
- }
+form{
+    display: none;
+}
 
 .expandir {
     display: block;

@@ -5,21 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" type="image/x-icon" href="/images/Geral/logo_transparente.png" />
     <title>SAGA - Editar Formulario</title>
-    <link rel="stylesheet" type="text/css" href="/styles/GeralCSS/reset.css">
     <link rel="stylesheet" type="text/css" media="all" href="/styles/GeralCSS/reset.css"  />
     <link rel="stylesheet" type="text/css" media="all" href="/styles/FormularioBaseCSS/detalhesFormulario.css">
     <link rel="stylesheet" type="text/css" media="all" href="/styles/FormularioBaseCSS/criarPergunta.css">
     <link rel="stylesheet" type="text/css" media="all" href="/styles/GeralCSS/toggleAtivarDesativar.css">
     <script src="/scripts/formulariosJS/btnAtivarDesativar.js" defer></script>
+    <script src="/scripts/formulariosJS/detalhesFormulario.js" defer></script>
 </head>
+
 <body>
+<section th:if="${editarFormulario}" th:insert="/pop_up/popup_editar_formulaio.html"></section>
+<section th:if="${cadastaPegunta}" th:insert="/pop_up/popup_confirmacao.html"></section>
+<section th:insert="/pop_up/popup_cancelar.html" id="fragmento_popup_cancelar"></section>
+
 <header class="topSide">
     <img class="logo" src="/images/Geral/logo_transparente.png" alt="logo_empresa"/>
 </header>
+
 <main>
     <form th:action="@{/detalhesFormulario}" th:object="${formulario}"  class="editar_formulario" method="post">
         <div class="formulario_topo">
-            <label >editavel</label>
             <input
                   type="text"
                   th:value="*{titulo}"
@@ -40,46 +45,53 @@
               required
               th:field="*{estado}"
               type="hidden">
-        <div class="footer">
-            <button
-                    type="button"
-                    id="ativo_inativo"
-                    th:class="${formulario.estado?'ativo' : 'inativo'}"
-                    th:text="${formulario.estado?'Ativo' : 'Inativo'}">
-            </button>
-            <div class="linha_footer"> </div>
-            <div class="botoes_footer">
-                <button th:type="button" class="btnCancelar"><strong>Cancelar</strong></button>
-                <button th:type="submit" class="btnSalvar"><strong>Confirmar</strong></button>
-            </div>
-        </div>
     </form>
-    <form th:action="@{/detalhesFormulario/{id}}" th:object="${pergunta}" class="criar_pergunta" method="post">
-        <input
-              required
-              type="hidden"
-              name="idFormulario"
-              th:value="${idFormulario}">
-        <input
-              required
-              type="hidden"
-              th:field="*{estado}"
-              th:value="${estado eq false ? 'false' : 'true'}">
-        <input
-              required
-              th:field="*{documento}"
-              type="hidden">
-        <input
-              type="text"
-              th:field="*{titulo}"
-              placeholder="Digite aqui sua nova pergunta"
-              class="inputPergunta"
-              required>
-        <div id="pergunta_salvar_sair">
-            <a href="#" class="botao_x">x</a>
-            <button th:type="submit" class="salvar_pergunta"> Salvar</button>
-        </div>
-    </form>
+
 </main>
+<form th:action="@{/detalhesFormulario/{id}}" th:object="${pergunta}" class="criar_pergunta" method="post">
+    <input type="hidden" name="estado" th:value="${true}">
+    <input
+            required
+            type="hidden"
+            name="idFormulario"
+            th:value="${idFormulario}">
+    <input
+            required
+            th:field="*{documento}"
+            type="hidden">
+    <input
+            type="text"
+            th:field="*{titulo}"
+            placeholder="Digite aqui sua nova pergunta"
+            class="inputPergunta"
+            required>
+
+    <div id="pergunta_salvar_sair">
+        <a href="#" class="botao_x">x</a>
+        <button th:type="submit" class="salvar_pergunta"> Salvar</button>
+    </div>
+</form>
+<div th:each="titulo : ${listaPergunta}" class="listPergunta">
+    <div>
+        <div class="pTitulo">
+            <p th:text="${titulo}"></p>
+        </div>
+    </div>
+    <div>
+        <div class="pRemover"><a><img alt="" th:src="@{/images/X.png}" width="40"></a></div>
+    </div>
+</div>
+<div class="footer">
+    <button
+            type="button"
+            id="ativo_inativo"
+            th:class="${formulario.estado?'ativo' : 'inativo'}"
+            th:text="${formulario.estado?'Ativo' : 'Inativo'}">
+    </button>
+    <div class="botoes_footer">
+        <button th:type="button" class="btnCancelar"><strong>Cancelar</strong></button>
+        <button th:type="submit" class="btnSalvar"><strong>Confirmar</strong></button>
+    </div>
+</div>
 </body>
 </html>

@@ -16,7 +16,7 @@ public class Formulario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_formulario;
     private String titulo;
-    private Boolean base;
+    private Integer base;
     private Boolean estado;
 
     @OneToMany(mappedBy = "id_formulario")

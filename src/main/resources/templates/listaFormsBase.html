@@ -8,20 +8,16 @@
     <link rel="shortcut icon" type="image/x-icon" href="/images/Geral/logo_transparente.png" >
     <title>SAGA - Lista de templates de formularios</title>
     <link rel="stylesheet" href="/styles/FormularioBaseCSS/listaFormsBase.css">
+    <link rel="stylesheet" type="text/css" media="all" href="/styles/principalCSS/styleMenuLateral.css">
+    <link rel="stylesheet" type="text/css" media="all" href="/styles/GeralCSS/headGeral.css"/>
     <script src="/scripts/formulariosJS/buscaFormularioBase.js" ></script>
     <script src="/scripts/formulariosJS/botaoCriarMais.js" defer></script>
+    <script src="/scripts/sideBar/menuLateral.js" defer></script>
 </head>
 
 <body>
-<header>
-    <section class="topSide">
-        <a href="http://localhost:8080/">
-            <img class="logo" src="/images/Geral/logo_transparente.png" alt="logo_empresa"/>
-        </a>
-        <h3>Formulários</h3>
-    </section>
-</header>
-
+<header th:insert="/pop_up/header.html" class="topSide"></header>
+<nav th:insert="/pop_up/menuLateral.html" id="fragmento_sidebar"></nav>
 <section class="implements">
     <div class="search">
         <input type="text" placeholder="Procurar..." id="searchInput">
@@ -32,7 +28,7 @@
             <td>
             <form action="/listaFormsBase" method="post" id="form">
                 <input type="text" class="inptForm" th:name="titulo" placeholder="Digite o nome do formulário" required/>
-                <input type="hidden" th:name="base" value="true"/>
+                <input type="hidden" th:name="base" value="0"/>
                 <input type="hidden" th:name="estado" value="true"/>
                 <button type="submit" class="btnAdicionar">Salvar</button>
             </form>
@@ -45,7 +41,7 @@
         <tbody class="tableBody" id="tableBody">
         <tr th:each="form : ${forms}" data-form="${form.titulo}" class="listaForm">
             <td>
-                <div th:text="${form.titulo}"></div>
+                <div th:text="${form.titulo}" class="textoFormBase"></div>
             </td>
             <td>
 
@@ -53,7 +49,7 @@
 <!--                    É só colocar o link aqui que ele já manda o id e o nome do formulário que vai ser editado-->
                     <a th:href="@{'detalhesFormulario/'+ ${form.id_formulario}}">
 <!--                            http://localhost:8080/detalhesDeFormulario/[id]-->
-                        <button onclick="handleButtonClick('${form.titulo}')" class="button"> </button>
+                        <button onclick="handleButtonClick('${form.titulo}')" class="editButton"> </button>
                     </a>
                 </div>
             </td>

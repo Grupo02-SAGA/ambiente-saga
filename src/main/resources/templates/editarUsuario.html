@@ -109,22 +109,24 @@
                     <p class="confereSenha">As senhas não conferem!</p>
                 </li>
 
-                <li class = "estado">
-
-                    <input  id="estadoInput"
-                            required
-                            type="hidden"
-                            th:field="*{estado}">
-
-                    <button id="ativo_inativo"
-                            type="button"
-                            th:class="${usuario.estado? 'ativo':'inativo'}"
-                            th:text="${usuario.estado? 'Ativo':'Inativo'}"></button>
-                </li>
 
             </ul>
             <section class="bot_side">
                 <div class="botoes_footer">
+                    <li class = "estado">
+
+                        <input  id="estadoInput"
+                                required
+                                type="hidden"
+                                th:field="*{estado}">
+
+                        <button id="ativo_inativo"
+                                type="button"
+                                th:class="${usuario.estado? 'ativo':'inativo'}"
+                                th:text="${usuario.estado? 'Ativo':'Inativo'}"></button>
+                </div>
+                <div class="botoes_footer">
+                    </li>
                     <button id="cancel_form" type="button" class="btn_cancelar">Cancelar</button>
                     <button id="confirm_form" type="submit" class="btn_confirma">Confirmar</button>
                 </div>

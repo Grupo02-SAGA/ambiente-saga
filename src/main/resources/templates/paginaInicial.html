@@ -16,17 +16,17 @@
     <div class="div-header">
         <img src="/images/Geral/logo_transparente.png" alt="logo-empresa" class="logo">
     </div>
-    <div class="logo-hamburger" onclick="clickmenu()">
-        <img src="/images/Geral/menu_hamburger.png" class="menu-botao" alt="logo_hamburger">
+    <div class="logo-hamburger">
+        <img src="/images/Geral/menu_hamburger.png" class="menu-botao" id="openSidebar" alt="logo_hamburger">
     </div>
 </header>
-<nav th:insert="/pop_up/menuLateral.html" id="fragmento_sidebar"></nav>
+<div th:insert="/pop_up/menuLateral.html" id="fragmento_sidebar"></div>
 <main>
     <div>
         <a href="/listaUsuarios" class="botao">Usuários</a>
         <a href="/listaEmpresas" class="botao">Empresas</a>
         <a href="/listaFormsBase" class="botao">Formulários Base</a>
-        <a href="/" class="botao">Avaliações</a>
+        <a href="/listaAvaliacoes" class="botao">Avaliações</a>
     </div>
 </main>
 </body>

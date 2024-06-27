@@ -9,3 +9,5 @@ public class Grupo2Application {
 		SpringApplication.run(Grupo2Application.class, args);
 	}
 }
+
+

@@ -1,0 +1,279 @@
+@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "Rubik", sans-serif;
+}
+
+thead{
+     display: flex;
+     width: 100%;
+     flex-dir
+    }
+
+.headColuna{
+    display: flex;
+    margin: 0.1rem 1rem 0.1rem 1rem;
+    font-size: 8px;
+    text-align: center;
+    justify-content: space-around;
+    align-items: center;
+    }
+
+.headLinha{
+    max-width: 80px
+}
+
+section.implements{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search{
+    background-color:white;
+    position:sticky;
+    top:0px;
+    box-shadow: 2px 0px 9px 5px rgb(255 255 255);
+}
+
+
+.search img{
+    height: 18px;
+}
+
+.search input{
+    width: 210px;
+    height: 20px;
+    margin: 10px 0px;
+    border: none;
+    border-bottom: 2px solid black;
+    outline: unset;
+}
+
+.search ::placeholder{
+    background-image: url(../../images/Geral/Path.png);
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-size: 12px;
+}
+
+h3{
+    text-align: center;
+    font-weight: medium;
+    font-size: 14px;
+}
+
+.tabelaForm{
+        display: flex;
+        width: 500px%;
+        align-content: flex-start;
+        }
+
+.listaForm {
+        display: flex;
+        margin: 0.1rem 1rem 0.1rem 1rem;
+        border-radius: 4px;
+        height: 4rem;
+        font-size: 10px;
+        border-style: groove;
+        border-color: rgba(0, 118, 199, 1);
+        border-width: thin;
+        width: 300px;
+        align-items: center;
+}
+
+.listaHead {
+       display: flex;
+       font-size: 9px;
+       width: 300px;
+       align-items: center;
+       padding: 5px 2px 5px 0px;
+}
+
+
+
+.linkCriar{
+        color: Black;
+        font-family: "Rubik", sans-serif;
+        text-align: center;
+        font-weight: medium;
+        font-size: 14px;
+        text-decoration: none;
+        background-color: white;
+        border: none;
+        width: 285px;
+        cursor: pointer;
+}
+
+
+.paginacao{
+        color: Black;
+        font-family: "Rubik", sans-serif;
+        text-align: center;
+        font-weight: medium;
+        font-size: 10px;
+        text-decoration: none;
+        background-color: white;
+        cursor: pointer;
+}
+
+.active{
+       color: Black;
+       font-family: "Rubik", sans-serif;
+       text-align: center;
+       font-weight: medium;
+       font-size: 10px;
+       text-decoration: none;
+       background-color: white;
+       cursor: pointer;
+       border-style: groove;
+       border-color: rgba(0, 118, 199, 1);
+       border-width: thin;
+       border-radius: 4px;
+       height: 16px;
+       padding: 1px 1px 1.5px 1px;
+}
+
+.pagination{
+    display: flex;
+    width: 100%;
+    height: 20px;
+    justify-content: center;
+    background-color: white;
+    position: sticky;
+    bottom: 0px;
+    margin: 2px;
+    align-content: center;
+    box-shadow: 2px 0px 9px 5px rgb(255 255 255);
+}
+
+.editButton{
+    background-color:Transparent;
+    background-image: url(../../images/Geral/edit.png);
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-size: 12px;
+    width: 15px;
+    height: 15px;
+    border: none;
+    padding: 0;
+    margin-right:10px;
+    cursor:pointer;
+}
+
+.buttomCriar {
+    display: flex;
+    top: 36px;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    height: 3rem;
+    border-radius: 4px;
+    width: 300px;
+    background-color: white;
+    font-size: 14px;
+    border-style: groove;
+    border-color: rgba(0, 118, 199, 1);
+    border-width: thin;
+    text-align: center;
+    position: sticky;
+    box-shadow: 2px 0px 9px 5px rgba(0, 0, 0.1, 0.1);
+    }
+
+
+
+ form{
+     display: none;
+ }
+
+
+.statusH{
+    padding-left: 30px;
+}
+
+
+.usuarioH{
+   margin-left: auto;
+   padding-right:20px;
+}
+
+.empresaH{
+    padding-left:39px;
+}
+
+.dataH{
+    padding-left: 80px;
+}
+
+.status{
+    padding-left: 20px;
+}
+
+
+.usuario{
+    padding-right: 10px;
+    margin-left: auto;
+    max-width: 100px;
+    justify-content: center;
+    max-width: 60px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.empresa{
+   justify-content: center;
+   margin-left: 0px;
+   max-width: 90px;
+   white-space: nowrap;
+   overflow: hidden;
+   text-overflow: ellipsis;
+}
+
+.data{
+    padding: 0px 12px 0px 10px;
+}
+
+.progresso{
+    background-image: url(../../images/Geral/andamento.png);
+    margin-left:5px;
+    width: 30px;
+    height: 30px;
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-size: 20px;
+}
+
+.concluida{
+    background-image: url(../../images/Geral/concluido.png);
+    margin-left:5px;
+    width: 30px;
+    height: 30px;
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-size: 20px;
+}
+
+.cancelada{
+    background-image: url(../../images/Geral/abortado.png);
+    margin-left:5px;
+    width: 30px;
+    height: 30px;
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-size: 20px;
+}
+
+.filtro{
+    height: 15px;
+    width:80px;
+    font-size: 9px;
+    margin-left: 5px;
+}

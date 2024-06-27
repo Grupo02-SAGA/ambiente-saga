@@ -1,38 +1,130 @@
-.menu {
-  display: none;
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 30%;
-  height: 100vh;
-  background-color: #0076C7;
-  z-index: 10;
-  transition: width 0.3s;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-nav {
-  text-decoration: none;
+#sidebarContent {
+  padding: 12px;
+}
+
+#sidebar {
+  display: flex;
+  position: fixed;
+  z-index: 10;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #0077C8;
+  height: 100vh;
+  border-radius: 18px 0 0 18px;
+  transition: all 0.5s;
+  width: 150px;
+  max-width: 90%;
+  right: 0;
+  top: 0;
+}
+
+#sideItens {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
   list-style: none;
 }
 
-.sidebar {
+.sideItem {
+  border-radius: 8px;
+  padding: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.sideItem a {
+  text-decoration: none;
   display: flex;
   flex-direction: column;
-  font-family: "Rubik", sans-serif;
-  font-style: medium;
-  text-align: center;
   align-items: center;
-  width: 100%;
-  margin-top: 10px;
+  justify-content: space-between;
+  color: #ececf6;
+  transition: color 0.3s;
 }
 
-.sidebar .subtitulo-header {
-  color: white;
+.sideItem:hover a .itensDescriptions {
+  color: black;
+}
+
+.sideItem a i {
+  font-size: 30px;
+  width: 30px;
+  height: 40px;
+  transition: color 0.3s;
+  color: #ececf6;
+}
+
+.sideItem:hover a i {
+  color: black;
+}
+
+.itensDescriptions {
+  font-size: 14px;
+  text-align: center;
+  display: block;
   text-transform: uppercase;
-  margin: 10px;
-  font-size: 13px;
 }
 
-.sidebar ul li a {
+#logout {
+  border-top: 1px solid #e3e9f7;
+  padding: 12px;
+  display: flex;
   text-decoration: none;
+  justify-content: center;
+  align-items: center;
+}
+
+#logout a{
+  text-decoration: none;
+}
+
+#logoutBtn {
+  border: none;
+  padding: 12px;
+  font-size: 20px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  border-radius: 8px;
+  text-align: start;
+  text-transform: uppercase;
+  cursor: pointer;
+  background-color: transparent;
+  color: #ececf6;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+#logoutBtn:hover {
+  background-color: #7fbbe3;
+  color: black;
+}
+
+#sidebarFade {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  z-index: 7;
+  pointer-events: none;
+  transition: opacity 0.5s;
+}
+
+.hideSidebar {
+  transition: 0.5s;
+  opacity: 1;
+  pointer-events: all;
+}
+
+#sidebar.hideSidebar{
+  opacity: 0;
+  pointer-events: none;
 }

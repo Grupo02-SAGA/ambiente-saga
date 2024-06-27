@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="/static/images/Geral/logo_transparente.png" th:href="@{/images/logo-transparente.png}">
+    <title>SAGA - Listar Avaliações</title>
+    <link rel="stylesheet" type="text/css" media="all" href="/styles/principalCSS/styleMenuLateral.css">
+    <link rel="stylesheet" type="text/css" media="all" href="/styles/GeralCSS/headGeral.css"/>
+    <link rel="stylesheet" type="text/css" media="all" href="/styles/avaliacoesCSS/avaliacoes.css">
+    <script src="/scripts/sideBar/menuLateral.js" defer></script>
+</head>
+<body>
+    <header th:insert="/pop_up/header.html" class="topSide"></header>
+    <nav th:insert="/pop_up/menuLateral.html" id="fragmento_sidebar"></nav>
+<section class="implements">
+
+    <div class="search">
+        <input type="text" placeholder="Procurar..." id="searchInput">
+        <select title = "filtro" id="filterSelect" class="filtro">
+            <option value="all" th:selected="${filter == 'all'}">Todos</option>
+            <option value="MaisRecente" th:selected="${filter == 'MaisRecente'}">Mais Recente</option>
+            <option value="MenosRecente" th:selected="${filter == 'MenosRecente'}">Menos Recente</option>
+            <option value="OrdemEmpresa" th:selected="${filter == 'OrdemEmpresa'}">Empresa A-Z</option>
+            <option value="OrdemFuncionario" th:selected="${filter == 'OrdemFuncionario'}">Funcionário A-Z</option>
+            <option value="base1" th:selected="${filter == 'base1'}">Em andamento</option>
+            <option value="base2" th:selected="${filter == 'base2'}">Concluídos</option>
+            <option value="base3" th:selected="${filter == 'base3'}">Cancelados</option>
+        </select>
+    </div>
+
+    </div>
+    <div class="buttomCriar">
+        <a th:href="@{executarAvaliacao}" class="linkCriar">
+            <h3> NOVO+ </h3>
+        </a>
+    </div>
+    <table>
+        <thead>
+            <tr class="listaHead">
+                <td class="dataH" >Data</td>
+                <td class="empresaH" >Empresa</td>
+                <td class="usuarioH">Usuário</td>
+            </tr>
+        </thead>
+        <tbody >
+
+            <tr th:each="certificado : ${avaliacoes}" class="listaForm">
+                    <td id="andamento" th:classappend="${certificado.base == 1} ? 'progresso' : (${certificado.base == 2} ? 'concluida' : 'cancelada')">
+                    <td class="data" th:text="${#dates.format(certificado.ultimaMod, 'dd/MM/yyyy')}"></td>
+                    <td class="empresa" th:text="${certificado.fantasia}"></td>
+                    <td class="usuario" th:text="${certificado.usuario}"></td>
+                    <td>
+                        <div class="button-container">
+                            <a th:href="@{'/executarForm/'+ ${certificado.id_formulario}}">
+                                <button class="editButton"></button>
+                            </a>
+                        </div>
+            </tr>
+
+        </tbody>
+    </table>
+    <div class="pagination">
+        <tr >
+            <td th:if="${currentPage > 0}">
+                <a class="paginacao" th:href="@{/listaAvaliacoes(page=${currentPage - 1})}">&laquo; Anterior</a>
+            </td>
+            <td th:each="i : ${#numbers.sequence(0, totalPages - 1)}">
+                <a th:classappend="${i == currentPage} ? 'active': 'paginacao' " th:href="@{/listaAvaliacoes(page=${i})}" th:text="${i + 1}">1</a>
+            </td>
+            <td th:if="${currentPage < totalPages - 1}">
+                <a class="paginacao" th:href="@{/listaAvaliacoes(page=${currentPage + 1})}">Próximo &raquo;</a>
+            </td>
+        </tr>
+    </div>
+
+
+</section>
+<script src="scripts/geral/busca.js" ></script>
+<script src="scripts/listaAvaliacoes/filtro.js" ></script>
+</body>
+</html>
