@@ -15,7 +15,6 @@ public class Documentos {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id_documento;
     private String url_documento;
-    private boolean validado;
     @ManyToOne
     @JoinColumn(name = "id_resposta")
     private Resposta id_resposta;

@@ -1,7 +1,6 @@
 CREATE TABLE Resposta (
     id_resposta INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    resposta VARCHAR(10) NOT NULL,
-    observacao VARCHAR(500),
+    resposta INT NOT NULL,
     id_usuario INT NOT NULL,
     id_pergunta INT NOT NULL,
     id_formulario INT NOT NULL,
