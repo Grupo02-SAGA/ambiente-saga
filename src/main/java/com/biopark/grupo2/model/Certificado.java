@@ -15,8 +15,8 @@ import java.sql.Date;
 public class Certificado {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id_certificado;
-    private Date vencimento;
+    private Long id_certificado;
+    private String vencimento;
     private double resultado;
     @ManyToOne
     @JoinColumn(name = "id_formulario")
