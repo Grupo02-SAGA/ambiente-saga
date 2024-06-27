@@ -1,16 +1,47 @@
-<section class="menu" id="itens">
-    <nav class="sidebar">
-        <li>
-            <a href="/listaFormsBase"><img src="/images/Sidebar/botao_1.png" alt="logo_formulario"></a>
-            <a href="/listaFormsBase" style="text-decoration: none"><h3 class="subtitulo-header">lista <br> formulário</h3></a>
-        </li>
-        <li>
-            <a href="/listaEmpresas"><img src="/images/Sidebar/botao_2.png" alt="logo_empresa"></a>
-            <a href="/listaEmpresas" style="text-decoration: none"><h3 class="subtitulo-header">lista <br> empresa</h3></a>
-        </li>
-        <li>
-            <a href="/listaUsuarios"><img src="/images/Sidebar/botao_3.png" alt="logo_usuario"></a>
-            <a href="/listaUsuarios" style="text-decoration: none"><h3 class="subtitulo-header">lista <br> usuario</h3></a>
-        </li>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<section th:fragmentSidebar>
+    <nav id="sidebar" class="hideSidebar">
+        <div id="sidebarContent">
+            <ul id="sideItens">
+                <li class="sideItem">
+                    <a href="/">
+                        <i class="fa-solid fa-house"></i>
+                        <span class="itensDescriptions">Home</span>
+                    </a>
+                </li>
+                <li class="sideItem">
+                    <a href="/listaFormsBase">
+                        <i class="fa-solid fa-list"></i>
+                        <span class="itensDescriptions">Lista de Formulários</span>
+                    </a>
+                </li>
+                <li class="sideItem">
+                    <a href="/listaEmpresas">
+                        <i class="fa-solid fa-briefcase"></i>
+                        <span class="itensDescriptions">Lista de Empresas</span>
+                    </a>
+                </li>
+                <li class="sideItem">
+                    <a href="/listaUsuarios">
+                        <i class="fa-solid fa-users"></i>
+                        <span class="itensDescriptions">Lista de Colaboradores</span>
+                    </a>
+                </li>
+                <li class="sideItem">
+                    <a href="/listaAvaliacoes">
+                        <i class="fa-solid fa-file-pen"></i>
+                        <span class="itensDescriptions">Lista de Avaliações</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div id="logout">
+            <div>
+                <a href="/login" id="logoutBtn">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span class="itensDescriptions">Logout</span>
+                </a>
+            </div>
+        </div>
     </nav>
 </section>
