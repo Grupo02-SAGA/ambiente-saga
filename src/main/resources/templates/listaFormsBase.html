@@ -10,17 +10,29 @@
     <link rel="stylesheet" href="/styles/FormularioBaseCSS/listaFormsBase.css">
     <link rel="stylesheet" type="text/css" media="all" href="/styles/principalCSS/styleMenuLateral.css">
     <link rel="stylesheet" type="text/css" media="all" href="/styles/GeralCSS/headGeral.css"/>
-    <script src="/scripts/formulariosJS/buscaFormularioBase.js" ></script>
+    <script src="/scripts/formulariosJS/buscaFormularioBase.js" defer ></script>
     <script src="/scripts/formulariosJS/botaoCriarMais.js" defer></script>
     <script src="/scripts/sideBar/menuLateral.js" defer></script>
 </head>
 
 <body>
+
+
+
 <header th:insert="/pop_up/header.html" class="topSide"></header>
-<nav th:insert="/pop_up/menuLateral.html" id="fragmento_sidebar"></nav>
+
+<div th:insert="/pop_up/menuLateral.html" id="fragmento_sidebar"></div>
+
+
+
+<h3>Formulários</h3>
 <section class="implements">
     <div class="search">
-        <input type="text" placeholder="Procurar..." id="searchInput">
+        <input type="text" placeholder="Procurar..." id="searchInput" th:value="${searchTerm}">
+        <select title = "filtro" id="filterSelect" class="filtro">
+            <option value="ativos" th:selected="${filter == 'ativos'}">Ativos</option>
+            <option value="inativos" th:selected="${filter == 'inativos'}">Inativos</option>
+        </select>
     </div>
     <table class="tableForm">
         <thead>
@@ -39,7 +51,7 @@
         </tr>
         </thead>
         <tbody class="tableBody" id="tableBody">
-        <tr th:each="form : ${forms}" data-form="${form.titulo}" class="listaForm">
+        <tr th:each="form : ${formulariosBase.content}" data-form="${form.titulo}" class="listaForm">
             <td>
                 <div th:text="${form.titulo}" class="textoFormBase"></div>
             </td>
@@ -56,6 +68,19 @@
         </tr>
         </tbody>
     </table>
+    <div class="pagination">
+        <tr >
+            <td th:if="${currentPage > 0}">
+                <a class="paginacao" th:href="@{/listaFormsBase(page=${currentPage - 1})}">&laquo; Anterior</a>
+            </td>
+            <td th:each="i : ${#numbers.sequence(0, totalPages - 1)}">
+                <a th:classappend="${i == currentPage} ? 'active': 'paginacao' " th:href="@{/listaFormsBase(page=${i})}" th:text="${i + 1}">1</a>
+            </td>
+            <td th:if="${currentPage < totalPages - 1}">
+                <a class="paginacao" th:href="@{/listaFormsBase(page=${currentPage + 1})}">Próximo &raquo;</a>
+            </td>
+        </tr>
+    </div>
 </section>
 </body>
 </html>

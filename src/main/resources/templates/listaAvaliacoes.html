@@ -12,25 +12,32 @@
     <script src="/scripts/sideBar/menuLateral.js" defer></script>
 </head>
 <body>
+
+
+
     <header th:insert="/pop_up/header.html" class="topSide"></header>
-    <nav th:insert="/pop_up/menuLateral.html" id="fragmento_sidebar"></nav>
+
+    <div th:insert="/pop_up/menuLateral.html" id="fragmento_sidebar"></div>
+
+    <h3>Avaliações</h3>
+
 <section class="implements">
 
     <div class="search">
-        <input type="text" placeholder="Procurar..." id="searchInput">
-        <select title = "filtro" id="filterSelect" class="filtro">
-            <option value="all" th:selected="${filter == 'all'}">Todos</option>
-            <option value="MaisRecente" th:selected="${filter == 'MaisRecente'}">Mais Recente</option>
-            <option value="MenosRecente" th:selected="${filter == 'MenosRecente'}">Menos Recente</option>
-            <option value="OrdemEmpresa" th:selected="${filter == 'OrdemEmpresa'}">Empresa A-Z</option>
-            <option value="OrdemFuncionario" th:selected="${filter == 'OrdemFuncionario'}">Funcionário A-Z</option>
-            <option value="base1" th:selected="${filter == 'base1'}">Em andamento</option>
-            <option value="base2" th:selected="${filter == 'base2'}">Concluídos</option>
-            <option value="base3" th:selected="${filter == 'base3'}">Cancelados</option>
-        </select>
+        <input type="text" placeholder="Procurar..." id="searchInput" th:value="${searchTerm}">
+            <select title = "filtro" id="filterSelect" class="filtro">
+                <option value="all" th:selected="${filter == 'all'}">Todos</option>
+                <option value="MaisRecente" th:selected="${filter == 'MaisRecente'}">Mais Recente</option>
+                <option value="MenosRecente" th:selected="${filter == 'MenosRecente'}">Menos Recente</option>
+                <option value="OrdemEmpresa" th:selected="${filter == 'OrdemEmpresa'}">Empresa A-Z</option>
+                <option value="OrdemFuncionario" th:selected="${filter == 'OrdemFuncionario'}">Funcionário A-Z</option>
+                <option value="base1" th:selected="${filter == 'base1'}">Em andamento</option>
+                <option value="base2" th:selected="${filter == 'base2'}">Concluídos</option>
+                <option value="base3" th:selected="${filter == 'base3'}">Cancelados</option>
+            </select>
+<!--        </form>-->
     </div>
 
-    </div>
     <div class="buttomCriar">
         <a th:href="@{executarAvaliacao}" class="linkCriar">
             <h3> NOVO+ </h3>
