@@ -29,7 +29,7 @@
     <input
             type="hidden"
             th:name="idFormulario"
-            th:value="*{formulario.id_formulario}">
+            th:field="*{formulario.id_formulario}">
     <input
             type="hidden"
             th:field="*{formulario.base}">
@@ -55,11 +55,12 @@
       </div>
     </div>
     <section class="listarPerguntas">
-      <div th:each="pergunta : *{perguntas}" class="listaPergunta">
+      <div th:each="pergunta, iterStat : ${resposta.perguntas}" class="listaPergunta">
         <div class="tituloPergunta">
           <a>
             <i class="fa-solid fa-chevron-down"></i>
             <h3 th:text="${pergunta.titulo}"></h3>
+            <input type="hidden" th:field="*{perguntas[__${iterStat.index}__].id_pergunta}">
           </a>
         </div>
         <div class="perguntaContainer">
@@ -112,7 +113,7 @@
                     type="file"
                     class="inputDocumento"
                     style="display: none;"
-                    th:field="*{url_documento}">
+                    th:field="*{nomeDocumento}">
           </div>
         </div>
       </div>

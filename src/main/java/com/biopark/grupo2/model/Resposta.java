@@ -13,8 +13,9 @@ import lombok.*;
 public class Resposta {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id_resposta;
+    private Long id_resposta;
     private Integer resposta;
+    private Integer id_usuario;
 
     @ManyToOne
     @JoinColumn(name = "id_formulario")
@@ -25,7 +26,4 @@ public class Resposta {
     @ManyToOne
     @JoinColumn(name = "id_certificado")
     private Certificado id_certificado;
-    @ManyToOne
-    @JoinColumn(name = "id_usuario")
-    private Usuario id_usuario;
 }

@@ -13,7 +13,7 @@ import lombok.*;
 public class Certificado {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id_certificado;
+    private Long id_certificado;
     private String vencimento;
     private double resultado;
     @ManyToOne

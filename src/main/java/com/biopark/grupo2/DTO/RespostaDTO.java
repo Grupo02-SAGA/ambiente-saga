@@ -12,9 +12,9 @@ import java.util.List;
 @NoArgsConstructor
 public class RespostaDTO {
     private Integer resposta;
-    private String url_documento;
+    private String nomeDocumento;
     private Formulario formulario;
     private List<Pergunta> perguntas;
     private Long id_certificado;
-    private Long id_usuario;
+    private Integer id_usuario;
 }
