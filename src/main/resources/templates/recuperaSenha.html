@@ -10,69 +10,69 @@
 </head>
 <body>
 <div class="topSide">
-    <img class="logo" src="/images/Geral/logo_transparente.png" alt="logo_empresa"/>
+<img class="logo" src="/images/Geral/logo_transparente.png" alt="logo_empresa"/>
 </div>
 <main>
-    <div class="box_center_recuperaS">
-        <div>
-            <th>
-                <a href="/login" class="buttonUlReturn"><img src="/images/Geral/left.png" alt="Retornar"></a></th>
-            <div class="box_input">
-                <form id="formulario" th:action="@{/recuperaSenha}" th:object="${usuario}" method="post" class="recupera_senha">
+<div class="box_center">
+
+        <th>
+            <a href="/login" class="buttonUlReturn"><img src="/images/Geral/left.png" alt="Retornar"></a></th>
+        <div class="box_input">
+            <form id="formulario" th:action="@{/recuperaSenha}" th:object="${usuario}" method="post" class="recupera_senha">
+                <ul>
+                    <li>
+                        <h3 class="loginText">Recuperar senha</h3>
+                    </li>
                     <ul>
+                        <input type="hidden" th:field="*{id_usuario}" />
                         <li>
-                            <h3 class="loginText">Recuperar senha</h3>
+                            <label class="conteudoInput">Nova Senha</label>
+                            <input
+                                    id="senha"
+                                    type="password"
+                                    th:field="*{senha}"
+                                    placeholder="Senha"
+                                    maxlength="45"
+                                    required
+                            />
                         </li>
-                        <ul>
-                            <input type="hidden" th:field="*{id_usuario}" />
-                            <li>
-                                <label class="conteudoInput">Nova Senha</label>
-                                <input
-                                        id="senha"
-                                        type="password"
-                                        th:field="*{senha}"
-                                        placeholder="Senha"
-                                        maxlength="45"
-                                        required
-                                />
-                            </li>
 
-                            <li>
-                                <label class="conteudoInput">Confirmar Nova Senha</label>
-                                <input
-                                        id="senha"
-                                        type="password"
-                                        placeholder="Senha"
-                                        maxlength="45"
-                                        required
-                                />
-                            </li>
-                        </ul>
+                        <li>
+                            <label class="conteudoInput">Confirmar Nova Senha</label>
+                            <input
+                                    id="senha"
+                                    type="password"
+                                    placeholder="Senha"
+                                    maxlength="45"
+                                    required
+                            />
+                        </li>
                     </ul>
-                        <section class="botSide">
-                            <div class="btn_recuperaSenha">
-                                <button id="confirm_form"type="submit" class="btn_confirma">Confirmar</button>
-                            </div>
-                        </section>
-                </form>
-            </div>
+                </ul>
+                <section class="botSide">
+                    <div class="btn_recuperaSenha">
+                        <button id="confirm_form"type="submit" class="btn_confirma">Confirmar</button>
+                    </div>
+                </section>
+            </form>
         </div>
-    </div>
-    <script>
-        document.getElementById("formulario").addEventListener("submit", function(event) {
-            var senha = document.getElementById("senha").value;
-            var validaSenha = document.getElementById("validaSenha").value;
-            var alertaSenha = document.getElementById("alertaSenha");
 
-            if (senha !== validaSenha) {
-                alertaSenha.innerText = "As senhas não coincidem!";
-                alertaSenha.classList.remove("d-none");
-                event.preventDefault(); // Impede o envio do formulário
-            } else {
-                alertaSenha.classList.add("d-none");
-            }
-        });
-    </script>
+</div>
+<script>
+    document.getElementById("formulario").addEventListener("submit", function(event) {
+        var senha = document.getElementById("senha").value;
+        var validaSenha = document.getElementById("validaSenha").value;
+        var alertaSenha = document.getElementById("alertaSenha");
+
+        if (senha !== validaSenha) {
+            alertaSenha.innerText = "As senhas não coincidem!";
+            alertaSenha.classList.remove("d-none");
+            event.preventDefault(); // Impede o envio do formulário
+        } else {
+            alertaSenha.classList.add("d-none");
+        }
+    });
+</script>
 </main>
 </body>
 </html>
