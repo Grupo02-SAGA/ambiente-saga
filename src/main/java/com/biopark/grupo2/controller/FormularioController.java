@@ -27,9 +27,9 @@ public class FormularioController {
                                          @RequestParam(defaultValue = "all") String filter,
                                          @RequestParam(required = false) Boolean estado,
                                          @RequestParam(required = false) String searchTerm) {
-//        if (estado == null) {
-//            estado = true; // ou qualquer valor padrão que faça sentido no seu contexto
-//        }
+        if (filter == "all") {
+            estado = true; // ou qualquer valor padrão que faça sentido no seu contexto
+        }
         Page<Formulario> formulariosBase = formularioService.findFormulariosLista(page, size, filter, estado,searchTerm);
         ModelAndView modelAndView = new ModelAndView("listaFormsBase");
         modelAndView.addObject("formulariosBase", formulariosBase);

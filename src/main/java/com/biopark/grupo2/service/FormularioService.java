@@ -44,7 +44,7 @@ public class FormularioService {
         if (searchTerm != null && !searchTerm.isEmpty()) {
             resultados = repositoryFormulario.findFormularioByNome(searchTerm, pageable);
         } else {
-            if (Objects.equals(filter, "ativos")){
+            if (Objects.equals(filter, "all") || Objects.equals(filter, "ativos")){
                 resultados = repositoryFormulario.findPaginadoAtivo(pageable);
             }else{
                 resultados = repositoryFormulario.findPaginadoInativo(pageable);
