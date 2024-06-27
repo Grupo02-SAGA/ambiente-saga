@@ -10,6 +10,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class FormularioService {
@@ -37,13 +38,13 @@ public class FormularioService {
         }
     }
 
-    public Page<Formulario> findFormulariosLista(int page, int size, Boolean estado, String searchTerm) {
-        Page<Formulario> resultados = null;
+    public Page<Formulario> findFormulariosLista(int page, int size, String filter, Boolean estado, String searchTerm) {
+        Page<Formulario> resultados;
         PageRequest pageable = PageRequest.of(page, size);
         if (searchTerm != null && !searchTerm.isEmpty()) {
             resultados = repositoryFormulario.findFormularioByNome(searchTerm, pageable);
         } else {
-            if (estado){
+            if (Objects.equals(filter, "all") || Objects.equals(filter, "ativos")){
                 resultados = repositoryFormulario.findPaginadoAtivo(pageable);
             }else{
                 resultados = repositoryFormulario.findPaginadoInativo(pageable);

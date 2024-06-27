@@ -10,8 +10,7 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface RepositoryCertificado extends JpaRepository<Certificado, Long> {
-
-    @Query(value = "SELECT f.base, r.ultimaMod AS data, f.titulo AS form, e.fantasia, u.nome AS usuario, f.id_formulario, c.id_certificado AS cert " +
+    @Query(value = "SELECT DISTINCT f.base, r.ultimaMod AS data, f.titulo AS form, e.fantasia, u.nome AS usuario, f.id_formulario, c.id_certificado AS cert " +
             "FROM certificado c " +
             "JOIN empresa e ON e.id_empresa = c.id_empresa " +
             "JOIN formulario f ON c.id_formulario = f.id_formulario " +
@@ -23,8 +22,7 @@ public interface RepositoryCertificado extends JpaRepository<Certificado, Long> 
             nativeQuery = true)
     Page<Object[]> findAvaliacoesByEmpresaNome(@Param("empresa") String empresa, Pageable pageable);
 
-
-    @Query(value = "SELECT f.base, r.ultimaMod AS data, f.titulo AS form, e.fantasia, u.nome AS usuario, f.id_formulario, c.id_certificado AS cert " +
+    @Query(value = "SELECT DISTINCT f.base, r.ultimaMod AS data, f.titulo AS form, e.fantasia, u.nome AS usuario, f.id_formulario, c.id_certificado AS cert " +
             "FROM certificado c " +
             "JOIN empresa e ON e.id_empresa = c.id_empresa " +
             "JOIN formulario f ON c.id_formulario = f.id_formulario " +

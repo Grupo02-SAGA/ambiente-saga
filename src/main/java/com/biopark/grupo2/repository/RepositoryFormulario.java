@@ -17,11 +17,11 @@ public interface RepositoryFormulario extends JpaRepository<Formulario, Long> {
 
     //Page<Formulario> findFormularioByNomeAndEstado(String searchTerm, Boolean estado, Pageable pageable);
 
-    @Query("SELECT f FROM Formulario f WHERE f.estado = true")
+    @Query("SELECT f FROM Formulario f WHERE f.estado = true AND base = 0")
     Page<Formulario> findPaginadoAtivo(Pageable pageable);
 
 
-    @Query("SELECT f FROM Formulario f WHERE f.estado = false")
+    @Query("SELECT f FROM Formulario f WHERE f.estado = false AND base = 0")
     Page<Formulario> findPaginadoInativo(Pageable pageable);
 
     List<Formulario>findByBase(Integer base);

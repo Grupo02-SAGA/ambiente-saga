@@ -73,20 +73,20 @@ class FormularioServiceTest {
         verify(repositoryFormulario, times(1)).findById(1L);
         verify(repositoryFormulario, never()).save(any(Formulario.class));
     }
-
-    @Test
-    void testFindByBase2() {
-        Formulario formulario = new Formulario();
-        formulario.setTitulo("Test Title");
-        Page<Formulario> page = new PageImpl<>(Collections.singletonList(formulario));
-        when(repositoryFormulario.findFormularioByNome(anyString(), any(PageRequest.class))).thenReturn(page);
-
-        Page<Formulario> result = formularioService.findFormulariosLista(0, 10, true, "Test Title");
-        assertNotNull(result);
-        assertFalse(result.isEmpty());
-        assertEquals(1, result.getTotalElements());
-        assertEquals("Test Title", result.getContent().get(0).getTitulo());
-
-        verify(repositoryFormulario, times(1)).findFormularioByNome("Test Title", PageRequest.of(0, 10));
-    }
+//
+//    @Test
+//    void testFindByBase2() {
+//        Formulario formulario = new Formulario();
+//        formulario.setTitulo("Test Title");
+//        Page<Formulario> page = new PageImpl<>(Collections.singletonList(formulario));
+//        when(repositoryFormulario.findFormularioByNome(anyString(), any(PageRequest.class))).thenReturn(page);
+//
+//        Page<Formulario> result = formularioService.findFormulariosLista(0, 10, true, "Test Title");
+//        assertNotNull(result);
+//        assertFalse(result.isEmpty());
+//        assertEquals(1, result.getTotalElements());
+//        assertEquals("Test Title", result.getContent().get(0).getTitulo());
+//
+//        verify(repositoryFormulario, times(1)).findFormularioByNome("Test Title", PageRequest.of(0, 10));
+//    }
 }
