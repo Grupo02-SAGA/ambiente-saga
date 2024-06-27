@@ -8,11 +8,13 @@ import com.biopark.grupo2.repository.RepositoryFormulario;
 import com.biopark.grupo2.repository.RepositoryPergunta;
 import com.biopark.grupo2.repository.RepositoryResposta;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.servlet.ModelAndView;
 import java.util.List;
 
+@Controller
 public class ExecutarFormularioController {
 
     @Autowired
@@ -28,7 +30,7 @@ public class ExecutarFormularioController {
     private RepositoryCertificado repositoryCertificado;
 
     @GetMapping("/executarFormulario/{id}")
-    public ModelAndView executarFormulaioById(@PathVariable Long id) {
+    public ModelAndView executarFormulario(@PathVariable Long id) {
         ModelAndView modelAndView = new ModelAndView();
         Formulario formulario = repositoryFormulario.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Formulario não encontrado no get com o ID: " + id));
