@@ -49,7 +49,7 @@ public class NovaRespController {
         for (Pergunta pergunta : perguntas){
             repositoryPergunta.save(novaRespService.todasRespostas(pergunta, pegaMaiorForm()));
         }
-        return new RedirectView("/executarForm/" + pegaMaiorForm().getId_formulario());
+        return new RedirectView("/executarFormulario/" + pegaMaiorForm().getId_formulario());
     }
     //Consultas
     public List<Formulario> todosFormularios(){
