@@ -1,195 +1,168 @@
-body{
-    width: 100%;
-    min-height: 80vh;
-    background-image: url(../../images/telaDeLogin/fundo_login.png);
-    background-size: cover;
-  }
-
-  .box_center{
-    width: 65%;
-    height: 60%;
-    padding: .5rem;
-    border-radius: 25px;
-    display: flex;
-    justify-content: center;
-    background-color: #FFFF;
-  }
-
-  .box_center_recuperaS{
-    width: 65%;
-    height: 70%;
-    padding: .5rem;
-    border-radius: 25px;
-    display: flex;
-    justify-content: center;
-    background-color: #FFFF;
-  }
-
-  .box_input{
-    width: 90%;
-    height: 80%;
-    padding-top: 10%;
-    padding-bottom: 25%;
-    display: flex;
-    justify-content: center;
-  }
-  
-  
-  .topSide{
-    width: 100%;
-    height:100%;
-    padding-top: 15%;
-    display: flex;
-    justify-content: center;
-  }
-  
-  .topSide .logo{
-    height: 91px;
-    width: 103px;
-  }
-  
-  main{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 75vh;
-  }
-  
-  form.novo_usuario{
-    display: flex;
-    flex-direction: column;
-    width: 80%;
-    height:100%;
-  
-  }
-  ul {
-    list-style: none;
-  }
-  
-  label.conteudoInput{
-    display: flex;
-    align-items: center;
-    font-size: 14px;
-    margin: .25rem .25rem .25rem 10px;
-    color: #0077C8;
-    cursor: text;
-  }
-  
-  li{
-    margin-bottom: 3%;
-  }
-  
-  li.estado{
-      display: flex;
-      justify-content: center;
-  }
-  
-  input{
-    outline: unset;
-    cursor: text;
-    width: 100%;
-    min-height: 25px;
-    border-radius: .75rem;
-    border: 1px solid #0077C8;
-    font-family: "Rubik", sans-serif;
-    padding: .5rem;
-  }
-  
-  form.novo_usuario ::placeholder{
-    font-size: .8rem;
-    font-style: italic;
-    color: #808080;
-  }
-  
-  .botSide{
-      max-width: 100%;
-      min-height: 5%;
-      margin-bottom:10px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-  }
-  
-  button{
-    cursor: pointer;
-    height: 35px;
-    width: 150px;
-    border: none;
-    border-radius: 5px;
-    font-size: 14px;
-    font-weight: bold;
-    text-align: center;
-    line-height: 20px;
-  }
-
-  button.buttonReturn{
-    display: flex;
-    justify-content: center;
-    cursor: pointer;
-    height: 35px;
-    width: 55px;
-    border: none;
-    border-radius: 5px;
-    font-size: 14px;
-    font-weight: bold;
-    text-align: center;
-    line-height: 20px;
-    margin-left: 10px;
-    background-color: #4D7CFE;
-    color: #FFFF;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 6px 0 rgba(0, 0, 0, 0.19);
-  }
-  
-  .btn{
-    padding-top: 15%;
-    display: flex;
-  }
-  
-  .btn_recuperaSenha{
-    padding-top: 5%;
-    display: flex;
-  }
-  
-  button.btn_confirma{
-    margin-left: 10px;
-    background-color: #4D7CFE;
-    color: #FFFF;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 6px 0 rgba(0, 0, 0, 0.19);
-  }
-  
-  a.btn-outline-secondary{
-      display: flex;
-      font-size: 14px;
-      margin: .25rem .25rem .25rem 10px;
-      color: #0077C8;
-      cursor: text;
-      font-family: "Rubik", sans-serif;
-      justify-content: flex-end;
-   }
-  
-  p.confereSenha{
-      display: none;
-      color: #B0522A;
-  }
-
-  h3.loginText{
-    display: flex;
-    justify-content: center;
-    font-weight: bold;
-    font-size: 15px;
-  }
-
-  a.esqueceuSenha{
-    display: flex;
-    justify-content: flex-end;
-    font-size: 12px;
-  }
-
-
-.box_center .buttonUlReturn{
-  justify-content: flex-start;
+body {
+  width: 100%;
+  min-height: 80vh;
+  background-image: url(../../images/telaDeLogin/fundo_login.png);
+  background-size: cover;
 }
 
-.buttonUlReturn:not(.box_center){
-  justify-content: flex-start;
+.box_center {
+  width: 90%;
+  max-width: 600px; /* Limitar a largura máxima em telas maiores */
+  padding: 2rem;
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  background-color: #FFFF;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 6px 6px rgba(0, 0, 0, 0.19);
+}
+
+.box_input {
+  width: 100%;
+}
+
+.topSide {
+  width: 100%;
+  padding: 2rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.topSide .logo {
+  height: 91px;
+  width: 103px;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 75vh;
+}
+
+form.login {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul > ul {
+  padding: 0;
+  margin: 0;
+}
+
+label.conteudoInput {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  margin: 0.25rem 0;
+  color: #0077C8;
+}
+
+li {
+  margin-bottom: 1rem;
+}
+
+li.estado {
+  display: flex;
+  justify-content: center;
+}
+
+input {
+  outline: none;
+  width: 100%; /* Ajuste para preencher a largura */
+  min-height: 2rem;
+  border-radius: 0.75rem;
+  border: 1px solid #0077C8;
+  font-family: "Rubik", sans-serif;
+  padding: 0.5rem;
+}
+
+form.login ::placeholder {
+  font-size: 0.8rem;
+  font-style: italic;
+  color: #808080;
+}
+
+.botSide {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+button {
+  cursor: pointer;
+  height: 2.5rem;
+  width: 160px; /* Ajuste para preencher a largura */
+  max-width: 180px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 20px;
+}
+
+button.btn_confirma {
+  background-color: #4D7CFE;
+  color: #FFFF;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 6px 6px rgba(0, 0, 0, 0.19);
+}
+
+a.esqueceuSenha {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 12px;
+  margin-top: 0.5rem;
+}
+
+h3.loginText {
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 15px;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 450px) {
+  .box_center {
+    width: 90%;
+    padding: 1rem;
+  }
+
+  .box_input {
+    width: 100%;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .botSide {
+    margin-top: 1rem;
+  }
+
+  button {
+    width: 160px;
+  }
+}
+
+@media (min-width: 451px) {
+  .box_center {
+    width: 60%;
+    padding: 2rem;
+  }
+
+  .box_input {
+    width: 80%;
+  }
+
+  .botSide {
+    margin-top: 2rem;
+  }
 }
