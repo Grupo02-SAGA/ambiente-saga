@@ -16,8 +16,16 @@
 </head>
 
 <body>
+
+
+
 <header th:insert="/pop_up/header.html" class="topSide"></header>
-<nav th:insert="/pop_up/menuLateral.html" id="fragmento_sidebar"></nav>
+
+<div th:insert="/pop_up/menuLateral.html" id="fragmento_sidebar"></div>
+
+
+
+<h3>Formulários</h3>
 <section class="implements">
     <div class="search">
         <input type="text" placeholder="Procurar..." id="searchInput" th:value="${searchTerm}">
