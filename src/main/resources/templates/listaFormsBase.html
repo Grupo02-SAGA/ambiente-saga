@@ -22,8 +22,8 @@
     <div class="search">
         <input type="text" placeholder="Procurar..." id="searchInput" th:value="${searchTerm}">
         <select title = "filtro" id="filterSelect" class="filtro">
-            <option value="ativos" th:selected="${filter == '1'}">Ativos</option>
-            <option value="inativos" th:selected="${filter == '0'}">Inativos</option>
+            <option value="ativos" th:selected="${filter == 'ativos'}">Ativos</option>
+            <option value="inativos" th:selected="${filter == 'inativos'}">Inativos</option>
         </select>
     </div>
     <table class="tableForm">

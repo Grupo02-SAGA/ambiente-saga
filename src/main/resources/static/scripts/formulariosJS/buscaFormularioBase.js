@@ -26,9 +26,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const searchTerm = searchInput.value;
         let url = `/listaFormsBase?page=0&size=20&filter=${filter}`;
 
-        if (filter === '1') {
+        if (filter === 'ativo') {
             url += `&estado=true`;
-        } else if (filter === '0') {
+        } else if (filter === 'inativo') {
             url += `&estado=false`;
         }
 
