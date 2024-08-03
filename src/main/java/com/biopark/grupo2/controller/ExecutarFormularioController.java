@@ -51,7 +51,7 @@ public class ExecutarFormularioController {
 
     @PostMapping("/executarFormulario")
     public RedirectView salvarResposta(@ModelAttribute("respostaDTO") RespostaDTO respostaDTO,
-                                       @RequestParam("idFormulario") Long idFormulario,
+                                       Long idFormulario,
                                        RedirectAttributes attributes ){
 
         Formulario formulario = repositoryFormulario.findById(idFormulario)
@@ -62,6 +62,7 @@ public class ExecutarFormularioController {
 
         Integer idUsuario = 1;
         Long idCertificado = idFormulario;
+
 
         respostaDTO.setId_usuario(idUsuario);
         respostaDTO.setId_certificado(idCertificado);
