@@ -7,11 +7,11 @@ const animarEstilo = () => {
     estilo.classList.remove("inativo");
 
     if (estadoInput.value === "false") {
-        estilo.classList.add("inativo");
-        estilo.innerHTML = "Inativo";
-    } else {
         estilo.classList.add("ativo");
         estilo.innerHTML = "Ativo";
+    } else {
+        estilo.classList.add("inativo");
+        estilo.innerHTML = "Inativo";
     }
 
     estadoInput.value = estadoInput.value === "true" ? "false" : "true";
