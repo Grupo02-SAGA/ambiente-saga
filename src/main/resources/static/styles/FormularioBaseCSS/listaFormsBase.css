@@ -18,7 +18,9 @@ section.implements{
 }
 
 .search{
-    display: flex;
+    background-color:white;
+    position:sticky;
+    top:0px;
 }
 
 .search img{
@@ -26,12 +28,12 @@ section.implements{
 }
 
 .search input{
-    display: flex;
-    width: 235px;
+    width: 210px;
     height: 20px;
-    margin: 40px 20px 0px 15px;
+    margin: 10px 0px;
     border: none;
     border-bottom: 2px solid black;
+    outline: unset;
 }
 
 .search ::placeholder{
@@ -47,7 +49,46 @@ h3{
     font-size: 14px;
 }
 
+.pagination{
+    display: flex;
+    width: 100%;
+    height: 20px;
+    justify-content: center;
+    background-color: white;
+    position: sticky;
+    bottom: 0px;
+    margin: 2px;
+    align-content: center;
+    box-shadow: 2px 0px 9px 5px rgb(255 255 255);
+}
 
+.active{
+       color: Black;
+       font-family: "Rubik", sans-serif;
+       text-align: center;
+       font-weight: medium;
+       font-size: 10px;
+       text-decoration: none;
+       background-color: white;
+       cursor: pointer;
+       border-style: groove;
+       border-color: rgba(0, 118, 199, 1);
+       border-width: thin;
+       border-radius: 4px;
+       height: 16px;
+       padding: 1px 1px 1.5px 1px;
+}
+
+.paginacao{
+        color: Black;
+        font-family: "Rubik", sans-serif;
+        text-align: center;
+        font-weight: medium;
+        font-size: 10px;
+        text-decoration: none;
+        background-color: white;
+        cursor: pointer;
+}
 
 .tabelaForm{
     display: flex;
@@ -152,3 +193,11 @@ form{
 .expandir {
     display: block;
 }
+
+.filtro{
+    height: 15px;
+    width:80px;
+    font-size: 9px;
+    margin-left: 5px;
+}
+

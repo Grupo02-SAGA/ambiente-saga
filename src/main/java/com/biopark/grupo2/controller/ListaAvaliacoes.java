@@ -17,16 +17,18 @@ public class ListaAvaliacoes {
 
     @GetMapping("/listaAvaliacoes")
     public ModelAndView lista(@RequestParam(defaultValue = "0") int page,
-                              @RequestParam(defaultValue = "10") int size,
+                              @RequestParam(defaultValue = "5") int size,
                               @RequestParam(defaultValue = "all") String filter,
-                              @RequestParam(required = false) Integer status) {
-        Page<AvaliacaoDTO> certificados = serviceCertificado.listarAvaliacoesPage(page, size, filter, status);
+                              @RequestParam(required = false) Integer status,
+                              @RequestParam(required = false) String searchTerm){
+    Page<AvaliacaoDTO> certificados = serviceCertificado.listarAvaliacoesPage(page, size, filter, status,searchTerm);
         ModelAndView modelAndView = new ModelAndView("listaAvaliacoes");
         modelAndView.addObject("avaliacoes", certificados);
         modelAndView.addObject("totalPages", certificados.getTotalPages());
         modelAndView.addObject("currentPage", page);
         modelAndView.addObject("filter", filter);
         modelAndView.addObject("status", status);
+        modelAndView.addObject("searchTerm", searchTerm);
         return modelAndView;
     }
 }

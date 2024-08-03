@@ -3,6 +3,8 @@ package com.biopark.grupo2.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.Date;
+
 @Table(name = "Resposta")
 @Entity(name = "Resposta")
 @Getter
@@ -26,4 +28,6 @@ public class Resposta {
     @ManyToOne
     @JoinColumn(name = "id_certificado")
     private Certificado id_certificado;
+
+    private Date ultimaMod;
 }
