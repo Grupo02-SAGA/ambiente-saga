@@ -2,11 +2,11 @@ package com.biopark.grupo2.controller;
 
 import com.biopark.grupo2.DTO.RespostaDTO;
 import com.biopark.grupo2.model.*;
-import com.biopark.grupo2.repository.RepositoryCertificado;
-import com.biopark.grupo2.repository.RepositoryFormulario;
-import com.biopark.grupo2.repository.RepositoryUsuario;
-import com.biopark.grupo2.service.DocumentoService;
-import com.biopark.grupo2.service.RespostaService;
+import com.biopark.grupo2.service.BuscaService;
+import com.biopark.grupo2.service.DocumentosService;
+import com.biopark.grupo2.service.ExecutarFormularioService;
+import com.biopark.grupo2.service.NovoCertificadoService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -15,70 +15,83 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 @Controller
 public class ExecutarFormularioController {
 
     @Autowired
-    private RepositoryFormulario repositoryFormulario;
+    private ExecutarFormularioService executarFormularioService;
 
     @Autowired
-    private RespostaService respostaService;
+    private BuscaService buscaService;
+    @Autowired
+    private NovoCertificadoService novoCertificadoService;
 
-    @Autowired
-    private DocumentoService documentoService;
-    @Autowired
-    private RepositoryCertificado repositoryCertificado;
 
     @GetMapping("/executarFormulario/{id}")
-    public ModelAndView executarFormulario(@PathVariable Long id) {
+    public ModelAndView executarFormulario(@PathVariable Long id,
+                                           @RequestParam("id_empresa")Long idEmpresa) {
+
         ModelAndView modelAndView = new ModelAndView();
-        Formulario formulario = repositoryFormulario.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Formulario não encontrado no get com o ID: " + id));
+
+        Empresa empresa = buscaService.buscarEmpresa(idEmpresa);
+
+        Formulario formulario = buscaService.buscarFormulario(id);
+
+        Certificado certificado = novoCertificadoService
+                .criarCertificado(id, empresa);
+
+        Certificado novoCertificado = novoCertificadoService
+                .recuperarCertificado(certificado.getId_certificado());
 
         List<Pergunta> perguntas = formulario.getPerguntas();
 
         RespostaDTO respostaDTO = new RespostaDTO();
-        respostaDTO.setFormulario(formulario);
-        respostaDTO.setPerguntas(perguntas);
+
+        respostaDTO.setId_formulario(formulario
+                .getId_formulario());
+        respostaDTO.setId_perguntas(perguntas
+                .stream().map(Pergunta::getId_pergunta)
+                    .collect(Collectors.toList()));
+
+        respostaDTO.setId_empresa(idEmpresa);
+        respostaDTO.setId_certificado(novoCertificado.getId_certificado());
 
         modelAndView.setViewName("executarFormulario");
-        modelAndView.addObject("resposta", respostaDTO);
+        modelAndView.addObject("respostaDTO", respostaDTO);
+        modelAndView.addObject("tituloFormulario", formulario.getTitulo());
         modelAndView.addObject("idFormulario", formulario.getId_formulario());
+        modelAndView.addObject("baseFormulario", formulario.getBase());
+        modelAndView.addObject("estadoFormulario", formulario.getEstado());
+        modelAndView.addObject("idCertificado", certificado.getId_certificado());
+        modelAndView.addObject("idEmpresa", empresa.getId_empresa());
         modelAndView.addObject("perguntas", perguntas);
+        modelAndView.addObject("tituloPergunta",perguntas.get(0).getTitulo());
+        modelAndView.addObject("idPergunta",perguntas.get(0).getId_pergunta());
         return modelAndView;
     }
 
     @PostMapping("/executarFormulario")
-    public RedirectView salvarResposta(@ModelAttribute("respostaDTO") RespostaDTO respostaDTO,
-                                       Long idFormulario,
-                                       RedirectAttributes attributes ){
+    public RedirectView salvarResposta(
+                        @ModelAttribute("respostaDTO")
+                        @Valid RespostaDTO respostaDTO,
+                        RedirectAttributes attributes ){
 
-        Formulario formulario = repositoryFormulario.findById(idFormulario)
-                .orElseThrow(() -> new IllegalArgumentException("Formulario não encontrado no get com o ID: " + idFormulario));
+        Long idFormulario = respostaDTO.getId_formulario();
+        respostaDTO.setId_certificado(idFormulario);
 
-        Certificado certificado = repositoryCertificado.findById(idFormulario)
-                .orElseThrow(() -> new IllegalArgumentException("Certificado não encontrado no get com o ID: " + idFormulario));
+        Map<Long, Integer> respostas = respostaDTO.getRespostas();
 
-        Integer idUsuario = 1;
-        Long idCertificado = idFormulario;
-
-
-        respostaDTO.setId_usuario(idUsuario);
-        respostaDTO.setId_certificado(idCertificado);
-
-        List<Pergunta> perguntas = respostaDTO.getPerguntas();
-
-        respostaService.salvarRespostas(perguntas, respostaDTO);
-
-        if(respostaDTO.getNomeDocumento() != null && !respostaDTO
-                .getNomeDocumento().isEmpty()){
-            String nomeDocumento = respostaDTO.getNomeDocumento();
-            documentoService.salvarNomeDocumento(nomeDocumento);
+        if(respostas != null && !respostas.isEmpty()){
+            executarFormularioService.criarRespostas(respostaDTO);
         }
+
+        executarFormularioService.criarRespostas(respostaDTO);
 
         attributes.addFlashAttribute("resposta-cadastrada",
                 "resposta-cadastrada");
-        return new RedirectView("/detalhesFormulario/" + idFormulario);
+        return new RedirectView("/certificado/" + idFormulario);
     }
 }

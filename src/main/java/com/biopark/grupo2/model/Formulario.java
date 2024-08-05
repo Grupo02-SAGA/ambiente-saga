@@ -19,6 +19,11 @@ public class Formulario {
     private Integer base;
     private Boolean estado;
 
-    @OneToMany(mappedBy = "id_formulario")
+    @ManyToOne
+    @JoinColumn(name = "id_empresa")
+    private Empresa empresa;
+
+    @OneToMany(mappedBy = "formulario")
     private List<Pergunta> perguntas;
+
 }

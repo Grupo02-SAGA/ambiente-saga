@@ -55,7 +55,7 @@ public class ServiceCertificado {
     private AvaliacaoDTO convertToDTO(Object[] resultado) {
         AvaliacaoDTO dto = new AvaliacaoDTO();
         dto.setBase((Integer) resultado[0]);
-        dto.setUltimaMod((Date) resultado[1]);
+        dto.setUltimaMod((LocalDateTime) resultado[1]);
         dto.setFantasia((String) resultado[2]);
         dto.setFantasia((String) resultado[3]);
         dto.setUsuario((String) resultado[4]);

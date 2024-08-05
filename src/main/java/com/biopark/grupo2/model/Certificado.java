@@ -3,6 +3,8 @@ package com.biopark.grupo2.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.Set;
+
 @Table(name = "Certificado")
 @Entity(name = "Certificado")
 @Getter
@@ -16,10 +18,15 @@ public class Certificado {
     private Long id_certificado;
     private String vencimento;
     private double resultado;
-    @ManyToOne
+
     @JoinColumn(name = "id_formulario")
-    private Formulario id_formulario;
+    private Long id_formulario;
+
     @ManyToOne
     @JoinColumn(name = "id_empresa")
-    private Empresa id_empresa;
+    private Empresa empresa;
+
+    @OneToMany(mappedBy = "certificado")
+    private Set<Resposta> respostas;
+
 }

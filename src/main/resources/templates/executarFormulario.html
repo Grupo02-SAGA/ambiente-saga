@@ -18,27 +18,33 @@
   <img class="logo" src="/images/Geral/logo_transparente.png" alt="logo_empresa"/>
 </header>
 <main>
-  <form th:action="@{/executarFormulario}" th:object="${resposta}" class="editar_formulario" method="post">
+  <form th:action="@{/executarFormulario}" th:object="${respostaDTO}" class="editar_formulario" method="post" enctype="multipart/form-data">
     <div class="formulario_topo">
       <input
               type="text"
-              th:value="*{formulario.titulo}"
-              th:field="*{formulario.titulo}"
+              th:value="${tituloFormulario}"
               class="inputTitulo"
               required>
     </div>
     <div class="linha_header"> </div>
     <input
             type="hidden"
-            th:name="idFormulario"
-            th:field="*{formulario.id_formulario}">
+            th:field="*{id_formulario}">
     <input
             type="hidden"
-            th:field="*{formulario.base}">
+            id="idEmpresa"
+            th:field="*{id_empresa}">
+    <input
+            type="hidden"
+            id="idCertificado"
+            th:field="*{id_certificado}">
+    <input
+            type="hidden"
+            th:value="${baseFormulario}">
     <input
             id="estadoInput"
-            th:field="*{formulario.estado}"
             type="hidden"
+            th:value="${estadoFormulario}"
             required>
     <div class="footer">
       <div class="linha_footer"> </div>
@@ -50,57 +56,61 @@
           <strong>Cancelar</strong>
         </button>
         <button
-                class="btnSalvar">
-          <a th:href="@{/certificado/1}" style="text-decoration: none;color: green">Confirmar</a>
+                class="btnSalvar"
+                type="submit">
+          Confirmar
         </button>
       </div>
     </div>
     <section class="listarPerguntas">
-      <div th:each="pergunta, iterStat : ${resposta.perguntas}" class="listaPergunta">
+      <div th:each="pergunta, iterStat : ${perguntas}" class="listaPergunta">
+        <input
+                id="respostaFinal"
+                th:field="*{respostas[__${idPergunta}__]}"
+                value=""
+                type="hidden">
+        <input
+                type="hidden"
+                th:field="*{id_perguntas}"
+                th:value="${idPergunta}">
         <div class="tituloPergunta">
           <a>
             <i class="fa-solid fa-chevron-down"></i>
             <h3 th:text="${pergunta.titulo}"></h3>
-            <input type="hidden" th:field="*{perguntas[__${iterStat.index}__].id_pergunta}">
           </a>
         </div>
         <div class="perguntaContainer">
           <div class="alternativasPerguntas">
             <div class="checkbox-item">
-              <input
-                      tid="respostaPergunta"
-                      type="hidden"
-                      th:field="*{resposta}"
-                      required>
-              <label th:for="'conforme' + ${pergunta.id_pergunta}">Conforme
+              <label th:for="'conforme_' + ${idPergunta}">Conforme
                 <input
                         type="checkbox"
-                        th:id="'conforme' + ${pergunta.id_pergunta}"
-                        name="alternativa"
-                        class="alternativa-checkbox"
-                        data-resposta="0">
+                        th:id="'conforme_' + ${idPergunta}"
+                        th:value="0"
+                        th:name="respostas[__${idPergunta}__]"
+                        class="alternativa-checkbox">
                 <span class="checkmark"></span>
               </label>
             </div>
             <div class="checkbox-item">
-              <label th:for="'nao-conforme' + ${pergunta.id_pergunta}">Não Conforme
+              <label th:for="'nao-conforme_' + ${idPergunta}">Não Conforme
                 <input
                         type="checkbox"
-                        th:id="'nao-conforme' + ${pergunta.id_pergunta}"
-                        name="alternativa"
-                        class="alternativa-checkbox"
-                        data-resposta="1">
+                        th:id="'nao-conforme_' + ${idPergunta}"
+                        th:value="1"
+                        th:name="respostas[__${idPergunta}__]"
+                        class="alternativa-checkbox">
                 <span class="checkmark"></span>
               </label>
             </div>
             <div class="checkbox-item">
-              <label th:for="'nao-se-aplica' + ${pergunta.id_pergunta}">Não se Aplica
+              <label th:for="'nao-se-aplica_' + ${idPergunta}">Não se Aplica
                 <input
                         type="checkbox"
-                        th:id="'nao-se-aplica' + ${pergunta.id_pergunta}"
-                        name="alternativa"
-                        class="alternativa-checkbox"
-                        data-resposta="2">
+                        th:id="'nao-se-aplica_' + ${idPergunta}"
+                        th:value="2"
+                        th:name="respostas[__${idPergunta}__]"
+                        class="alternativa-checkbox">
                 <span class="checkmark"></span>
               </label>
             </div>
@@ -114,7 +124,7 @@
                     type="file"
                     class="inputDocumento"
                     style="display: none;"
-                    th:field="*{nomeDocumento}">
+                    th:field="*{nomeDocumento}" multiple>
           </div>
         </div>
       </div>

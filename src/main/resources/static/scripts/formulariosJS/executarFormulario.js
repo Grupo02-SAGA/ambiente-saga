@@ -1,12 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
     const perguntasContainer = document.querySelector('.listarPerguntas');
 
-    function initializePergunta(pergunta) {
+    function initializePergunta(pergunta, index) {
         const titulo = pergunta.querySelector('.tituloPergunta a');
         const container = pergunta.querySelector('.perguntaContainer');
         const tituloTexto = pergunta.querySelector('.tituloPergunta h3');
         const tituloOriginal = tituloTexto.textContent;
-        const inputResposta = pergunta.querySelector('input[type="hidden"][tid="respostaPergunta"]');
+        const inputResposta = pergunta.querySelector('input[type="hidden"]');
 
         // Salvar o título original no dataset do elemento
         tituloTexto.dataset.originalTitle = tituloOriginal;
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 tituloTexto.textContent = tituloTexto.dataset.originalTitle;
                 tituloTexto.style.color = '';
             } else {
-                // verifica se há resposta marcada
+                // Verifica se há resposta marcada
                 const checkboxes = container.querySelectorAll('input[type="checkbox"]');
                 const algumMarcado = Array.from(checkboxes).some(checkbox => checkbox.checked);
 
@@ -59,6 +59,9 @@ document.addEventListener('DOMContentLoaded', function() {
         // Permite que apenas um checkbox seja marcado
         const checkboxes = container.querySelectorAll('input[type="checkbox"]');
         checkboxes.forEach(checkbox => {
+            // Adiciona o atributo data-resposta para garantir que ele esteja definido
+            checkbox.dataset.resposta = checkbox.value;
+
             checkbox.addEventListener('change', function() {
                 if (this.checked) {
                     checkboxes.forEach(box => {
@@ -94,13 +97,16 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Inicializar todas as perguntas da página, para evitar bug do JS
+    // Inicializar todas as perguntas da página
     const perguntas = document.querySelectorAll('.listaPergunta');
-    perguntas.forEach(initializePergunta);
-
+    perguntas.forEach((pergunta, index) => {
+        // Atribui um identificador único baseado no índice
+        pergunta.dataset.perguntaId = index;
+        initializePergunta(pergunta, index);
+    });
 });
 
-//Iniciando popup
+// Iniciando popup
 const popupCancelar = document.getElementById('cancelarResposta');
 const fade_fundo = document.getElementById("fade_cancelar");
 const popup = document.getElementById("popup");
@@ -130,5 +136,3 @@ if (button_nao_popup) {
         togglePopup();
     });
 }
-
-

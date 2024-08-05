@@ -15,6 +15,7 @@ public class Documentos {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_documento;
     private String nomeDocumento;
+
     @ManyToOne
     @JoinColumn(name = "id_resposta")
     private Resposta id_resposta;

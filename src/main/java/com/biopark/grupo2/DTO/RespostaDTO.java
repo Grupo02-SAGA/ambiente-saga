@@ -1,20 +1,30 @@
 package com.biopark.grupo2.DTO;
 
-import com.biopark.grupo2.model.Formulario;
-import com.biopark.grupo2.model.Pergunta;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
+import java.util.Map;
 
-@Getter
-@Setter
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class RespostaDTO {
-    private Integer resposta;
-    private String nomeDocumento;
-    private Formulario formulario;
-    private List<Pergunta> perguntas;
+    private Map<Long, Integer> respostas;
+
+    private List<MultipartFile> nomeDocumento;
+    @NotNull
+    private Long id_formulario;
+    private List<Long> id_perguntas;
+    @NotNull
     private Long id_certificado;
-    private Integer id_usuario;
+    @NotNull
+    private Long id_empresa;
+
+    private static final Long ID_USUARIO_FIXO = 1L;
+
+    public Long getId_usuario(){
+        return ID_USUARIO_FIXO;
+    }
 }
