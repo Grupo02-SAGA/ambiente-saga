@@ -70,6 +70,8 @@ public class ExecutarFormularioController {
         }
 
         attributes.addFlashAttribute("resposta-cadastrada", "resposta-cadastrada");
-        return new RedirectView("/certificado/" + respostaDTO.getId_formulario());
+        String redirectUrl = String.format("/certificado/%d?id_certificado=%d", respostaDTO.getId_formulario(), respostaDTO.getId_certificado());
+
+        return new RedirectView(redirectUrl);
     }
 }
