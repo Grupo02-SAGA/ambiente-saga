@@ -3,7 +3,7 @@ package com.biopark.grupo2.model;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 
 @Table(name = "Resposta")
 @Entity(name = "Resposta")
@@ -18,7 +18,7 @@ public class Resposta {
     private Long id_resposta;
     private Integer resposta;
     private Long id_usuario;
-    private LocalDateTime ultimaMod;
+    private Date ultima_mod;
 
     @JoinColumn(name = "id_pergunta")
     private Long id_pergunta;

@@ -1,14 +1,14 @@
-.perguntaContainer{
+.perguntaContainer {
     display: none;
-    padding-top: .75rem;
-    gap: .75rem;
+    padding-top: 0.75rem;
+    gap: 0.75rem;
     transition: 0.5s ease;
 }
 
-.perguntaContainer.exapandido{
-    padding-top: .5rem;
+.perguntaContainer.expandido {
+    padding-top: 0.5rem;
     display: flex;
-    gap: .75rem;
+    gap: 0.75rem;
     width: 100%;
 }
 
@@ -20,7 +20,7 @@
     align-items: center;
 }
 
-.listarPerguntas{
+.listarPerguntas {
     width: 90%;
     max-width: 550px;
     margin-bottom: 75px;
@@ -28,7 +28,7 @@
 
 .listaPergunta {
     margin-bottom: 10px;
-    border-radius: .5rem;
+    border-radius: 0.5rem;
     border: 1px solid #818181;
     padding: 10px;
 }
@@ -39,7 +39,7 @@
     align-items: center;
     width: 100%;
     max-width: 550px;
-
+    position: relative;
 }
 
 .tituloPergunta a {
@@ -51,7 +51,7 @@
     width: 100%;
 }
 
-.tituloPergunta h2 {
+.tituloPergunta h3 {
     flex: 1;
     text-align: center;
 }
@@ -59,7 +59,7 @@
 .tituloPergunta i {
     position: absolute;
     margin-right: 250px;
-    padding: 0 10px 0 10px;
+    padding: 0 10px;
 }
 
 .checkbox-item {
@@ -68,7 +68,7 @@
     margin-bottom: 10px;
 }
 
-.checkbox-item label{
+.checkbox-item label {
     display: flex;
     width: 150px;
     max-width: 250px;
@@ -78,18 +78,11 @@
     color: #818181;
     text-transform: uppercase;
     font-family: Rubik, 'sans-serif';
+    cursor: pointer;
 }
 
-.checkbox-item input[type="checkbox"] {
+.checkbox-item input[type="radio"] {
     display: none;
-}
-
-.checkbox-label {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    margin-right: 10px;
 }
 
 .checkmark {
@@ -102,24 +95,28 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
 }
 
-.checkbox-item input[type="checkbox"]:checked + .checkmark {
+.checkbox-item input[type="radio"]:checked + .checkmark {
     background-color: #8d9cec;
     border-color: #8d9cec;
 }
 
-.checkbox-item input[type="checkbox"]:checked + .checkmark:before {
+.checkbox-item input[type="radio"]:checked + .checkmark::before {
     content: '✔';
     color: #fff;
     font-size: 16px;
+    display: block;
+    text-align: center;
+    line-height: 20px;
 }
 
-.documentoPergunta{
+.documentoPergunta {
     width: 50%;
 }
 
-i.fa-solid.fa-upload{
+i.fa-solid.fa-upload {
     font-size: 25px;
     color: #8d9cec;
     border: 1px solid #818181;
@@ -127,22 +124,35 @@ i.fa-solid.fa-upload{
     border-radius: 5px;
 }
 
-.documentoPergunta a{
+.documentoPergunta{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: .35rem;
+}
+
+.documentoPergunta a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.35rem;
     text-decoration: none;
 }
 
-span.nomeDocumento{
+input.nomeDocumento {
+    margin: 10px;
     border: 1px solid #818181;
-    padding: .35rem;
-    width: 100%;
+    padding: 0.35rem;
+    width: 80%;
     font-size: 14px;
     text-align: center;
     color: #818181;
     border-radius: 20px;
+    outline: none;
 }
 
+input.nomeDocumento:focus {
+    border: 1px solid #8d9cec;;
+    box-shadow: 0 0 5px rgba(0, 0, 255, 0.5);
+}

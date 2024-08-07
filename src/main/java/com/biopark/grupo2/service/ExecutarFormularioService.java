@@ -6,8 +6,8 @@ import com.biopark.grupo2.repository.*;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -39,22 +39,27 @@ public class ExecutarFormularioService {
 
             Resposta novaResposta = new Resposta();
 
-            Integer resposta = respostaDTO
-                    .getRespostas()
-                        .get(pergunta.getId_pergunta());
+            Date now = new Date();
+
+            Integer resposta = respostaDTO.getRespostas().get(pergunta.getId_pergunta());
 
             novaResposta.setResposta(resposta);
             novaResposta.setId_usuario(respostaDTO.getId_usuario());
-            novaResposta.setUltimaMod(LocalDateTime.now());
+            novaResposta.setUltima_mod(now);
             novaResposta.setId_pergunta(pergunta.getId_pergunta());
             novaResposta.setFormulario(formulario);
             novaResposta.setEmpresa(empresa);
             novaResposta.setCertificado(certificado);
 
-            if (respostaDTO.getNomeDocumento()
-                    != null && !respostaDTO.getNomeDocumento().isEmpty()){
-                List<Documentos> salvarDoc = (List<Documentos>) documentosService
-                        .salvarDocumento(respostaDTO.getNomeDocumento());
+
+            List<String> nomesDocumentos = respostaDTO.getNomesDocumentos();
+
+            if (nomesDocumentos != null && !nomesDocumentos.isEmpty()) {
+
+                List<Documentos> documentosSalvos = documentosService
+                        .salvarDocumentos(nomesDocumentos, novaResposta);
+
+                novaResposta.setId_documento(documentosSalvos.get(0).getId_documento());
 
             }
 
@@ -63,6 +68,7 @@ public class ExecutarFormularioService {
         }).collect(Collectors.toList());
 
         repositoryResposta.saveAll(novaRespostas);
+
         formulario.setBase(2);
 
         return novaRespostas;

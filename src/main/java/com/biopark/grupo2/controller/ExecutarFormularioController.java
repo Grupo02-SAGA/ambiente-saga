@@ -3,7 +3,6 @@ package com.biopark.grupo2.controller;
 import com.biopark.grupo2.DTO.RespostaDTO;
 import com.biopark.grupo2.model.*;
 import com.biopark.grupo2.service.BuscaService;
-import com.biopark.grupo2.service.DocumentosService;
 import com.biopark.grupo2.service.ExecutarFormularioService;
 import com.biopark.grupo2.service.NovoCertificadoService;
 import jakarta.validation.Valid;
@@ -26,9 +25,9 @@ public class ExecutarFormularioController {
 
     @Autowired
     private BuscaService buscaService;
+
     @Autowired
     private NovoCertificadoService novoCertificadoService;
-
 
     @GetMapping("/executarFormulario/{id}")
     public ModelAndView executarFormulario(@PathVariable Long id,
@@ -37,27 +36,16 @@ public class ExecutarFormularioController {
         ModelAndView modelAndView = new ModelAndView();
 
         Empresa empresa = buscaService.buscarEmpresa(idEmpresa);
-
         Formulario formulario = buscaService.buscarFormulario(id);
-
-        Certificado certificado = novoCertificadoService
-                .criarCertificado(id, empresa);
-
-        Certificado novoCertificado = novoCertificadoService
-                .recuperarCertificado(certificado.getId_certificado());
-
+        Certificado certificado = novoCertificadoService.criarCertificado(id, empresa);
         List<Pergunta> perguntas = formulario.getPerguntas();
 
         RespostaDTO respostaDTO = new RespostaDTO();
 
-        respostaDTO.setId_formulario(formulario
-                .getId_formulario());
-        respostaDTO.setId_perguntas(perguntas
-                .stream().map(Pergunta::getId_pergunta)
-                    .collect(Collectors.toList()));
-
+        respostaDTO.setId_formulario(formulario.getId_formulario());
+        respostaDTO.setId_perguntas(perguntas.stream().map(Pergunta::getId_pergunta).collect(Collectors.toList()));
         respostaDTO.setId_empresa(idEmpresa);
-        respostaDTO.setId_certificado(novoCertificado.getId_certificado());
+        respostaDTO.setId_certificado(certificado.getId_certificado());
 
         modelAndView.setViewName("executarFormulario");
         modelAndView.addObject("respostaDTO", respostaDTO);
@@ -68,30 +56,20 @@ public class ExecutarFormularioController {
         modelAndView.addObject("idCertificado", certificado.getId_certificado());
         modelAndView.addObject("idEmpresa", empresa.getId_empresa());
         modelAndView.addObject("perguntas", perguntas);
-        modelAndView.addObject("tituloPergunta",perguntas.get(0).getTitulo());
-        modelAndView.addObject("idPergunta",perguntas.get(0).getId_pergunta());
         return modelAndView;
     }
 
     @PostMapping("/executarFormulario")
-    public RedirectView salvarResposta(
-                        @ModelAttribute("respostaDTO")
-                        @Valid RespostaDTO respostaDTO,
-                        RedirectAttributes attributes ){
-
-        Long idFormulario = respostaDTO.getId_formulario();
-        respostaDTO.setId_certificado(idFormulario);
+    public RedirectView salvarResposta(@ModelAttribute("respostaDTO") @Valid RespostaDTO respostaDTO,
+                                       RedirectAttributes attributes) {
 
         Map<Long, Integer> respostas = respostaDTO.getRespostas();
 
-        if(respostas != null && !respostas.isEmpty()){
+        if (respostas != null && !respostas.isEmpty()) {
             executarFormularioService.criarRespostas(respostaDTO);
         }
 
-        executarFormularioService.criarRespostas(respostaDTO);
-
-        attributes.addFlashAttribute("resposta-cadastrada",
-                "resposta-cadastrada");
-        return new RedirectView("/certificado/" + idFormulario);
+        attributes.addFlashAttribute("resposta-cadastrada", "resposta-cadastrada");
+        return new RedirectView("/certificado/" + respostaDTO.getId_formulario());
     }
 }

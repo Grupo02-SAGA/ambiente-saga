@@ -1,7 +1,7 @@
 CREATE TABLE Resposta (
     id_resposta INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     resposta INT NOT NULL,
-    ultimaMod DATETIME,
+    ultima_mod DATE,
     id_usuario INT NOT NULL,
     id_pergunta INT NOT NULL,
     id_formulario INT NOT NULL,

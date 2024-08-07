@@ -26,18 +26,21 @@
               class="inputTitulo"
               required>
     </div>
-    <div class="linha_header"> </div>
+    <div class="linha_header"></div>
     <input
             type="hidden"
-            th:field="*{id_formulario}">
+            th:field="*{id_formulario}"
+            th:value="${idFormulario}">
     <input
             type="hidden"
             id="idEmpresa"
-            th:field="*{id_empresa}">
+            th:field="*{id_empresa}"
+            th:value="${idEmpresa}">
     <input
             type="hidden"
             id="idCertificado"
-            th:field="*{id_certificado}">
+            th:field="*{id_certificado}"
+            th:value="${idCertificado}">
     <input
             type="hidden"
             th:value="${baseFormulario}">
@@ -47,7 +50,7 @@
             th:value="${estadoFormulario}"
             required>
     <div class="footer">
-      <div class="linha_footer"> </div>
+      <div class="linha_footer"></div>
       <div class="botoes_footer">
         <button
                 type="button"
@@ -58,23 +61,21 @@
         <button
                 class="btnSalvar"
                 type="submit">
-          Confirmar
+                Confirmar
         </button>
       </div>
     </div>
     <section class="listarPerguntas">
-      <div th:each="pergunta, iterStat : ${perguntas}" class="listaPergunta">
-        <input
-                id="respostaFinal"
-                th:field="*{respostas[__${idPergunta}__]}"
-                value=""
-                type="hidden">
+      <div
+              th:each="pergunta, iter : ${perguntas}"
+              class="listaPergunta">
         <input
                 type="hidden"
-                th:field="*{id_perguntas}"
-                th:value="${idPergunta}">
-        <div class="tituloPergunta">
-          <a>
+                th:field="*{id_perguntas[__${iter.index}__]}"
+                th:value="${pergunta.id_pergunta}">
+        <div
+                class="tituloPergunta">
+          <a href="#">
             <i class="fa-solid fa-chevron-down"></i>
             <h3 th:text="${pergunta.titulo}"></h3>
           </a>
@@ -82,49 +83,53 @@
         <div class="perguntaContainer">
           <div class="alternativasPerguntas">
             <div class="checkbox-item">
-              <label th:for="'conforme_' + ${idPergunta}">Conforme
+              <label
+                      th:for="'conforme_' + ${pergunta.id_pergunta}">
+                      Conforme
                 <input
-                        type="checkbox"
-                        th:id="'conforme_' + ${idPergunta}"
+                        type="radio"
+                        th:id="'conforme_' + ${pergunta.id_pergunta}"
+                        th:name="respostas[__${pergunta.id_pergunta}__]"
                         th:value="0"
-                        th:name="respostas[__${idPergunta}__]"
-                        class="alternativa-checkbox">
+                        class="alternativa-radio">
                 <span class="checkmark"></span>
               </label>
             </div>
             <div class="checkbox-item">
-              <label th:for="'nao-conforme_' + ${idPergunta}">Não Conforme
+              <label
+                      th:for="'nao-conforme_' + ${pergunta.id_pergunta}">Não Conforme
                 <input
-                        type="checkbox"
-                        th:id="'nao-conforme_' + ${idPergunta}"
+                        type="radio"
+                        th:id="'nao-conforme_' + ${pergunta.id_pergunta}"
+                        th:name="respostas[__${pergunta.id_pergunta}__]"
                         th:value="1"
-                        th:name="respostas[__${idPergunta}__]"
-                        class="alternativa-checkbox">
+                        class="alternativa-radio">
                 <span class="checkmark"></span>
               </label>
             </div>
             <div class="checkbox-item">
-              <label th:for="'nao-se-aplica_' + ${idPergunta}">Não se Aplica
+              <label
+                      th:for="'nao-se-aplica_' + ${pergunta.id_pergunta}">Não se Aplica
                 <input
-                        type="checkbox"
-                        th:id="'nao-se-aplica_' + ${idPergunta}"
+                        type="radio"
+                        th:id="'nao-se-aplica_' + ${pergunta.id_pergunta}"
+                        th:name="respostas[__${pergunta.id_pergunta}__]"
                         th:value="2"
-                        th:name="respostas[__${idPergunta}__]"
-                        class="alternativa-checkbox">
+                        class="alternativa-radio">
                 <span class="checkmark"></span>
               </label>
             </div>
           </div>
           <div class="documentoPergunta">
-            <a>
+            <a href="#">
               <i class="fa-solid fa-upload"></i>
-              <span class="nomeDocumento">Nenhum arquivo selecionado</span>
             </a>
             <input
-                    type="file"
-                    class="inputDocumento"
-                    style="display: none;"
-                    th:field="*{nomeDocumento}" multiple>
+                    type="text"
+                    name="nomesDocumentos"
+                    th:field="*{nomesDocumentos}"
+                    class="nomeDocumento">
+          </div>
           </div>
         </div>
       </div>

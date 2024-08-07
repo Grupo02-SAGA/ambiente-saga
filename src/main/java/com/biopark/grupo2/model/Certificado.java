@@ -3,6 +3,7 @@ package com.biopark.grupo2.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.Date;
 import java.util.Set;
 
 @Table(name = "Certificado")
@@ -16,7 +17,7 @@ public class Certificado {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_certificado;
-    private String vencimento;
+    private Date vencimento;
     private double resultado;
 
     @JoinColumn(name = "id_formulario")

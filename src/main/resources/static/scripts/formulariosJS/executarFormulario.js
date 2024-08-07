@@ -1,29 +1,28 @@
 document.addEventListener('DOMContentLoaded', function() {
     const perguntasContainer = document.querySelector('.listarPerguntas');
 
-    function initializePergunta(pergunta, index) {
+    function initializePergunta(pergunta) {
         const titulo = pergunta.querySelector('.tituloPergunta a');
         const container = pergunta.querySelector('.perguntaContainer');
         const tituloTexto = pergunta.querySelector('.tituloPergunta h3');
-        const tituloOriginal = tituloTexto.textContent;
         const inputResposta = pergunta.querySelector('input[type="hidden"]');
 
-        // Salvar o título original no dataset do elemento
-        tituloTexto.dataset.originalTitle = tituloOriginal;
+        // Salva o título original no dataset do elemento
+        tituloTexto.dataset.originalTitle = tituloTexto.textContent;
 
         // Adiciona evento de clique para expandir/recolher
         titulo.addEventListener('click', function(event) {
             event.preventDefault();
-            const expandido = pergunta.classList.contains('expandir');
+            const expandido = pergunta.classList.contains('expandido');
 
             // Fecha todas as outras perguntas
             document.querySelectorAll('.listaPergunta').forEach(p => {
                 const pTituloTexto = p.querySelector('.tituloPergunta h3');
                 const pContainer = p.querySelector('.perguntaContainer');
-                const pCheckboxes = p.querySelectorAll('input[type="checkbox"]');
+                const pCheckboxes = p.querySelectorAll('input[type="radio"]');
                 const pAlgumMarcado = Array.from(pCheckboxes).some(checkbox => checkbox.checked);
 
-                p.classList.remove('expandir');
+                p.classList.remove('expandido');
                 pContainer.style.display = 'none';
 
                 if (pAlgumMarcado) {
@@ -35,15 +34,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
 
-            // Se não estava expandido antes, expandir e recolher
+            // Se não estava expandido antes, expande e recolhe
             if (!expandido) {
-                pergunta.classList.add('expandir');
+                pergunta.classList.add('expandido');
                 container.style.display = 'flex';
                 tituloTexto.textContent = tituloTexto.dataset.originalTitle;
                 tituloTexto.style.color = '';
             } else {
                 // Verifica se há resposta marcada
-                const checkboxes = container.querySelectorAll('input[type="checkbox"]');
+                const checkboxes = container.querySelectorAll('input[type="radio"]');
                 const algumMarcado = Array.from(checkboxes).some(checkbox => checkbox.checked);
 
                 if (algumMarcado) {
@@ -59,80 +58,32 @@ document.addEventListener('DOMContentLoaded', function() {
         // Permite que apenas um checkbox seja marcado
         const checkboxes = container.querySelectorAll('input[type="checkbox"]');
         checkboxes.forEach(checkbox => {
-            // Adiciona o atributo data-resposta para garantir que ele esteja definido
-            checkbox.dataset.resposta = checkbox.value;
-
             checkbox.addEventListener('change', function() {
+                // Remove a classe 'checked' de todos os checkmarks
+                checkboxes.forEach(box => {
+                    const checkmark = box.nextElementSibling;
+                    if (box !== this) {
+                        box.checked = false;
+                        checkmark.classList.remove('checked');
+                    }
+                });
+
                 if (this.checked) {
-                    checkboxes.forEach(box => {
-                        if (box !== this) {
-                            box.checked = false;
-                        }
-                    });
-                    // Atualiza o valor do input hidden 0 = conforme, 1 = não conforme, 2 = não se aplica
-                    inputResposta.value = this.dataset.resposta;
+                    // Adiciona a classe 'checked' ao checkmark do checkbox marcado
+                    this.nextElementSibling.classList.add('checked');
+                    // Atualiza o valor do input hidden com base na seleção
+                    inputResposta.value = this.value;
                 } else {
-                    inputResposta.value = '';
+                    // Remove a classe 'checked' se o checkbox for desmarcado
+                    this.nextElementSibling.classList.remove('checked');
+                    inputResposta.value = ''; // Limpa o valor se desmarcado
                 }
             });
         });
 
-        // Faz abrir o seletor de arquivos
-        const documentoLink = container.querySelector('.documentoPergunta a');
-        const inputDocumento = container.querySelector('.inputDocumento');
-        const nomeDocumento = container.querySelector('.nomeDocumento');
-
-        documentoLink.addEventListener('click', function(event) {
-            event.preventDefault();
-            inputDocumento.click();
-        });
-
-        // Substitui o texto do HTML pelo nome do arquivo
-        inputDocumento.addEventListener('change', function() {
-            if (inputDocumento.files.length > 0) {
-                nomeDocumento.textContent = inputDocumento.files[0].name;
-            } else {
-                nomeDocumento.textContent = 'Nenhum arquivo selecionado';
-            }
-        });
     }
 
     // Inicializar todas as perguntas da página
     const perguntas = document.querySelectorAll('.listaPergunta');
-    perguntas.forEach((pergunta, index) => {
-        // Atribui um identificador único baseado no índice
-        pergunta.dataset.perguntaId = index;
-        initializePergunta(pergunta, index);
-    });
+    perguntas.forEach(pergunta => initializePergunta(pergunta));
 });
-
-// Iniciando popup
-const popupCancelar = document.getElementById('cancelarResposta');
-const fade_fundo = document.getElementById("fade_cancelar");
-const popup = document.getElementById("popup");
-const button_sim_popup = document.getElementById("confirmar_fragmento");
-const button_nao_popup = document.getElementById("cancelar_fragmento");
-
-const togglePopup = () => {
-    [popup, fade_fundo].forEach((el) => el.classList.toggle("hide"));
-};
-
-popupCancelar.addEventListener("click", () => {
-    togglePopup();
-});
-
-const redirecionar_pagina = () => {
-    return location.href = "/executarAvaliacao";
-};
-
-if (button_sim_popup) {
-    button_sim_popup.addEventListener("click", () => {
-        redirecionar_pagina();
-    });
-}
-
-if (button_nao_popup) {
-    button_nao_popup.addEventListener("click", () => {
-        togglePopup();
-    });
-}

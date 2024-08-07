@@ -2,8 +2,8 @@ package com.biopark.grupo2.DTO;
 
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
-import org.springframework.web.multipart.MultipartFile;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -13,10 +13,12 @@ import java.util.Map;
 public class RespostaDTO {
     private Map<Long, Integer> respostas;
 
-    private List<MultipartFile> nomeDocumento;
+    private List<String> nomesDocumentos = new ArrayList<>();
+
+    private List<Long> id_perguntas;
+
     @NotNull
     private Long id_formulario;
-    private List<Long> id_perguntas;
     @NotNull
     private Long id_certificado;
     @NotNull

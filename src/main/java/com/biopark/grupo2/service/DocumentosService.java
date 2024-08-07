@@ -1,10 +1,11 @@
 package com.biopark.grupo2.service;
 
 import com.biopark.grupo2.model.Documentos;
+import com.biopark.grupo2.model.Resposta;
 import com.biopark.grupo2.repository.RepositoryDocumentos;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,18 +16,22 @@ public class DocumentosService {
     @Autowired
     private RepositoryDocumentos repositoryDocumentos;
 
-    public Documentos salvarDocumento(List<MultipartFile> arquivos) {
+    @Transactional
+    public List<Documentos> salvarDocumentos(List<String> nomesDocumentos, Resposta novaResposta) {
 
-        List<Documentos> salvarDocumento = new ArrayList<>();
+        List<Documentos> documentosSalvos = new ArrayList<>();
 
-        for (MultipartFile arquivo : arquivos) {
+        for (String nome : nomesDocumentos) {
+
             Documentos documento = new Documentos();
-            documento.setNomeDocumento(arquivo.getOriginalFilename());
+            documento.setNomeDocumento(nome);
+            documento.setId_resposta(novaResposta);
 
-            salvarDocumento.add(repositoryDocumentos.save(documento));
+            Documentos salvo = repositoryDocumentos.save(documento);
+
+            documentosSalvos.add(salvo);
         }
 
-        return salvarDocumento
-                .isEmpty() ? null : salvarDocumento.get(0);
+        return documentosSalvos;
     }
 }
