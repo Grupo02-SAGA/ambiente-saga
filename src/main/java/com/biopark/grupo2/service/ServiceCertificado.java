@@ -61,6 +61,7 @@ public class ServiceCertificado {
         dto.setUsuario((String) resultado[4]);
         dto.setId_formulario((Long) resultado[5]);
         dto.setId_certificado((Long) resultado[6]);
+        dto.setId_empresa((Long) resultado[7]);
         return dto;
     }
 }

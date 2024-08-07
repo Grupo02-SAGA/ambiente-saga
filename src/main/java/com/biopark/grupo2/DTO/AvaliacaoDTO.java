@@ -15,4 +15,5 @@ public class AvaliacaoDTO {
     private String usuario;
     private Long id_formulario;
     private Long id_certificado;
+    private Long id_empresa;
 }
