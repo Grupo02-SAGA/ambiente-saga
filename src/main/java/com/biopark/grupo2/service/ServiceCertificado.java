@@ -7,9 +7,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
+
 
 @Service
 public class ServiceCertificado {
@@ -55,12 +55,13 @@ public class ServiceCertificado {
     private AvaliacaoDTO convertToDTO(Object[] resultado) {
         AvaliacaoDTO dto = new AvaliacaoDTO();
         dto.setBase((Integer) resultado[0]);
-        dto.setUltimaMod((Date) resultado[1]);
+        dto.setUltima_mod((Date) resultado[1]);
         dto.setFantasia((String) resultado[2]);
         dto.setFantasia((String) resultado[3]);
         dto.setUsuario((String) resultado[4]);
         dto.setId_formulario((Long) resultado[5]);
         dto.setId_certificado((Long) resultado[6]);
+        dto.setId_empresa((Long) resultado[7]);
         return dto;
     }
 }
